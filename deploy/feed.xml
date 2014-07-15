@@ -2,17 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>openq</title>
     <link href="" rel="self" />
-    <link href="http://127.0.0.1:8888/" />
+    <link href="http://openq.cn/" />
     <updated>2014-07-15T10:18:00Z</updated>
-    <id>http://127.0.0.1:8888/</id>
+    <id>http://openq.cn/</id>
     
     <entry>
         <title><![CDATA[Hello, Baby!]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://127.0.0.1:8888/</uri></author>
-        <link href="http://127.0.0.1:8888/hello-baby/"/>
+        <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
+        <link href="http://openq.cn/hello-baby/"/>
         <updated>2014-07-15T10:18:00Z</updated>
         <published>2014-07-15T10:18:00Z</published>
-        <id>http://127.0.0.1:8888/hello-baby/</id>
+        <id>http://openq.cn/hello-baby/</id>
         <content type="html">
             <![CDATA[
              <p>你好，宝贝儿！<br/>
