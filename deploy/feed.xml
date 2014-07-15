@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>openq</title>
+    <link href="" rel="self" />
+    <link href="http://127.0.0.1:8888/" />
+    <updated>2014-07-15T10:18:00Z</updated>
+    <id>http://127.0.0.1:8888/</id>
+    
+    <entry>
+        <title><![CDATA[Hello, Baby!]]></title>
+        <author><name>山姆是个好蜀黍</name><uri>http://127.0.0.1:8888/</uri></author>
+        <link href="http://127.0.0.1:8888/hello-baby/"/>
+        <updated>2014-07-15T10:18:00Z</updated>
+        <published>2014-07-15T10:18:00Z</published>
+        <id>http://127.0.0.1:8888/hello-baby/</id>
+        <content type="html">
+            <![CDATA[
+             <p>你好，宝贝儿！<br/>
+准备用Catsup写点东西，被那些复杂程序玩儿残了，自己的清净之地就用<strong>MarkDown</strong>啦    ~~<br/>
+<strong>用vim写东西好有古感哟~~</strong>  </p>
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;漂漂漂漂,漂~亮!&quot;</span><span class="p">)</span>
+</pre></div>
+
+            ]]>
+        </content>
+    </entry>
+    
+</feed>
