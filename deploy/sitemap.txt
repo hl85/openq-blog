@@ -1,7 +1,7 @@
-http://127.0.0.1:8888/hello-baby/
-http://127.0.0.1:8888/about/
-http://127.0.0.1:8888/tag/hello-world/
-http://127.0.0.1:8888/archive/2014/
-http://127.0.0.1:8888/feed.xml
-http://127.0.0.1:8888/
-http://127.0.0.1:8888/404.html
+http://openq.cn/hello-baby/
+http://openq.cn/about/
+http://openq.cn/tag/hello-world/
+http://openq.cn/archive/2014/
+http://openq.cn/feed.xml
+http://openq.cn/
+http://openq.cn/404.html
