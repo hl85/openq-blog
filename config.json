@@ -37,10 +37,10 @@
     },
 
     "deploy": {
-        "default": "rsync",
+        "default": "git",
 
         "git": {
-            "repo": "repo url here",
+            "repo": "git@github.com:hl85/hl85.github.io.git",
             "branch": "master",
             "delete": true
         },
