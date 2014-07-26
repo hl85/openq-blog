@@ -57,11 +57,11 @@
     "theme": {
         "name": "sealscript",
         "vars": {
-            "github": "whtsky",
+            "github": "hl85",
             "links": [
                 {
-                    "name": "catsup",
-                    "url": "https://github.com/whtsky/catsup",
+                    "name": "openq",
+                    "url": "https://github.com/hl85/openq-blog-github",
                     "description": "Awesome!"
                 }
             ]
