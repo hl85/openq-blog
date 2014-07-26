@@ -31,14 +31,13 @@
     },
 
     "comment": {
-        "allow": false,
+        "allow": true,
         "system": "disqus",
-        "shortname": "catsup"
+        "shortname": "openq"
     },
 
     "deploy": {
         "default": "git",
-
         "git": {
             "repo": "git@github.com:hl85/hl85.github.io.git",
             "branch": "master",
@@ -61,8 +60,8 @@
             "links": [
                 {
                     "name": "openq",
-                    "url": "https://github.com/hl85/openq-blog-github",
-                    "description": "Awesome!"
+                    "url": "http://openq.cn",
+                    "description": "That's Nice!"
                 }
             ]
         }
