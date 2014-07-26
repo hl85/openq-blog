@@ -1,7 +1,7 @@
-http://127.0.0.1:8888/hello-baby/
-http://127.0.0.1:8888/about/
-http://127.0.0.1:8888/tag/this-blog/
-http://127.0.0.1:8888/archive/2014/
-http://127.0.0.1:8888/feed.xml
-http://127.0.0.1:8888/
-http://127.0.0.1:8888/404.html
+http://hl85.github.io/hello-baby/
+http://hl85.github.io/about/
+http://hl85.github.io/tag/this-blog/
+http://hl85.github.io/archive/2014/
+http://hl85.github.io/feed.xml
+http://hl85.github.io/
+http://hl85.github.io/404.html

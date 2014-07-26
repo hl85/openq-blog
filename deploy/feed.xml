@@ -2,17 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>openq</title>
     <link href="" rel="self" />
-    <link href="http://127.0.0.1:8888/" />
+    <link href="http://hl85.github.io/" />
     <updated>2014-07-15T10:18:00Z</updated>
-    <id>http://127.0.0.1:8888/</id>
+    <id>http://hl85.github.io/</id>
     
     <entry>
         <title><![CDATA[Hello, Baby!]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://127.0.0.1:8888/</uri></author>
-        <link href="http://127.0.0.1:8888/hello-baby/"/>
+        <author><name>山姆是个好蜀黍</name><uri>http://hl85.github.io/</uri></author>
+        <link href="http://hl85.github.io/hello-baby/"/>
         <updated>2014-07-15T10:18:00Z</updated>
         <published>2014-07-15T10:18:00Z</published>
-        <id>http://127.0.0.1:8888/hello-baby/</id>
+        <id>http://hl85.github.io/hello-baby/</id>
         <content type="html">
             <![CDATA[
              <p>你好，宝贝儿！<br/>
@@ -22,14 +22,15 @@
 </pre></div>
 
 <p>Catsup有两个问题：<br/>
- 1、catsup deploy 参数并没有达到我要的效果，没有提交到hl85.github.io上而是提交到了openq-blog上。（很显然配置参数没有生效）。理论上应该自动提交到两个repo上一个是编辑源，一个是发布源——有时间再研究catsup的源码。<strong>未解决</strong><br/>
+ 1、catsup deploy 参数并没有达到我要的效果，没有提交到hl85.github.io上而是提交到了openq-blog上。（很显然配置参数没有生效）。理论上应该自动提交到两个repo上一个是编辑源。现在暂时通过shell脚本解决。<strong>已解决</strong><br/>
  2、SealScript引用了google的字体(themes\sealscript\templates\layout.html)，还有一个twitter的js(themes\sealscript\templates\post.html)导致页面展现缓慢。按照文档说明我将这个theme下载下来合并到编辑源，注释掉了这两部分代码，重新build，现在查看网页源文件可以看到访问速度已经提上来了。<strong>已解决</strong><br/>
- 3、catsup server有监视写作路径并动态生成，但是生成后没有刷新web server的缓存（etag都没变），导致生成了，扔不能在浏览器预览。<strong>未解决</strong>  </p>
+ 3、catsup server有监视写作路径并动态生成，但是生成后没有刷新web server的缓存（etag都没变），导致生成了，扔不能在浏览器预览。（有时间研究一下源码）<strong>未解决</strong>  </p>
 
 <p>针对这个博客要做的：<br/>
  1、将appfanr没有遗失的部分blog整理迁移过来。<br/>
  2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。<br/>
- 3、把最近关注的问题都写出来。</p>
+ 3、把最近关注的问题都写出来。<br/>
+ 4、学习YAML，让界面表达更丰富一点。</p>
 
             ]]>
         </content>
