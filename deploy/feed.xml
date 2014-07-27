@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>openq</title>
+    <title>openQ</title>
     <link href="" rel="self" />
     <link href="http://openq.cn/" />
     <updated>2014-07-15T10:18:00Z</updated>
@@ -31,7 +31,7 @@
  2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。<strong>未处理</strong><br/>
  3、把最近关注的问题都写出来。<strong>未处理</strong><br/>
  4、学习YAML，让界面表达更丰富一点。<strong>未处理</strong><br/>
- 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）跳转到openq.cn。<strong>处理中</strong></p>
+ 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。<strong>处理中</strong></p>
 
             ]]>
         </content>

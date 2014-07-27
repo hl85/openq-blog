@@ -1,6 +1,6 @@
 {
     "site": {
-        "name": "openq",
+        "name": "openQ",
         "description": "开放 包容 多走些路",
         "url": "http://openq.cn/"
     },
@@ -59,7 +59,7 @@
             "github": "hl85",
             "links": [
                 {
-                    "name": "openq",
+                    "name": "openQ",
                     "url": "http://openq.cn",
                     "description": "That's Nice!"
                 }

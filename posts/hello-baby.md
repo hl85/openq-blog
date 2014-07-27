@@ -24,4 +24,4 @@
  2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。**未处理**
  3、把最近关注的问题都写出来。**未处理**
  4、学习YAML，让界面表达更丰富一点。**未处理**
- 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）跳转到openq.cn。**处理中**
+ 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。**处理中**
