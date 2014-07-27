@@ -18,9 +18,9 @@
 Hello, Baby! | openq
 </title>
     <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="http://hl85.github.io/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
-    <link rel="stylesheet" href="http://hl85.github.io/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
-    <link rel="alternate" type="application/rss+xml" href="http://hl85.github.io/feed.xml" title="openq" />
+    <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
+    <link rel="stylesheet" href="http://openq.cn/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" href="http://openq.cn/feed.xml" title="openq" />
     <link rel="canonical" href=""/>
     
     
@@ -31,11 +31,11 @@ Hello, Baby! | openq
     <div id="nav_wrapper">
         <div id="nav">
             <div class="inner">
-                <h1 id="title"><a href="http://hl85.github.io/">openq</a></h1>
+                <h1 id="title"><a href="http://openq.cn/">openq</a></h1>
                 <div id="description" class="seal">开放 包容 多走些路</div>
                 <ul class="right">
                     
-                    <li><a href="http://hl85.github.io/about/">about</a></li>
+                    <li><a href="http://openq.cn/about/">about</a></li>
                     <li class="dot">&bull;</li>
                     
                 </ul>
@@ -44,9 +44,9 @@ Hello, Baby! | openq
     </div>
     <div id="header_inner">
         <div id="social">
-            <a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://hl85.github.io/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf"></a>
-            <a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://hl85.github.io/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1"></a>
-            <a href="http://hl85.github.io/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://hl85.github.io/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2"></a>
+            <a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://openq.cn/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf"></a>
+            <a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://openq.cn/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1"></a>
+            <a href="http://openq.cn/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://openq.cn/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2"></a>
         </div>
         <div class="sep"></div>
     </div>
@@ -75,13 +75,14 @@ Hello, Baby! | openq
 <p>Catsup有两个问题：<br/>
  1、catsup deploy 参数并没有达到我要的效果，没有提交到hl85.github.io上而是提交到了openq-blog上。（很显然配置参数没有生效）。理论上应该自动提交到两个repo上一个是编辑源。现在暂时通过shell脚本解决。<strong>已解决</strong><br/>
  2、SealScript引用了google的字体(themes\sealscript\templates\layout.html)，还有一个twitter的js(themes\sealscript\templates\post.html)导致页面展现缓慢。按照文档说明我将这个theme下载下来合并到编辑源，注释掉了这两部分代码，重新build，现在查看网页源文件可以看到访问速度已经提上来了。<strong>已解决</strong><br/>
- 3、catsup server有监视写作路径并动态生成，但是生成后没有刷新web server的缓存（etag都没变），导致生成了，扔不能在浏览器预览。（有时间研究一下源码）<strong>未解决</strong>  </p>
+ 3、catsup server有监视写作路径并动态生成，但是生成后没有刷新web server的缓存（etag都没变），导致生成了，扔不能在浏览器预览。现在通过shell实时push到hl85.github.io上了，可以在这个路径下实时浏览，算是解决了。<strong>已解决</strong>  </p>
 
 <p>针对这个博客要做的：<br/>
- 1、将appfanr没有遗失的部分blog整理迁移过来。<br/>
- 2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。<br/>
- 3、把最近关注的问题都写出来。<br/>
- 4、学习YAML，让界面表达更丰富一点。</p>
+ 1、将appfanr没有遗失的部分blog整理迁移过来。<strong>未处理</strong><br/>
+ 2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。<strong>未处理</strong><br/>
+ 3、把最近关注的问题都写出来。<strong>未处理</strong><br/>
+ 4、学习YAML，让界面表达更丰富一点。<strong>未处理</strong><br/>
+ 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）跳转到openq.cn。<strong>处理中</strong></p>
 
             </article>
         </div>
@@ -90,7 +91,7 @@ Hello, Baby! | openq
         <div class="article_meta">
             <span>tagged:</span>
             
-                <a class="tag" href="http://hl85.github.io/tag/this-blog/">this blog</a>
+                <a class="tag" href="http://openq.cn/tag/this-blog/">this blog</a>
             
         </div>
         
@@ -124,7 +125,7 @@ Hello, Baby! | openq
                 <h2>Tag Cloud</h2>
                 <ul>
                 
-                <li><a class="tag" href="http://hl85.github.io/tag/this-blog/">this blog (1)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/this-blog/">this blog (1)</a></li>
                 
                 </ul>
             </div>
@@ -132,7 +133,7 @@ Hello, Baby! | openq
                 <h2>Archives</h2>
                 <ul>
                     
-                    <li><a href="http://hl85.github.io/archive/2014/">2014 (1)</a></li>
+                    <li><a href="http://openq.cn/archive/2014/">2014 (1)</a></li>
                     
                 </ul>
             </div>
