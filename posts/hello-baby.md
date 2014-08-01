@@ -1,7 +1,6 @@
 #Hello, Baby!
  
 - time: 2014-07-15 10:18
-- edit: 2014-07-26 16:04
 - tags: this blog
 
 ---
@@ -24,4 +23,4 @@
  2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。**未处理**
  3、把最近关注的问题都写出来。**未处理**
  4、学习YAML，让界面表达更丰富一点。**未处理**
- 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。**处理中**
+ 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。利用FREEHOSTING.COM提供的免费服务解决[参见:<a href="/cloud-cant-do">云引擎做不到</a>]。**已处理**

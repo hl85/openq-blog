@@ -4,7 +4,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>openQ</title>
+
+<meta name="description" content="这个题目有点大了，实际上是最近为完成将域名appfanr.com跳转（301）到openq.cn各种折腾的心得——不过的确是各个云引擎都用过了，非常不好使，最后用FREEHOSTING.COM轻松解决了。  其中我曾尝试过的云引擎有：阿里的ACE、百度的BAE、谷歌的GAE、亚马逊的EC2、红帽的o">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="hl13571">
+<meta name="twitter:title" content="云引擎做不到">
+<meta name="twitter:description" content="这个题目有点大了，实际上是最近为完成将域名appfanr.com跳转（301）到openq.cn各种折腾的心得——不过的确是各个云引擎都用过了，非常不好使，最后用FREEHOSTING.COM轻松解决了。  其中我曾尝试过的云引擎有：阿里的ACE、百度的BAE、谷歌的GAE、亚马逊的EC2、红帽的o">
+<meta name="twitter:creator" content="hl13571">
+
+
+    <title>
+云引擎做不到 | openQ
+</title>
     <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
     <link rel="stylesheet" href="http://openq.cn/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
@@ -41,19 +53,20 @@
 </div>
 <div id="content">
     
-<ul id="article_list">
-    
-    <li class="list_item">
-        <div class="article">
-            <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/cloud-cant-do/">云引擎做不到</a></h2>
-                <div class="article_meta">
-                    <span>on</span>
-                    2014-08-01
-                </div>
+<div class="article">
+    <div class="inner">
+        <h2 class="article_title title"><a href="#">云引擎做不到</a></h2>
+        <div class="article_meta">
+            <div class="share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="hl13571" data-lang="zh-cn">Tweet</a>
+            </div>
+            <span>on</span>
+            2014-08-01
+        </div>
 
-                <div class="text">
-                    <p>这个题目有点大了，实际上是最近为完成将域名appfanr.com跳转（301）到openq.cn各种折腾的心得——不过的确是各个云引擎都用过了，非常不好使，最后用FREEHOSTING.COM轻松解决了。  </p>
+        <div class="text">
+            <article>
+            <p>这个题目有点大了，实际上是最近为完成将域名appfanr.com跳转（301）到openq.cn各种折腾的心得——不过的确是各个云引擎都用过了，非常不好使，最后用FREEHOSTING.COM轻松解决了。  </p>
 
 <p>其中我曾尝试过的云引擎有：阿里的ACE、百度的BAE、谷歌的GAE、亚马逊的EC2、红帽的openshift、京东的JAE。  </p>
 
@@ -71,64 +84,38 @@
 
 <p>齐活儿，现在大家可以访问一下<a href="http://appfanr.com，另外也可以查一下whois">http://appfanr.com，另外也可以查一下whois</a> appfanr.com，服务、速度比以前见过的很多收费空间都不差！关键是，不被墙啊！</p>
 
-                </div>
-                <div class="article_meta">
-                    <span>tagged:</span>
-                    
-                    <a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine</a>
-                    
-                </div>
-            </div>
+            </article>
         </div>
-        <div class="sep"></div>
-    </li>
-    
-    <li class="list_item">
-        <div class="article">
-            <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/hello-baby/">Hello, Baby!</a></h2>
-                <div class="article_meta">
-                    <span>on</span>
-                    2014-07-15
-                </div>
-
-                <div class="text">
-                    <p>你好，宝贝儿！<br/>
-准备用Catsup写点东西，被那些复杂程序玩儿残了，自己的清净之地就用<strong>MarkDown</strong>啦    ~~<br/>
-<strong>用vim写东西好有古感哟~~</strong>  </p>
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;漂漂漂漂,漂~亮!&quot;</span><span class="p">)</span>
-</pre></div>
-
-<p>Catsup有两个问题：<br/>
- 1、catsup deploy 参数并没有达到我要的效果，没有提交到hl85.github.io上而是提交到了openq-blog上。（很显然配置参数没有生效）。理论上应该自动提交到两个repo上一个是编辑源。现在暂时通过shell脚本解决。<strong>已解决</strong><br/>
- 2、SealScript引用了google的字体(themes\sealscript\templates\layout.html)，还有一个twitter的js(themes\sealscript\templates\post.html)导致页面展现缓慢。按照文档说明我将这个theme下载下来合并到编辑源，注释掉了这两部分代码，重新build，现在查看网页源文件可以看到访问速度已经提上来了。<strong>已解决</strong><br/>
- 3、catsup server有监视写作路径并动态生成，但是生成后没有刷新web server的缓存（etag都没变），导致生成了，扔不能在浏览器预览。现在通过shell实时push到hl85.github.io上了，可以在这个路径下实时浏览，算是解决了。<strong>已解决</strong>  </p>
-
-<p>针对这个博客要做的：<br/>
- 1、将appfanr没有遗失的部分blog整理迁移过来。<strong>未处理</strong><br/>
- 2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。<strong>未处理</strong><br/>
- 3、把最近关注的问题都写出来。<strong>未处理</strong><br/>
- 4、学习YAML，让界面表达更丰富一点。<strong>未处理</strong><br/>
- 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。利用FREEHOSTING.COM提供的免费服务解决[参见:<a href="/cloud-cant-do">云引擎做不到</a>]。<strong>已处理</strong></p>
-
-                </div>
-                <div class="article_meta">
-                    <span>tagged:</span>
-                    
-                    <a class="tag" href="http://openq.cn/tag/this-blog/">this blog</a>
-                    
-                </div>
-            </div>
+        
+        <div class="big_sep"></div>
+        <div class="article_meta">
+            <span>tagged:</span>
+            
+                <a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine</a>
+            
         </div>
-        <div class="sep"></div>
-    </li>
+        
+
+        <div class="big_sep"></div>
+        <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+        
     
-</ul>
+        
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+				var disqus_title = "";
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://openq.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+        
+        
+    
 
-
-
-
-
+    </div>
+</div>
 
 </div>
 <div id="footer_wrapper">
