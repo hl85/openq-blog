@@ -17,7 +17,7 @@
         "output": "deploy",
         "static_output": "deploy/static",
         "static_prefix": "/static/",
-        "analytics": "<script type=\"text/javascript\">var _bdhmProtocol = ((\"https:\" == document.location.protocol) ? \" https://\" : \" http://\");document.write(unescape(\"%3Cscript src='\" + _bdhmProtocol + \"hm.baidu.com/h.js%3F3f0e0e24c1c16962f84791ba28d322db' type='text/javascript'%3E%3C/script%3E\"));</script>"
+        "analytics": "var _bdhmProtocol = ((\"https:\" == document.location.protocol) ? \" https://\" : \" http://\");document.write(unescape(\"%3Cscript src='\" + _bdhmProtocol + \"hm.baidu.com/h.js%3F3f0e0e24c1c16962f84791ba28d322db' type='text/javascript'%3E%3C/script%3E\"));"
     },
 
     "permalink": {
