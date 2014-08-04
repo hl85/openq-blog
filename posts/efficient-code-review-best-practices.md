@@ -1,6 +1,6 @@
 #高效代码评审最佳实践
 
-- time: 2012-08-13 12:41:43
+- time: 2012-08-13 12:41
 - tags: coding,best practices
 
 ---

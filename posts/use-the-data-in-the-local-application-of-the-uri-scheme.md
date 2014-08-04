@@ -11,7 +11,7 @@
 Data URI scheme的html嵌入式，形如：
 
 ```html
-<img src=”data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==”/>
+&lt;img src=”data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==”&gt;
 ```
 
 如此，在html中嵌入，实际上是将图片进行base64处理，直接写到网页里，从而减少一次网络请求加快页面显示。当然在app中使用<img src=”data:image/png;base64,%@”/>这样的办法显示loading页和error页也是很方便的（facebook是这么干的）

@@ -1,6 +1,6 @@
 #layoutSubviews的调用时机（转）
 
-- time: 2012-06-04 13:59:52
+- time: 2012-06-04 13:59
 - tags: iOS
 
 ---
