@@ -1,13 +1,25 @@
 git pull
+echo "finish pulling openq-blog"
 catsup build
+echo "finish building openq-blog"
 git add .
-git commit -a
-git push
-cd ../hl85.github.io/
-git pull
-cp -av ../openq-blog/deploy/* ../hl85.github.io/
-git add .
+echo "finish git adding openq-blog"
 git commit -a -m "auto publish my static blog"
+echo "finish git commiting openq-blog"
 git push
+echo "finish git pushing openq-blog"
+
+cd ../hl85.github.io/
+echo "cd ../hl85.github.io/"
+git pull
+echo "finish pulling hl85.github.io"
+cp -av ../openq-blog/deploy/* ../hl85.github.io/
+echo "finish movie hl85.github.io"
+git add .
+echo "finish git adding hl85.github.io"
+git commit -a -m "auto publish my static blog"
+echo "finish git commiting hl85.github.io"
+git push
+echo "finish pushing hl85.github.io"
 
 
