@@ -44,14 +44,58 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/ios-regex/">iOS正则表达式最佳实践</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/recommend-a-small-js-the-refresh-chrysanthemum/">推荐一个很小的js刷新菊花</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-01-31
+                    2012-07-19
                 </div>
 
                 <div class="text">
-                    <p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp; 以前做服务器，经常要用到正则，现在做客户端了，问了好多人都不太了解这玩意儿，感觉甚是可惜啊。 后来，ipad客户端里需要过滤数据包里的url用到了正则，也查阅了一些资料，发现中文社区这块儿的资料是在是滞后。好多人还在推荐“RegexKitLite”，没有用过这个玩意儿，所以不予置评（不过很多人评价bug多多）。 查阅苹果的文档发现，iOS4之后苹果类库对正则支持的已经很不错了！于是，在团队中各种忽悠，也有不少人开始学习使用正则表达了。 长话短说，今天就对iOS中正则使用这块儿做一个简单的介绍，其中会用到苹果官方的例子，拄个拐棍儿。&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;<b>一、工欲善其事，</b><b>必先利其器。</b></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  下面介绍几个我常用的正则表达式工具:</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  1、 regexbuddy，这是windows下巨经典的正则工具，6年的服务器开发经历中这个工具帮了我不少忙，现在偶尔也会为使用这个工具开一下windows虚拟机。这个工具是一个收费软件我使用的免费的demo版，足够用了。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;min-height: 12.0px;"></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  2、regexr，一个免费的跨平台正则表达式工具也很好用，只是不支持匹配结果输出，文本替换等，跟regex buddy不是一个级别，严格地说这是一个正则测试工具。但是，mac下本身工具缺乏，聊胜于无了。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  下载地址：<a href="http://gskinner.com/RegExr/" target="_blank">http://gskinner.com/RegExr/</a></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;min-height: 12.0px;"></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  3、RegexPal，一个很好用的正则测试工具，在线的。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  网址：<a href="http://regexpal.com/" target="_blank">http://regexpal.com/</a></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  其他正则工具会陆续发布到这个页面上&hellip;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">      <strong>&nbsp;二、 正则表达式简介。</strong>&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;正则表达式，就是用某种模式去匹配一类字符串的一个公式。其应用十分广泛这个就不多啰嗦了。下面简单介绍一下正则的基础：&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  1、正则是由普通字符和元字符组成的，主要的元字符见下表（浏览一下就开始下文吧，看完下文的例子再回头看这些元字符就很容易掌握了。）。</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">      </p><table>            <tbody><tr>                  <td width="42" align="left" valign="middle">        元字符      </td>            <td width="590" align="left" valign="middle">        描述      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        .点      </td>            <td width="590" align="left" valign="middle">        匹配任何单个字符。例如正则表达式r.t匹配这些字符串：rat、rut、r t，但是不匹配root。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        $      </td>            <td width="590" align="left" valign="middle">        匹配行结束符。例如正则表达式weasel$ 能够匹配字符串&quot;He&rsquo;s a weasel&quot;的末尾&nbsp;<br> 但是不能匹配字符串&quot;They are a bunch of weasels.&ldquo;      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ^      </td>            <td width="590" align="left" valign="middle">        匹配一行的开始。例如正则表达式^When in能够匹配字符串&quot;When in the course of human events&quot;的开始，但是不能匹配&quot;What and When in the&rdquo;      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        *      </td>            <td width="590" align="left" valign="middle">        匹配0或多个正好在它之前的那个字符。例如正则表达式 .* 意味着能够匹配任意数量的任何字符。比如.* 可以匹配不管是什么      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">              </td>            <td width="590" align="left" valign="middle">        这是引用符（转义），用来将这里列出的这些元字符当作普通的字符来进行匹配。例如正则表达式$被用来匹配美元符号，而不是行尾，类似的，正则表达式.用来匹配点字符，而不是任何字符的通配符。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        [ ]&nbsp;<br> [c1-c2]&nbsp;<br> [^c1-c2]      </td>            <td width="590" align="left" valign="middle">        匹配括号中的任何一个字符。例如正则表达式r[aou]t匹配rat、rot和rut，但是不匹配ret。可以在括号中使用连字符-来指定字符的区间，例如正则表达式[0-9]可以匹配任何数字字符；还可以制定多个区间，例如正则表达式[A-Za-z]可以匹配任何大小写字母。另一个重要的用法是“排除”，要想匹配除了指定区间之外的字符——也就是所谓的补集——在左边的括号和第一个字符之间使用^字符，例如正则表达式[^269A-Z] 将匹配除了2、6、9和所有大写字母之外的任何字符。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ( )      </td>            <td width="590" align="left" valign="middle">        将 ( 和 ) 之间的表达式定义为“组”（group），并且将匹配这个表达式的字符保存到一个临时区域（一个正则表达式中最多可以保存9个），它们可以用 1 到9 的符号来引用。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        |      </td>            <td width="590" align="left" valign="middle">        将两个匹配条件进行逻辑“或”（Or）运算。例如正则表达式(him|her) 匹配&quot;it belongs to him&quot;和&quot;it belongs to her&quot;，但是不能匹配&quot;it belongs to them.&ldquo;。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        +      </td>            <td width="590" align="left" valign="middle">        匹配1或多个正好在它之前的那个字符。例如正则表达式9+匹配9、99、999等。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ?      </td>            <td width="590" align="left" valign="middle">        匹配0或1个正好在它之前的那个字符。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        {i}&nbsp;<br> {i,j}      </td>            <td width="590" align="left" valign="middle">        匹配指定数目的字符，这些字符是在它之前的表达式定义的。例如正则表达式A[0-9]{3} 能够匹配字符&quot;A&quot;后面跟着正好3个数字字符的串，例如A123、A348等，但是不匹配A1234。而正则表达式[0-9]{4,6} 匹配连续的任意4个、5个或者6个数字字符。注意：这个元字符不是所有的软件都支持的。<p></p>                                    <code>  &lt;/td&gt;&lt;/tr&gt;</code>                                <p></p>            </td>        </tr>    </tbody></table><p></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    2、正则表达式实例讲解。  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    1、&nbsp;[0-9]*&nbsp; &nbsp;&nbsp;分析一下这个简单例子:  </p><p>    [] 代表拿中括号中的任意字符来匹配，中括号中的0-9，等同于0123456789，类似的还有a-z以及A-Z以后你会看到汉字的类似表示，这里暂不多说。也就是[0-9]代表从0到9任意字符，＊代表零到多次重复，因此这个表达式匹配的是任意数字也可以没有数字。  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    如果将＊号换成+，变成[0-9]+ 则代表至少出现一个数字的数字字符串。还可以变成[0-9]{3,4}代表至少3位，至多4位的数字。&nbsp;  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    测试字符串：45345234sdfe234sfef 231 32  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  </p><p>    2、http://([w-]+.)+[w-]+(/[w./?%&amp;=-]*)?$&nbsp;&nbsp;  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    这是一个验证url的例子，^代表开始，$代表结束，括号代表模式组（将来这部分可以用$1,$2…或1,2…从匹配的字符串中取出相应的模式组，在匹配判断、解析文本、替换文本时非常有用，需要自己再重点测试学习一下，这里就不多说了。里边出现了两个问号，第一个问号出现在[]中代表？字符，后一个问号代表前边括号中的模式组出现0到1次。实际测试一下就清楚了.  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    测试字符串1：http://www.appfanr.com/greatteam?realy=yes&nbsp;  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    测试字符串2：yeshttp://www.appfanr.com/greatteam/wolfer?realy=yes&amp;superman=yes  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    去掉起止符号再测试一下？&nbsp;  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    通过以上两个例子(我用RegexPal测试过了)，相信你对正则有了一个大概的认识，下面我们进入关键环节。  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    &nbsp;三<strong>、 iOS中的正则类(NSRegularExpression)及其方法。</strong>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">        <b><b></b></b>  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;display: inline;">    &nbsp;&nbsp;由于苹果的文档里写的已经非常详细了，因此，就不蹩述太多细节，这里根据正则的几个最常用的用途将关键代码段贴出来，方便参考使用。  </p><p>        <b><strong></strong></b>  </p><p>  </p><p>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">        <b>&nbsp;1、匹配 (Match)</b>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p>  </p> NSString *testContent=@&quot;test,content:232helloregex http://www.appfanr.com?who=me&amp;where=china http://appfanr.com/&rdquo;;    NSString *urlPattern = @&ldquo;http://([\w-]+.)+[\w-]+(/?[\w./?%&amp;=-]*)?&rdquo;;//objective-c里边跟perl里边不一样，w需要写成\w不这么写编辑器也会警告你。    NSError *error = [NSError new];    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:urlPattern options:NSRegularExpressionCaseInsensitive error:&amp;error ];    //match 这块内容非常强大    NSUInteger count =[regex numberOfMatchesInString:testContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length])];//匹配到的次数    if(count &gt; 0){        NSLog(@&ldquo;n&ndash;&gt;匹配到url%d个&rdquo;,count);        NSArray* matches = [regex matchesInString:testContent options:NSMatchingReportCompletion range:NSMakeRange(0, [testContent length])];        for (NSTextCheckingResult *match in matches) {            NSRange matchRange = [match range];            NSLog(@&ldquo;n&mdash;-&gt;匹配到字符串：%@&rdquo;,[testContent substringWithRange:matchRange]);            NSInteger count = [match numberOfRanges];//匹配项            NSLog(@&ldquo;n&mdash;&mdash;&gt;子匹配项：%d 个&rdquo;,count);            for(NSInteger index = 0;index&lt;count;index++){                NSRange halfRange = [match rangeAtIndex:index];                NSLog(@&ldquo;n&mdash;&mdash;&gt;子匹配内容：%@&rdquo;,[testContent substringWithRange:halfRange]);            }        }//遍历后可以看到三个range，1、为整体。2、为([\w-]+.)匹配到的内容。3、(/?[\w./?%&amp;=-]*)匹配到的内容    }<p>        <strong></strong><strong></strong><strong>&nbsp; 2、替换 (Replace)&nbsp;</strong><strong></strong>  </p><p>  </p><p>  </p> if(count&gt;0){        NSMutableString *mutableContent = [NSMutableString stringWithString:testContent];        [regex replaceMatchesInString:mutableContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length]) withTemplate:@&ldquo;*&rdquo;];        NSLog(@&ldquo;before replace:%@nafter replace:%@&rdquo;,testContent,mutableContent);    }<p>        <strong>&nbsp; &nbsp;3、验证（Validate）</strong><strong></strong>  </p><p>  </p><p>  </p> NSString *testContent=@&ldquo;test,content:232helloregex http://www.appfanr.com?who=me&amp;where=china http://appfanr.com/&rdquo;;    NSString *numString = @&ldquo;23409834&rdquo;;    NSString *numPattern=@&ldquo;^[0-9]*$&rdquo;; //玄机^$    NSError *error = [NSError new];    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:numPattern options:NSRegularExpressionCaseInsensitive error:&amp;error ];    NSInteger testCount = [regex numberOfMatchesInString:testContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length])];    NSInteger numCount = [regex numberOfMatchesInString:numString options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [numString length])];    //因为^$首尾标记所以要么有1个匹配要么有0个匹配    if(testCount==0){        NSLog(@&ldquo;字符串(%@)没有通过验证&rdquo;,testContent);    }else{        NSLog(@&ldquo;字符串(%@)通过了验证&rdquo;,testContent);    }    if(numCount == 0){        NSLog(@&ldquo;字符串(%@)没有通过验证&rdquo;,numString);    }else{        NSLog(@&ldquo;字符串(%@)通过了验证&rdquo;,numString);    } <p>    代码下载：<a href="http://openq.cn/wp-content/uploads/2012/01/RegexTest.zip">RegexTest</a>  </p>
+                    <p>如图可以自己定义菊花非常方便，可以适配各种浏览器，有兴趣可以玩一玩。<br/>
+源代码地址：<a href="http://fgnass.github.com/spin.js/">http://fgnass.github.com/spin.js/</a></p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/cultivation/">cultivation</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-reading/">NSURLCache实现离线阅读的一点小心得</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-06-19
+                </div>
+
+                <div class="text">
+                    <p>用来实现网页离线缓存（用于离线阅读）的方式比较多，比如：<br/>
+1、利用html5的cache机制（但是网页cache有大小限制）<br/>
+2、利用对html5做自定义解析，对dom树分析后请求并存储相关资源。<br/>
+3、利用NSURLCache（简单，自己写存储，写一二级缓存效率高，空间无限制）<br/>
+4、利用NSURLProtocol完成缓存工作（由于NSURLProtocol我还没有在实际项目中使用，了解也不深入，暂不介绍）  </p>
+
+<p>今天主要针对NSURLCache，记录一些小心得，关键就是两个方法：<br/>
+1、- (NSCachedURLResponse *)cachedResponseForRequest:(NSURLRequest *)request;<br/>
+    这个方法主要是用来读取缓存，提供给响应的Request的，因此最好能提供快速的cache数据，否则会引发二次请求（通过网络抓包发现的），这样会给用户带来二倍的流量负担，效率也会明显降低，因此我没有采用网上比较流行的那段代码。<br/>
+   如果是uiwebview的请求，参数request已经不是你最初调用webview load进来的那个request，已经被封装为mutiableRequest。<br/>
+2、-(void)storeCachedResponse:(NSCachedURLResponse *)cachedResponse forRequest:(NSURLRequest *)request;<br/>
+  这个方法是用来存储缓存的，具体什么时候触发存储，我还没有总结出来，但是有一点是可以肯定的，即，并不是所有文件都会被要求存储下来，因此向html、js、css这些关键数据需要做一些手动工作（因为做皮肤，所以我是通过预先加载来缓存css、js的（发现一个符合命名规则的css会主动下载一系列的皮肤样式）。html我是通过单独请求获取html-&gt;存储缓存-&gt;load到webview来完成的）  </p>
+
+<p>Html的缓存也可以通过js脚本取出html代码来缓存，由于中间我们会对页面做处理，所以没有这样做。  </p>
+
+<p>需要针对status code来判断是否缓存（200到300以内的状态码代表资源请求成功，其他的状态码不能缓存下来），通过单独的connection发起请求也需要判断这个。  </p>
+
+<p>如果需要与其他模块共享缓存只需要采用同样的目录，及命名规则（我采用的对url做md5），存储nsdata，建议最好mimeType的索引页存储下来，这样网页可以与原生客户端使用同样的缓存数据。  </p>
+
+<p>存储成CachedResponse可以保留更多的有效信息，但是这样与其他模块的cache共用就会相对麻烦。  </p>
 
                 </div>
                 <div class="article_meta">
@@ -59,8 +103,6 @@
                     
                     <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
                     
-                    <a class="tag" href="http://openq.cn/tag/regex/">regex</a>
-                    
                 </div>
             </div>
         </div>
@@ -70,70 +112,93 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/aboutwebkit/">关于WebKit</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/http-statuscode-status-code-200300400500-sequence/">http statusCode(状态码) 200、300、400、500序列</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-01-29
+                    2012-06-06
                 </div>
 
                 <div class="text">
-                    <p>你知道都有那些浏览器采用了webkit内核吗？<br/>
-  前几日跟一个做浏览器的哥们聊到html5本地化，曾说了这么一句话：“我们想做一个基于webkit的框架，使之可以很好的与android、iphone本地化程序结合，类似于phoneGap”。这哥们给我纠错，说：“webKit 不是android的引擎么？”。当时，我回答是基于智能机浏览器的html5框架，此webkit主要是泛指智能系统的浏览器… …<br/>
-  之后感觉对于“webkit”的理解存在盲点，于是仔细查了一下，原来，android和iphone上的浏览器果然都基于webkit，webkit包含两个引擎：webcore和jscore（将来做js优化，深入研究会有帮助）。<br/>
-  分享一下：<br/>
-  WebKit 是一个开源的浏览器引擎，与之相对应的引擎有Gecko（Mozilla Firefox 等使用）和Trident（也称MSHTML，IE 使用）。同时WebKit 也是苹果Mac OS X 系统引擎框架版本的名称，主要用于Safari，Dashboard，Mail 和其他一些Mac OS X 程序。WebKit 前身是 KDE 小组的 KHTML，WebKit 所包含的 WebCore 排版引擎和 JSCore 引擎来自于 KDE 的 KHTML 和 KJS，当年苹果比较了 Gecko 和 KHTML 后，仍然选择了后者，就因为它拥有清晰的源码结构、极快的渲染速度。Apple将 KHTML 发扬光大，推出了装备 KHTML 改进型 WebKit 引擎的浏览器 Safari。<br/>
-  WebKit 所包含的 WebCore 排版引擎和 JSCore 引擎，均是从KDE的KHTML及KJS引擎衍生而来，它们都是自由软件，在GPL条约下授权，同时支持BSD系统的开发。所以Webkit也是自由软件，同时开放源代码。<br/>
-  WebKit的优势在于高效稳定，兼容性好，且源码结构清晰，易于维护。<br/>
-  尽管Webkit内核是个非常好的网页解释机制，但是由于微软把IE捆绑在Windows里，导致许多网站都是按照IE来架设的，很多网站不兼容Webkit内核，比如登录界面、网银等网页均不可使用Webkit内核。目前来讲，Webkit还不能取代IE内核。<br/>
-  WebKit 内核在手机上的应用也十分广泛，例如 Google 的手机 Gphone、 Apple 的 iPhone, Nokia’s Series 60 browser 等所使用的 Browser 内核引擎，都是基于 WebKit。<br/>
-    近期可以考虑专门抽时间研究一下，safari中webkit内核的发展演进情况，对未来做优化一定是有益的。  </p>
+                    <p>201-206都表示服务器成功处理了请求的状态代码，说明网页可以正常访问。<br/>
+200（成功）  服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。<br/>
+201（已创建）  请求成功且服务器已创建了新的资源。<br/>
+202（已接受）  服务器已接受了请求，但尚未对其进行处理。<br/>
+203（非授权信息）  服务器已成功处理了请求，但返回了可能来自另一来源的信息。<br/>
+204（无内容）  服务器成功处理了请求，但未返回任何内容。<br/>
+205（重置内容） 服务器成功处理了请求，但未返回任何内容。与 204 响应不同，此响应要求请求者重置文档视图（例如清除表单内容以输入新内容）。<br/>
+206（部分内容）  服务器成功处理了部分 GET 请求。  </p>
 
-<p><strong>扩展阅读：</strong><br/>
-1、浏览器引擎分类<br/>
-      现在浏览器的内核引擎，基本上是四分天下：<br/>
-Trident: IE 以Trident 作为内核引擎;<br/>
-Gecko: Firefox 是基于 Gecko 开发;<br/>
-WebKit: Safari, Google Chrome,搜狗浏览器的高速内核,傲游3 基于 Webkit 开发。<br/>
-Presto: Opera的内核，但由于市场选择问题，主要应用在手机平台&ndash;Opera mini<br/>
-2、使用webkit的应用平台<br/>
-      在应用于Mac Os上的Safari之后，Webkit很快被广泛地移植到其他系统平台：<br/>
-iOS：2007年6月29日，iPhone上市，WebKit进入iPhone OS平台，而且立即成为iPhone OS平台独一无二的排版引擎。<br/>
-Android：Google 开发的手机操作系统Android中内置的浏览器也是采用的WebKit引擎。<br/>
-Nokia S60：诺基亚公司将WebKit移植到Symbian S60操作系统中，并开发了基于Webkit的手机浏览器“Web browser for S60”，广泛用于诺基亚、三星、LG等基于Symbian S60操作系统的手机中。<br/>
-Web OS:Palm 推出第一款基于WebKit的操作系统，Palm Pre是第一款基于该系统的手机产品。<br/>
-Linux：尽管WebKit的原型K内核是由Qt写成，但Linux下目前最受瞩目的WebKit项目却是Gnome领导的WebKit/Gtk+。随着奇趣科技于2008年6月被Nokia收购，Qt方面也加快了WebKit的“回归”进程。Midori，Google Chrome，GNOME的Epiphany、KDE的Konqueror，Arora是现在Linux系统下主要的Webkit内核浏览器。<br/>
-Windows：Webkit内核在Windows上发展最晚，Safari(for Windows)，Midori，Google chrome，具有双核模式的傲游3和搜狗浏览器2（高速模式下使用Webkit核心）是最为常见的Webkit浏览器。2009年推出的safari和Chrome以及2010年推出的搜狗浏览器V2.0Beta和傲游3.0beta都使用的webkit引擎完全通过了acid3测试满分！<br/>
-部分资料引自：百度百科</p>
+<p>300-3007表示的意思是：要完成请求，您需要进一步进行操作。通常，这些状态代码是永远重定向的。  </p>
+
+<p>300（多种选择）  服务器根据请求可执行多种操作。服务器可根据请求者 来选择一项操作，或提供操作列表供其选择。   </p>
+
+<p>301（永久移动）  请求的网页已被永久移动到新位置。服务器返回此响应时，会自动将请求者转到新位置。您应使用此代码通知搜索引擎蜘蛛网页或网站已被永久移动到新位置。<br/>
+302（临时移动） 服务器目前正从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。会自动将请求者转到不同的位置。但由于搜索引擎会继续抓取原有位置并将其编入索引，因此您不应使用此代码来告诉搜索引擎页面或网站已被移动。<br/>
+303（查看其他位置） 当请求者应对不同的位置进行单独的 GET 请求以检索响应时，服务器会返回此代码。对于除 HEAD 请求之外的所有请求，服务器会自动转到其他位置。<br/>
+304（未修改） 自从上次请求后，请求的网页未被修改过。服务器返回此响应时，不会返回网页内容。  </p>
+
+<p>如果网页自请求者上次请求后再也没有更改过，您应当将服务器配置为返回此响应。由于服务器可以告诉 搜索引擎自从上次抓取后网页没有更改过，因此可节省带宽和开销。   </p>
+
+<p>305（使用代理） 请求者只能使用代理访问请求的网页。如果服务器返回此响应，那么，服务器还会指明请求者应当使用的代理。<br/>
+307（临时重定向）  服务器目前正从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。会自动将请求者转到不同的位置。但由于搜索引擎会继续抓取原有位置并将其编入索引，因此您不应使用此代码来告诉搜索引擎某个页面或网站已被移动。  </p>
+
+<p>4XXHTTP状态码表示请求可能出错，会妨碍服务器的处理。  </p>
+
+<p>400（错误请求） 服务器不理解请求的语法。   </p>
+
+<p>401（身份验证错误） 此页要求授权。您可能不希望将此网页纳入索引。   </p>
+
+<p>403（禁止） 服务器拒绝请求。  </p>
+
+<p>404（未找到） 服务器找不到请求的网页。例如，对于服务器上不存在的网页经常会返回此代码。  </p>
+
+<p>例如：<a href="http://www.0631abc.com/20100aaaa，就会进入404错误页面">http://www.0631abc.com/20100aaaa，就会进入404错误页面</a>  </p>
+
+<p>405（方法禁用） 禁用请求中指定的方法。  </p>
+
+<p>406（不接受） 无法使用请求的内容特性响应请求的网页。   </p>
+
+<p>407（需要代理授权） 此状态码与 401 类似，但指定请求者必须授权使用代理。如果服务器返回此响应，还表示请求者应当使用代理。   </p>
+
+<p>408（请求超时） 服务器等候请求时发生超时。   </p>
+
+<p>409（冲突） 服务器在完成请求时发生冲突。服务器必须在响应中包含有关冲突的信息。服务器在响应与前一个请求相冲突的 PUT 请求时可能会返回此代码，以及两个请求的差异列表。   </p>
+
+<p>410（已删除） 请求的资源永久删除后，服务器返回此响应。该代码与 404（未找到）代码相似，但在资源以前存在而现在不存在的情况下，有时会用来替代 404 代码。如果资源已永久删除，您应当使用 301 指定资源的新位置。   </p>
+
+<p>411（需要有效长度） 服务器不接受不含有效内容长度标头字段的请求。   </p>
+
+<p>412（未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。   </p>
+
+<p>413（请求实体过大） 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。   </p>
+
+<p>414（请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。   </p>
+
+<p>415（不支持的媒体类型） 请求的格式不受请求页面的支持。   </p>
+
+<p>416（请求范围不符合要求） 如果页面无法提供请求的范围，则服务器会返回此状态码。   </p>
+
+<p>417（未满足期望值） 服务器未满足&quot;期望&quot;请求标头字段的要求。  </p>
+
+<p>500至505表示的意思是：服务器在尝试处理请求时发生内部错误。这些错误可能是服务器本身的错误，而不是请求出错。  </p>
+
+<p>500（服务器内部错误）  服务器遇到错误，无法完成请求。   </p>
+
+<p>501（尚未实施） 服务器不具备完成请求的功能。例如，当服务器无法识别请求方法时，服务器可能会返回此代码。   </p>
+
+<p>502（错误网关） 服务器作为网关或代理，从上游服务器收到了无效的响应。   </p>
+
+<p>503（服务不可用） 目前无法使用服务器（由于超载或进行停机维护）。通常，这只是一种暂时的状态。   </p>
+
+<p>504（网关超时）  服务器作为网关或代理，未及时从上游服务器接收请求。   </p>
+
+<p>505（HTTP 版本不受支持） 服务器不支持请求中所使用的 HTTP 协议版本。   </p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/webkit/">webkit</a>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="sep"></div>
-    </li>
-    
-    <li class="list_item">
-        <div class="article">
-            <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/goodbook-gettingrea/">Getting Real、Rework中文版</a></h2>
-                <div class="article_meta">
-                    <span>on</span>
-                    2012-01-17
-                </div>
-
-                <div class="text">
-                    <p>读过《Rework》的同学，对这本《Getting Real》应该非常期待了。<br>&nbsp; 感谢钟声同学的分享，&nbsp;37signals &nbsp;的粉丝们，正在奋斗的“创业者”（创业者并不特指放下工作，注册公司，招兵买马创业的人！还包括所有有创业梦想的你我！）们快来下载吧！</p><p>下载地址：<br>    <a href="http://rrurl.cn/6gt0ah " target="_blank">Getting Real中文版</a>    <br>    <a href="http://rrurl.cn/tn4pgz " target="_blank">REWORK中文版</a></p><p>    <strong>以下是简介：</strong></p><p>    <strong>什么是 Getting Real?</strong>    <br>想构建一个成功的 Web 应用么? 那么正是时候 Getting Real. Getting Real 是一种更小规模,更</p>快速,更高质量的软件构建方法。<ul>    <li>Getting Real 是关于省略所有表达现实(图表,曲线,矩形,箭头,统计图),而构 建现实。  </li>    <li>Getting real 是追求精炼。更少的代码量,更少的软件,更少的功能,更少的文档工作, 更少无所谓的东西(而且大部分你认为必要的,其实不是)。  </li>    <li>Getting Real 是保持精益,变得敏捷。  </li>    <li>Getting Real 从界面开始,也就是用户使用的屏幕。它从实际的用户体验开始,并且 </li></ul>构建似曾相识的体验。这让你在软件误入歧途之前得到正确的用户界面。<ul>    <li>Getting Real 是关于迭代和降低变化成本的方法。Getting Real 基本上是关于上线,调<br>整,持续改进,其目标的开发 Web 软件的最佳途径。</li>     <li>Getting Real 只交付客户所需的,摒弃任何客户不需要的。</li></ul> Getting Real 的优点<br>Getting Real 能够交付更好的结果,是因为它强迫你处理真正要解决的问题,而不是关于那些问题的空想。它迫使你面对当下。<p>Getting Real 更注重实际的用户界面,而不是功能规格说明书和其他昙花一现的文档。只有 当一个真实的网页呈现出来,相关的功能规格才是可信的,被证明是可接受 的。那才是是 我们的客户将要看到和使用的。那才是需要关心的。Getting Real 帮助你更快达到这个目的。 并且那意味着你正在基于真实需求,而不是异想天开来构建软件。</p><p>最后,Getting Real 是适合于 Web 软件的理想途径。那种把软件包装在盒子里,再等一年到 两年才发布一个更新的学院派方法已经过时了。不像需要安装的软件,Web 应用能够以天为 单位持续改进。Getting Real 利用了这种优势来提升 Web 应用的价值。</p><p>如何编写健壮的软件 How To Write Vigorous Software 健壮的著作是简明的。句子无废词,段落无废句子。同样的原因,画应无多余的线条,机器</p><p>应无多余的零件。这不是要作者刻意缩句来逃避细节,从而提纲挈领,而是要作者字字珠玑。 —来自 &ldquo;The Elements of Style&rdquo; by William Strunk Jr.</p><p>不再发胖<br>旧方式:冗长,官僚主义的,“我们正在这么做来控制这些蠢驴” 的流程。典型后果是:</p><p>臃肿,过目即忘,平庸得掉渣的软件。Blech。 Getting Real 除掉&hellip;</p><p>• 花费数月,甚至数年的进度表<br>• 不切实际的功能规格文档<br>• 可伸缩性的争论<br>• 又臭又长的员工大会<br>• 大量招人的需求<br>• 毫无意义的版本号<br>• 憧憬完美未来的幼稚“路线图”<br>• 无穷尽的偏好设置选项<br>• 外包支持<br>• 不切实际的用户测试<br>• 写无用文档<br>• 自顶向下的管理结构</p><p>你不需要成吨的钞票或者庞大的团队或者漫长的开发周期来构建伟大的软件。那些正是缓慢, 晦涩,变化成本高昂的应用程序的帮凶。Getting real 反其道而行之。</p>
-
-                </div>
-                <div class="article_meta">
-                    <span>tagged:</span>
-                    
-                    <a class="tag" href="http://openq.cn/tag/share/">share</a>
+                    <a class="tag" href="http://openq.cn/tag/http/">http</a>
                     
                 </div>
             </div>
@@ -164,6 +229,12 @@ Windows：Webkit内核在Windows上发展最晚，Safari(for Windows)，Midori�
                 <h2>Tag Cloud</h2>
                 <ul>
                 
+                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (3)</a></li>
+                
                 <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
@@ -174,25 +245,25 @@ Windows：Webkit内核在Windows上发展最晚，Safari(for Windows)，Midori�
                 
                 <li><a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine (1)</a></li>
                 
+                <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
+                
                 <li><a class="tag" href="http://openq.cn/tag//"> (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (1)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/design/">design (1)</a></li>
-                
                 <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/webkit/">webkit (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/this-blog/">this blog (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/best-practices/">best practices (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
                 
@@ -204,7 +275,7 @@ Windows：Webkit内核在Windows上发展最晚，Safari(for Windows)，Midori�
                     
                     <li><a href="http://openq.cn/archive/2014/">2014 (3)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2012/">2012 (12)</a></li>
+                    <li><a href="http://openq.cn/archive/2012/">2012 (22)</a></li>
                     
                     <li><a href="http://openq.cn/archive/2011/">2011 (1)</a></li>
                     

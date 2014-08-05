@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>openQ</title>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
+    <link rel="stylesheet" href="http://openq.cn/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" href="http://openq.cn/feed.xml" title="openQ" />
+    <link rel="canonical" href=""/>
+    <link rel="shortcut icon" href="http://openq.cn/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
+</head>
+<body>
+<div id="header">
+    <div id="nav_wrapper">
+        <div id="nav">
+            <div class="inner">
+                <h1 id="title"><a href="http://openq.cn/">openQ</a></h1>
+                <div id="description" class="seal">开放 包容 多走些路  本博客文章恢复中...</div>
+                <ul class="right">
+                    
+                    <li><a href="http://openq.cn/about/">about</a></li>
+                    <li class="dot">&bull;</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="header_inner">
+        <div id="social">
+            <a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://openq.cn/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf"></a>
+            <a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://openq.cn/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1"></a>
+            <a href="http://openq.cn/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://openq.cn/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2"></a>
+        </div>
+        <div class="sep"></div>
+    </div>
+</div>
+<div id="content">
+    
+<ul id="article_list">
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/paros-monitoring-iphone-issued-http-requests/">使用Paros监控终端发出的HTTP请求</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-02-26
+                </div>
+
+                <div class="text">
+                    <p><strong><em>注</em></strong>：实际上Paros是一个跨平台抓包工具，其原理是通过pc端开放代理-&gt;终端设置pc开放的代理从而实现终端流量经过pc端后进行抓包。本文主要介绍mac通过wifi共享热点来抓包，实际上只要保证pc与终端同时在一个局域网即可实现抓包。另外，如果通过mac共享来抓包的话，还有更多选择比如：HttpScoop、Wireshark，甚至命令行工具tcpflow。  </p>
+
+<p>电脑上的许多软件可以监控浏览器发出的HTTP请求, iPhone上有许多连网程序但没有自带软件可以实现监控, 为了方便测试这些请求是否正确而省去在程序中记录请求日志并逐一查找的麻烦, 可以利用Paros这个监控软件来实现.   </p>
+
+<p>以下是实现在Mac上监控iPhone发出的HTTP请求的具体步骤:   </p>
+
+<ol>
+<li><p>将Mac机器的以太网共享给无线局域网: Mac上: 系统偏好设置-&gt;共享-&gt;Internet 共享, 将”以太网”共享给”AirPort”   </p></li>
+<li><p>查看无线局域网IP: 返回-&gt;网络-&gt;AirPort, 查看到AirPort具有IP地址”169.254.242.107″   </p></li>
+<li><p>设置Paros本地代理: Paros-&gt;Tools-&gt;Options-&gt;Local proxy, Address填上”169.254.242.107″, 端口默认为8080   </p></li>
+<li><p>设置iPhone上网代理: iPhone上: 设置-&gt;无线局域网-&gt;选上Mac机器共享出去的网络-&gt;按”Details”箭头-&gt;Http代理-&gt;手动-&gt;服务器填”169.254.242.107″, 端口填”8080″   </p></li>
+<li><p>查看HTTP请求: iPhone打开访问任何连网程序, 可以在Paros的Sites下看到访问的网站, 右边可以选Reques/Response等信息.  </p></li>
+</ol>
+
+<p>源码地址：<a href="http://sourceforge.net/projects/paros/">http://sourceforge.net/projects/paros/</a>  </p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/tools/">tools</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/ios-regex/">iOS正则表达式最佳实践</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-01-31
+                </div>
+
+                <div class="text">
+                    <p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp; 以前做服务器，经常要用到正则，现在做客户端了，问了好多人都不太了解这玩意儿，感觉甚是可惜啊。 后来，ipad客户端里需要过滤数据包里的url用到了正则，也查阅了一些资料，发现中文社区这块儿的资料是在是滞后。好多人还在推荐“RegexKitLite”，没有用过这个玩意儿，所以不予置评（不过很多人评价bug多多）。 查阅苹果的文档发现，iOS4之后苹果类库对正则支持的已经很不错了！于是，在团队中各种忽悠，也有不少人开始学习使用正则表达了。 长话短说，今天就对iOS中正则使用这块儿做一个简单的介绍，其中会用到苹果官方的例子，拄个拐棍儿。&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;<b>一、工欲善其事，</b><b>必先利其器。</b></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  下面介绍几个我常用的正则表达式工具:</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  1、 regexbuddy，这是windows下巨经典的正则工具，6年的服务器开发经历中这个工具帮了我不少忙，现在偶尔也会为使用这个工具开一下windows虚拟机。这个工具是一个收费软件我使用的免费的demo版，足够用了。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;min-height: 12.0px;"></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  2、regexr，一个免费的跨平台正则表达式工具也很好用，只是不支持匹配结果输出，文本替换等，跟regex buddy不是一个级别，严格地说这是一个正则测试工具。但是，mac下本身工具缺乏，聊胜于无了。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  下载地址：<a href="http://gskinner.com/RegExr/" target="_blank">http://gskinner.com/RegExr/</a></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;min-height: 12.0px;"></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  3、RegexPal，一个很好用的正则测试工具，在线的。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  网址：<a href="http://regexpal.com/" target="_blank">http://regexpal.com/</a></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  其他正则工具会陆续发布到这个页面上&hellip;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">      <strong>&nbsp;二、 正则表达式简介。</strong>&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;正则表达式，就是用某种模式去匹配一类字符串的一个公式。其应用十分广泛这个就不多啰嗦了。下面简单介绍一下正则的基础：&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  1、正则是由普通字符和元字符组成的，主要的元字符见下表（浏览一下就开始下文吧，看完下文的例子再回头看这些元字符就很容易掌握了。）。</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">      </p><table>            <tbody><tr>                  <td width="42" align="left" valign="middle">        元字符      </td>            <td width="590" align="left" valign="middle">        描述      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        .点      </td>            <td width="590" align="left" valign="middle">        匹配任何单个字符。例如正则表达式r.t匹配这些字符串：rat、rut、r t，但是不匹配root。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        $      </td>            <td width="590" align="left" valign="middle">        匹配行结束符。例如正则表达式weasel$ 能够匹配字符串&quot;He&rsquo;s a weasel&quot;的末尾&nbsp;<br> 但是不能匹配字符串&quot;They are a bunch of weasels.&ldquo;      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ^      </td>            <td width="590" align="left" valign="middle">        匹配一行的开始。例如正则表达式^When in能够匹配字符串&quot;When in the course of human events&quot;的开始，但是不能匹配&quot;What and When in the&rdquo;      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        *      </td>            <td width="590" align="left" valign="middle">        匹配0或多个正好在它之前的那个字符。例如正则表达式 .* 意味着能够匹配任意数量的任何字符。比如.* 可以匹配不管是什么      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">              </td>            <td width="590" align="left" valign="middle">        这是引用符（转义），用来将这里列出的这些元字符当作普通的字符来进行匹配。例如正则表达式$被用来匹配美元符号，而不是行尾，类似的，正则表达式.用来匹配点字符，而不是任何字符的通配符。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        [ ]&nbsp;<br> [c1-c2]&nbsp;<br> [^c1-c2]      </td>            <td width="590" align="left" valign="middle">        匹配括号中的任何一个字符。例如正则表达式r[aou]t匹配rat、rot和rut，但是不匹配ret。可以在括号中使用连字符-来指定字符的区间，例如正则表达式[0-9]可以匹配任何数字字符；还可以制定多个区间，例如正则表达式[A-Za-z]可以匹配任何大小写字母。另一个重要的用法是“排除”，要想匹配除了指定区间之外的字符——也就是所谓的补集——在左边的括号和第一个字符之间使用^字符，例如正则表达式[^269A-Z] 将匹配除了2、6、9和所有大写字母之外的任何字符。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ( )      </td>            <td width="590" align="left" valign="middle">        将 ( 和 ) 之间的表达式定义为“组”（group），并且将匹配这个表达式的字符保存到一个临时区域（一个正则表达式中最多可以保存9个），它们可以用 1 到9 的符号来引用。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        |      </td>            <td width="590" align="left" valign="middle">        将两个匹配条件进行逻辑“或”（Or）运算。例如正则表达式(him|her) 匹配&quot;it belongs to him&quot;和&quot;it belongs to her&quot;，但是不能匹配&quot;it belongs to them.&ldquo;。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        +      </td>            <td width="590" align="left" valign="middle">        匹配1或多个正好在它之前的那个字符。例如正则表达式9+匹配9、99、999等。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ?      </td>            <td width="590" align="left" valign="middle">        匹配0或1个正好在它之前的那个字符。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        {i}&nbsp;<br> {i,j}      </td>            <td width="590" align="left" valign="middle">        匹配指定数目的字符，这些字符是在它之前的表达式定义的。例如正则表达式A[0-9]{3} 能够匹配字符&quot;A&quot;后面跟着正好3个数字字符的串，例如A123、A348等，但是不匹配A1234。而正则表达式[0-9]{4,6} 匹配连续的任意4个、5个或者6个数字字符。注意：这个元字符不是所有的软件都支持的。<p></p>                                    <code>  &lt;/td&gt;&lt;/tr&gt;</code>                                <p></p>            </td>        </tr>    </tbody></table><p></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    2、正则表达式实例讲解。  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    1、&nbsp;[0-9]*&nbsp; &nbsp;&nbsp;分析一下这个简单例子:  </p><p>    [] 代表拿中括号中的任意字符来匹配，中括号中的0-9，等同于0123456789，类似的还有a-z以及A-Z以后你会看到汉字的类似表示，这里暂不多说。也就是[0-9]代表从0到9任意字符，＊代表零到多次重复，因此这个表达式匹配的是任意数字也可以没有数字。  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    如果将＊号换成+，变成[0-9]+ 则代表至少出现一个数字的数字字符串。还可以变成[0-9]{3,4}代表至少3位，至多4位的数字。&nbsp;  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    测试字符串：45345234sdfe234sfef 231 32  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  </p><p>    2、http://([w-]+.)+[w-]+(/[w./?%&amp;=-]*)?$&nbsp;&nbsp;  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    这是一个验证url的例子，^代表开始，$代表结束，括号代表模式组（将来这部分可以用$1,$2…或1,2…从匹配的字符串中取出相应的模式组，在匹配判断、解析文本、替换文本时非常有用，需要自己再重点测试学习一下，这里就不多说了。里边出现了两个问号，第一个问号出现在[]中代表？字符，后一个问号代表前边括号中的模式组出现0到1次。实际测试一下就清楚了.  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    测试字符串1：http://www.appfanr.com/greatteam?realy=yes&nbsp;  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    测试字符串2：yeshttp://www.appfanr.com/greatteam/wolfer?realy=yes&amp;superman=yes  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    去掉起止符号再测试一下？&nbsp;  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    通过以上两个例子(我用RegexPal测试过了)，相信你对正则有了一个大概的认识，下面我们进入关键环节。  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    &nbsp;三<strong>、 iOS中的正则类(NSRegularExpression)及其方法。</strong>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">        <b><b></b></b>  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;display: inline;">    &nbsp;&nbsp;由于苹果的文档里写的已经非常详细了，因此，就不蹩述太多细节，这里根据正则的几个最常用的用途将关键代码段贴出来，方便参考使用。  </p><p>        <b><strong></strong></b>  </p><p>  </p><p>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">        <b>&nbsp;1、匹配 (Match)</b>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p>  </p> NSString *testContent=@&quot;test,content:232helloregex http://www.appfanr.com?who=me&amp;where=china http://appfanr.com/&rdquo;;    NSString *urlPattern = @&ldquo;http://([\w-]+.)+[\w-]+(/?[\w./?%&amp;=-]*)?&rdquo;;//objective-c里边跟perl里边不一样，w需要写成\w不这么写编辑器也会警告你。    NSError *error = [NSError new];    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:urlPattern options:NSRegularExpressionCaseInsensitive error:&amp;error ];    //match 这块内容非常强大    NSUInteger count =[regex numberOfMatchesInString:testContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length])];//匹配到的次数    if(count &gt; 0){        NSLog(@&ldquo;n&ndash;&gt;匹配到url%d个&rdquo;,count);        NSArray* matches = [regex matchesInString:testContent options:NSMatchingReportCompletion range:NSMakeRange(0, [testContent length])];        for (NSTextCheckingResult *match in matches) {            NSRange matchRange = [match range];            NSLog(@&ldquo;n&mdash;-&gt;匹配到字符串：%@&rdquo;,[testContent substringWithRange:matchRange]);            NSInteger count = [match numberOfRanges];//匹配项            NSLog(@&ldquo;n&mdash;&mdash;&gt;子匹配项：%d 个&rdquo;,count);            for(NSInteger index = 0;index&lt;count;index++){                NSRange halfRange = [match rangeAtIndex:index];                NSLog(@&ldquo;n&mdash;&mdash;&gt;子匹配内容：%@&rdquo;,[testContent substringWithRange:halfRange]);            }        }//遍历后可以看到三个range，1、为整体。2、为([\w-]+.)匹配到的内容。3、(/?[\w./?%&amp;=-]*)匹配到的内容    }<p>        <strong></strong><strong></strong><strong>&nbsp; 2、替换 (Replace)&nbsp;</strong><strong></strong>  </p><p>  </p><p>  </p> if(count&gt;0){        NSMutableString *mutableContent = [NSMutableString stringWithString:testContent];        [regex replaceMatchesInString:mutableContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length]) withTemplate:@&ldquo;*&rdquo;];        NSLog(@&ldquo;before replace:%@nafter replace:%@&rdquo;,testContent,mutableContent);    }<p>        <strong>&nbsp; &nbsp;3、验证（Validate）</strong><strong></strong>  </p><p>  </p><p>  </p> NSString *testContent=@&ldquo;test,content:232helloregex http://www.appfanr.com?who=me&amp;where=china http://appfanr.com/&rdquo;;    NSString *numString = @&ldquo;23409834&rdquo;;    NSString *numPattern=@&ldquo;^[0-9]*$&rdquo;; //玄机^$    NSError *error = [NSError new];    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:numPattern options:NSRegularExpressionCaseInsensitive error:&amp;error ];    NSInteger testCount = [regex numberOfMatchesInString:testContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length])];    NSInteger numCount = [regex numberOfMatchesInString:numString options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [numString length])];    //因为^$首尾标记所以要么有1个匹配要么有0个匹配    if(testCount==0){        NSLog(@&ldquo;字符串(%@)没有通过验证&rdquo;,testContent);    }else{        NSLog(@&ldquo;字符串(%@)通过了验证&rdquo;,testContent);    }    if(numCount == 0){        NSLog(@&ldquo;字符串(%@)没有通过验证&rdquo;,numString);    }else{        NSLog(@&ldquo;字符串(%@)通过了验证&rdquo;,numString);    } <p>    代码下载：<a href="http://openq.cn/wp-content/uploads/2012/01/RegexTest.zip">RegexTest</a>  </p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
+                    
+                    <a class="tag" href="http://openq.cn/tag/regex/">regex</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/aboutwebkit/">关于WebKit</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-01-29
+                </div>
+
+                <div class="text">
+                    <p>你知道都有那些浏览器采用了webkit内核吗？<br/>
+  前几日跟一个做浏览器的哥们聊到html5本地化，曾说了这么一句话：“我们想做一个基于webkit的框架，使之可以很好的与android、iphone本地化程序结合，类似于phoneGap”。这哥们给我纠错，说：“webKit 不是android的引擎么？”。当时，我回答是基于智能机浏览器的html5框架，此webkit主要是泛指智能系统的浏览器… …<br/>
+  之后感觉对于“webkit”的理解存在盲点，于是仔细查了一下，原来，android和iphone上的浏览器果然都基于webkit，webkit包含两个引擎：webcore和jscore（将来做js优化，深入研究会有帮助）。<br/>
+  分享一下：<br/>
+  WebKit 是一个开源的浏览器引擎，与之相对应的引擎有Gecko（Mozilla Firefox 等使用）和Trident（也称MSHTML，IE 使用）。同时WebKit 也是苹果Mac OS X 系统引擎框架版本的名称，主要用于Safari，Dashboard，Mail 和其他一些Mac OS X 程序。WebKit 前身是 KDE 小组的 KHTML，WebKit 所包含的 WebCore 排版引擎和 JSCore 引擎来自于 KDE 的 KHTML 和 KJS，当年苹果比较了 Gecko 和 KHTML 后，仍然选择了后者，就因为它拥有清晰的源码结构、极快的渲染速度。Apple将 KHTML 发扬光大，推出了装备 KHTML 改进型 WebKit 引擎的浏览器 Safari。<br/>
+  WebKit 所包含的 WebCore 排版引擎和 JSCore 引擎，均是从KDE的KHTML及KJS引擎衍生而来，它们都是自由软件，在GPL条约下授权，同时支持BSD系统的开发。所以Webkit也是自由软件，同时开放源代码。<br/>
+  WebKit的优势在于高效稳定，兼容性好，且源码结构清晰，易于维护。<br/>
+  尽管Webkit内核是个非常好的网页解释机制，但是由于微软把IE捆绑在Windows里，导致许多网站都是按照IE来架设的，很多网站不兼容Webkit内核，比如登录界面、网银等网页均不可使用Webkit内核。目前来讲，Webkit还不能取代IE内核。<br/>
+  WebKit 内核在手机上的应用也十分广泛，例如 Google 的手机 Gphone、 Apple 的 iPhone, Nokia’s Series 60 browser 等所使用的 Browser 内核引擎，都是基于 WebKit。<br/>
+    近期可以考虑专门抽时间研究一下，safari中webkit内核的发展演进情况，对未来做优化一定是有益的。  </p>
+
+<p><strong>扩展阅读：</strong><br/>
+1、浏览器引擎分类<br/>
+      现在浏览器的内核引擎，基本上是四分天下：<br/>
+Trident: IE 以Trident 作为内核引擎;<br/>
+Gecko: Firefox 是基于 Gecko 开发;<br/>
+WebKit: Safari, Google Chrome,搜狗浏览器的高速内核,傲游3 基于 Webkit 开发。<br/>
+Presto: Opera的内核，但由于市场选择问题，主要应用在手机平台&ndash;Opera mini<br/>
+2、使用webkit的应用平台<br/>
+      在应用于Mac Os上的Safari之后，Webkit很快被广泛地移植到其他系统平台：<br/>
+iOS：2007年6月29日，iPhone上市，WebKit进入iPhone OS平台，而且立即成为iPhone OS平台独一无二的排版引擎。<br/>
+Android：Google 开发的手机操作系统Android中内置的浏览器也是采用的WebKit引擎。<br/>
+Nokia S60：诺基亚公司将WebKit移植到Symbian S60操作系统中，并开发了基于Webkit的手机浏览器“Web browser for S60”，广泛用于诺基亚、三星、LG等基于Symbian S60操作系统的手机中。<br/>
+Web OS:Palm 推出第一款基于WebKit的操作系统，Palm Pre是第一款基于该系统的手机产品。<br/>
+Linux：尽管WebKit的原型K内核是由Qt写成，但Linux下目前最受瞩目的WebKit项目却是Gnome领导的WebKit/Gtk+。随着奇趣科技于2008年6月被Nokia收购，Qt方面也加快了WebKit的“回归”进程。Midori，Google Chrome，GNOME的Epiphany、KDE的Konqueror，Arora是现在Linux系统下主要的Webkit内核浏览器。<br/>
+Windows：Webkit内核在Windows上发展最晚，Safari(for Windows)，Midori，Google chrome，具有双核模式的傲游3和搜狗浏览器2（高速模式下使用Webkit核心）是最为常见的Webkit浏览器。2009年推出的safari和Chrome以及2010年推出的搜狗浏览器V2.0Beta和傲游3.0beta都使用的webkit引擎完全通过了acid3测试满分！<br/>
+部分资料引自：百度百科</p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/webkit/">webkit</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+</ul>
+
+
+<a id="prev" href="/page/7/" class="v_nav" >
+    <span class="icon">Prev</span>
+</a>
+
+
+
+<a id="next" href="/page/9/" class="v_nav" >
+    <span class="icon">Next</span>
+</a>
+
+
+
+</div>
+<div id="footer_wrapper">
+    <div id="footer">
+        <div id="footer_inner">
+            <div class="tag_cloud col">
+                <h2>Tag Cloud</h2>
+                <ul>
+                
+                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (3)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/svn/">svn (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/mac-tools/">mac tools (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag//"> (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/webkit/">webkit (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/this-blog/">this blog (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/best-practices/">best practices (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
+                
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Archives</h2>
+                <ul>
+                    
+                    <li><a href="http://openq.cn/archive/2014/">2014 (3)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2012/">2012 (22)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2011/">2011 (1)</a></li>
+                    
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Links</h2>
+                <ul>
+                    
+                    <li><a href="http://openq.cn" title="That's Nice!" target="_blank">openQ</a></li>
+                    
+                </ul>
+            </div>
+            <div class="copyright">
+                Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
+                <span>&bull;</span>
+                SealScript Theme by <a href="http://lyric.im">Lyric</a>
+                <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
