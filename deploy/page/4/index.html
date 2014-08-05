@@ -44,20 +44,89 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/html5-mobile-development-practices/">HTML5的移动开发实践</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/xiaolong-tan-mobile-internet-product-design-principles/">张小龙谈移动互联网产品设计原则</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-03-10
+                    2012-07-26
                 </div>
 
                 <div class="text">
-                    <p>如果你阅读稍微涉及前端科技的博客，那么你肯定每周都有可能看到关于HTML5的报道。虽然，这套新web标准没有强大到给你制造某个先进的家用电器，但是它的新特性的确可以帮你创建强大的应用程序，仅仅是使用html,css和javascript（当然，如果后端使用rails或者node.js的话，火力会更猛）。这篇文章主旨就是介绍关键概念及HTML5的牛逼特性，还有一些更牛逼的设置（当然是移动相关的了，牛皮吹的够大）。</p><p></p><h3>浏览器兼容性</h3><p>开发一个web应用最大的痛苦莫过于确保您的应用程序是与目前使用的各种浏览器兼容。&nbsp;幸运的是，在移动世界中这不是一个大问题（观点很新颖吧，我们继续）。&nbsp;因为比起换电脑来人们往往更频繁的更换新手机，因为用户群体相对年轻，旧的智能手机很快就被市场淘汰。另外，iPhone、android内核都是webkit，所以这也给兼容性创造了条件。当然，处于市场考虑，你要支持更多的设备的话，还是要使用真机测试，而不是模拟器。不过，随着标准的完善和设备性能的提升，适配的复杂度将会逐步降低的。</p><h3>Viewport</h3><p>当你用移动设备浏览一个互联网网页，这个网页在你的浏览器里是被缩放了的，这是浏览器为了让你看到网站全貌做的简单自动适配（缩放）。当然，你想看具体内容也可以再放大。不过，如果你正在针对智能手机设计网页，那么viewport的定义将是非常有意义的（viewport meta tag）：</p><p>    <span style="font-family: Consolas , Monaco , monospace;font-size: 12.0px;line-height: 18.0px;white-space: pre;">&lt;meta name=&ldquo;viewport&rdquo; content = &ldquo;width=device-width”&gt;</span></p><p>    </p><p>        </p><p>&nbsp;这个宽度通常设置为设备屏幕宽度，因此，网页就没有必要再被浏览器默认缩小或放大了。你肯定就想禁用缩放行为，从而使用户不能无意中放大或缩小页面，使其产生扭曲变形。实现这个目的，你只需要将&nbsp;user-scalable 设置为no：</p>        <p>            &lt;meta name=&quot;viewport&rdquo; content = &ldquo;width=device-width , &nbsp;user-scalable=no&rdquo;&gt;            一些网站的移动版将页面宽度设置为320，这是为什么呢？因为这是iPhone的宽度。当然为了为更多用户带来更好的体验，你最好将宽度设为            device-width，320不靠谱。                            <a href="http://openq.cn/wp-content/uploads/2012/03/A4jFz.png"><img class="alignnone size-full wp-image-496" src="http://www.appfanr.com/wp-content/uploads/2012/03/A4jFz.png" alt="" width="610" height="436"></a>                        &nbsp;让你的网页使用正确的大小固然很nice，但是，下文将要提到的HTML5缓存（使用manifest）及存储特性，将使你能够构建全功能离线站点。在信号不是非常稳定的无线环境中，离线能力在用户体验中将承担相当的分量。            </p><h3>HTML5 Caching</h3>            <p>HTML5 Caching 允许用户在没有网络连接的情况下浏览之前浏览过得内容，当然也不光是在没信号的时候可以浏览这一个好处，使用缓存还可以减少很多的连接请求，降低数据传输量。</p>            <p>设置缓存，你可以通过在每个网页的html标签中设置manifest文件来实现：</p>            &lt;html manifest=&ldquo;/cache.manifest&rdquo;&gt;            这是个文本文件，内容以&nbsp;“CACHE MANIFEST”开始，下面列举需要缓存的文件：            CACHE MANIFEST/mystyle.css/scripts.js/logo.jpg            这样这些文件就可以被离线使用了，只是这么一长串文件列表有时候也会成为陷阱，下面我将试图整理相关的要点：            首先最重要的是，你的网站将默认缓存最新的文件，这意味着，即使你刚刚访问的文件已经改变了，你的浏览器还是显示的老页面，直到这个页面被刷新（或者通过javascript通知更新）。事实上，更严重的是大部分的web server都会告诉客户端浏览器使用缓存，这样同步问题就尤为凸显。当你开发网页的时候，一定要在服务器上设置不要缓存manifest,这样你才能看或调试到你刚刚更新的网页。            另一个大问题是，浏览器如何管理下载过程。如果浏览器监测到manifest更改了，它将重新下载页面上使用的所有文件。这个过程非常昂贵，而且如果其中的单个文件不能下载，浏览器会放弃更新和加载以前的缓存。这个时候浏览器不会抛出任何错误，但是您可以通过javascript抛出异常清单：            $(function() {  $(window.applicationCache).bind(&ldquo;error&rdquo;, function() {    alert(&ldquo;Cache: update failed&rdquo;);  });});            现在你的网站已经被缓存了，并且可以很好的工作了。那么，这样就可以launch了吗？恐怕不行。这种caching技术只能在缓存静态文件的需求下工作正常，但是如果你的网页是动态创建的，或者经常改变的（大多数网页都是这样），它就不能正常工作了。这是因为除非缓存更新了，否则你看到的还是老网页，而不是新内容页。解决办法也很简单，就是当有新内容（或改动）的时候，更新manifest文件。当然正如前文我们讨论的，如果你的网站经常更新，这么做的代价是非常昂贵的。那咋整捏？解决办法就是使用jQuery建立动态模版页面。            <h3>jQuery 模板</h3>            <p>最好的做法是通过JavaScript模板来填充内容。 使用这种方式，内容不是HTML页面的一部分，因而是不会记录到缓存的manifest里。&nbsp;对于这一点，你需要下载jQuery和jQuery的<a href="http://rrurl.cn/phZmw2">模板插件</a>，并添加到您的应用程序&nbsp;。</p>            <p>使用这些模板有三个步骤：</p>            <ol>                <li>定义模板。</li>                <li>定义集合。</li>                <li>告诉jQuery来填充模板的页面。</li>            </ol>            <h4>下面是一个简单的博客应用的一个例子。</h4>            <p>1.&nbsp;&nbsp;定义模板：</p>            <p>                </p><p>                    &lt;script id=&ldquo;post_template&rdquo; type=&ldquo;text/html”&gt;&lt;div&gt;&lt;h2&gt;${Name}&lt;/h2&gt;&lt;p&gt;${Body}&lt;/p&gt;&lt;/div&gt;&lt;/script&gt;                </p>            <p></p>            <p>2.&nbsp;定义数据集合（以下使用JSON）。</p>            <p>                </p><p>                    &lt;script&gt;var posts = [{ Name: &quot;First!&rdquo;, Body: &ldquo;This is pretty cool&rdquo; },{ Name: &ldquo;Another post&rdquo;, Body: &ldquo;This is pretty cool&rdquo; },{ Name: &ldquo;Yet another blog post&rdquo;, Body: &ldquo;This is pretty cool&rdquo; }];&lt;/script&gt;                </p>            <p></p>            <p>3.&nbsp;告诉jQuery使用模板填充页面。</p>            <p>                </p><p>                    &lt;script&gt;$( &ldquo;#post_template&rdquo; ).tmpl( posts ).appendTo( &ldquo;#blog_posts&rdquo; );&lt;/script&gt;&nbsp;…&nbsp;&lt;body&gt;&nbsp;&lt;div id=&ldquo;blog_posts&rdquo;&gt;&lt;/div&gt;&nbsp;&lt;/body&gt;                    虽然这个内容是通过JavaScript加载，但它不是动态的，它只是在页面上定义的。&nbsp;对于动态内容，我们需要使用服务器提供的JSON接口。&nbsp;假设我们的博客应用程序提供给了我们这样的JSON接口：                    http://www.yourhost.com/&hellip;/posts.json                    我们会告诉jQuery对以上网站发送一个JSON请求，然后用返回的数据来填充页面：                    &lt;script type=&ldquo;text/javascript&rdquo;&gt;$.getJSON(&lsquo;/posts.json&rsquo;, function(data) {$( &ldquo;#post_template&rdquo; ).tmpl( data ).appendTo( &ldquo;#blog_posts&rdquo; );});&lt;/script&gt;                    我们还需要修改模板，以便它可以处理JSON元素，post.body对应文章的内容，post.name对应文章的标题：                    &lt;script id=&ldquo;post_template&rdquo; type=&ldquo;text/html&rdquo;&gt;&lt;div&gt;  &lt;h2&gt;${post.name}&lt;/h2&gt;  &lt;p&gt;${post.body}&lt;/p&gt;&lt;/div&gt;&lt;/script&gt;                    现在，你的博客数据已经不是缓存在manifest的静态内容了，而是通过jQuery动态跟服务器获取的。然而，这样只有我们的手机有网络连接的时候，网页才能工作了。是不是感觉进了2步却退了3步？别着急，请相信我，我们马上就搞定一个HTML5 mobile app了。我们只需要实现最后一个HTML5接口，本地存储（Local Storage）。                    </p><h3>本地存储（Local Storage）</h3>                    <p>关于本地存储的细节，辉郎准备在单独的文章里详细介绍，这里尽量简化到初学者容易接受的程度。</p>                    <p>本地存储实际上是通过浏览器实现的key-value的存储。通过它，我们可以实现将文本存储到本地，并在稍后重新调用到。在这里，我们使用它来存储JSON，所以我们可以填充博客文章——即使我们没有连接到服务器。</p>                    <p>虽然我们可以手工编写，但是这里有一个很牛x的插件帮我们管理整个过程。&nbsp;jQuery的离线插件，可以在服务器不可用的时候使用本地存储的内容。收到新鲜的内容，它会将其存储存到本地（local storage)。</p>                    <p>点击连接下载此插件：&nbsp;<a href="http://rrurl.cn/fSBV1M">jQuery-Offline</a>                    </p>                    <p>为了使用这个插件，我们将调用的getJSON方法改为retrieveJSON。&nbsp;我们还要做一个小的改动， 后者将执行两次，一次从缓存中抽数据，再次从服务器获得新的内容。&nbsp;这将导致文章出现两次，如果我们只是简单的网页面上追加文章数据的话。</p>                    &lt;script type=&ldquo;text/javascript&rdquo;&gt;$.retrieveJSON(&lsquo;/posts.json&rsquo;, function(data) {$( &ldquo;#blog_posts&rdquo; ).html($( &ldquo;#post_template&rdquo; ).tmpl( data ));});&lt;/script&gt;                    这样这个blog程序就可以以正确的页面大小离线浏览了！你可以在这里下载这个Demo：<a href="http://rrurl.cn/9hMX7x">离线博客</a>&nbsp;。                    <p>&nbsp;</p>                    <p>英文参考：<br>Mobile development with HTML5</p>                                    <p></p>            <p></p>        <p></p>    <p></p><p></p>
+                    <p><strong><em>注</em></strong>：这两天和菜头分享的这篇文章在互联网产品圈儿里引发了一股学习热潮，读了之后觉得实在是应该分享一下。建议互联网从业者抛开偏见，认真反思一下自己、自己的产品和自己所处的行业——不要回避任何一个成长的机会。  </p>
+
+<p>2012年7月24日下午14：20—23：30，我应邀参加了《腾讯大讲堂》的特别讲座，由微信之父张小龙主讲《微信背后的产品观》。张小龙的讲演长达8小时20分，是我此生参加过的最漫长讲座。腾讯为此开设17个分会场，同步直播讲座，参加者超过1700人。晚上19：10分听众晚餐，20：30继续进行。恢复演讲时在线直播用户依然有600余人，加上分会场听众，总计有超过800人听完全程讲演。很多人并不知道，这可能是张小龙第一次也是最后一次做公开讲演，在公众面前讨论产品。在这次演讲中，他把自己15年来关于产品的所有经验和心得一次性全部公开，今后将不再做类似公开课。<br/>
+这一讲座受到腾讯保密协定约束，因此其中令人惊叹的新产品特性演示不可以对外公开。同时，腾讯大讲堂举办的这一公开课的目标群体是腾讯两万余员工中的产品经理，其中涉及大量腾讯公司业务也不宜对外公开。因此，作为唯一的受邀外界自媒体，我只能根据授权部分内容进行阐述。因此，腾讯相关人士请先阅读下一段落的内容：<br/>
+作为腾讯前员工，我清楚地知道这一课程的全部视频和PPT资料都储存于腾讯KM平台，请务必在阅读本文前完整浏览一次8小时20分的视频资料。张小龙关于移动互联网产品的全部思考和分析，都在这8小时20分的视频之内。其中，所有内容都来自张小龙业余时间用手机记录下来的产品心法300余条。经过精炼和分类之后，形成了长达180余页的PPT文档。这是最原始，也是最真实的素材，完整记录了一个产品经理的个人思考和感悟。因此，可以很容易地发现前后文逻辑背反抵触之处，很容易地看到一个真实的人内心深处的挣扎和纠结。它很清晰地给予以下启示：  </p>
+
+<p>一个亿级用户的产品经理，无需做到透彻思考人性和产品的所有方面，得出定性结论，但依然可以做出成功的产品。<br/>
+一个成功的产品经理，需要在极端现实主义和极端理想主义之间取得平衡，把它们作为整体一并接受下来，彻底去除其中的相对性，丝毫不会觉得其中的矛盾和冲突之处。  </p>
+
+<p>因此，我的体系化阐释和原文相比，完全落到了下乘。阐释只是为了便于受众接受和理解，但是永远无法和原文素材相提并论。因为实际操作的产品经理在实践中，并未受到任何体系化阐释的指导和影响。相反的，这种阐释很可能成为个人理解的障碍。以下内容和张小龙的PPT内容并非一一对应，完全基于我个人对张小龙的认知和理解衍生而成。请在完整浏览视频资料之后，再行继续阅读本文：<br/>
+一、微信的演化<br/>
+2010年11月19日23时58分，张小龙在腾讯微博上写下了这么一句话：<br/>
+我对iPhone5的唯一期待是，像iPad（3G）一样，不支持电话功能。这样，我少了电话费，但你可以用kik跟我短信，用google voice跟我通话，用facetime跟我视频。（<a href="http://t.qq.com/p/t/2509031165724）">http://t.qq.com/p/t/2509031165724）</a><br/>
+第二天，2010年11月20日，腾讯微信正式立项。一年零8个月之后的2012年7月，随着微信4.2版本的发布，可以看到那一晚张小龙关于iPhone5的所有狂想都在微信上得以实现。而就在此时此刻，张小龙都未必意识到一个简单的念头会在一年多之后如此深切地影响到一亿多用户；意识到一个普通用户此时此刻，仅凭一台iTouch和网络就可以完全改变以往有电话相随的生活。<br/>
+产品经理之美就体现在这里。<br/>
+微信1.0版的诞生是完全出自纯粹功利主义和现实主义的考虑，立项后2个月，微信1.0版的释出很大程度上是受到了KiK的启示—在新的移动互联网平台上，必将出现相应的移动通讯工具。KiK是一种免费短信，它很可能成为QQ在移动互联网时代的强大竞争对手。因此，从战略角度分析，腾讯必须开发一款移动通讯工具，这就是微信诞生的缘起。<br/>
+尽管开发速度惊人，从立项到产品上线仅仅经过了2个月，但是微信1.0的免费模式在中国并不受欢迎。和欧美不同，中国运营商提供了丰富的套餐服务，正常用户每个月的包月短信根本消费不完。以省短信费为卖点的类KiK产品，在中国完全没有出路。<br/>
+微信1.2版迅速转向了图片分享。从理性的角度分析，移动互联网时代必然是一个图片为王的时代。人们在有限的载体上没有耐心进行深度阅读，对图片的消费量会达到一个空前的程度。于是，微信1.2的主体功能变成了图片分享。然而市场对此反应冷淡，数据冷酷地证明了用户对手机图片分享没有兴趣，根本无法构成一种基本需求。<br/>
+微信2.0的推出是微信团队在极短时间内的第三次试错。免费短信在利益上毫无吸引力，图片分享市场并不认可，产生内容的门槛远比预计要高。从用户在手机上输入内容的便利性出发，微信2.0将产品重心完全投入了语音通讯工具。作为一种重要指标，新浪微博每分钟出现一条关于微信的搜索结果，确立了微信2.0快速流行和传播的基调。<br/>
+微信3.0是教科书式的经典产品开发节奏教程。当时，微信的竞争对手米聊拥有先发优势，米聊的产品经理甚至预判微信3.0的新功能是抄袭米聊的涂鸦功能。但是，微信此时已经初步明确了产品方向，没有做涂鸦功能，而是依托用户基础，提供了“查看附近的人”和“视频”功能。“查看附近的人”成为微信的爆发点，从此微信开始使用QQ邮箱和腾讯自身资源，进行强推广，用户突破2000万人大关，产品日新增用户以数十万量级增长，确立对竞争对手的绝对优势。<br/>
+当用户超过一亿之后，微信4.0推出“朋友圈”，建立手机上的熟人社交圈，开放API接口打造移动社交平台。微信4.2推出视频通话功能，彻底封闭手机通讯工具上的任何其它可能。从此，微信确立了移动互联网时代生活方式的产品地位，未来一系列新功能的演进，都将围绕这一核心价值进行。任何试图以节省电话费、短信费作为竞争卖点的产品，此时已经完全失去了竞争的可能，因为微信提供的已经不再是单纯的通讯服务，而是移动互联网时代的生活方式。除非竞品能够提供一种更为便利和流行的模式，否则无法构成竞争关系。<br/>
+二、移动互联网产品的方法论<br/>
+手机作为一种联系工具，天然决定了移动互联网的主要服务对象是人群而非个人。移动互联网产品经理的主要任务是服务人群，主要工作是研究人类群落的行为模式。用产品为人群提供服务，并且要预判人群卷入之后行为模式的变化。<br/>
+从方法论的角度思考，人类群落也处于演进过程中。早期人类是村落人群模式，村落中的每个人认识每个人，人际关系以非常实际的亲戚关系和职业关系为纽带。现代人类是社会化人群模式，人群数目极大增长，人际关系依托于抽象的社会生产关系：契约、合同、雇佣关系。。。。。。产品经理曾经是村落里的铁匠，他认识每个村民，每个村民也认识他。而在今天，产品经理完全退居幕后，他不可能认识每一个用户，用户甚至不知道这个人的存在。<br/>
+因此，产品经理在方法论上存在着各种选择：他可以提供某种基于熟人群落的旧式服务，以增进熟人群落的情感为产品目的；他也可以提供某种基于大数人群的新式基础服务，以便于人们彼此认识，协调工作，从自利为基础的无序活动中自组织处有序活动；或者，他也可以提供某种中间类型的产品，帮助人们平滑度过两种人群模式，减少由于变化而产生的阵痛。<br/>
+但是，产品经理的主流应该是服务于未来。先于人众接触新技术新知识，并把这种认知转化为产品，利用产品提供现代人类社会中的各种人群。尽一切可能，降低学习成本，利用人类的本能设计产品，使得人群得以顺利“滑入”新的产品使用场景。<br/>
+在所有这一切之上，产品经理的目标应该是实现社会美和善和总量。<br/>
+三、移动互联网产品经理的素养  </p>
+
+<p>敏锐感知潮流变化。移动互联网产品会从相对匮乏时代进入相对富足时代，用户可以选择的产品会随时日流逝而日渐增加，产品终将成为一种时尚业。产品经理若是沉溺于各种新鲜玩意儿之中，追逐新奇，很可能错过真实的时代潮流，无法把握人群的真实需求。<br/>
+放弃理性思维。移动互联网的最大特点是变化极快，传统的分析用户，调研市场，制定产品三年规划，在新的时代里已经落伍。人类群落本身也在迁移演变，产品经理更应该依靠直觉和感性，而非图表和分析，把握用户需求。产品经理永远都应该是文艺青年，而非理性青年。<br/>
+海量的实践。尽管移动互联网方兴未艾，没有任何人可以自称是领域内的专家。但是，这不意味着存在天降天才的可能。《异类》中提出的一万小时定律，同样适用于产品经理。他们需要超过千次的产品实践，才能称得上是了解产品设计，拥有解决问题的能力。<br/>
+博而不专的积累。美术、音乐、阅读、摄影、旅游等等文艺行为貌似不能直接转化为生产力，但是合格的产品经理需要广博的知识储备，以此才能了解和认识大数量的人群，理解时代的审美，让自己的所思所感符合普通用户的思维范式。以此为基础，设计的产品才不会脱离人群。<br/>
+负责的态度。拥有合适的方法论和合适的素养，成功的产品经理还应该有对自己和产品负责的态度，唯其如此，产品经理才能足够偏执，清楚地知道自己究竟要做什么，抵挡住来自上级和绩效考核的压力，按照自己的意志不变形、不妥协地执行产品策划。  </p>
+
+<p>四、移动互联网产品设计的原则<br/>
+1、 绝不考虑Web形态，一切考虑都基于APP。<br/>
+2、 产品优先级：<br/>
+（1）有趣高于功能。产品必须有趣，必须Cool，才可能形成传播和口碑。<br/>
+（2）功能高于交互。明确的功能满足明确的需求，用户不会在意炫酷交互效果。<br/>
+（3）交互高于UI。便捷、快速的交互设计为先，围绕具体功能实现UI，而非有优质UI方案为此专门设立一个功能。<br/>
+3、 聚焦：一个APP只做一件事情，一个大而全的APP意味着全面的平庸。<br/>
+4、 永远一维化：让用户在一个维度里解决具体的问题，Twitter的Timeline就是一个好的范例。而类似Facebook、Path那样的滑出式菜单则是一个灾难，因为这使得产品拥有两个维度，加大了用户理解的困难。<br/>
+5、 保持主干清晰，枝干适度。产品的主要功能架构是产品的骨骼，它应该尽量保持简单、明了，不可以轻易变更，让用户无所适从。次要功能丰富主干，不可以喧宾夺主，尽量隐藏起来，而不要放在一级页面。<br/>
+6、 不要让用户选择。同一个页面之内，有多个入口；同一个功能，有多个实现方式；同一个界面，有多个展示方式。这对于用户来说是一种痛苦而非享受，因为他们只会因此而感觉到困惑和恐惧。用户宁可采取重复操作漫长而固定的操作路径，也不愿意使用多变的快捷方式。<br/>
+7、 隐藏技术，永远展现简单的、人性化的、符合人类直觉的界面。开发不可以为了炫技而展示功能，产品不可以为了炫耀而功能堆砌。<br/>
+8、 拒绝个性化。除了依靠设计特色而立身的APP，换肤一类的个性化设计，除了让产品经理幻觉自己做了许多工作而自我满足之外，没有任何价值。它只能证明产品经理对自己的产品不自信，因为自信的产品经理凭借默认皮肤就可以满足用户。延伸开去，一个好的产品，其功能应该满足全球用户需求，无需为地区做特别定制化。<br/>
+9、 产品一定程度上是为了满足人性中的贪嗔痴，这是用户的痛点。能把握住之后，产品经理应该超越其上，用产品帮助人们得以解脱。<br/>
+10、想清楚自己究竟要做什么，不去迎合上司，不去讨好用户，不去取悦自己。<br/>
+11、分类！分类！分类！这是产品经理在确定产品主要功能构架之后，唯一应该为用户做的事情。分类无助于降低产品使用的难度，但是可以帮助用户认知产品和周边的世界。<br/>
+12、永远围绕功能而做设计，永远不要倒过来做这件事情。<br/>
+13、一个产品的基本功能不受用户认可，做加法也无济于事。<br/>
+14、想不清楚一个功能点之前，宁可不做。<br/>
+15、千万不要让用户在产品里“管理”什么。<br/>
+五、“自然流”的设计思路<br/>
+好的产品应该隐藏产品经理的个人意图，用户仅仅凭借直觉和经验就可以顺利使用，以达到“自然而然”的境界。坏的产品提供产品说明书，其恶劣程度和Tip和文字说明数量正相关。为此，好的产品经理可以和用户之间平等对话，无需刻意谄媚、恶意卖萌，产品本身就会说话。<br/>
+自然流的产品，它本身就可以可用户交流。针对用户的任意一个动作，给出唯一的、清晰的反馈，并且能让用户没有任何偏差地接受。它没有人造物的冰冷生硬，而有一种温暖的人性存在。例如在IOS中微信朋友圈里的评论按钮，按下之后弹出“赞”和“评论”弹窗。这一弹窗快速向左滑动，然后像碰到什么东西一样快速向右反弹一个很小的距离，然后才最终停下来。用户可能根本未能意识到这一微小的停顿，但是在潜意识里，他们会感受到这个弹窗并非全然的人造物。因为根据生活经验，世界上没有任何东西可以从运动直接变到绝对静止。<br/>
+绝对不要让用户在使用产品的过程中感受到产品经理的伟大和聪慧，产品经理应该完全隐没在产品之中。用户应该可以不假思索地上手，按照设计意图行事，从中获得既定的正向反馈。这一切应该自然而然地发生，用户感觉似乎产品天生就应该这样使用，从产品还未出现之前很久就应该如此。好的产品不会强调自己存在于世界之上，它只是努力地、毫无痕迹地成为这个世界的一部分。<br/>
+做自然流的产品，必然会在美学上倾向于简单，反逻辑。产品经理必然的选择是做减法，在诸多功能中选取最能解决实际问题的一个，在诸多特性中选取最符合直觉的一项，于是产品也就拥有了优雅和简洁，让人难以忘怀。极简和极自然，使得模仿无法存在，因为没有人可以造出更好的体验来。<br/>
+六、思考题  </p>
+
+<p>为什么微信的对话界面中，是针对信息长按弹出删除，而不是在页面左上角放“编辑”键，点击进入编辑删除？<br/>
+为什么微信朋友圈不做分组功能？<br/>
+为什么微信视频对话，不可以直接发起，也没有通知声？  </p>
+
+<p>七、结语<br/>
+我所说的，都是错的。<br/>
+&ndash;—张小龙  </p>
+
+<p>本整理版文章出自：CSDN</p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/front-end/">front end</a>
+                    <a class="tag" href="http://openq.cn/tag/design/">design</a>
                     
                 </div>
             </div>
@@ -68,107 +137,25 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/daytime-working-programmers-vs-night-programmer-translation/">白天工作型程序员 vs 夜晚工作型程序员[译]</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/omnigraffle-5-sn/">OMNIGRAFFLE 5注册码</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-03-06
+                    2012-07-24
                 </div>
 
                 <div class="text">
-                    <p><strong><em>下文观点或许极端，但很有意思</em></strong>  </p>
+                    <p>OMNIGRAFFLE 5注册码，可耻的分享一下：  </p>
 
-<p>去年我在公司内部群发过一封邮件，本文就是基于那封邮件，有细微改动。但最近有人建议我，把邮件内容发到我的博客上，让人们看看，我是对的，还是错的呢？  </p>
+<p><a href="mailto:kambingcrew@earth.es.tt">kambingcrew@earth.es.tt</a><br/>
+KJIZ-MLFE-YOLH-TYHR-YXWD-HDT  </p>
 
-<p>多年前我就相信，世界上有两种程序员，不管他们用什么技术，我称之为：  </p>
-
-<ol>
-<li>Day Programmers 白天工作型程序员<br/></li>
-<li>Night Programmers 夜晚工作型程序员<br/></li>
-</ol>
-
-<p>如今，这个行业中最常见的是白天工作型程序员，你会在很多容忍一定量的低效的公司/机构中看到他们。他们有如下特征：  </p>
-
-<ol>
-<li>通常处于被领导，很少担当领导；<br/></li>
-<li>难以应对处理复杂情况；<br/></li>
-<li>很难想象出解决方案；<br/></li>
-<li>不会在家打开开发工具；<br/></li>
-<li>通常不参与技术开发社区；<br/></li>
-<li>把编程仅当为“一份工作”；<br/></li>
-</ol>
-
-<p>如果你是夜晚工作型程序员，你很可能很难理解，为什么白天工作型程序员能入行，原因可能就是他们的动力和你的动力有很大不同。夜晚工作型程序员的特征是：  </p>
-
-<ol>
-<li>通常都担当领头角色<br/></li>
-<li>对复杂事情，有深刻理解；<br/></li>
-<li>可以构想出解决方案，并有设计相关的第六感；<br/></li>
-<li>会在家打开 alpha/ctp/beta 版本的工具；<br/></li>
-<li>参与用户群组和邮件列表；<br/></li>
-<li>把编程视为生命中的重要部分，如同生命所需的空气；<br/></li>
-</ol>
-
-<p>如果你是白天工作型程序员，你看到夜晚工作型程序员，会认为他们不会享受生活。当他们在工作中遇到一些很酷的新技巧而兴奋时，你还会嗤之以鼻。  </p>
-
-<p>去年12月份，swizec.com 的博主写了一篇文章：《为什么程序员喜欢在深夜工作？》，其中是这样写的：  </p>
-
-<p>有句还挺受欢迎的话是，程序员就是把咖啡变成代码的机器。  </p>
-
-<p>果然，随便问一个程序员什么时候效率最高，很有可能他们会说大多是深夜的时候。有些早点，有些晚点。常见的是：在凌晨4点起床，赶在吵闹的一天开始前完成一些工作。另外一些喜欢在凌晨4点睡觉。这种做法的目的是避免干扰。但是你可以锁上门啊，为什么夜晚这么特别呢？  </p>
-
-<p>不光是程序员，对不少行业的从业人员（作家、编辑等）来说，夜深人静时，往往是最容易找到灵感，效率也很高。并且一般进入工作状态后，精神状态甚 佳，也不怎么困，不知不觉就到三四点了。记得在网上看过消息，说晚上11点到凌晨1点这两个小时的睡眠效果最佳。如果这两个小时没睡，白天再补觉，常常也 还是晕乎乎的。熬夜对身体的危害，前天转发的一篇文章已有说明，也无须多言，大家在微博上经常看到不少年纪轻轻的IT或创业人士英年早逝的资讯。如果遇到那种非得通宵加班的项目时，那该怎么办呢？不妨在晚上11点就睡觉，过1点后再起来干活。  </p>
-
-<p>补充：Mitch Denny 的原文后面有很多精彩回复，由于得翻墙，挑选转摘一些评论：  </p>
-
-<p>James Denning：  </p>
-
-<p>You forgot to say that Night Programmers often spend nights fixing the problems day programmers cause (hence partially disagreeign with an earlier comment).  </p>
-
-<p>Day programmers do participate in newsgroups – whining how there’s no work for them in the skills they haven’t bothered to update.  </p>
-
-<p>suhail：  </p>
-
-<p>i won’t agree with the post, i am a programmer and i have seen some geeks and nerds come up with awesome solutions, be it day or night, it depends upon the prgrammer at work, some geeks are early morning sparrows and some are night owls, what ever time your thinking potential is active, its about that.  </p>
-
-<p>Stuart：  </p>
-
-<p>Personally, I think you are wrong… In my opinion the ‘day’ programmer definition you have, applies to stupid people who have managed to slip through an interview process. In my experience, there are plenty of these types around, and tend to be the types who like to drag and drop, place all of their domain logic in an anonymous inner listener, or on the code behind file.  </p>
-
-<p>The ‘night’ programmer definition sounds like the sort of guy who wants to solve the world in code, when all that is required is a simple web page. He over engineers every solution to the point that it is so complex, noone else on his team understands it. He architects a solution in his head and refuses to budge on it… even when it is wrong. He likes to put down other more simple solutions to his, because they are not as ‘impressive’.  </p>
-
-<p>To be honest, in these cases, the night programmer is the guy who will cause you the most trouble.  </p>
-
-<p>I see the distinction between programmers lying along a different line… the one’s who can solve problems in a simple way, and the one’s who cannot.  </p>
-
-<p>This states two things, 1) They are clever enough to solve the problem, and 2) they are clever enough avoid complexity.  </p>
-
-<p>The Real Scoop：  </p>
-
-<p>We need both, and we suffer with both. Don’t appluade yourself becuase, your either. The Problem with Night programmers is that they rarely finish anything. they’re great at introducing new concepts, bleeding edge technologies, and novel solutions, but rarely actually able to apply to completion or within the timeframe of the actual task or project at hand.  </p>
-
-<p>In the real world programming is used to make task more efficient or create a product to sell. Both which equivalate $$$$$. Day programmers on the other hand are able to focus and produce within a defined set of parameters, they are the ones who though often lack creativity or ability to quickly grasp or apply new concept neccessary to optimize a task/project, or independently troubleshoot, but who actually write the code neccesary to complete the task/project.  </p>
-
-<p>Thus creating a viable product or solution that may actually produce income to pay both thier salaries and that of the prima dona’s who love to create and play with all the toys but forget that everything still cost money. So what’s the trump, I appluade the hybrid, those scarse individuals who are able to both find and create novel solutions, as well as actually apply them and actually complete the project or task at hand. We need them all. So don’t over-rate yourself becuase you are one or the other, nor berate the other. Strive to reach the next level, the hybrid capable of working anytime of day, with a passion and preserverance to program.  </p>
-
-<p>solprovider：  </p>
-
-<p>This is not about the time of day people program. It is not about competence. There are a few competent day programmers. There are many incompetent night programmers.  </p>
-
-<p>The difference is the passion.  </p>
-
-<p>A night programmer was born to write software. He learned how to program on his own. He went to college because he heard college let the students play with really cool technology, and failed out because he spent all his time playing with really cool technology. If he gets a corporate job, he makes waves by suggesting things could be better and gets fired for not appearing 9 AM Monday morning after his Friday programming marathon did not end until 4 AM on Monday.  </p>
-
-<p>A day programmer chose computers as his major in college because he heard programmers were paid well. He graduated without knowing how to use a command line. He makes a good corporate employee, working nine-to-five and not thinking about the job at home. He does not make suggestions about how to improve technology; he does not know enough to think of one.  </p>
-
-<p>Businesses survive because they occasionally accidentally hire a night programmer who fixes everything the day programmers wrote before he gets fired.  </p>
-
-<p>编译：伯乐在线 – 黄利民</p>
+<p>官网下载地址：<a href="http://www.omnigroup.com/omnigraffle">http://www.omnigroup.com/omnigraffle</a>  </p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag//"></a>
+                    <a class="tag" href="http://openq.cn/tag/sn/">sn</a>
                     
                 </div>
             </div>
@@ -179,34 +166,28 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/paros-monitoring-iphone-issued-http-requests/">使用Paros监控终端发出的HTTP请求</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/how-to-avoid-exhaustion/">如何避免精疲力竭</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-02-26
+                    2012-07-19
                 </div>
 
                 <div class="text">
-                    <p><strong><em>注</em></strong>：实际上Paros是一个跨平台抓包工具，其原理是通过pc端开放代理-&gt;终端设置pc开放的代理从而实现终端流量经过pc端后进行抓包。本文主要介绍mac通过wifi共享热点来抓包，实际上只要保证pc与终端同时在一个局域网即可实现抓包。另外，如果通过mac共享来抓包的话，还有更多选择比如：HttpScoop、Wireshark，甚至命令行工具tcpflow。  </p>
+                    <p>【雅虎新CEO：白富美中的战斗机】Marissa Mayer，回望其人其事，只能用“强悍”形容：她曾被10所大学同时录取；曾收到14份offer；她是谷歌第20位员工、谷歌历史上首位女工程师；她每周工作130小时，敢在办公室桌子底下睡觉；她的字典里没有“精疲力尽”这个词……来看她早前为商周撰写的文章。自：@商业周刊中文版  </p>
 
-<p>电脑上的许多软件可以监控浏览器发出的HTTP请求, iPhone上有许多连网程序但没有自带软件可以实现监控, 为了方便测试这些请求是否正确而省去在程序中记录请求日志并逐一查找的麻烦, 可以利用Paros这个监控软件来实现.   </p>
+<p>辉郎注：玛丽莎姐姐对节奏的理解我非常赞同，在我看来与其辛苦的玩政治（平衡），不如找准朋友、同事、亲人的节奏！  </p>
 
-<p>以下是实现在Mac上监控iPhone发出的HTTP请求的具体步骤:   </p>
+<p><strong><em>玛丽莎•梅耶尔(Marissa Mayer)</em></strong>  </p>
 
-<ol>
-<li><p>将Mac机器的以太网共享给无线局域网: Mac上: 系统偏好设置-&gt;共享-&gt;Internet 共享, 将”以太网”共享给”AirPort”   </p></li>
-<li><p>查看无线局域网IP: 返回-&gt;网络-&gt;AirPort, 查看到AirPort具有IP地址”169.254.242.107″   </p></li>
-<li><p>设置Paros本地代理: Paros-&gt;Tools-&gt;Options-&gt;Local proxy, Address填上”169.254.242.107″, 端口默认为8080   </p></li>
-<li><p>设置iPhone上网代理: iPhone上: 设置-&gt;无线局域网-&gt;选上Mac机器共享出去的网络-&gt;按”Details”箭头-&gt;Http代理-&gt;手动-&gt;服务器填”169.254.242.107″, 端口填”8080″   </p></li>
-<li><p>查看HTTP请求: iPhone打开访问任何连网程序, 可以在Paros的Sites下看到访问的网站, 右边可以选Reques/Response等信息.  </p></li>
-</ol>
+<p>避免精疲力歇并一定要一天吃三顿饱饭，睡够8小时，甚至不一定需要待在家里。在我看来，精疲力歇主要是由于厌倦情绪。要想战胜这种厌倦情绪，你需要知道究竟因为失去了什么导致你产生这种感觉。我会告诉人们：找准自己的节奏。所谓节奏就是一些对你很重要的事物，如果失去了这些东西，你就会厌恶工作。我这儿以前有个年轻人，刚大学毕业，我就已经看到他露出疲态了。我说：“好好想想，告诉我你的节奏是什么？”他后来告诉我：周二晚上的晚餐。每周二晚上，大学同学都会带自家的美食参加聚餐。如果我错过了这个聚会，接下来的一周，我都会想‘我今晚不想加班到太晚。我连周二聚会都没去成。’“现在我们明白不能再错过他的周二聚会。就这么简单，踏进节奏，那么一周中其他的时间都会更加高效。  </p>
 
-<p>源码地址：<a href="http://sourceforge.net/projects/paros/">http://sourceforge.net/projects/paros/</a>  </p>
+<p>凯蒂的孩子是个足球小将，他负责谷歌金融业务，手下团队在印度班加罗尔，所以她总在午夜1点开电话会议。我一直担心她太辛苦了，但她说：”别担心1点开会这件事。我爱我的团队，一点都不在意。但我不愿意错过孩子的足球赛，或者让孩子看到我在演奏会的时候来晚了。”我们在开会的时候，凯蒂可能会站起来准备走。有的同事说：“哦，凯蒂，就剩五分钟了，不能再等等吗？马上结束了。”我会说：“不，凯蒂得走了。”所以说你要找准你的节奏，找到让你最在乎的地方，小心呵护。你不可能随心所欲，但你应该得到对自己真正重要的东西。这样想能为你提供更加持久的动力，充分投入工作。（谷歌第20号员工）</p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/tools/">tools</a>
+                    <a class="tag" href="http://openq.cn/tag/cultivation/">cultivation</a>
                     
                 </div>
             </div>
@@ -237,6 +218,12 @@
                 <h2>Tag Cloud</h2>
                 <ul>
                 
+                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (3)</a></li>
+                
                 <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
@@ -247,25 +234,25 @@
                 
                 <li><a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine (1)</a></li>
                 
+                <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
+                
                 <li><a class="tag" href="http://openq.cn/tag//"> (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (1)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/design/">design (1)</a></li>
-                
                 <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/webkit/">webkit (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/this-blog/">this blog (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/best-practices/">best practices (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
                 
@@ -277,7 +264,7 @@
                     
                     <li><a href="http://openq.cn/archive/2014/">2014 (3)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2012/">2012 (12)</a></li>
+                    <li><a href="http://openq.cn/archive/2012/">2012 (22)</a></li>
                     
                     <li><a href="http://openq.cn/archive/2011/">2011 (1)</a></li>
                     
