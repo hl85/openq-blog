@@ -9,11 +9,15 @@
 另外，今天刚好看到有人（facebook）在iPhone客户端里，使用了用html写的loading页和error页（貌似菊花动画是用css3实现的，稍后再确定）
 Data URI scheme的html嵌入式，形如：
 
-	<img src=”data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==”/>
+```html
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="/>
+```
 
 如此，在html中嵌入，实际上是将图片进行base64处理，直接写到网页里，从而减少一次网络请求加快页面显示。当然在app中使用:
 
-	<img src=”data:image/png;base64,%@”/>
+```html
+	<img src="data:image/png;base64,%@"/>
+```
 
 这样的办法显示loading页和error页也是很方便的（facebook是这么干的）
 
@@ -44,6 +48,8 @@ Data URI scheme是在RFC2397中定义的，目的是将一些小的数据，直�
 
 base64简单地说，它把一些 8-bit 数据翻译成标准 ASCII 字符，网上有很多免费的base64编码和解码的工具，在PHP中可以用函数base64_encode() 进行编码，如:
 
+```php
 	echo base64_encode(file_get_contents(‘wg.png’));
-	
+```
+
 目前，IE8、Firfox、Chrome、Opera浏览器都支持这种小文件嵌入.
