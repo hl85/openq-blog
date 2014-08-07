@@ -171,62 +171,49 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/use-the-data-in-the-local-application-of-the-uri-scheme/">本地应用里使用Data URI scheme</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/perl-base64-transcoding/">用perl进行base64转码，非常好用的代码</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-03-26
+                    2012-03-27
                 </div>
 
                 <div class="text">
-                    <p>之前跟钟小声一起探讨过关于Data URI scheme 数据传递的问题，就是从objective-c中调用uiwebview或safari显示刚刚处理的图片。UIWebView里边采用这种Data URI scheme很合适，但是oc调用safari就比较麻烦了（url长度有限制），解决方案是自己起一个http的服务，然后传递http://localhost:[port]/[yourpage.html] ，([port]替换成相应的端口，[yourpage.html]替换成相应的页面)，这个时候你怎么显示图片都很容易了。这里有一个问题http service库很庞大，实际上你不用实现完整的http service，只要写一个简单的socket监听就ok了，满足需求就好（当然这超出了本文讨论的范围，可以稍后单独发帖讨论）。  </p>
+                    <p>前一个帖子提到使用base64转码图片直接在浏览器里展示，文中也提供了一段使用php进行转码的代码很简练，但本人没有试用过（总是对php环境配置存在压力感）。我喜欢用perl代码段完成这类小事，下面分享两段好用的base64的encoding、decoding的代码。  </p>
 
-<p>另外，今天刚好看到有人（facebook）在iPhone客户端里，使用了用html写的loading页和error页（貌似菊花动画是用css3实现的，稍后再确定）<br/>
-Data URI scheme的html嵌入式，形如：  </p>
-<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==&quot;</span><span class="nt">/&gt;</span>
+<p>encodeFile.pl : （转码： perl encodeFile.pl test.png test.txt）  </p>
+<div class="highlight"><pre><span class="c1">#!/usr/bin/perl -w  </span>
+
+<span class="k">use</span> <span class="mf">5.012</span><span class="p">;</span>  
+<span class="k">use</span> <span class="nn">MIME::</span><span class="n">Base64</span><span class="p">;</span>  
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>  
+
+<span class="n">croak</span> <span class="err">“</span><span class="n">usage:</span> <span class="nv">$0</span> <span class="n">file</span> <span class="n">save_as</span><span class="err">”</span> <span class="k">if</span> <span class="nv">@ARGV</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$fh</span><span class="p">,</span> <span class="err">‘</span><span class="o">&lt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">binmode</span> <span class="nv">$fh</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$output</span><span class="p">,</span> <span class="err">‘</span><span class="o">&gt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">local</span> <span class="vg">$/</span><span class="p">;</span>  
+<span class="k">print</span> <span class="nv">$output</span> <span class="n">encode_base64</span> <span class="sr">&lt;$fh&gt;</span><span class="p">,</span> <span class="err">”</span><span class="p">;</span>
 </pre></div>
 
-<p>如此，在html中嵌入，实际上是将图片进行base64处理，直接写到网页里，从而减少一次网络请求加快页面显示。当然在app中使用:  </p>
-<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64,%@&quot;</span><span class="nt">/&gt;</span>
+<p>decodeFile.pl（反转：perl decodeFile.pl test.txt new.png）  </p>
+<div class="highlight"><pre><span class="c1">#!/usr/bin/perl -w  </span>
+
+<span class="k">use</span> <span class="mf">5.012</span><span class="p">;</span>  
+<span class="k">use</span> <span class="nn">MIME::</span><span class="n">Base64</span><span class="p">;</span>  
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>  
+<span class="n">croak</span> <span class="err">“</span><span class="n">usage:</span> <span class="nv">$0</span> <span class="n">file</span> <span class="n">decode_to</span><span class="err">”</span> <span class="k">if</span> <span class="nv">@ARGV</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$fh</span><span class="p">,</span> <span class="err">‘</span><span class="o">&lt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$output</span><span class="p">,</span> <span class="err">‘</span><span class="o">&gt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">binmode</span> <span class="nv">$output</span><span class="p">;</span>  
+<span class="nb">local</span> <span class="vg">$/</span><span class="p">;</span>  
+<span class="k">print</span> <span class="nv">$output</span> <span class="n">decode_base64</span> <span class="sr">&lt;$fh&gt;</span><span class="p">;</span>
 </pre></div>
-
-<p>这样的办法显示loading页和error页也是很方便的（facebook是这么干的）  </p>
-
-<p>还有一种是直接通过url传递，你可以将以下代码贴到地址栏，回车看效果（一个小红点儿;）。  </p>
-
-<pre><code>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==</code></pre>
-
-<p>这样可以实现跨域传输数据（如objcetive-c向safari），但是，无奈你也得注意url的长度限制。  </p>
-
-<p>简单科普一下Data URI scheme:  </p>
-
-<p>Data URI scheme是在RFC2397中定义的，目的是将一些小的数据，直接嵌入到网页中，从而不用再从外部文件载入。比如上面那串字符，其实是一张小图片，将这些字符复制黏贴到火狐的地址栏中并转到，就能看到它了，一张1X36的白灰png图片。在上面的Data URI中，data表示取得数据的协定名称，&quot;image/png&quot;是数据类型名称，&quot;base64&quot;是数据的编码方法，逗号后面就是这个image/png文件base64编码后的数据。  </p>
-
-<p>目前，Data URI scheme支持的类型有：  </p>
-
-<pre><code>data:,文本数据  
-data:text/plain,文本数据  
-data:text/html,HTML代码  
-data:text/html;base64,base64编码的HTML代码  
-data:text/css,CSS代码  
-data:text/css;base64,base64编码的CSS代码  
-data:text/javascript,Javascript代码  
-data:text/javascript;base64,base64编码的Javascript代码  
-data:image/gif;base64,base64编码的gif图片数据  
-data:image/png;base64,base64编码的png图片数据  
-data:image/jpeg;base64,base64编码的jpeg图片数据  
-data:image/x-icon;base64,base64编码的icon图片数据</code></pre>
-
-<p>base64简单地说，它把一些 8-bit 数据翻译成标准 ASCII 字符，网上有很多免费的base64编码和解码的工具，在PHP中可以用函数base64_encode() 进行编码，如:  </p>
-<div class="highlight"><pre><span class="x">echo base64_encode(file_get_contents(‘wg.png’));</span>
-</pre></div>
-
-<p>目前，IE8、Firfox、Chrome、Opera浏览器都支持这种小文件嵌入.</p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/front-end/">front end</a>
+                    <a class="tag" href="http://openq.cn/tag/perl/">perl</a>
                     
                 </div>
             </div>
@@ -257,7 +244,9 @@ data:image/x-icon;base64,base64编码的icon图片数据</code></pre>
                 <h2>Tag Cloud</h2>
                 <ul>
                 
-                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (4)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (8)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/Mood/">Mood (4)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
                 
@@ -275,11 +264,9 @@ data:image/x-icon;base64,base64编码的icon图片数据</code></pre>
                 
                 <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag//"> (1)</a></li>
-                
                 <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/perl/">perl (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
                 
@@ -295,6 +282,8 @@ data:image/x-icon;base64,base64编码的icon图片数据</code></pre>
                 
                 <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
                 
+                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
+                
                 </ul>
             </div>
             <div class="col">
@@ -303,9 +292,13 @@ data:image/x-icon;base64,base64编码的icon图片数据</code></pre>
                     
                     <li><a href="http://openq.cn/archive/2014/">2014 (3)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2012/">2012 (22)</a></li>
+                    <li><a href="http://openq.cn/archive/2012/">2012 (23)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2011/">2011 (1)</a></li>
+                    <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2010/">2010 (1)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2009/">2009 (2)</a></li>
                     
                 </ul>
             </div>

@@ -44,6 +44,72 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/use-the-data-in-the-local-application-of-the-uri-scheme/">本地应用里使用Data URI scheme</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-26
+                </div>
+
+                <div class="text">
+                    <p>之前跟钟小声一起探讨过关于Data URI scheme 数据传递的问题，就是从objective-c中调用uiwebview或safari显示刚刚处理的图片。UIWebView里边采用这种Data URI scheme很合适，但是oc调用safari就比较麻烦了（url长度有限制），解决方案是自己起一个http的服务，然后传递http://localhost:[port]/[yourpage.html] ，([port]替换成相应的端口，[yourpage.html]替换成相应的页面)，这个时候你怎么显示图片都很容易了。这里有一个问题http service库很庞大，实际上你不用实现完整的http service，只要写一个简单的socket监听就ok了，满足需求就好（当然这超出了本文讨论的范围，可以稍后单独发帖讨论）。  </p>
+
+<p>另外，今天刚好看到有人（facebook）在iPhone客户端里，使用了用html写的loading页和error页（貌似菊花动画是用css3实现的，稍后再确定）<br/>
+Data URI scheme的html嵌入式，形如：  </p>
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+
+<p>如此，在html中嵌入，实际上是将图片进行base64处理，直接写到网页里，从而减少一次网络请求加快页面显示。当然在app中使用:  </p>
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64,%@&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+
+<p>这样的办法显示loading页和error页也是很方便的（facebook是这么干的）  </p>
+
+<p>还有一种是直接通过url传递，你可以将以下代码贴到地址栏，回车看效果（一个小红点儿;）。  </p>
+
+<pre><code>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==</code></pre>
+
+<p>这样可以实现跨域传输数据（如objcetive-c向safari），但是，无奈你也得注意url的长度限制。  </p>
+
+<p>简单科普一下Data URI scheme:  </p>
+
+<p>Data URI scheme是在RFC2397中定义的，目的是将一些小的数据，直接嵌入到网页中，从而不用再从外部文件载入。比如上面那串字符，其实是一张小图片，将这些字符复制黏贴到火狐的地址栏中并转到，就能看到它了，一张1X36的白灰png图片。在上面的Data URI中，data表示取得数据的协定名称，&quot;image/png&quot;是数据类型名称，&quot;base64&quot;是数据的编码方法，逗号后面就是这个image/png文件base64编码后的数据。  </p>
+
+<p>目前，Data URI scheme支持的类型有：  </p>
+
+<pre><code>data:,文本数据  
+data:text/plain,文本数据  
+data:text/html,HTML代码  
+data:text/html;base64,base64编码的HTML代码  
+data:text/css,CSS代码  
+data:text/css;base64,base64编码的CSS代码  
+data:text/javascript,Javascript代码  
+data:text/javascript;base64,base64编码的Javascript代码  
+data:image/gif;base64,base64编码的gif图片数据  
+data:image/png;base64,base64编码的png图片数据  
+data:image/jpeg;base64,base64编码的jpeg图片数据  
+data:image/x-icon;base64,base64编码的icon图片数据</code></pre>
+
+<p>base64简单地说，它把一些 8-bit 数据翻译成标准 ASCII 字符，网上有很多免费的base64编码和解码的工具，在PHP中可以用函数base64_encode() 进行编码，如:  </p>
+<div class="highlight"><pre><span class="x">echo base64_encode(file_get_contents(‘wg.png’));</span>
+</pre></div>
+
+<p>目前，IE8、Firfox、Chrome、Opera浏览器都支持这种小文件嵌入.</p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/front-end/">front end</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
                 <h2 class="article_title title"><a href="http://openq.cn/facebook-phonegap-mosync-cross-platform-architecture-urine-point-js-framework/">Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度）</a></h2>
                 <div class="article_meta">
                     <span>on</span>
@@ -154,117 +220,6 @@ window.external.notify(data);
         <div class="sep"></div>
     </li>
     
-    <li class="list_item">
-        <div class="article">
-            <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/daytime-working-programmers-vs-night-programmer-translation/">白天工作型程序员 vs 夜晚工作型程序员[译]</a></h2>
-                <div class="article_meta">
-                    <span>on</span>
-                    2012-03-06
-                </div>
-
-                <div class="text">
-                    <p><strong><em>下文观点或许极端，但很有意思</em></strong>  </p>
-
-<p>去年我在公司内部群发过一封邮件，本文就是基于那封邮件，有细微改动。但最近有人建议我，把邮件内容发到我的博客上，让人们看看，我是对的，还是错的呢？  </p>
-
-<p>多年前我就相信，世界上有两种程序员，不管他们用什么技术，我称之为：  </p>
-
-<ol>
-<li>Day Programmers 白天工作型程序员<br/></li>
-<li>Night Programmers 夜晚工作型程序员<br/></li>
-</ol>
-
-<p>如今，这个行业中最常见的是白天工作型程序员，你会在很多容忍一定量的低效的公司/机构中看到他们。他们有如下特征：  </p>
-
-<ol>
-<li>通常处于被领导，很少担当领导；<br/></li>
-<li>难以应对处理复杂情况；<br/></li>
-<li>很难想象出解决方案；<br/></li>
-<li>不会在家打开开发工具；<br/></li>
-<li>通常不参与技术开发社区；<br/></li>
-<li>把编程仅当为“一份工作”；<br/></li>
-</ol>
-
-<p>如果你是夜晚工作型程序员，你很可能很难理解，为什么白天工作型程序员能入行，原因可能就是他们的动力和你的动力有很大不同。夜晚工作型程序员的特征是：  </p>
-
-<ol>
-<li>通常都担当领头角色<br/></li>
-<li>对复杂事情，有深刻理解；<br/></li>
-<li>可以构想出解决方案，并有设计相关的第六感；<br/></li>
-<li>会在家打开 alpha/ctp/beta 版本的工具；<br/></li>
-<li>参与用户群组和邮件列表；<br/></li>
-<li>把编程视为生命中的重要部分，如同生命所需的空气；<br/></li>
-</ol>
-
-<p>如果你是白天工作型程序员，你看到夜晚工作型程序员，会认为他们不会享受生活。当他们在工作中遇到一些很酷的新技巧而兴奋时，你还会嗤之以鼻。  </p>
-
-<p>去年12月份，swizec.com 的博主写了一篇文章：《为什么程序员喜欢在深夜工作？》，其中是这样写的：  </p>
-
-<p>有句还挺受欢迎的话是，程序员就是把咖啡变成代码的机器。  </p>
-
-<p>果然，随便问一个程序员什么时候效率最高，很有可能他们会说大多是深夜的时候。有些早点，有些晚点。常见的是：在凌晨4点起床，赶在吵闹的一天开始前完成一些工作。另外一些喜欢在凌晨4点睡觉。这种做法的目的是避免干扰。但是你可以锁上门啊，为什么夜晚这么特别呢？  </p>
-
-<p>不光是程序员，对不少行业的从业人员（作家、编辑等）来说，夜深人静时，往往是最容易找到灵感，效率也很高。并且一般进入工作状态后，精神状态甚 佳，也不怎么困，不知不觉就到三四点了。记得在网上看过消息，说晚上11点到凌晨1点这两个小时的睡眠效果最佳。如果这两个小时没睡，白天再补觉，常常也 还是晕乎乎的。熬夜对身体的危害，前天转发的一篇文章已有说明，也无须多言，大家在微博上经常看到不少年纪轻轻的IT或创业人士英年早逝的资讯。如果遇到那种非得通宵加班的项目时，那该怎么办呢？不妨在晚上11点就睡觉，过1点后再起来干活。  </p>
-
-<p>补充：Mitch Denny 的原文后面有很多精彩回复，由于得翻墙，挑选转摘一些评论：  </p>
-
-<p>James Denning：  </p>
-
-<p>You forgot to say that Night Programmers often spend nights fixing the problems day programmers cause (hence partially disagreeign with an earlier comment).  </p>
-
-<p>Day programmers do participate in newsgroups – whining how there’s no work for them in the skills they haven’t bothered to update.  </p>
-
-<p>suhail：  </p>
-
-<p>i won’t agree with the post, i am a programmer and i have seen some geeks and nerds come up with awesome solutions, be it day or night, it depends upon the prgrammer at work, some geeks are early morning sparrows and some are night owls, what ever time your thinking potential is active, its about that.  </p>
-
-<p>Stuart：  </p>
-
-<p>Personally, I think you are wrong… In my opinion the ‘day’ programmer definition you have, applies to stupid people who have managed to slip through an interview process. In my experience, there are plenty of these types around, and tend to be the types who like to drag and drop, place all of their domain logic in an anonymous inner listener, or on the code behind file.  </p>
-
-<p>The ‘night’ programmer definition sounds like the sort of guy who wants to solve the world in code, when all that is required is a simple web page. He over engineers every solution to the point that it is so complex, noone else on his team understands it. He architects a solution in his head and refuses to budge on it… even when it is wrong. He likes to put down other more simple solutions to his, because they are not as ‘impressive’.  </p>
-
-<p>To be honest, in these cases, the night programmer is the guy who will cause you the most trouble.  </p>
-
-<p>I see the distinction between programmers lying along a different line… the one’s who can solve problems in a simple way, and the one’s who cannot.  </p>
-
-<p>This states two things, 1) They are clever enough to solve the problem, and 2) they are clever enough avoid complexity.  </p>
-
-<p>The Real Scoop：  </p>
-
-<p>We need both, and we suffer with both. Don’t appluade yourself becuase, your either. The Problem with Night programmers is that they rarely finish anything. they’re great at introducing new concepts, bleeding edge technologies, and novel solutions, but rarely actually able to apply to completion or within the timeframe of the actual task or project at hand.  </p>
-
-<p>In the real world programming is used to make task more efficient or create a product to sell. Both which equivalate $$$$$. Day programmers on the other hand are able to focus and produce within a defined set of parameters, they are the ones who though often lack creativity or ability to quickly grasp or apply new concept neccessary to optimize a task/project, or independently troubleshoot, but who actually write the code neccesary to complete the task/project.  </p>
-
-<p>Thus creating a viable product or solution that may actually produce income to pay both thier salaries and that of the prima dona’s who love to create and play with all the toys but forget that everything still cost money. So what’s the trump, I appluade the hybrid, those scarse individuals who are able to both find and create novel solutions, as well as actually apply them and actually complete the project or task at hand. We need them all. So don’t over-rate yourself becuase you are one or the other, nor berate the other. Strive to reach the next level, the hybrid capable of working anytime of day, with a passion and preserverance to program.  </p>
-
-<p>solprovider：  </p>
-
-<p>This is not about the time of day people program. It is not about competence. There are a few competent day programmers. There are many incompetent night programmers.  </p>
-
-<p>The difference is the passion.  </p>
-
-<p>A night programmer was born to write software. He learned how to program on his own. He went to college because he heard college let the students play with really cool technology, and failed out because he spent all his time playing with really cool technology. If he gets a corporate job, he makes waves by suggesting things could be better and gets fired for not appearing 9 AM Monday morning after his Friday programming marathon did not end until 4 AM on Monday.  </p>
-
-<p>A day programmer chose computers as his major in college because he heard programmers were paid well. He graduated without knowing how to use a command line. He makes a good corporate employee, working nine-to-five and not thinking about the job at home. He does not make suggestions about how to improve technology; he does not know enough to think of one.  </p>
-
-<p>Businesses survive because they occasionally accidentally hire a night programmer who fixes everything the day programmers wrote before he gets fired.  </p>
-
-<p>编译：伯乐在线 – 黄利民</p>
-
-                </div>
-                <div class="article_meta">
-                    <span>tagged:</span>
-                    
-                    <a class="tag" href="http://openq.cn/tag//"></a>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="sep"></div>
-    </li>
-    
 </ul>
 
 
@@ -288,7 +243,9 @@ window.external.notify(data);
                 <h2>Tag Cloud</h2>
                 <ul>
                 
-                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (4)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (8)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/Mood/">Mood (4)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
                 
@@ -306,11 +263,9 @@ window.external.notify(data);
                 
                 <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag//"> (1)</a></li>
-                
                 <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/perl/">perl (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
                 
@@ -326,6 +281,8 @@ window.external.notify(data);
                 
                 <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
                 
+                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
+                
                 </ul>
             </div>
             <div class="col">
@@ -334,9 +291,13 @@ window.external.notify(data);
                     
                     <li><a href="http://openq.cn/archive/2014/">2014 (3)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2012/">2012 (22)</a></li>
+                    <li><a href="http://openq.cn/archive/2012/">2012 (23)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2011/">2011 (1)</a></li>
+                    <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2010/">2010 (1)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2009/">2009 (2)</a></li>
                     
                 </ul>
             </div>
