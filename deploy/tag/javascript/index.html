@@ -4,18 +4,10 @@
 <head>
     <meta charset="utf-8">
     
-
-<meta name="description" content="layoutSubviews何时调用的问题，这个方法是当你需要在调整subview的大小的时候需要重写（我这个翻译不严谨，以下是原文：You should override this method only if the autoresizing behaviors of the subviews">
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="hl13571">
-<meta name="twitter:title" content="layoutSubviews的调用时机（转）">
-<meta name="twitter:description" content="layoutSubviews何时调用的问题，这个方法是当你需要在调整subview的大小的时候需要重写（我这个翻译不严谨，以下是原文：You should override this method only if the autoresizing behaviors of the subviews">
-<meta name="twitter:creator" content="hl13571">
-
+<meta name=description content="javascript,开放 包容 多走些路  本博客文章恢复中...">
 
     <title>
-layoutSubviews的调用时机（转） | openQ
+javascript | openQ
 </title>
     <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
@@ -53,59 +45,17 @@ layoutSubviews的调用时机（转） | openQ
     
 <div class="article">
     <div class="inner">
-        <h2 class="article_title title"><a href="#">layoutSubviews的调用时机（转）</a></h2>
-        <div class="article_meta">
-            <div class="share">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-via="hl13571" data-lang="zh-cn">Tweet</a>
-            </div>
-            <span>on</span>
-            2012-06-04
-        </div>
-
+        <h2 class="title">Articles Tagged as "javascript"</h2>
         <div class="text">
-            <article>
-            <p>layoutSubviews何时调用的问题，这个方法是当你需要在调整subview的大小的时候需要重写（我这个翻译不严谨，以下是原文：You should override this method only if the autoresizing behaviors of the subviews do not offer the behavior you want.），但有时候经常指望它被调用的时候没被调用，不希望它被调用的时候被调用了，搞的很上火。根据国外社区一个人帖子，做了总结性翻译。  </p>
-
-<pre><code>layoutSubviews在以下情况下会被调用：  
-
-    1、init初始化不会触发layoutSubviews  
-    2、addSubview会触发layoutSubviews  
-    3、设置view的Frame会触发layoutSubviews，当然前提是frame的值设置前后发生了变化  
-    4、滚动一个UIScrollView会触发layoutSubviews  
-    5、旋转Screen会触发父UIView上的layoutSubviews事件  
-    6、改变一个UIView大小的时候也会触发父UIView上的layoutSubviews事件  
-    自：http://www.52rd.com/Blog/Detail_RD.Blog_howean_29991.html</code></pre>
-
-            </article>
+            <ul>
+                
+                <li>
+                    <span class="time_stamp">2012-07-19</span>
+                    <a href="http://openq.cn/recommend-a-small-js-the-refresh-chrysanthemum/">推荐一个很小的js刷新菊花</a>
+                </li>
+                
+            </ul>
         </div>
-        
-        <div class="big_sep"></div>
-        <div class="article_meta">
-            <span>tagged:</span>
-            
-                <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
-            
-        </div>
-        
-
-        <div class="big_sep"></div>
-        <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
-        
-    
-        
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-				var disqus_title = "";
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = 'http://openq.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-        
-        
-    
-
     </div>
 </div>
 

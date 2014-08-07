@@ -41,6 +41,7 @@ http://openq.cn/tag/svn/
 http://openq.cn/tag/mac-tools/
 http://openq.cn/tag/cloud-engine/
 http://openq.cn/tag/http/
+http://openq.cn/tag/javascript/
 http://openq.cn/tag/coding/
 http://openq.cn/tag/perl/
 http://openq.cn/tag/sn/

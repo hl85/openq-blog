@@ -1,7 +1,7 @@
 #推荐一个很小的js刷新菊花
 
 - time: 2012-07-19 12:17
-- tags: cultivation
+- tags: javascript
 
 ---
 
