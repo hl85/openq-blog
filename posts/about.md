@@ -6,3 +6,5 @@
 ----
 
 山姆蜀黍是一个快乐的青年~~
+
+欲了解更多请移步本人2011年的《<a href="/satisfaction-and-happiness-self-portrait">自话相</a>》
