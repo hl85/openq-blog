@@ -1,4 +1,4 @@
-#Mac系统下SVN工具推荐(草稿)
+#Mac系统下SVN工具推荐
 
 - time: 2014-08-04 13:18
 - tags: mac tools,svn
