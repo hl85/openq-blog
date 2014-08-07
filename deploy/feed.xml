@@ -7,7 +7,7 @@
     <id>http://openq.cn/</id>
     
     <entry>
-        <title><![CDATA[Mac系统下SVN工具推荐]]></title>
+        <title><![CDATA[Mac系统下SVN工具推荐(草稿)]]></title>
         <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
         <link href="http://openq.cn/svn-tools-for-mac/"/>
         <updated>2014-08-04T13:18:00Z</updated>
@@ -15,11 +15,11 @@
         <id>http://openq.cn/svn-tools-for-mac/</id>
         <content type="html">
             <![CDATA[
-             <p>最推荐：cornerstone（收费）<br/>
+             <p>超级推荐：cornerstone（收费388￥，<a href="https://itunes.apple.com/cn/app/cornerstone/id404789253?mt=12">正版下载</a>，破解版稍后提供）<br/>
 其他：<br/>
-svnx(开源) <a href="http://code.google.com/p/svnx/downloads/list">http://code.google.com/p/svnx/downloads/list</a><br/>
-smartsvn（收费）<br/>
-versions（收费）  </p>
+svnx(开源，<a href="http://code.google.com/p/svnx/downloads/list">点击下载</a>)<br/>
+smartsvn（收费，<a href="https://www.wandisco.com/store/smartsvn-professional">正版下载</a>，破解版稍后提供）<br/>
+versions（收费，<a href="http://www.versionsapp.com/">正版下载</a>，破解版稍后提供）  </p>
 
             ]]>
         </content>
