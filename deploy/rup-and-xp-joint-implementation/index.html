@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+
+<meta name="description" content="人有过什么经验，遇到过什么恐惧的事，就会形成设法避免这种事情的方法学。研究重型方法学的人可能一直以来的经验就是组织上千人的开发队伍进行开发，比如说大型电信系统的开发、军事航天系统的开发&hellip;&hellip;这种项目严格强调过程执行的规范，注重文档规范、评审及过程度量。而发明XP的人可能一直">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="hl13571">
+<meta name="twitter:title" content="RUP与XP的平衡之道[转]">
+<meta name="twitter:description" content="人有过什么经验，遇到过什么恐惧的事，就会形成设法避免这种事情的方法学。研究重型方法学的人可能一直以来的经验就是组织上千人的开发队伍进行开发，比如说大型电信系统的开发、军事航天系统的开发&hellip;&hellip;这种项目严格强调过程执行的规范，注重文档规范、评审及过程度量。而发明XP的人可能一直">
+<meta name="twitter:creator" content="hl13571">
+
+
+    <title>
+RUP与XP的平衡之道[转] | openQ
+</title>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
+    <link rel="stylesheet" href="http://openq.cn/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" href="http://openq.cn/feed.xml" title="openQ" />
+    <link rel="canonical" href=""/>
+    <link rel="shortcut icon" href="http://openq.cn/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
+</head>
+<body>
+<div id="header">
+    <div id="nav_wrapper">
+        <div id="nav">
+            <div class="inner">
+                <h1 id="title"><a href="http://openq.cn/">openQ</a></h1>
+                <div id="description" class="seal">开放 包容 多走些路  本博客文章恢复中...</div>
+                <ul class="right">
+                    
+                    <li><a href="http://openq.cn/about/">about</a></li>
+                    <li class="dot">&bull;</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="header_inner">
+        <div id="social">
+            <a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://openq.cn/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf"></a>
+            <a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://openq.cn/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1"></a>
+            <a href="http://openq.cn/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://openq.cn/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2"></a>
+        </div>
+        <div class="sep"></div>
+    </div>
+</div>
+<div id="content">
+    
+<div class="article">
+    <div class="inner">
+        <h2 class="article_title title"><a href="#">RUP与XP的平衡之道[转]</a></h2>
+        <div class="article_meta">
+            <div class="share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="hl13571" data-lang="zh-cn">Tweet</a>
+            </div>
+            <span>on</span>
+            2007-07-03
+        </div>
+
+        <div class="text">
+            <article>
+            <p class="content">人有过什么经验，遇到过什么恐惧的事，就会形成设法避免这种事情的方法学。研究重型方法学的人可能一直以来的经验就是组织上千人的开发队伍进行开发，比如说大型电信系统的开发、军事航天系统的开发&hellip;&hellip;这种项目严格强调过程执行的规范，注重文档规范、评审及过程度量。而发明XP的人可能一直是在小团队里做项目，项目团队只有3、5个人，项目总是会因为没有满足用户价值而被Cancel，开发公司也蒙受损失，因此注重与用户的交流、反馈，强调快速、灵活。 </p>  
+<p class="content">每种软件方法产生的背景不同、特点不同、适用的领域亦不相同。那么对于软件项目来说，是否可以使用同一种软件开发方法来对不同类型、规模、复杂度的项目来进行开发呢，显然是不合理的。</p>  
+<p class="content">前不久，恰巧和国内一位资深的软件工程咨询顾问做过一些交流，他本人热衷于RUP的过程改进，倡导针对不同类型项目进行适当的裁剪，实际上这也是一种灵活适应的方式、随需而变的思想。我对此是理解并赞同的，但是我对RUP却一直保持一种相对谨慎的态度。 </p>  
+<p class="content">对于RUP来说，首先，我认为它过于理想化和理论化，RUP 是过程组件、方法以及技术的框架，你可以将其应用于任何特定的软件项目，由用户自己限定 RUP 的使用范围。对于各种类型的软件项目，RUP并未给出具体的自身裁减及实施策略，总有些无依据可循的感觉。你既可以说它能解决任何问题，也可以说它什么都不是；其次，RUP从本质来说还是一个强调设计和规范的软件方法，从这个角度来讲，与传统的瀑布模型没有太大差别，它的灵活性较之敏捷方法还是相对较弱的。在一些小型软件项目、特别是不可预测的软件项目开发中，面临着各种紧急需求、面临着时间压力，沿用RUP是很难应付自如的。但是在另一方面，RUP强调对知识的收集、整理和加工定义，强调在软件开发的时候要有好的体系结构。所以它还是很有利于知识的积累和共享的。</p>  
+<p class="content">相比RUP ，敏捷方法如XP则更为灵活，倡导尽早的、持续的交付有价值的软件满足用户需要。用交流沟通取代详尽的文档，强调团队的主动、自律、自我组织和自发管理。而XP也是以代码为核心的一种方法，这里有很多的东西是未知的，知识只存在于两个地方：开发者的头脑和最后的代码。对于项目管理者来说，他们会认为敏捷开发方法弱化了知识管理的概念，而实际上敏捷开发注重的是最有价值的知识的积累和沉淀。</p>  
+<p class="content">如何灵活应对各种项目风险、如何最大化优先满足用户价值、又如何能够有效的控制项目开发过程、如果做好项目过程中的知识管理，是每一个软件项目管理者都需要深入思考的问题。RUP的倡导者一直强调RUP裁剪，实际上我认为RUP不仅仅是需要自身的裁剪，还需要学会融合。在RUP裁剪的同时，适宜的融合敏捷开发的各种实践。不要认为RUP与XP是矛盾的，其实不然，它们具有不同的原理、具有不同的应用领域。在 RUP 中融合了 XP 技术时，才会得到过程的正确量，既满足了项目所有成员的需要，又解决了所有主要的项目风险问题。对于一个工作于高信任环境中的小型项目团队，其中用户是团队的一部分，那么 XP 完全可以胜任。对于团队越来越分散，代码量越来越大，或者构架没有很好定义的情况，您需要做一些其他工作。在用户交互具有&quot;契约&quot;风格的项目中，仅有 XP 是不够的。RUP 是一个框架，可以从 RUP 出发，在必要时以一组更健壮的技术来扩展 XP。 </p>  
+<p class="content">RUP最佳实践包括：</p>  
+<p class="content">&nbsp;1． 迭代开发 <br>　　2． 管理需求 <br>　　3． 使用基于组件的构架 <br>　　4． 可视建模 <br>　　5． 持续的质量验证 <br>　　6． 控制变更 </p>  
+<p class="content">　12 个 XP 实践包括：</p>  
+<p class="content">　◆有计划的开发：通过结合使用优先级&quot;故事&quot;和技术估算，确定下一版本的功能<br>　　◆小版本：以小的增量版本经常向客户发布软件 <br>　　◆隐喻：隐喻是一个简单、共享的&quot;故事&quot;或描述，说明系统如何工作 <br>　　◆简单设计：通过保持代码简单从而保证设计简单。不断的在代码中寻找复杂点并且立刻进行移除 <br>　　◆测试驱动开发：用户编写测试内容以对&quot;故事&quot;进行测试。程序员编写测试内容来发现代码中的任何问题。在编写代码前先编写测试内容 <br>　　◆重构：这是一项简化技术，用来移除代码中的重复内容和复杂之处 <br>　　◆结对编程：团队中的两个成员使用同一台计算机开发所有的代码。一个人编写代码或者驱动，另一个人同时审查代码的正确性和可理解性 <br>　　◆集体代码所有权：任何人都拥有所有的代码。这就意味这每个人都可以在任何时候变更任何代码 <br>　　◆持续集成：每天多次创建和集成系统，只要任何实现任务完成就要进行 <br>　　◆每周 40 个小时：程序员在疲劳时无法保证最高效率。连续两周加班是绝对不允许的 <br>　　◆现场客户：一名真实的客户全时工作于开发环境中，帮助定义系统、编写测试内容并回答问题 <br>　　◆编码标准：程序员采用一致的编码标准证 </p>  
+<p class="content">RUP与XP的融合，是各自特点的相互补充，也是软件开发方法的平衡之道。而对软件技术平衡的思考也可以说是技术成熟的开始吧。</p>  
+<p class="content">最后，再阐明我对软件项目开发的理解。在软件项目开发过程中，应该能够识别、分析不同软件项目的特点，采用相对适合的开发实践来适应软件开发过程，保证对软件开发的有效支持，以便能够创造出“足够好的”软件。而这个足够就是对 进度、成本、质量之间的平衡，最大化满足客户需要的实现。</p>  
+                                    
+
+            </article>
+        </div>
+        
+        <div class="big_sep"></div>
+        <div class="article_meta">
+            <span>tagged:</span>
+            
+                <a class="tag" href="http://openq.cn/tag/process-management/">process management</a>
+            
+                <a class="tag" href="http://openq.cn/tag/cultivation/">cultivation</a>
+            
+        </div>
+        
+
+        <div class="big_sep"></div>
+        <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+        
+    
+        
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+				var disqus_title = "";
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://openq.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+        
+        
+    
+
+    </div>
+</div>
+
+</div>
+<div id="footer_wrapper">
+    <div id="footer">
+        <div id="footer_inner">
+            <div class="tag_cloud col">
+                <h2>Tag Cloud</h2>
+                <ul>
+                
+                <li><a class="tag" href="http://openq.cn/tag/Mood/">Mood (25)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (20)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (3)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/funny/">funny (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/process-management/">process management (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/perl/">perl (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/test/">test (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/best-practices/">best practices (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/viewpoint/">viewpoint (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/memo/">memo (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/javascript/">javascript (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/webkit/">webkit (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/this-blog/">this blog (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/svn/">svn (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/mac-tools/">mac tools (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
+                
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Archives</h2>
+                <ul>
+                    
+                    <li><a href="http://openq.cn/archive/2014/">2014 (3)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2012/">2012 (23)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2010/">2010 (1)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2009/">2009 (2)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2007/">2007 (7)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2006/">2006 (10)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2005/">2005 (12)</a></li>
+                    
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Links</h2>
+                <ul>
+                    
+                    <li><a href="http://openq.cn" title="That's Nice!" target="_blank">openQ</a></li>
+                    
+                </ul>
+            </div>
+            <div class="copyright">
+                Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
+                <span>&bull;</span>
+                SealScript Theme by <a href="http://lyric.im">Lyric</a>
+                <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

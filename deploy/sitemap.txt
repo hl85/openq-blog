@@ -33,7 +33,10 @@ http://openq.cn/sefl-moving/
 http://openq.cn/old-page-is-over/
 http://openq.cn/what-is-love/
 http://openq.cn/autumn-is-coming/
+http://openq.cn/rup-and-xp-joint-implementation/
 http://openq.cn/talk-about-emotional-management-after-my-emotion/
+http://openq.cn/wrote-to-collegues-motto/
+http://openq.cn/talk-about-a-smoke-test/
 http://openq.cn/recently-after-the-jump/
 http://openq.cn/msn-space-changes-are-huge/
 http://openq.cn/riched-first-donot-lead-not-rich/
@@ -46,6 +49,7 @@ http://openq.cn/love-algorithm/
 http://openq.cn/donot-karoshi/
 http://openq.cn/women-should-know-funny-english-sentences/
 http://openq.cn/fathers-confession/
+http://openq.cn/the-ignorant-audacity/
 http://openq.cn/so-tired-allways-working-overtime/
 http://openq.cn/believe-the-future/
 http://openq.cn/addiction/
@@ -63,10 +67,12 @@ http://openq.cn/tag/iOS/
 http://openq.cn/tag/funny/
 http://openq.cn/tag/hybrid/
 http://openq.cn/tag/front-end/
+http://openq.cn/tag/process-management/
 http://openq.cn/tag/coding/
 http://openq.cn/tag/tools/
 http://openq.cn/tag/regex/
 http://openq.cn/tag/perl/
+http://openq.cn/tag/test/
 http://openq.cn/tag/best-practices/
 http://openq.cn/tag/meeting/
 http://openq.cn/tag/cloud-engine/
@@ -108,4 +114,6 @@ http://openq.cn/page/16/
 http://openq.cn/page/17/
 http://openq.cn/page/18/
 http://openq.cn/page/19/
+http://openq.cn/page/20/
+http://openq.cn/page/21/
 http://openq.cn/404.html
