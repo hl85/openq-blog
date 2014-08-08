@@ -21,4 +21,4 @@ FREEHOSTING.COM的免费服务也很不错，空间1G，支持php、mysql等，�
 1、在域名提供商那里设置将appfanr的Name Server变换过去。
 2、在空间设置里填入301转向。
 齐活儿！
-现在大家可以访问一下<a href="http://appfanr.com">http://appfanr.com</a>，另外也可以查一下**whois appfanr.com**，服务、速度比以前见过的很多收费空间都不差！关键是，不被墙啊！
+现在大家可以访问一下<a href="http://appfanr.com">http://appfanr.com</a>，另外也可以命令行查一下:**whois appfanr.com** 或者是 **dig appfanr.com**，服务、速度比以前见过的很多收费空间都不差！关键是，不被墙啊！
