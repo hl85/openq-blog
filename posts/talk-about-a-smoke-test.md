@@ -1,7 +1,7 @@
 #冒烟儿了吗，您？
 
 - time: 2007-02-11 17:48
-- tags: test
+- tags: test,cultivation
  
 ---
 <p align="center"><strong>&nbsp;</strong></p>
