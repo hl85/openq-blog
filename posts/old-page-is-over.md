@@ -1,7 +1,7 @@
 #旧的一页翻过
 
 - time: 2007-10-14 22:19
-- tags: Mood，cultivation
+- tags: Mood,cultivation
 
 ---
 转眼，又一年过去了，好快！
