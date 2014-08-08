@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /archive/
+Allow: /page/
+Allow: /tag/
+Allow: /
