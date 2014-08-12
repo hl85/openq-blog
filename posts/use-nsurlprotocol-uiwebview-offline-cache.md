@@ -39,7 +39,7 @@ Matt Gallagher 有一些有趣的想法，使用NSURLCache的子类来实现，�
 
 一定要看Nick Dowell在评论中回复的对于redirect的解决办法：（Code to fix HTTP redirect handling: <a href="https://gist.github.com/1885821">https://gist.github.com/1885821</a>）
 
-```oc
+```c++
 (NSURLRequest*)connection:(NSURLConnection*)connection willSendRequest:(NSURLRequest*)request redirectResponse:(NSURLResponse*)response{
 	if([response isKindOfClass:[NSHTTPURLResponseclass]])
 	{

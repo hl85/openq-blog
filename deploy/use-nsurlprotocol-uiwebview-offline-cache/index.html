@@ -98,21 +98,21 @@
 <p>参见demo中的类文件：RNCachingURLProtocol.m。  </p>
 
 <p>一定要看Nick Dowell在评论中回复的对于redirect的解决办法：（Code to fix HTTP redirect handling: <a href="https://gist.github.com/1885821"><a href="https://gist.github.com/1885821">https://gist.github.com/1885821</a></a>）  </p>
-
-<pre><code>(NSURLRequest*)connection:(NSURLConnection*)connection willSendRequest:(NSURLRequest*)request redirectResponse:(NSURLResponse*)response{  
-    if([response isKindOfClass:[NSHTTPURLResponseclass]])  
-    {  
-        NSHTTPURLResponse*HTTPResponse=(NSHTTPURLResponse*)response;  
-        if([HTTPResponsestatusCode]==301||[HTTPResponsestatusCode]==302)  
-        {  
-            NSMutableURLRequest*mutableRequest=[request mutableCopy];  
-            [mutableRequest setURL:[NSURL URLWithString:[[HTTPResponseallHeaderFields] objectForKey:@”Location”]]];  
-            request=[mutableRequest copy];  
-            [[selfclient] URLProtocol:self wasRedirectedToRequest:request redirectResponse:response];  
-        }  
-    }  
-    return request;  
-}</code></pre>
+<div class="highlight"><pre><span class="p">(</span><span class="n">NSURLRequest</span><span class="o">*</span><span class="p">)</span><span class="n">connection</span><span class="o">:</span><span class="p">(</span><span class="n">NSURLConnection</span><span class="o">*</span><span class="p">)</span><span class="n">connection</span> <span class="n">willSendRequest</span><span class="o">:</span><span class="p">(</span><span class="n">NSURLRequest</span><span class="o">*</span><span class="p">)</span><span class="n">request</span> <span class="n">redirectResponse</span><span class="o">:</span><span class="p">(</span><span class="n">NSURLResponse</span><span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">{</span>  
+    <span class="k">if</span><span class="p">([</span><span class="n">response</span> <span class="n">isKindOfClass</span><span class="o">:</span><span class="p">[</span><span class="n">NSHTTPURLResponseclass</span><span class="p">]])</span>  
+    <span class="p">{</span>  
+        <span class="n">NSHTTPURLResponse</span><span class="o">*</span><span class="n">HTTPResponse</span><span class="o">=</span><span class="p">(</span><span class="n">NSHTTPURLResponse</span><span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">;</span>  
+        <span class="k">if</span><span class="p">([</span><span class="n">HTTPResponsestatusCode</span><span class="p">]</span><span class="o">==</span><span class="mi">301</span><span class="o">||</span><span class="p">[</span><span class="n">HTTPResponsestatusCode</span><span class="p">]</span><span class="o">==</span><span class="mi">302</span><span class="p">)</span>  
+        <span class="p">{</span>  
+            <span class="n">NSMutableURLRequest</span><span class="o">*</span><span class="n">mutableRequest</span><span class="o">=</span><span class="p">[</span><span class="n">request</span> <span class="n">mutableCopy</span><span class="p">];</span>  
+            <span class="p">[</span><span class="n">mutableRequest</span> <span class="n">setURL</span><span class="o">:</span><span class="p">[</span><span class="n">NSURL</span> <span class="n">URLWithString</span><span class="o">:</span><span class="p">[[</span><span class="n">HTTPResponseallHeaderFields</span><span class="p">]</span> <span class="n">objectForKey</span><span class="o">:</span><span class="err">@”</span><span class="n">Location</span><span class="err">”</span><span class="p">]]];</span>  
+            <span class="n">request</span><span class="o">=</span><span class="p">[</span><span class="n">mutableRequest</span> <span class="n">copy</span><span class="p">];</span>  
+            <span class="p">[[</span><span class="n">selfclient</span><span class="p">]</span> <span class="n">URLProtocol</span><span class="o">:</span><span class="n">self</span> <span class="n">wasRedirectedToRequest</span><span class="o">:</span><span class="n">request</span> <span class="n">redirectResponse</span><span class="o">:</span><span class="n">response</span><span class="p">];</span>  
+        <span class="p">}</span>  
+    <span class="p">}</span>  
+    <span class="k">return</span> <span class="n">request</span><span class="p">;</span>  
+<span class="p">}</span>
+</pre></div>
 
 <p>如果你有兴趣的话可以读一下我这篇小文：<a href = "http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-reading/">NSURLCache实现离线阅读的一点小心得</a></p>
 
