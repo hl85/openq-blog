@@ -28,5 +28,5 @@
 	- cnblogs（***完成***）
  2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。**进行中**
  3、把最近关注的问题都写出来。**进行中**
- 4、学习YAML，让界面表达更丰富一点。**已处理**
- 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。利用FREEHOSTING.COM提供的免费服务解决[参见:<a href="/cloud-cant-do">云引擎做不到</a>]。**已完成**
+ 4、学习YAML，让界面表达更丰富一点。**完成**
+ 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。利用FREEHOSTING.COM提供的免费服务解决[参见:<a href="/cloud-cant-do">云引擎做不到</a>]。**完成**

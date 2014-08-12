@@ -22,6 +22,7 @@ http://openq.cn/layoutsubviews-call-time-turn/
 http://openq.cn/perl-base64-transcoding/
 http://openq.cn/use-the-data-in-the-local-application-of-the-uri-scheme/
 http://openq.cn/facebook-phonegap-mosync-cross-platform-architecture-urine-point-js-framework/
+http://openq.cn/xcode-ios-unit-test/
 http://openq.cn/html5-mobile-development-practices/
 http://openq.cn/daytime-working-programmers-vs-night-programmer-translation/
 http://openq.cn/paros-monitoring-iphone-issued-http-requests/
@@ -72,6 +73,7 @@ http://openq.cn/tag/tools/
 http://openq.cn/tag/funny/
 http://openq.cn/tag/hybrid/
 http://openq.cn/tag/front-end/
+http://openq.cn/tag//
 http://openq.cn/tag/process-management/
 http://openq.cn/tag/coding/
 http://openq.cn/tag/regex/
