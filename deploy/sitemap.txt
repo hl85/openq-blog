@@ -73,7 +73,7 @@ http://openq.cn/tag/tools/
 http://openq.cn/tag/funny/
 http://openq.cn/tag/hybrid/
 http://openq.cn/tag/front-end/
-http://openq.cn/tag/process-management/
+http://openq.cn/tag/process/
 http://openq.cn/tag/coding/
 http://openq.cn/tag/regex/
 http://openq.cn/tag/perl/
