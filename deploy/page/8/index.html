@@ -11,7 +11,6 @@
     <link rel="alternate" type="application/rss+xml" href="http://openq.cn/feed.xml" title="openQ" />
     <link rel="canonical" href=""/>
     <link rel="shortcut icon" href="http://openq.cn/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
-<meta name="sogou_site_verification" content="DvH7RlS783"/>
 </head>
 <body>
 <div id="header">
@@ -19,7 +18,7 @@
         <div id="nav">
             <div class="inner">
                 <h1 id="title"><a href="http://openq.cn/">openQ</a></h1>
-                <div id="description" class="seal">开放 包容 多走些路  本博客文章恢复中...</div>
+                <div id="description" class="seal">开放 包容 多走些路  本博客界面风格重定义中</div>
                 <ul class="right">
                     
                     <li><a href="http://openq.cn/about/">about</a></li>
@@ -45,107 +44,49 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/daytime-working-programmers-vs-night-programmer-translation/">白天工作型程序员 vs 夜晚工作型程序员[译]</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/perl-base64-transcoding/">用perl进行base64转码，非常好用的代码</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-03-06
+                    2012-03-27
                 </div>
 
                 <div class="text">
-                    <p><strong><em>下文观点或许极端，但很有意思</em></strong>  </p>
+                    <p>前一个帖子提到使用base64转码图片直接在浏览器里展示，文中也提供了一段使用php进行转码的代码很简练，但本人没有试用过（总是对php环境配置存在压力感）。我喜欢用perl代码段完成这类小事，下面分享两段好用的base64的encoding、decoding的代码。  </p>
 
-<p>去年我在公司内部群发过一封邮件，本文就是基于那封邮件，有细微改动。但最近有人建议我，把邮件内容发到我的博客上，让人们看看，我是对的，还是错的呢？  </p>
+<p>encodeFile.pl : （转码： perl encodeFile.pl test.png test.txt）  </p>
+<div class="highlight"><pre><span class="c1">#!/usr/bin/perl -w  </span>
 
-<p>多年前我就相信，世界上有两种程序员，不管他们用什么技术，我称之为：  </p>
+<span class="k">use</span> <span class="mf">5.012</span><span class="p">;</span>  
+<span class="k">use</span> <span class="nn">MIME::</span><span class="n">Base64</span><span class="p">;</span>  
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>  
 
-<ol>
-<li>Day Programmers 白天工作型程序员<br/></li>
-<li>Night Programmers 夜晚工作型程序员<br/></li>
-</ol>
+<span class="n">croak</span> <span class="err">“</span><span class="n">usage:</span> <span class="nv">$0</span> <span class="n">file</span> <span class="n">save_as</span><span class="err">”</span> <span class="k">if</span> <span class="nv">@ARGV</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$fh</span><span class="p">,</span> <span class="err">‘</span><span class="o">&lt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">binmode</span> <span class="nv">$fh</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$output</span><span class="p">,</span> <span class="err">‘</span><span class="o">&gt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">local</span> <span class="vg">$/</span><span class="p">;</span>  
+<span class="k">print</span> <span class="nv">$output</span> <span class="n">encode_base64</span> <span class="sr">&lt;$fh&gt;</span><span class="p">,</span> <span class="err">”</span><span class="p">;</span>
+</pre></div>
 
-<p>如今，这个行业中最常见的是白天工作型程序员，你会在很多容忍一定量的低效的公司/机构中看到他们。他们有如下特征：  </p>
+<p>decodeFile.pl（反转：perl decodeFile.pl test.txt new.png）  </p>
+<div class="highlight"><pre><span class="c1">#!/usr/bin/perl -w  </span>
 
-<ol>
-<li>通常处于被领导，很少担当领导；<br/></li>
-<li>难以应对处理复杂情况；<br/></li>
-<li>很难想象出解决方案；<br/></li>
-<li>不会在家打开开发工具；<br/></li>
-<li>通常不参与技术开发社区；<br/></li>
-<li>把编程仅当为“一份工作”；<br/></li>
-</ol>
-
-<p>如果你是夜晚工作型程序员，你很可能很难理解，为什么白天工作型程序员能入行，原因可能就是他们的动力和你的动力有很大不同。夜晚工作型程序员的特征是：  </p>
-
-<ol>
-<li>通常都担当领头角色<br/></li>
-<li>对复杂事情，有深刻理解；<br/></li>
-<li>可以构想出解决方案，并有设计相关的第六感；<br/></li>
-<li>会在家打开 alpha/ctp/beta 版本的工具；<br/></li>
-<li>参与用户群组和邮件列表；<br/></li>
-<li>把编程视为生命中的重要部分，如同生命所需的空气；<br/></li>
-</ol>
-
-<p>如果你是白天工作型程序员，你看到夜晚工作型程序员，会认为他们不会享受生活。当他们在工作中遇到一些很酷的新技巧而兴奋时，你还会嗤之以鼻。  </p>
-
-<p>去年12月份，swizec.com 的博主写了一篇文章：《为什么程序员喜欢在深夜工作？》，其中是这样写的：  </p>
-
-<p>有句还挺受欢迎的话是，程序员就是把咖啡变成代码的机器。  </p>
-
-<p>果然，随便问一个程序员什么时候效率最高，很有可能他们会说大多是深夜的时候。有些早点，有些晚点。常见的是：在凌晨4点起床，赶在吵闹的一天开始前完成一些工作。另外一些喜欢在凌晨4点睡觉。这种做法的目的是避免干扰。但是你可以锁上门啊，为什么夜晚这么特别呢？  </p>
-
-<p>不光是程序员，对不少行业的从业人员（作家、编辑等）来说，夜深人静时，往往是最容易找到灵感，效率也很高。并且一般进入工作状态后，精神状态甚 佳，也不怎么困，不知不觉就到三四点了。记得在网上看过消息，说晚上11点到凌晨1点这两个小时的睡眠效果最佳。如果这两个小时没睡，白天再补觉，常常也 还是晕乎乎的。熬夜对身体的危害，前天转发的一篇文章已有说明，也无须多言，大家在微博上经常看到不少年纪轻轻的IT或创业人士英年早逝的资讯。如果遇到那种非得通宵加班的项目时，那该怎么办呢？不妨在晚上11点就睡觉，过1点后再起来干活。  </p>
-
-<p>补充：Mitch Denny 的原文后面有很多精彩回复，由于得翻墙，挑选转摘一些评论：  </p>
-
-<p>James Denning：  </p>
-
-<p>You forgot to say that Night Programmers often spend nights fixing the problems day programmers cause (hence partially disagreeign with an earlier comment).  </p>
-
-<p>Day programmers do participate in newsgroups – whining how there’s no work for them in the skills they haven’t bothered to update.  </p>
-
-<p>suhail：  </p>
-
-<p>i won’t agree with the post, i am a programmer and i have seen some geeks and nerds come up with awesome solutions, be it day or night, it depends upon the prgrammer at work, some geeks are early morning sparrows and some are night owls, what ever time your thinking potential is active, its about that.  </p>
-
-<p>Stuart：  </p>
-
-<p>Personally, I think you are wrong… In my opinion the ‘day’ programmer definition you have, applies to stupid people who have managed to slip through an interview process. In my experience, there are plenty of these types around, and tend to be the types who like to drag and drop, place all of their domain logic in an anonymous inner listener, or on the code behind file.  </p>
-
-<p>The ‘night’ programmer definition sounds like the sort of guy who wants to solve the world in code, when all that is required is a simple web page. He over engineers every solution to the point that it is so complex, noone else on his team understands it. He architects a solution in his head and refuses to budge on it… even when it is wrong. He likes to put down other more simple solutions to his, because they are not as ‘impressive’.  </p>
-
-<p>To be honest, in these cases, the night programmer is the guy who will cause you the most trouble.  </p>
-
-<p>I see the distinction between programmers lying along a different line… the one’s who can solve problems in a simple way, and the one’s who cannot.  </p>
-
-<p>This states two things, 1) They are clever enough to solve the problem, and 2) they are clever enough avoid complexity.  </p>
-
-<p>The Real Scoop：  </p>
-
-<p>We need both, and we suffer with both. Don’t appluade yourself becuase, your either. The Problem with Night programmers is that they rarely finish anything. they’re great at introducing new concepts, bleeding edge technologies, and novel solutions, but rarely actually able to apply to completion or within the timeframe of the actual task or project at hand.  </p>
-
-<p>In the real world programming is used to make task more efficient or create a product to sell. Both which equivalate $$$$$. Day programmers on the other hand are able to focus and produce within a defined set of parameters, they are the ones who though often lack creativity or ability to quickly grasp or apply new concept neccessary to optimize a task/project, or independently troubleshoot, but who actually write the code neccesary to complete the task/project.  </p>
-
-<p>Thus creating a viable product or solution that may actually produce income to pay both thier salaries and that of the prima dona’s who love to create and play with all the toys but forget that everything still cost money. So what’s the trump, I appluade the hybrid, those scarse individuals who are able to both find and create novel solutions, as well as actually apply them and actually complete the project or task at hand. We need them all. So don’t over-rate yourself becuase you are one or the other, nor berate the other. Strive to reach the next level, the hybrid capable of working anytime of day, with a passion and preserverance to program.  </p>
-
-<p>solprovider：  </p>
-
-<p>This is not about the time of day people program. It is not about competence. There are a few competent day programmers. There are many incompetent night programmers.  </p>
-
-<p>The difference is the passion.  </p>
-
-<p>A night programmer was born to write software. He learned how to program on his own. He went to college because he heard college let the students play with really cool technology, and failed out because he spent all his time playing with really cool technology. If he gets a corporate job, he makes waves by suggesting things could be better and gets fired for not appearing 9 AM Monday morning after his Friday programming marathon did not end until 4 AM on Monday.  </p>
-
-<p>A day programmer chose computers as his major in college because he heard programmers were paid well. He graduated without knowing how to use a command line. He makes a good corporate employee, working nine-to-five and not thinking about the job at home. He does not make suggestions about how to improve technology; he does not know enough to think of one.  </p>
-
-<p>Businesses survive because they occasionally accidentally hire a night programmer who fixes everything the day programmers wrote before he gets fired.  </p>
-
-<p>编译：伯乐在线 – 黄利民</p>
+<span class="k">use</span> <span class="mf">5.012</span><span class="p">;</span>  
+<span class="k">use</span> <span class="nn">MIME::</span><span class="n">Base64</span><span class="p">;</span>  
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>  
+<span class="n">croak</span> <span class="err">“</span><span class="n">usage:</span> <span class="nv">$0</span> <span class="n">file</span> <span class="n">decode_to</span><span class="err">”</span> <span class="k">if</span> <span class="nv">@ARGV</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$fh</span><span class="p">,</span> <span class="err">‘</span><span class="o">&lt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$output</span><span class="p">,</span> <span class="err">‘</span><span class="o">&gt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">binmode</span> <span class="nv">$output</span><span class="p">;</span>  
+<span class="nb">local</span> <span class="vg">$/</span><span class="p">;</span>  
+<span class="k">print</span> <span class="nv">$output</span> <span class="n">decode_base64</span> <span class="sr">&lt;$fh&gt;</span><span class="p">;</span>
+</pre></div>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/cultivation/">cultivation</a>
+                    <a class="tag" href="http://openq.cn/tag/perl/">perl</a>
                     
                 </div>
             </div>
@@ -156,34 +97,62 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/paros-monitoring-iphone-issued-http-requests/">使用Paros监控终端发出的HTTP请求</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/use-the-data-in-the-local-application-of-the-uri-scheme/">本地应用里使用Data URI scheme</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-02-26
+                    2012-03-26
                 </div>
 
                 <div class="text">
-                    <p><strong><em>注</em></strong>：实际上Paros是一个跨平台抓包工具，其原理是通过pc端开放代理-&gt;终端设置pc开放的代理从而实现终端流量经过pc端后进行抓包。本文主要介绍mac通过wifi共享热点来抓包，实际上只要保证pc与终端同时在一个局域网即可实现抓包。另外，如果通过mac共享来抓包的话，还有更多选择比如：HttpScoop、Wireshark，甚至命令行工具tcpflow。  </p>
+                    <p>之前跟钟小声一起探讨过关于Data URI scheme 数据传递的问题，就是从objective-c中调用uiwebview或safari显示刚刚处理的图片。UIWebView里边采用这种Data URI scheme很合适，但是oc调用safari就比较麻烦了（url长度有限制），解决方案是自己起一个http的服务，然后传递http://localhost:[port]/[yourpage.html] ，([port]替换成相应的端口，[yourpage.html]替换成相应的页面)，这个时候你怎么显示图片都很容易了。这里有一个问题http service库很庞大，实际上你不用实现完整的http service，只要写一个简单的socket监听就ok了，满足需求就好（当然这超出了本文讨论的范围，可以稍后单独发帖讨论）。  </p>
 
-<p>电脑上的许多软件可以监控浏览器发出的HTTP请求, iPhone上有许多连网程序但没有自带软件可以实现监控, 为了方便测试这些请求是否正确而省去在程序中记录请求日志并逐一查找的麻烦, 可以利用Paros这个监控软件来实现.   </p>
+<p>另外，今天刚好看到有人（facebook）在iPhone客户端里，使用了用html写的loading页和error页（貌似菊花动画是用css3实现的，稍后再确定）<br/>
+Data URI scheme的html嵌入式，形如：  </p>
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
 
-<p>以下是实现在Mac上监控iPhone发出的HTTP请求的具体步骤:   </p>
+<p>如此，在html中嵌入，实际上是将图片进行base64处理，直接写到网页里，从而减少一次网络请求加快页面显示。当然在app中使用:  </p>
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64,%@&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
 
-<ol>
-<li><p>将Mac机器的以太网共享给无线局域网: Mac上: 系统偏好设置-&gt;共享-&gt;Internet 共享, 将”以太网”共享给”AirPort”   </p></li>
-<li><p>查看无线局域网IP: 返回-&gt;网络-&gt;AirPort, 查看到AirPort具有IP地址”169.254.242.107″   </p></li>
-<li><p>设置Paros本地代理: Paros-&gt;Tools-&gt;Options-&gt;Local proxy, Address填上”169.254.242.107″, 端口默认为8080   </p></li>
-<li><p>设置iPhone上网代理: iPhone上: 设置-&gt;无线局域网-&gt;选上Mac机器共享出去的网络-&gt;按”Details”箭头-&gt;Http代理-&gt;手动-&gt;服务器填”169.254.242.107″, 端口填”8080″   </p></li>
-<li><p>查看HTTP请求: iPhone打开访问任何连网程序, 可以在Paros的Sites下看到访问的网站, 右边可以选Reques/Response等信息.  </p></li>
-</ol>
+<p>这样的办法显示loading页和error页也是很方便的（facebook是这么干的）  </p>
 
-<p>源码地址：<a href="http://sourceforge.net/projects/paros/">http://sourceforge.net/projects/paros/</a>  </p>
+<p>还有一种是直接通过url传递，你可以将以下代码贴到地址栏，回车看效果（一个小红点儿;）。  </p>
+
+<pre><code>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==</code></pre>
+
+<p>这样可以实现跨域传输数据（如objcetive-c向safari），但是，无奈你也得注意url的长度限制。  </p>
+
+<p>简单科普一下Data URI scheme:  </p>
+
+<p>Data URI scheme是在RFC2397中定义的，目的是将一些小的数据，直接嵌入到网页中，从而不用再从外部文件载入。比如上面那串字符，其实是一张小图片，将这些字符复制黏贴到火狐的地址栏中并转到，就能看到它了，一张1X36的白灰png图片。在上面的Data URI中，data表示取得数据的协定名称，&quot;image/png&quot;是数据类型名称，&quot;base64&quot;是数据的编码方法，逗号后面就是这个image/png文件base64编码后的数据。  </p>
+
+<p>目前，Data URI scheme支持的类型有：  </p>
+
+<pre><code>data:,文本数据  
+data:text/plain,文本数据  
+data:text/html,HTML代码  
+data:text/html;base64,base64编码的HTML代码  
+data:text/css,CSS代码  
+data:text/css;base64,base64编码的CSS代码  
+data:text/javascript,Javascript代码  
+data:text/javascript;base64,base64编码的Javascript代码  
+data:image/gif;base64,base64编码的gif图片数据  
+data:image/png;base64,base64编码的png图片数据  
+data:image/jpeg;base64,base64编码的jpeg图片数据  
+data:image/x-icon;base64,base64编码的icon图片数据</code></pre>
+
+<p>base64简单地说，它把一些 8-bit 数据翻译成标准 ASCII 字符，网上有很多免费的base64编码和解码的工具，在PHP中可以用函数base64_encode() 进行编码，如:  </p>
+<div class="highlight"><pre><span class="x">echo base64_encode(file_get_contents(‘wg.png’));</span>
+</pre></div>
+
+<p>目前，IE8、Firfox、Chrome、Opera浏览器都支持这种小文件嵌入.</p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/tools/">tools</a>
+                    <a class="tag" href="http://openq.cn/tag/front-end/">front end</a>
                     
                 </div>
             </div>
@@ -194,22 +163,85 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/ios-regex/">iOS正则表达式最佳实践</a></h2>
+                <h2 class="article_title title"><a href="http://openq.cn/facebook-phonegap-mosync-cross-platform-architecture-urine-point-js-framework/">Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度）</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-01-31
+                    2012-03-22
                 </div>
 
                 <div class="text">
-                    <p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp; 以前做服务器，经常要用到正则，现在做客户端了，问了好多人都不太了解这玩意儿，感觉甚是可惜啊。 后来，ipad客户端里需要过滤数据包里的url用到了正则，也查阅了一些资料，发现中文社区这块儿的资料是在是滞后。好多人还在推荐“RegexKitLite”，没有用过这个玩意儿，所以不予置评（不过很多人评价bug多多）。 查阅苹果的文档发现，iOS4之后苹果类库对正则支持的已经很不错了！于是，在团队中各种忽悠，也有不少人开始学习使用正则表达了。 长话短说，今天就对iOS中正则使用这块儿做一个简单的介绍，其中会用到苹果官方的例子，拄个拐棍儿。&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;<b>一、工欲善其事，</b><b>必先利其器。</b></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  下面介绍几个我常用的正则表达式工具:</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  1、 regexbuddy，这是windows下巨经典的正则工具，6年的服务器开发经历中这个工具帮了我不少忙，现在偶尔也会为使用这个工具开一下windows虚拟机。这个工具是一个收费软件我使用的免费的demo版，足够用了。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;min-height: 12.0px;"></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  2、regexr，一个免费的跨平台正则表达式工具也很好用，只是不支持匹配结果输出，文本替换等，跟regex buddy不是一个级别，严格地说这是一个正则测试工具。但是，mac下本身工具缺乏，聊胜于无了。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  下载地址：<a href="http://gskinner.com/RegExr/" target="_blank">http://gskinner.com/RegExr/</a></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;min-height: 12.0px;"></p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  3、RegexPal，一个很好用的正则测试工具，在线的。</p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  网址：<a href="http://regexpal.com/" target="_blank">http://regexpal.com/</a></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  其他正则工具会陆续发布到这个页面上&hellip;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">      <strong>&nbsp;二、 正则表达式简介。</strong>&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;正则表达式，就是用某种模式去匹配一类字符串的一个公式。其应用十分广泛这个就不多啰嗦了。下面简单介绍一下正则的基础：&nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  &nbsp;</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  1、正则是由普通字符和元字符组成的，主要的元字符见下表（浏览一下就开始下文吧，看完下文的例子再回头看这些元字符就很容易掌握了。）。</p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">      </p><table>            <tbody><tr>                  <td width="42" align="left" valign="middle">        元字符      </td>            <td width="590" align="left" valign="middle">        描述      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        .点      </td>            <td width="590" align="left" valign="middle">        匹配任何单个字符。例如正则表达式r.t匹配这些字符串：rat、rut、r t，但是不匹配root。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        $      </td>            <td width="590" align="left" valign="middle">        匹配行结束符。例如正则表达式weasel$ 能够匹配字符串&quot;He&rsquo;s a weasel&quot;的末尾&nbsp;<br> 但是不能匹配字符串&quot;They are a bunch of weasels.&ldquo;      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ^      </td>            <td width="590" align="left" valign="middle">        匹配一行的开始。例如正则表达式^When in能够匹配字符串&quot;When in the course of human events&quot;的开始，但是不能匹配&quot;What and When in the&rdquo;      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        *      </td>            <td width="590" align="left" valign="middle">        匹配0或多个正好在它之前的那个字符。例如正则表达式 .* 意味着能够匹配任意数量的任何字符。比如.* 可以匹配不管是什么      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">              </td>            <td width="590" align="left" valign="middle">        这是引用符（转义），用来将这里列出的这些元字符当作普通的字符来进行匹配。例如正则表达式$被用来匹配美元符号，而不是行尾，类似的，正则表达式.用来匹配点字符，而不是任何字符的通配符。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        [ ]&nbsp;<br> [c1-c2]&nbsp;<br> [^c1-c2]      </td>            <td width="590" align="left" valign="middle">        匹配括号中的任何一个字符。例如正则表达式r[aou]t匹配rat、rot和rut，但是不匹配ret。可以在括号中使用连字符-来指定字符的区间，例如正则表达式[0-9]可以匹配任何数字字符；还可以制定多个区间，例如正则表达式[A-Za-z]可以匹配任何大小写字母。另一个重要的用法是“排除”，要想匹配除了指定区间之外的字符——也就是所谓的补集——在左边的括号和第一个字符之间使用^字符，例如正则表达式[^269A-Z] 将匹配除了2、6、9和所有大写字母之外的任何字符。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ( )      </td>            <td width="590" align="left" valign="middle">        将 ( 和 ) 之间的表达式定义为“组”（group），并且将匹配这个表达式的字符保存到一个临时区域（一个正则表达式中最多可以保存9个），它们可以用 1 到9 的符号来引用。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        |      </td>            <td width="590" align="left" valign="middle">        将两个匹配条件进行逻辑“或”（Or）运算。例如正则表达式(him|her) 匹配&quot;it belongs to him&quot;和&quot;it belongs to her&quot;，但是不能匹配&quot;it belongs to them.&ldquo;。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        +      </td>            <td width="590" align="left" valign="middle">        匹配1或多个正好在它之前的那个字符。例如正则表达式9+匹配9、99、999等。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        ?      </td>            <td width="590" align="left" valign="middle">        匹配0或1个正好在它之前的那个字符。注意：这个元字符不是所有的软件都支持的。      </td>            </tr>                <tr>                  <td width="42" align="left" valign="middle">        {i}&nbsp;<br> {i,j}      </td>            <td width="590" align="left" valign="middle">        匹配指定数目的字符，这些字符是在它之前的表达式定义的。例如正则表达式A[0-9]{3} 能够匹配字符&quot;A&quot;后面跟着正好3个数字字符的串，例如A123、A348等，但是不匹配A1234。而正则表达式[0-9]{4,6} 匹配连续的任意4个、5个或者6个数字字符。注意：这个元字符不是所有的软件都支持的。<p></p>                                    <code>  &lt;/td&gt;&lt;/tr&gt;</code>                                <p></p>            </td>        </tr>    </tbody></table><p></p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    2、正则表达式实例讲解。  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    1、&nbsp;[0-9]*&nbsp; &nbsp;&nbsp;分析一下这个简单例子:  </p><p>    [] 代表拿中括号中的任意字符来匹配，中括号中的0-9，等同于0123456789，类似的还有a-z以及A-Z以后你会看到汉字的类似表示，这里暂不多说。也就是[0-9]代表从0到9任意字符，＊代表零到多次重复，因此这个表达式匹配的是任意数字也可以没有数字。  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    如果将＊号换成+，变成[0-9]+ 则代表至少出现一个数字的数字字符串。还可以变成[0-9]{3,4}代表至少3位，至多4位的数字。&nbsp;  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    测试字符串：45345234sdfe234sfef 231 32  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">  </p><p>    2、http://([w-]+.)+[w-]+(/[w./?%&amp;=-]*)?$&nbsp;&nbsp;  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;">    这是一个验证url的例子，^代表开始，$代表结束，括号代表模式组（将来这部分可以用$1,$2…或1,2…从匹配的字符串中取出相应的模式组，在匹配判断、解析文本、替换文本时非常有用，需要自己再重点测试学习一下，这里就不多说了。里边出现了两个问号，第一个问号出现在[]中代表？字符，后一个问号代表前边括号中的模式组出现0到1次。实际测试一下就清楚了.  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    测试字符串1：http://www.appfanr.com/greatteam?realy=yes&nbsp;  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    测试字符串2：yeshttp://www.appfanr.com/greatteam/wolfer?realy=yes&amp;superman=yes  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    去掉起止符号再测试一下？&nbsp;  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    通过以上两个例子(我用RegexPal测试过了)，相信你对正则有了一个大概的认识，下面我们进入关键环节。  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">    &nbsp;三<strong>、 iOS中的正则类(NSRegularExpression)及其方法。</strong>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">        <b><b></b></b>  </p><p style="margin-top: 0.0px;margin-right: 0.0px;margin-bottom: 0.0px;margin-left: 0.0px;display: inline;">    &nbsp;&nbsp;由于苹果的文档里写的已经非常详细了，因此，就不蹩述太多细节，这里根据正则的几个最常用的用途将关键代码段贴出来，方便参考使用。  </p><p>        <b><strong></strong></b>  </p><p>  </p><p>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">        <b>&nbsp;1、匹配 (Match)</b>  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p style="margin-top: 5.0px;margin-right: 0.0px;margin-bottom: 5.0px;margin-left: 0.0px;">  </p><p>  </p> NSString *testContent=@&quot;test,content:232helloregex http://www.appfanr.com?who=me&amp;where=china http://appfanr.com/&rdquo;;    NSString *urlPattern = @&ldquo;http://([\w-]+.)+[\w-]+(/?[\w./?%&amp;=-]*)?&rdquo;;//objective-c里边跟perl里边不一样，w需要写成\w不这么写编辑器也会警告你。    NSError *error = [NSError new];    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:urlPattern options:NSRegularExpressionCaseInsensitive error:&amp;error ];    //match 这块内容非常强大    NSUInteger count =[regex numberOfMatchesInString:testContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length])];//匹配到的次数    if(count &gt; 0){        NSLog(@&ldquo;n&ndash;&gt;匹配到url%d个&rdquo;,count);        NSArray* matches = [regex matchesInString:testContent options:NSMatchingReportCompletion range:NSMakeRange(0, [testContent length])];        for (NSTextCheckingResult *match in matches) {            NSRange matchRange = [match range];            NSLog(@&ldquo;n&mdash;-&gt;匹配到字符串：%@&rdquo;,[testContent substringWithRange:matchRange]);            NSInteger count = [match numberOfRanges];//匹配项            NSLog(@&ldquo;n&mdash;&mdash;&gt;子匹配项：%d 个&rdquo;,count);            for(NSInteger index = 0;index&lt;count;index++){                NSRange halfRange = [match rangeAtIndex:index];                NSLog(@&ldquo;n&mdash;&mdash;&gt;子匹配内容：%@&rdquo;,[testContent substringWithRange:halfRange]);            }        }//遍历后可以看到三个range，1、为整体。2、为([\w-]+.)匹配到的内容。3、(/?[\w./?%&amp;=-]*)匹配到的内容    }<p>        <strong></strong><strong></strong><strong>&nbsp; 2、替换 (Replace)&nbsp;</strong><strong></strong>  </p><p>  </p><p>  </p> if(count&gt;0){        NSMutableString *mutableContent = [NSMutableString stringWithString:testContent];        [regex replaceMatchesInString:mutableContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length]) withTemplate:@&ldquo;*&rdquo;];        NSLog(@&ldquo;before replace:%@nafter replace:%@&rdquo;,testContent,mutableContent);    }<p>        <strong>&nbsp; &nbsp;3、验证（Validate）</strong><strong></strong>  </p><p>  </p><p>  </p> NSString *testContent=@&ldquo;test,content:232helloregex http://www.appfanr.com?who=me&amp;where=china http://appfanr.com/&rdquo;;    NSString *numString = @&ldquo;23409834&rdquo;;    NSString *numPattern=@&ldquo;^[0-9]*$&rdquo;; //玄机^$    NSError *error = [NSError new];    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:numPattern options:NSRegularExpressionCaseInsensitive error:&amp;error ];    NSInteger testCount = [regex numberOfMatchesInString:testContent options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [testContent length])];    NSInteger numCount = [regex numberOfMatchesInString:numString options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, [numString length])];    //因为^$首尾标记所以要么有1个匹配要么有0个匹配    if(testCount==0){        NSLog(@&ldquo;字符串(%@)没有通过验证&rdquo;,testContent);    }else{        NSLog(@&ldquo;字符串(%@)通过了验证&rdquo;,testContent);    }    if(numCount == 0){        NSLog(@&ldquo;字符串(%@)没有通过验证&rdquo;,numString);    }else{        NSLog(@&ldquo;字符串(%@)通过了验证&rdquo;,numString);    } <p>    代码下载：<a href="http://openq.cn/wp-content/uploads/2012/01/RegexTest.zip">RegexTest</a>  </p>
+                    <p>今晚研究了一下从Facebook iPhone app中搞到的bridge.js，趁热对Facebook、PhoneGap、MoSync的js框架进行一个简要的对比。首先，个人认为程序架构和设计模式的关键就是：1、需求或领域（Domain）的粒度。2、对变化点的封装–标题中的‘尿点’就是指的这亮点了。另外，之所以没有在 Appcelerator 上花时间，是因为一来这玩意不开源，二来我还没有看到除了ide外其他可借鉴的东西。  </p>
+
+<p>下面是三个平台的Js框架代码下载及对比（除了phoneGap其他两个的代码都是抠出来的，不仔细找很难找到）：  </p>
+
+<p>1、Facebook –&gt; bridge.js 下载 (线上app包里有一个bridgekit.bundle的资源包)  </p>
+
+<p>说明：私有框架（只针对facebook自己产品），跨平台特点：目前产品采用的是Html5页面 + 原生页面的模式，部分页面或界面采用了Html5，页面加速度优化的相当成功（哥们就是想学习它的页面加速度解决方案才各种抓包、破解的），原生导航机制，各种互调。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1）短短200来行代码，实现了原生类和js类的转换（Mapping）。这个实现方案的典型特点是灵活，原则上来说js脚本可以掉用所有的原生代码（安全漏洞有木有！！！本人就准备动过这个文件对facebook的app进行抓包，https加密哥们绕开你啦，哈哈！）  </p>
+
+<p>2）看这段代码（第100行）  </p>
+
+<p>var url = ‘http://’+(location.host||’localhost‘)+’/<strong>bridge</strong>/’+<strong>token+’/&#39;+</strong>generateToken();  </p>
+
+<p>跟phoneGap 不同它是通过起了一个http服务实现的html5和原生代码的通信管道（很大概率上是这样，等我抓到的location.host变量的值了之后才能最终确定。也就是还有下文，敬请期待，哈哈！  </p>
+
+<p>2、PhoneGap –&gt;  phonegap-1.3.0.js下载  </p>
+
+<p>说明：公共框架（开源编程框架），跨平台特点：主要应用一般都采用Html5 App + 原生壳模式，目前社区热度最高的开源跨平台解决方案（还有一个解决方案，），通过开发插件实现对原生调用的扩充，默认不支持原生导航，互调一般也是限于重力加速度、定位、照相等原生设备级的。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1)代码量非常大（4000多行有木有！！）实现了约定了并且在配置文件中开启的原生接口和html5的Mapping（看这么拗口就知道——相当安全），实现了设备能力级的互调。插件式架构，可以通过编写插件来扩展互调的范围，比如你自己写一个支持回调的原生输入框，遵照其plugin规范就可以被js调用到了。这个框架代码很少，架构清晰，SDK非常的产品化。当然也就没有facebook的灵活了。还有，也没有Appcelerator IDE这样牛x的调试工具。  </p>
+
+<p>2）看这段代码：  </p>
+
+<p>PhoneGap.createGapBridge = function() {<br/>
+gapBridge = document.createElement(“iframe”);<br/>
+gapBridge.setAttribute(“style”, “display:none;”);<br/>
+gapBridge.setAttribute(“height”,”0px”);<br/>
+gapBridge.setAttribute(“width”,”0px”);<br/>
+gapBridge.setAttribute(“frameborder”,”0″);<br/>
+document.documentElement.appendChild(gapBridge);<br/>
+return gapBridge;<br/>
+}  </p>
+
+<p>它是通过给iframe设置一个url出发webview的导航事件实现内外互调的(这里说的是针对iOS平台的机制)，这个机制很轻量也很灵活。这个之后还有一个消息队列机制，这个我会专门写文章详细说明这个东东，有点意思，但我还要评估这个东西是不是画蛇添足了（包括使用iframe)。  </p>
+
+<p>3、MoSync –&gt; mosync-bridge.js下载（深入认识MoSync也是因为新版Facebook中用到的bridge.js）  </p>
+
+<p>说明：公共框架（开源、提供开发Ide——很类似Appcelerator，但开发体验差很多），跨平台特点：Mosync支持平台相当的多，毕竟人家使用C++开发的底层架构，标榜的是效率很高，但是通过对其工具、及学习成本等分析粗浅认为，即使你很迷恋单独的ide，想用这玩意做一般产品还不如用Appcelerator（跑个题Appcelerator的Titanium IDE可以在iPhone模拟器上调试js，够酷吧！）。当然，你要研究代码或底层架构，这个再好不过了，一来框架封装的轮子够多，二来开源，github有下（100+M的代码）。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1）框架比较乱，有界面也有机制的东西，不是很干净，但代码量同样很少，架构封装点不是很明确，因为分析的是它二点几的版本的js框架所以就重点说说互调机制。实际上，看到它的文档里，有大量的内容标注了和phoneGap兼容，或许3.0以后这个东东会废弃掉以前的c++代码（100多兆啊！！），个人判断有不同观点可以留言讨论。  </p>
+
+<p>2）还是上代码：<br/>
+<code>javascript  
+if (mosync.isAndroid)  
+{  
+prompt(data, “”);  
+}  
+else if (mosync.isIOS)  
+{  
+rawMessageQueue.push(data);  
+window.location = “mosync://DataAvailable”;  
+}  
+else if (mosync.isWindowsPhone)  
+{  
+window.external.notify(data);  
+}  
+</code>  </p>
+
+<p>一家活三个平台的机制都暴露了，研究跨平台机制的同学看到这个爽了，哈哈！！！和phoneGap的机制如初一折，当然是谁的创意以后有精力在调研，基本就这些了，过两天再分析一下iOS、Android、Phone 7不同平台Html5互调的尿点。</p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
-                    
-                    <a class="tag" href="http://openq.cn/tag/regex/">regex</a>
+                    <a class="tag" href="http://openq.cn/tag/hybrid/">hybrid</a>
                     
                 </div>
             </div>
@@ -244,9 +276,11 @@
                 
                 <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (21)</a></li>
                 
+                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (5)</a></li>
+                
                 <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (3)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (4)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/funny/">funny (2)</a></li>
                 
@@ -257,8 +291,6 @@
                 <li><a class="tag" href="http://openq.cn/tag/process-management/">process management (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
                 
@@ -298,9 +330,9 @@
                 <h2>Archives</h2>
                 <ul>
                     
-                    <li><a href="http://openq.cn/archive/2014/">2014 (3)</a></li>
+                    <li><a href="http://openq.cn/archive/2014/">2014 (4)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2012/">2012 (23)</a></li>
+                    <li><a href="http://openq.cn/archive/2012/">2012 (26)</a></li>
                     
                     <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
                     

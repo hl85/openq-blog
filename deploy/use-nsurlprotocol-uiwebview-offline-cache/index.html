@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+
+<meta name="description" content="搜索解决方案的时候找到了 Rob Napier 的博文：Drop-in offline caching for UIWebView (and NSURLProtocol) 文章介绍了使用NSURLProtocol实现UIWebView的离线缓存的简单实现，你可以在github上下载这个demo的代码">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="hl13571">
+<meta name="twitter:title" content="使用NSURLProtocol实现UIWebView的离线缓存">
+<meta name="twitter:description" content="搜索解决方案的时候找到了 Rob Napier 的博文：Drop-in offline caching for UIWebView (and NSURLProtocol) 文章介绍了使用NSURLProtocol实现UIWebView的离线缓存的简单实现，你可以在github上下载这个demo的代码">
+<meta name="twitter:creator" content="hl13571">
+
+
+    <title>
+使用NSURLProtocol实现UIWebView的离线缓存 | openQ
+</title>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
+    <link rel="stylesheet" href="http://openq.cn/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" href="http://openq.cn/feed.xml" title="openQ" />
+    <link rel="canonical" href=""/>
+    <link rel="shortcut icon" href="http://openq.cn/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
+</head>
+<body>
+<div id="header">
+    <div id="nav_wrapper">
+        <div id="nav">
+            <div class="inner">
+                <h1 id="title"><a href="http://openq.cn/">openQ</a></h1>
+                <div id="description" class="seal">开放 包容 多走些路  本博客界面风格重定义中</div>
+                <ul class="right">
+                    
+                    <li><a href="http://openq.cn/about/">about</a></li>
+                    <li class="dot">&bull;</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="header_inner">
+        <div id="social">
+            <a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://openq.cn/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf"></a>
+            <a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://openq.cn/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1"></a>
+            <a href="http://openq.cn/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://openq.cn/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2"></a>
+        </div>
+        <div class="sep"></div>
+    </div>
+</div>
+<div id="content">
+    
+<div class="article">
+    <div class="inner">
+        <h2 class="article_title title"><a href="#">使用NSURLProtocol实现UIWebView的离线缓存</a></h2>
+        <div class="article_meta">
+            <div class="share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="hl13571" data-lang="zh-cn">Tweet</a>
+            </div>
+            <span>on</span>
+            2012-07-10
+        </div>
+
+        <div class="text">
+            <article>
+            <p>搜索解决方案的时候找到了 Rob Napier 的博文：<a href="http://robnapier.net/blog/offline-uiwebview-nsurlprotocol-588">Drop-in offline caching for UIWebView (and NSURLProtocol) </a>文章介绍了使用NSURLProtocol实现UIWebView的离线缓存的简单实现，你可以在github上下载这个<a href="https://github.com/rnapier/RNCachingURLProtocol">demo</a>的代码。  </p>
+
+<p>rob认为无论是“MKNetworkKit”还是”AFCache”实现的缓存都过于复杂，而他想要的是一个简单机制：  </p>
+
+<p>1、你使用了UIWebView指向来显示一个有图像嵌入的网站。<br/>
+2、当你的设备online时，你有正常的缓存算法。<br/>
+3、当你的设备offline时，你可以显示页面的最后一个版本。  </p>
+
+<p>这个demo里做了一个很简单的测试：将cnn.com运行一次，然后再将网络断掉，去浏览这些数据。  </p>
+
+<p>现有解决方案：  </p>
+
+<p>Matt Gallagher 有一些有趣的想法，使用NSURLCache的子类来实现，但是Rob发现这是不可靠的，尤其是iOS5的HTTP缓存规则十分复杂，在许多情况下如果你不访问服务器便不能获知你缓存的数据是否有效。另外，一些必要的素材如果没有被缓存，那么在离线时前期做的缓存工作就实效了。(辉：<a href="http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-reading/">NSURLCache实现离线阅读的一点小心得</a>我也曾讨论了一些相关问题)  </p>
+
+<p><a href="https://github.com/artifacts/AFCache">AFCache</a>也被认为是一个很好的解决方案（辉：有时间我会对这个开源库进行详细评估，表面上看就是connection、NSURLCache、NSURLProtocol的综合解决方案）。短时间内作者并没有使测试通过，但是AFCache的作者也在文章后边回复说，采纳了Rob的想法，已经提交代码到github上。  </p>
+
+<p>要点：<br/>
+1、尽早注册你的URLProtocol（application:didFinishLaunchingWithOptions:）。<br/>
+2、NSURLProtocol是NSURLConnection的handler。NSURLConnection的每个请求都会去便利所有的Protocols，并询问你能处理这个请求么（canInitWithRequest： ）。如果这个Protocol返回YES，则第一个返回YES的Protocol会来处理这个connection。Protocols的遍历是反向的，也就是最后注册的Protocol会被优先判断。<br/>
+3、 当你的handler被选中了，connection就会调用–&gt; initWithRequest:cachedResponse:client:，紧接着会调用–&gt;startLoading。然后你需要负责回调：–&gt;URLProtocol:didReceiveResponse:cacheStoragePolicy:，有些则会调用：–&gt;URLProtocol:didLoadData:, 并且最终会调用–&gt;URLProtocolDidFinishLoading:。你有没有发现这些方法和NSURLConnection delegate的方法非常类似——这绝非偶然！<br/>
+4、当online的情况下，RNCachingURLProtocol只是负责将请求转发给一个新的NSURLConnection，并且拷贝一份结果给原来的connection。offline时， RNCachingURLProtocol就会从磁盘里载入先前的结果，并将这些数据发回给连接。整个过程只有区区200行代码（不包含Reachability）。<br/>
+5、这里还有一个有趣的问题，就是当RNCachingURLProtocol创建了一个新的NSURLConnection的，即新的connection也会去找一个handler。 如果RNCachingURLProtocol说可以处理，那么就死循环了。怎么解决呢？通过添加自定义HTTP Header（X-RNCache）来标记这个请求，告诉RNCachingURLProtocol不要再处理这个请求。<br/>
+6、它可以响应所有的connection，所以你可能需要修改canInitWithRequest：来 选择你要缓存的数据。  </p>
+
+<p>另外：并发请求或复杂网络请求的缓存请使用MKNetworkKit（我们也在一个项目中使用了这个类库，非常轻量快捷是ASI的很不错的替代品）。  </p>
+
+<p>总结一下：<br/>
+这项技术不是用来替代AFCache、MKNetworkKit的，他只是用来解决独立的、简单问题的（当然它也可以通过复杂实现来解决复杂问题）。 NSURLProtocol是非常强大的，Rob已经使用它来监听网络流量（如PandoraBoy中的几个<a href="https://github.com/PandoraBoy/PandoraBoy/blob/master/ProxyURLProtocol.h">ProxyURLProtocol</a>类）。它非常值得你将其添加到你的工具箱中。  </p>
+
+<p>实例代码下载：<a href="https://github.com/rnapier/RNCachingURLProtocol">https://github.com/rnapier/RNCachingURLProtocol</a>  </p>
+
+<p>参见demo中的类文件：RNCachingURLProtocol.m。  </p>
+
+<p>一定要看Nick Dowell在评论中回复的对于redirect的解决办法：（Code to fix HTTP redirect handling: <a href="https://gist.github.com/1885821"><a href="https://gist.github.com/1885821">https://gist.github.com/1885821</a></a>）  </p>
+<div class="highlight"><pre><span class="p">(</span><span class="n">NSURLRequest</span><span class="o">*</span><span class="p">)</span><span class="n">connection</span><span class="o">:</span><span class="p">(</span><span class="n">NSURLConnection</span><span class="o">*</span><span class="p">)</span><span class="n">connection</span> <span class="n">willSendRequest</span><span class="o">:</span><span class="p">(</span><span class="n">NSURLRequest</span><span class="o">*</span><span class="p">)</span><span class="n">request</span> <span class="n">redirectResponse</span><span class="o">:</span><span class="p">(</span><span class="n">NSURLResponse</span><span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">{</span>  
+    <span class="k">if</span><span class="p">([</span><span class="n">response</span> <span class="n">isKindOfClass</span><span class="o">:</span><span class="p">[</span><span class="n">NSHTTPURLResponseclass</span><span class="p">]])</span>  
+    <span class="p">{</span>  
+        <span class="n">NSHTTPURLResponse</span><span class="o">*</span><span class="n">HTTPResponse</span><span class="o">=</span><span class="p">(</span><span class="n">NSHTTPURLResponse</span><span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">;</span>  
+        <span class="k">if</span><span class="p">([</span><span class="n">HTTPResponsestatusCode</span><span class="p">]</span><span class="o">==</span><span class="mi">301</span><span class="o">||</span><span class="p">[</span><span class="n">HTTPResponsestatusCode</span><span class="p">]</span><span class="o">==</span><span class="mi">302</span><span class="p">)</span>  
+        <span class="p">{</span>  
+            <span class="n">NSMutableURLRequest</span><span class="o">*</span><span class="n">mutableRequest</span><span class="o">=</span><span class="p">[</span><span class="n">request</span> <span class="n">mutableCopy</span><span class="p">];</span>  
+            <span class="p">[</span><span class="n">mutableRequest</span> <span class="n">setURL</span><span class="o">:</span><span class="p">[</span><span class="n">NSURL</span> <span class="n">URLWithString</span><span class="o">:</span><span class="p">[[</span><span class="n">HTTPResponseallHeaderFields</span><span class="p">]</span> <span class="n">objectForKey</span><span class="o">:</span><span class="err">@”</span><span class="n">Location</span><span class="err">”</span><span class="p">]]];</span>  
+            <span class="n">request</span><span class="o">=</span><span class="p">[</span><span class="n">mutableRequest</span> <span class="n">copy</span><span class="p">];</span>  
+            <span class="p">[[</span><span class="n">selfclient</span><span class="p">]</span> <span class="n">URLProtocol</span><span class="o">:</span><span class="n">self</span> <span class="n">wasRedirectedToRequest</span><span class="o">:</span><span class="n">request</span> <span class="n">redirectResponse</span><span class="o">:</span><span class="n">response</span><span class="p">];</span>  
+        <span class="p">}</span>  
+    <span class="p">}</span>  
+    <span class="k">return</span> <span class="n">request</span><span class="p">;</span>  
+<span class="p">}</span>
+</pre></div>
+
+<p>如果你有兴趣的话可以读一下我这篇小文：<a href = "http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-reading/">NSURLCache实现离线阅读的一点小心得</a></p>
+
+            </article>
+        </div>
+        
+        <div class="big_sep"></div>
+        <div class="article_meta">
+            <span>tagged:</span>
+            
+                <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
+            
+        </div>
+        
+
+        <div class="big_sep"></div>
+        <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+        
+    
+        
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+				var disqus_title = "";
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://openq.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+        
+        
+    
+
+    </div>
+</div>
+
+</div>
+<div id="footer_wrapper">
+    <div id="footer">
+        <div id="footer_inner">
+            <div class="tag_cloud col">
+                <h2>Tag Cloud</h2>
+                <ul>
+                
+                <li><a class="tag" href="http://openq.cn/tag/Mood/">Mood (25)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (21)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (5)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/funny/">funny (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/process-management/">process management (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/perl/">perl (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/test/">test (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/best-practices/">best practices (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/viewpoint/">viewpoint (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/memo/">memo (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/javascript/">javascript (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/webkit/">webkit (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/this-blog/">this blog (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/svn/">svn (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/mac-tools/">mac tools (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
+                
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Archives</h2>
+                <ul>
+                    
+                    <li><a href="http://openq.cn/archive/2014/">2014 (4)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2012/">2012 (26)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2010/">2010 (1)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2009/">2009 (2)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2007/">2007 (7)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2006/">2006 (10)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2005/">2005 (12)</a></li>
+                    
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Links</h2>
+                <ul>
+                    
+                    <li><a href="http://openq.cn" title="That's Nice!" target="_blank">openQ</a></li>
+                    
+                </ul>
+            </div>
+            <div class="copyright">
+                Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
+                <span>&bull;</span>
+                SealScript Theme by <a href="http://lyric.im">Lyric</a>
+                <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
