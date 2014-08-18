@@ -44,6 +44,95 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/facebook-phonegap-mosync-cross-platform-architecture-urine-point-js-framework/">Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度）</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-22
+                </div>
+
+                <div class="text">
+                    <p>今晚研究了一下从Facebook iPhone app中搞到的bridge.js，趁热对Facebook、PhoneGap、MoSync的js框架进行一个简要的对比。首先，个人认为程序架构和设计模式的关键就是：1、需求或领域（Domain）的粒度。2、对变化点的封装–标题中的‘尿点’就是指的这亮点了。另外，之所以没有在 Appcelerator 上花时间，是因为一来这玩意不开源，二来我还没有看到除了ide外其他可借鉴的东西。  </p>
+
+<p>下面是三个平台的Js框架代码下载及对比（除了phoneGap其他两个的代码都是抠出来的，不仔细找很难找到）：  </p>
+
+<p>1、Facebook –&gt; bridge.js 下载 (线上app包里有一个bridgekit.bundle的资源包)  </p>
+
+<p>说明：私有框架（只针对facebook自己产品），跨平台特点：目前产品采用的是Html5页面 + 原生页面的模式，部分页面或界面采用了Html5，页面加速度优化的相当成功（哥们就是想学习它的页面加速度解决方案才各种抓包、破解的），原生导航机制，各种互调。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1）短短200来行代码，实现了原生类和js类的转换（Mapping）。这个实现方案的典型特点是灵活，原则上来说js脚本可以掉用所有的原生代码（安全漏洞有木有！！！本人就准备动过这个文件对facebook的app进行抓包，https加密哥们绕开你啦，哈哈！）  </p>
+
+<p>2）看这段代码（第100行）  </p>
+
+<p>var url = ‘http://’+(location.host||’localhost‘)+’/<strong>bridge</strong>/’+<strong>token+’/&#39;+</strong>generateToken();  </p>
+
+<p>跟phoneGap 不同它是通过起了一个http服务实现的html5和原生代码的通信管道（很大概率上是这样，等我抓到的location.host变量的值了之后才能最终确定。也就是还有下文，敬请期待，哈哈！  </p>
+
+<p>2、PhoneGap –&gt;  phonegap-1.3.0.js下载  </p>
+
+<p>说明：公共框架（开源编程框架），跨平台特点：主要应用一般都采用Html5 App + 原生壳模式，目前社区热度最高的开源跨平台解决方案（还有一个解决方案，），通过开发插件实现对原生调用的扩充，默认不支持原生导航，互调一般也是限于重力加速度、定位、照相等原生设备级的。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1)代码量非常大（4000多行有木有！！）实现了约定了并且在配置文件中开启的原生接口和html5的Mapping（看这么拗口就知道——相当安全），实现了设备能力级的互调。插件式架构，可以通过编写插件来扩展互调的范围，比如你自己写一个支持回调的原生输入框，遵照其plugin规范就可以被js调用到了。这个框架代码很少，架构清晰，SDK非常的产品化。当然也就没有facebook的灵活了。还有，也没有Appcelerator IDE这样牛x的调试工具。  </p>
+
+<p>2）看这段代码：  </p>
+
+<p>PhoneGap.createGapBridge = function() {<br/>
+gapBridge = document.createElement(“iframe”);<br/>
+gapBridge.setAttribute(“style”, “display:none;”);<br/>
+gapBridge.setAttribute(“height”,”0px”);<br/>
+gapBridge.setAttribute(“width”,”0px”);<br/>
+gapBridge.setAttribute(“frameborder”,”0″);<br/>
+document.documentElement.appendChild(gapBridge);<br/>
+return gapBridge;<br/>
+}  </p>
+
+<p>它是通过给iframe设置一个url出发webview的导航事件实现内外互调的(这里说的是针对iOS平台的机制)，这个机制很轻量也很灵活。这个之后还有一个消息队列机制，这个我会专门写文章详细说明这个东东，有点意思，但我还要评估这个东西是不是画蛇添足了（包括使用iframe)。  </p>
+
+<p>3、MoSync –&gt; mosync-bridge.js下载（深入认识MoSync也是因为新版Facebook中用到的bridge.js）  </p>
+
+<p>说明：公共框架（开源、提供开发Ide——很类似Appcelerator，但开发体验差很多），跨平台特点：Mosync支持平台相当的多，毕竟人家使用C++开发的底层架构，标榜的是效率很高，但是通过对其工具、及学习成本等分析粗浅认为，即使你很迷恋单独的ide，想用这玩意做一般产品还不如用Appcelerator（跑个题Appcelerator的Titanium IDE可以在iPhone模拟器上调试js，够酷吧！）。当然，你要研究代码或底层架构，这个再好不过了，一来框架封装的轮子够多，二来开源，github有下（100+M的代码）。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1）框架比较乱，有界面也有机制的东西，不是很干净，但代码量同样很少，架构封装点不是很明确，因为分析的是它二点几的版本的js框架所以就重点说说互调机制。实际上，看到它的文档里，有大量的内容标注了和phoneGap兼容，或许3.0以后这个东东会废弃掉以前的c++代码（100多兆啊！！），个人判断有不同观点可以留言讨论。  </p>
+
+<p>2）还是上代码：<br/>
+<code>javascript  
+if (mosync.isAndroid)  
+{  
+prompt(data, “”);  
+}  
+else if (mosync.isIOS)  
+{  
+rawMessageQueue.push(data);  
+window.location = “mosync://DataAvailable”;  
+}  
+else if (mosync.isWindowsPhone)  
+{  
+window.external.notify(data);  
+}  
+</code>  </p>
+
+<p>一家活三个平台的机制都暴露了，研究跨平台机制的同学看到这个爽了，哈哈！！！和phoneGap的机制如初一折，当然是谁的创意以后有精力在调研，基本就这些了，过两天再分析一下iOS、Android、Phone 7不同平台Html5互调的尿点。</p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/hybrid/">hybrid</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
                 <h2 class="article_title title"><a href="http://openq.cn/xcode-ios-unit-test/">xcode中的单元测试</a></h2>
                 <div class="article_meta">
                     <span>on</span>
@@ -95,117 +184,6 @@
         <div class="sep"></div>
     </li>
     
-    <li class="list_item">
-        <div class="article">
-            <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/daytime-working-programmers-vs-night-programmer-translation/">白天工作型程序员 vs 夜晚工作型程序员[译]</a></h2>
-                <div class="article_meta">
-                    <span>on</span>
-                    2012-03-06
-                </div>
-
-                <div class="text">
-                    <p><strong><em>下文观点或许极端，但很有意思</em></strong>  </p>
-
-<p>去年我在公司内部群发过一封邮件，本文就是基于那封邮件，有细微改动。但最近有人建议我，把邮件内容发到我的博客上，让人们看看，我是对的，还是错的呢？  </p>
-
-<p>多年前我就相信，世界上有两种程序员，不管他们用什么技术，我称之为：  </p>
-
-<ol>
-<li>Day Programmers 白天工作型程序员<br/></li>
-<li>Night Programmers 夜晚工作型程序员<br/></li>
-</ol>
-
-<p>如今，这个行业中最常见的是白天工作型程序员，你会在很多容忍一定量的低效的公司/机构中看到他们。他们有如下特征：  </p>
-
-<ol>
-<li>通常处于被领导，很少担当领导；<br/></li>
-<li>难以应对处理复杂情况；<br/></li>
-<li>很难想象出解决方案；<br/></li>
-<li>不会在家打开开发工具；<br/></li>
-<li>通常不参与技术开发社区；<br/></li>
-<li>把编程仅当为“一份工作”；<br/></li>
-</ol>
-
-<p>如果你是夜晚工作型程序员，你很可能很难理解，为什么白天工作型程序员能入行，原因可能就是他们的动力和你的动力有很大不同。夜晚工作型程序员的特征是：  </p>
-
-<ol>
-<li>通常都担当领头角色<br/></li>
-<li>对复杂事情，有深刻理解；<br/></li>
-<li>可以构想出解决方案，并有设计相关的第六感；<br/></li>
-<li>会在家打开 alpha/ctp/beta 版本的工具；<br/></li>
-<li>参与用户群组和邮件列表；<br/></li>
-<li>把编程视为生命中的重要部分，如同生命所需的空气；<br/></li>
-</ol>
-
-<p>如果你是白天工作型程序员，你看到夜晚工作型程序员，会认为他们不会享受生活。当他们在工作中遇到一些很酷的新技巧而兴奋时，你还会嗤之以鼻。  </p>
-
-<p>去年12月份，swizec.com 的博主写了一篇文章：《为什么程序员喜欢在深夜工作？》，其中是这样写的：  </p>
-
-<p>有句还挺受欢迎的话是，程序员就是把咖啡变成代码的机器。  </p>
-
-<p>果然，随便问一个程序员什么时候效率最高，很有可能他们会说大多是深夜的时候。有些早点，有些晚点。常见的是：在凌晨4点起床，赶在吵闹的一天开始前完成一些工作。另外一些喜欢在凌晨4点睡觉。这种做法的目的是避免干扰。但是你可以锁上门啊，为什么夜晚这么特别呢？  </p>
-
-<p>不光是程序员，对不少行业的从业人员（作家、编辑等）来说，夜深人静时，往往是最容易找到灵感，效率也很高。并且一般进入工作状态后，精神状态甚 佳，也不怎么困，不知不觉就到三四点了。记得在网上看过消息，说晚上11点到凌晨1点这两个小时的睡眠效果最佳。如果这两个小时没睡，白天再补觉，常常也 还是晕乎乎的。熬夜对身体的危害，前天转发的一篇文章已有说明，也无须多言，大家在微博上经常看到不少年纪轻轻的IT或创业人士英年早逝的资讯。如果遇到那种非得通宵加班的项目时，那该怎么办呢？不妨在晚上11点就睡觉，过1点后再起来干活。  </p>
-
-<p>补充：Mitch Denny 的原文后面有很多精彩回复，由于得翻墙，挑选转摘一些评论：  </p>
-
-<p>James Denning：  </p>
-
-<p>You forgot to say that Night Programmers often spend nights fixing the problems day programmers cause (hence partially disagreeign with an earlier comment).  </p>
-
-<p>Day programmers do participate in newsgroups – whining how there’s no work for them in the skills they haven’t bothered to update.  </p>
-
-<p>suhail：  </p>
-
-<p>i won’t agree with the post, i am a programmer and i have seen some geeks and nerds come up with awesome solutions, be it day or night, it depends upon the prgrammer at work, some geeks are early morning sparrows and some are night owls, what ever time your thinking potential is active, its about that.  </p>
-
-<p>Stuart：  </p>
-
-<p>Personally, I think you are wrong… In my opinion the ‘day’ programmer definition you have, applies to stupid people who have managed to slip through an interview process. In my experience, there are plenty of these types around, and tend to be the types who like to drag and drop, place all of their domain logic in an anonymous inner listener, or on the code behind file.  </p>
-
-<p>The ‘night’ programmer definition sounds like the sort of guy who wants to solve the world in code, when all that is required is a simple web page. He over engineers every solution to the point that it is so complex, noone else on his team understands it. He architects a solution in his head and refuses to budge on it… even when it is wrong. He likes to put down other more simple solutions to his, because they are not as ‘impressive’.  </p>
-
-<p>To be honest, in these cases, the night programmer is the guy who will cause you the most trouble.  </p>
-
-<p>I see the distinction between programmers lying along a different line… the one’s who can solve problems in a simple way, and the one’s who cannot.  </p>
-
-<p>This states two things, 1) They are clever enough to solve the problem, and 2) they are clever enough avoid complexity.  </p>
-
-<p>The Real Scoop：  </p>
-
-<p>We need both, and we suffer with both. Don’t appluade yourself becuase, your either. The Problem with Night programmers is that they rarely finish anything. they’re great at introducing new concepts, bleeding edge technologies, and novel solutions, but rarely actually able to apply to completion or within the timeframe of the actual task or project at hand.  </p>
-
-<p>In the real world programming is used to make task more efficient or create a product to sell. Both which equivalate $$$$$. Day programmers on the other hand are able to focus and produce within a defined set of parameters, they are the ones who though often lack creativity or ability to quickly grasp or apply new concept neccessary to optimize a task/project, or independently troubleshoot, but who actually write the code neccesary to complete the task/project.  </p>
-
-<p>Thus creating a viable product or solution that may actually produce income to pay both thier salaries and that of the prima dona’s who love to create and play with all the toys but forget that everything still cost money. So what’s the trump, I appluade the hybrid, those scarse individuals who are able to both find and create novel solutions, as well as actually apply them and actually complete the project or task at hand. We need them all. So don’t over-rate yourself becuase you are one or the other, nor berate the other. Strive to reach the next level, the hybrid capable of working anytime of day, with a passion and preserverance to program.  </p>
-
-<p>solprovider：  </p>
-
-<p>This is not about the time of day people program. It is not about competence. There are a few competent day programmers. There are many incompetent night programmers.  </p>
-
-<p>The difference is the passion.  </p>
-
-<p>A night programmer was born to write software. He learned how to program on his own. He went to college because he heard college let the students play with really cool technology, and failed out because he spent all his time playing with really cool technology. If he gets a corporate job, he makes waves by suggesting things could be better and gets fired for not appearing 9 AM Monday morning after his Friday programming marathon did not end until 4 AM on Monday.  </p>
-
-<p>A day programmer chose computers as his major in college because he heard programmers were paid well. He graduated without knowing how to use a command line. He makes a good corporate employee, working nine-to-five and not thinking about the job at home. He does not make suggestions about how to improve technology; he does not know enough to think of one.  </p>
-
-<p>Businesses survive because they occasionally accidentally hire a night programmer who fixes everything the day programmers wrote before he gets fired.  </p>
-
-<p>编译：伯乐在线 – 黄利民</p>
-
-                </div>
-                <div class="article_meta">
-                    <span>tagged:</span>
-                    
-                    <a class="tag" href="http://openq.cn/tag/cultivation/">cultivation</a>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="sep"></div>
-    </li>
-    
 </ul>
 
 
@@ -244,6 +222,8 @@
                 <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag//"> (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/process/">process (1)</a></li>
                 
@@ -289,7 +269,7 @@
                     
                     <li><a href="http://openq.cn/archive/2014/">2014 (4)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2012/">2012 (27)</a></li>
+                    <li><a href="http://openq.cn/archive/2012/">2012 (28)</a></li>
                     
                     <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
                     

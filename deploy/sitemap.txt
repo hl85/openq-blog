@@ -15,6 +15,7 @@ http://openq.cn/omnigraffle-5-sn/
 http://openq.cn/how-to-avoid-exhaustion/
 http://openq.cn/recommend-a-small-js-the-refresh-chrysanthemum/
 http://openq.cn/use-nsurlprotocol-uiwebview-offline-cache/
+http://openq.cn/application-of-the-html-source-code-sharing-watercress-music/
 http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-reading/
 http://openq.cn/http-statuscode-status-code-200300400500-sequence/
 http://openq.cn/programmers-work-four-hours-a-day/
@@ -73,6 +74,7 @@ http://openq.cn/tag/tools/
 http://openq.cn/tag/funny/
 http://openq.cn/tag/hybrid/
 http://openq.cn/tag/front-end/
+http://openq.cn/tag//
 http://openq.cn/tag/process/
 http://openq.cn/tag/coding/
 http://openq.cn/tag/regex/
@@ -122,4 +124,5 @@ http://openq.cn/page/19/
 http://openq.cn/page/20/
 http://openq.cn/page/21/
 http://openq.cn/page/22/
+http://openq.cn/page/23/
 http://openq.cn/404.html

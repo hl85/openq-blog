@@ -44,6 +44,49 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-reading/">NSURLCache实现离线阅读的一点小心得</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-06-19
+                </div>
+
+                <div class="text">
+                    <p>用来实现网页离线缓存（用于离线阅读）的方式比较多，比如：<br/>
+1、利用html5的cache机制（但是网页cache有大小限制）<br/>
+2、利用对html5做自定义解析，对dom树分析后请求并存储相关资源。<br/>
+3、利用NSURLCache（简单，自己写存储，写一二级缓存效率高，空间无限制）<br/>
+4、利用NSURLProtocol完成缓存工作（由于NSURLProtocol我还没有在实际项目中使用，了解也不深入，暂不介绍）  </p>
+
+<p>今天主要针对NSURLCache，记录一些小心得，关键就是两个方法：<br/>
+1、- (NSCachedURLResponse *)cachedResponseForRequest:(NSURLRequest *)request;<br/>
+    这个方法主要是用来读取缓存，提供给响应的Request的，因此最好能提供快速的cache数据，否则会引发二次请求（通过网络抓包发现的），这样会给用户带来二倍的流量负担，效率也会明显降低，因此我没有采用网上比较流行的那段代码。<br/>
+   如果是uiwebview的请求，参数request已经不是你最初调用webview load进来的那个request，已经被封装为mutiableRequest。<br/>
+2、-(void)storeCachedResponse:(NSCachedURLResponse *)cachedResponse forRequest:(NSURLRequest *)request;<br/>
+  这个方法是用来存储缓存的，具体什么时候触发存储，我还没有总结出来，但是有一点是可以肯定的，即，并不是所有文件都会被要求存储下来，因此向html、js、css这些关键数据需要做一些手动工作（因为做皮肤，所以我是通过预先加载来缓存css、js的（发现一个符合命名规则的css会主动下载一系列的皮肤样式）。html我是通过单独请求获取html-&gt;存储缓存-&gt;load到webview来完成的）  </p>
+
+<p>Html的缓存也可以通过js脚本取出html代码来缓存，由于中间我们会对页面做处理，所以没有这样做。  </p>
+
+<p>需要针对status code来判断是否缓存（200到300以内的状态码代表资源请求成功，其他的状态码不能缓存下来），通过单独的connection发起请求也需要判断这个。  </p>
+
+<p>如果需要与其他模块共享缓存只需要采用同样的目录，及命名规则（我采用的对url做md5），存储nsdata，建议最好mimeType的索引页存储下来，这样网页可以与原生客户端使用同样的缓存数据。  </p>
+
+<p>存储成CachedResponse可以保留更多的有效信息，但是这样与其他模块的cache共用就会相对麻烦。  </p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
                 <h2 class="article_title title"><a href="http://openq.cn/http-statuscode-status-code-200300400500-sequence/">http statusCode(状态码) 200、300、400、500序列</a></h2>
                 <div class="article_meta">
                     <span>on</span>
@@ -232,40 +275,6 @@
         <div class="sep"></div>
     </li>
     
-    <li class="list_item">
-        <div class="article">
-            <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/layoutsubviews-call-time-turn/">layoutSubviews的调用时机（转）</a></h2>
-                <div class="article_meta">
-                    <span>on</span>
-                    2012-06-04
-                </div>
-
-                <div class="text">
-                    <p>layoutSubviews何时调用的问题，这个方法是当你需要在调整subview的大小的时候需要重写（我这个翻译不严谨，以下是原文：You should override this method only if the autoresizing behaviors of the subviews do not offer the behavior you want.），但有时候经常指望它被调用的时候没被调用，不希望它被调用的时候被调用了，搞的很上火。根据国外社区一个人帖子，做了总结性翻译。  </p>
-
-<pre><code>layoutSubviews在以下情况下会被调用：  
-
-    1、init初始化不会触发layoutSubviews  
-    2、addSubview会触发layoutSubviews  
-    3、设置view的Frame会触发layoutSubviews，当然前提是frame的值设置前后发生了变化  
-    4、滚动一个UIScrollView会触发layoutSubviews  
-    5、旋转Screen会触发父UIView上的layoutSubviews事件  
-    6、改变一个UIView大小的时候也会触发父UIView上的layoutSubviews事件  
-    自：http://www.52rd.com/Blog/Detail_RD.Blog_howean_29991.html</code></pre>
-
-                </div>
-                <div class="article_meta">
-                    <span>tagged:</span>
-                    
-                    <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="sep"></div>
-    </li>
-    
 </ul>
 
 
@@ -304,6 +313,8 @@
                 <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag//"> (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/process/">process (1)</a></li>
                 
@@ -349,7 +360,7 @@
                     
                     <li><a href="http://openq.cn/archive/2014/">2014 (4)</a></li>
                     
-                    <li><a href="http://openq.cn/archive/2012/">2012 (27)</a></li>
+                    <li><a href="http://openq.cn/archive/2012/">2012 (28)</a></li>
                     
                     <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
                     
