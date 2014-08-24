@@ -4,6 +4,7 @@ http://openq.cn/cloud-cant-do/
 http://openq.cn/hello-baby/
 http://openq.cn/10-successful-elements-of-the-daily-stand-up-meetings/
 http://openq.cn/developers-must-read-out-of-the-comfort-zone/
+http://openq.cn/recommend-a-mac-development-documents/
 http://openq.cn/efficient-code-review-best-practices/
 http://openq.cn/the-five-cross-platform-mobile-development-tools-you-should-the-try/
 http://openq.cn/how-to-do-a-simple-by-xiaolong/
@@ -71,10 +72,10 @@ http://openq.cn/tag/cultivation/
 http://openq.cn/tag/iOS/
 http://openq.cn/tag/design/
 http://openq.cn/tag/tools/
+http://openq.cn/tag//
 http://openq.cn/tag/funny/
 http://openq.cn/tag/hybrid/
 http://openq.cn/tag/front-end/
-http://openq.cn/tag//
 http://openq.cn/tag/process/
 http://openq.cn/tag/coding/
 http://openq.cn/tag/regex/
