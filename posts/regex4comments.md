@@ -28,3 +28,4 @@
 文中正则来源：<a href="http://www.cnblogs.com/xiziyin/archive/2012/01/25/2329350.html">传送门</a>
 关于正则非常棒的资料：<a href="http://baike.baidu.com/view/94238.htm?fr=aladdin">百度百科</a>
 贪婪与非贪婪模式：<a href="http://blog.csdn.net/lxcnn/article/details/4756030">传送门</a>
+好用的在线正则工具：<a href="http://www.regexr.com/v1/">传送门</a>
