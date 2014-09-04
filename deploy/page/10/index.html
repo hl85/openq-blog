@@ -44,36 +44,6 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/xcode-ios-unit-test/">xcode中的单元测试</a></h2>
-                <div class="article_meta">
-                    <span>on</span>
-                    2012-03-15
-                </div>
-
-                <div class="text">
-                    <p>很抱歉，由于服务器变迁，该文已经丢失，相关知识您可以移步<a href="https://developer.apple.com/search/?q=xcode%20unit%20test&platform=iOS&platform=General">苹果官方文档</a>查询。  </p>
-
-<p>很多丢失的文章我都已经找回来了，但是这篇文章我不准备找了，原因是我在手机端单元测试实施的必要性上的认识有所改变。如果您现在是做后台开发，我会强烈建议您针对数据库、业务逻辑等层都加入单元测试，因为在大规模（或者多年迭代）的系统中实施单元测试是服务品质的有效保障，并且实施成本基本是可控的、微量的。但是，在移动端技术、架构变化明显过快，开发迭代周期非常快，根据我多年后台和移动端开发经验，后台大面积重构一般是一年一两次，但是手机端每个月都有可能，甚至每个月都会有多次重构。更普遍的情况是，移动端开发人员要面对一两个月就要开发一个产品出来，如此的节奏想维护单元测试用昂贵来形容真不为过。另外，手机端一般不存在大量的不同层次、不同部门对接的情况（当然如果你是做sdk，接口相对稳定，还是值得做一做的）。  </p>
-
-<p>因此，我虽然尝试了多年在项目中实施单元测试，却从来没有大面积推广成功过（个人或者某个业务线曾经做的不错）。有如此的精力还不如推动持续集成，更多的更妙的技术储备上。  </p>
-
-<p>其实，开发人员对编程规范、程序设计原则遵守的足够好，团队在review、代码提交校验上做的足够的话，代码质量还是有保障的。</p>
-
-                </div>
-                <div class="article_meta">
-                    <span>tagged:</span>
-                    
-                    <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="sep"></div>
-    </li>
-    
-    <li class="list_item">
-        <div class="article">
-            <div class="inner">
                 <h2 class="article_title title"><a href="http://openq.cn/html5-mobile-development-practices/">HTML5的移动开发实践</a></h2>
                 <div class="article_meta">
                     <span>on</span>
@@ -206,6 +176,44 @@
         <div class="sep"></div>
     </li>
     
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/paros-monitoring-iphone-issued-http-requests/">使用Paros监控终端发出的HTTP请求</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-02-26
+                </div>
+
+                <div class="text">
+                    <p><strong><em>注</em></strong>：实际上Paros是一个跨平台抓包工具，其原理是通过pc端开放代理-&gt;终端设置pc开放的代理从而实现终端流量经过pc端后进行抓包。本文主要介绍mac通过wifi共享热点来抓包，实际上只要保证pc与终端同时在一个局域网即可实现抓包。另外，如果通过mac共享来抓包的话，还有更多选择比如：HttpScoop、Wireshark，甚至命令行工具tcpflow。  </p>
+
+<p>电脑上的许多软件可以监控浏览器发出的HTTP请求, iPhone上有许多连网程序但没有自带软件可以实现监控, 为了方便测试这些请求是否正确而省去在程序中记录请求日志并逐一查找的麻烦, 可以利用Paros这个监控软件来实现.   </p>
+
+<p>以下是实现在Mac上监控iPhone发出的HTTP请求的具体步骤:   </p>
+
+<ol>
+<li><p>将Mac机器的以太网共享给无线局域网: Mac上: 系统偏好设置-&gt;共享-&gt;Internet 共享, 将”以太网”共享给”AirPort”   </p></li>
+<li><p>查看无线局域网IP: 返回-&gt;网络-&gt;AirPort, 查看到AirPort具有IP地址”169.254.242.107″   </p></li>
+<li><p>设置Paros本地代理: Paros-&gt;Tools-&gt;Options-&gt;Local proxy, Address填上”169.254.242.107″, 端口默认为8080   </p></li>
+<li><p>设置iPhone上网代理: iPhone上: 设置-&gt;无线局域网-&gt;选上Mac机器共享出去的网络-&gt;按”Details”箭头-&gt;Http代理-&gt;手动-&gt;服务器填”169.254.242.107″, 端口填”8080″   </p></li>
+<li><p>查看HTTP请求: iPhone打开访问任何连网程序, 可以在Paros的Sites下看到访问的网站, 右边可以选Reques/Response等信息.  </p></li>
+</ol>
+
+<p>源码地址：<a href="http://sourceforge.net/projects/paros/">http://sourceforge.net/projects/paros/</a>  </p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/tools/">tools</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
 </ul>
 
 
@@ -237,7 +245,7 @@
                 
                 <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
                 
-                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (4)</a></li>
+                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (3)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag//"> (2)</a></li>
                 
@@ -289,7 +297,7 @@
                 <h2>Archives</h2>
                 <ul>
                     
-                    <li><a href="http://openq.cn/archive/2014/">2014 (5)</a></li>
+                    <li><a href="http://openq.cn/archive/2014/">2014 (4)</a></li>
                     
                     <li><a href="http://openq.cn/archive/2012/">2012 (29)</a></li>
                     
