@@ -21,7 +21,9 @@ js->尿点：
 
 2）看这段代码（第100行）
 
+```javascript
 var url = ‘http://’+(location.host||’localhost‘)+’/__bridge__/’+__token+’/'+__generateToken();
+```
 
 跟phoneGap 不同它是通过起了一个http服务实现的html5和原生代码的通信管道（很大概率上是这样，等我抓到的location.host变量的值了之后才能最终确定。也就是还有下文，敬请期待，哈哈！
 
@@ -35,6 +37,7 @@ js->尿点：
 
 2）看这段代码：
 
+```javascript
 PhoneGap.createGapBridge = function() {
 gapBridge = document.createElement(“iframe”);
 gapBridge.setAttribute(“style”, “display:none;”);
@@ -44,6 +47,7 @@ gapBridge.setAttribute(“frameborder”,”0″);
 document.documentElement.appendChild(gapBridge);
 return gapBridge;
 }
+```
 
 它是通过给iframe设置一个url出发webview的导航事件实现内外互调的(这里说的是针对iOS平台的机制)，这个机制很轻量也很灵活。这个之后还有一个消息队列机制，这个我会专门写文章详细说明这个东东，有点意思，但我还要评估这个东西是不是画蛇添足了（包括使用iframe)。
 
@@ -56,6 +60,7 @@ js->尿点：
 1）框架比较乱，有界面也有机制的东西，不是很干净，但代码量同样很少，架构封装点不是很明确，因为分析的是它二点几的版本的js框架所以就重点说说互调机制。实际上，看到它的文档里，有大量的内容标注了和phoneGap兼容，或许3.0以后这个东东会废弃掉以前的c++代码（100多兆啊！！），个人判断有不同观点可以留言讨论。
 
 2）还是上代码：
+
 ```javascript
 if (mosync.isAndroid)
 {

@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     
 
-<meta name="description" content="&#39;&#39;&#39;Python(?&lt;!:)\/\/.|#.|\/*(.|\s)?\\/&#39;&#39;&#39;  这个正则表达式由&quot;|&ldquo;分割成三部分：1、(?&lt;!:)\/\/.*    用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与">
+<meta name="description" content="(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/这个正则表达式由&quot;|&ldquo;分割成三部分：1、(?&lt;!:)\/\/.*    用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与//衔接的情况，从而避免命中各种网络协议。    这里边涉及的反向">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="hl13571">
 <meta name="twitter:title" content="正则表达式匹配注释（//,/**/,#）">
-<meta name="twitter:description" content="&#39;&#39;&#39;Python(?&lt;!:)\/\/.|#.|\/*(.|\s)?\\/&#39;&#39;&#39;  这个正则表达式由&quot;|&ldquo;分割成三部分：1、(?&lt;!:)\/\/.*    用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与">
+<meta name="twitter:description" content="(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/这个正则表达式由&quot;|&ldquo;分割成三部分：1、(?&lt;!:)\/\/.*    用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与//衔接的情况，从而避免命中各种网络协议。    这里边涉及的反向">
 <meta name="twitter:creator" content="hl13571">
 
 
@@ -64,9 +64,8 @@
 
         <div class="text">
             <article>
-            <p>&#39;&#39;&#39;Python<br/>
-(?&lt;!:)\/\/.<em>|#.</em>|\/*(.|\s)<em>?\</em>\/<br/>
-&#39;&#39;&#39;  </p>
+            
+<pre><code>(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/</code></pre>
 
 <p>这个正则表达式由&quot;|&ldquo;分割成三部分：<br/>
 1、(?&lt;!:)\/\/.*<br/>

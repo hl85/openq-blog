@@ -77,8 +77,8 @@ Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度） | op
 <p>1）短短200来行代码，实现了原生类和js类的转换（Mapping）。这个实现方案的典型特点是灵活，原则上来说js脚本可以掉用所有的原生代码（安全漏洞有木有！！！本人就准备动过这个文件对facebook的app进行抓包，https加密哥们绕开你啦，哈哈！）  </p>
 
 <p>2）看这段代码（第100行）  </p>
-
-<p>var url = ‘http://’+(location.host||’localhost‘)+’/<strong>bridge</strong>/’+<strong>token+’/&#39;+</strong>generateToken();  </p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="err">‘</span><span class="nx">http</span><span class="o">:</span><span class="c1">//’+(location.host||’localhost‘)+’/__bridge__/’+__token+’/&#39;+__generateToken();</span>
+</pre></div>
 
 <p>跟phoneGap 不同它是通过起了一个http服务实现的html5和原生代码的通信管道（很大概率上是这样，等我抓到的location.host变量的值了之后才能最终确定。也就是还有下文，敬请期待，哈哈！  </p>
 
@@ -91,16 +91,16 @@ Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度） | op
 <p>1)代码量非常大（4000多行有木有！！）实现了约定了并且在配置文件中开启的原生接口和html5的Mapping（看这么拗口就知道——相当安全），实现了设备能力级的互调。插件式架构，可以通过编写插件来扩展互调的范围，比如你自己写一个支持回调的原生输入框，遵照其plugin规范就可以被js调用到了。这个框架代码很少，架构清晰，SDK非常的产品化。当然也就没有facebook的灵活了。还有，也没有Appcelerator IDE这样牛x的调试工具。  </p>
 
 <p>2）看这段代码：  </p>
-
-<p>PhoneGap.createGapBridge = function() {<br/>
-gapBridge = document.createElement(“iframe”);<br/>
-gapBridge.setAttribute(“style”, “display:none;”);<br/>
-gapBridge.setAttribute(“height”,”0px”);<br/>
-gapBridge.setAttribute(“width”,”0px”);<br/>
-gapBridge.setAttribute(“frameborder”,”0″);<br/>
-document.documentElement.appendChild(gapBridge);<br/>
-return gapBridge;<br/>
-}  </p>
+<div class="highlight"><pre><span class="nx">PhoneGap</span><span class="p">.</span><span class="nx">createGapBridge</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
+<span class="nx">gapBridge</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="err">“</span><span class="nx">iframe</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">style</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">display</span><span class="o">:</span><span class="nx">none</span><span class="p">;</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">height</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="nx">px</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">width</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="nx">px</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">frameborder</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="err">″</span><span class="p">);</span>  
+<span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">gapBridge</span><span class="p">);</span>  
+<span class="k">return</span> <span class="nx">gapBridge</span><span class="p">;</span>  
+<span class="p">}</span>
+</pre></div>
 
 <p>它是通过给iframe设置一个url出发webview的导航事件实现内外互调的(这里说的是针对iOS平台的机制)，这个机制很轻量也很灵活。这个之后还有一个消息队列机制，这个我会专门写文章详细说明这个东东，有点意思，但我还要评估这个东西是不是画蛇添足了（包括使用iframe)。  </p>
 
@@ -112,22 +112,21 @@ return gapBridge;<br/>
 
 <p>1）框架比较乱，有界面也有机制的东西，不是很干净，但代码量同样很少，架构封装点不是很明确，因为分析的是它二点几的版本的js框架所以就重点说说互调机制。实际上，看到它的文档里，有大量的内容标注了和phoneGap兼容，或许3.0以后这个东东会废弃掉以前的c++代码（100多兆啊！！），个人判断有不同观点可以留言讨论。  </p>
 
-<p>2）还是上代码：<br/>
-<code>javascript  
-if (mosync.isAndroid)  
-{  
-prompt(data, “”);  
-}  
-else if (mosync.isIOS)  
-{  
-rawMessageQueue.push(data);  
-window.location = “mosync://DataAvailable”;  
-}  
-else if (mosync.isWindowsPhone)  
-{  
-window.external.notify(data);  
-}  
-</code>  </p>
+<p>2）还是上代码：  </p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isAndroid</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nx">prompt</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="err">“”</span><span class="p">);</span>  
+<span class="p">}</span>  
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isIOS</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nx">rawMessageQueue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>  
+<span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="err">“</span><span class="nx">mosync</span><span class="o">:</span><span class="c1">//DataAvailable”;  </span>
+<span class="p">}</span>  
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isWindowsPhone</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nb">window</span><span class="p">.</span><span class="nx">external</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>  
+<span class="p">}</span>
+</pre></div>
 
 <p>一家活三个平台的机制都暴露了，研究跨平台机制的同学看到这个爽了，哈哈！！！和phoneGap的机制如初一折，当然是谁的创意以后有精力在调研，基本就这些了，过两天再分析一下iOS、Android、Phone 7不同平台Html5互调的尿点。</p>
 
