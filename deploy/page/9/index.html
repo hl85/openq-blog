@@ -44,6 +44,59 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
+                <h2 class="article_title title"><a href="http://openq.cn/perl-base64-transcoding/">用perl进行base64转码，非常好用的代码</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-27
+                </div>
+
+                <div class="text">
+                    <p>前一个帖子提到使用base64转码图片直接在浏览器里展示，文中也提供了一段使用php进行转码的代码很简练，但本人没有试用过（总是对php环境配置存在压力感）。我喜欢用perl代码段完成这类小事，下面分享两段好用的base64的encoding、decoding的代码。  </p>
+
+<p>encodeFile.pl : （转码： perl encodeFile.pl test.png test.txt）  </p>
+<div class="highlight"><pre><span class="c1">#!/usr/bin/perl -w  </span>
+
+<span class="k">use</span> <span class="mf">5.012</span><span class="p">;</span>  
+<span class="k">use</span> <span class="nn">MIME::</span><span class="n">Base64</span><span class="p">;</span>  
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>  
+
+<span class="n">croak</span> <span class="err">“</span><span class="n">usage:</span> <span class="nv">$0</span> <span class="n">file</span> <span class="n">save_as</span><span class="err">”</span> <span class="k">if</span> <span class="nv">@ARGV</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$fh</span><span class="p">,</span> <span class="err">‘</span><span class="o">&lt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">binmode</span> <span class="nv">$fh</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$output</span><span class="p">,</span> <span class="err">‘</span><span class="o">&gt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">local</span> <span class="vg">$/</span><span class="p">;</span>  
+<span class="k">print</span> <span class="nv">$output</span> <span class="n">encode_base64</span> <span class="sr">&lt;$fh&gt;</span><span class="p">,</span> <span class="err">”</span><span class="p">;</span>
+</pre></div>
+
+<p>decodeFile.pl（反转：perl decodeFile.pl test.txt new.png）  </p>
+<div class="highlight"><pre><span class="c1">#!/usr/bin/perl -w  </span>
+
+<span class="k">use</span> <span class="mf">5.012</span><span class="p">;</span>  
+<span class="k">use</span> <span class="nn">MIME::</span><span class="n">Base64</span><span class="p">;</span>  
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>  
+<span class="n">croak</span> <span class="err">“</span><span class="n">usage:</span> <span class="nv">$0</span> <span class="n">file</span> <span class="n">decode_to</span><span class="err">”</span> <span class="k">if</span> <span class="nv">@ARGV</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$fh</span><span class="p">,</span> <span class="err">‘</span><span class="o">&lt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$output</span><span class="p">,</span> <span class="err">‘</span><span class="o">&gt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">binmode</span> <span class="nv">$output</span><span class="p">;</span>  
+<span class="nb">local</span> <span class="vg">$/</span><span class="p">;</span>  
+<span class="k">print</span> <span class="nv">$output</span> <span class="n">decode_base64</span> <span class="sr">&lt;$fh&gt;</span><span class="p">;</span>
+</pre></div>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://openq.cn/tag/perl/">perl</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
                 <h2 class="article_title title"><a href="http://openq.cn/use-the-data-in-the-local-application-of-the-uri-scheme/">本地应用里使用Data URI scheme</a></h2>
                 <div class="article_meta">
                     <span>on</span>
@@ -196,36 +249,6 @@ window.external.notify(data);
         <div class="sep"></div>
     </li>
     
-    <li class="list_item">
-        <div class="article">
-            <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/xcode-ios-unit-test/">xcode中的单元测试</a></h2>
-                <div class="article_meta">
-                    <span>on</span>
-                    2012-03-15
-                </div>
-
-                <div class="text">
-                    <p>很抱歉，由于服务器变迁，该文已经丢失，相关知识您可以移步<a href="https://developer.apple.com/search/?q=xcode%20unit%20test&platform=iOS&platform=General">苹果官方文档</a>查询。  </p>
-
-<p>很多丢失的文章我都已经找回来了，但是这篇文章我不准备找了，原因是我在手机端单元测试实施的必要性上的认识有所改变。如果您现在是做后台开发，我会强烈建议您针对数据库、业务逻辑等层都加入单元测试，因为在大规模（或者多年迭代）的系统中实施单元测试是服务品质的有效保障，并且实施成本基本是可控的、微量的。但是，在移动端技术、架构变化明显过快，开发迭代周期非常快，根据我多年后台和移动端开发经验，后台大面积重构一般是一年一两次，但是手机端每个月都有可能，甚至每个月都会有多次重构。更普遍的情况是，移动端开发人员要面对一两个月就要开发一个产品出来，如此的节奏想维护单元测试用昂贵来形容真不为过。另外，手机端一般不存在大量的不同层次、不同部门对接的情况（当然如果你是做sdk，接口相对稳定，还是值得做一做的）。  </p>
-
-<p>因此，我虽然尝试了多年在项目中实施单元测试，却从来没有大面积推广成功过（个人或者某个业务线曾经做的不错）。有如此的精力还不如推动持续集成，更多的更妙的技术储备上。  </p>
-
-<p>其实，开发人员对编程规范、程序设计原则遵守的足够好，团队在review、代码提交校验上做的足够的话，代码质量还是有保障的。</p>
-
-                </div>
-                <div class="article_meta">
-                    <span>tagged:</span>
-                    
-                    <a class="tag" href="http://openq.cn/tag/iOS/">iOS</a>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="sep"></div>
-    </li>
-    
 </ul>
 
 
@@ -261,6 +284,8 @@ window.external.notify(data);
                 
                 <li><a class="tag" href="http://openq.cn/tag//"> (2)</a></li>
                 
+                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (2)</a></li>
+                
                 <li><a class="tag" href="http://openq.cn/tag/funny/">funny (2)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
@@ -270,8 +295,6 @@ window.external.notify(data);
                 <li><a class="tag" href="http://openq.cn/tag/process/">process (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (1)</a></li>
                 
                 <li><a class="tag" href="http://openq.cn/tag/perl/">perl (1)</a></li>
                 
@@ -309,7 +332,7 @@ window.external.notify(data);
                 <h2>Archives</h2>
                 <ul>
                     
-                    <li><a href="http://openq.cn/archive/2014/">2014 (4)</a></li>
+                    <li><a href="http://openq.cn/archive/2014/">2014 (5)</a></li>
                     
                     <li><a href="http://openq.cn/archive/2012/">2012 (29)</a></li>
                     

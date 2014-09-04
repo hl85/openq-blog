@@ -3,8 +3,41 @@
     <title>openQ</title>
     <link href="" rel="self" />
     <link href="http://openq.cn/" />
-    <updated>2014-08-12T11:11:00Z</updated>
+    <updated>2014-09-04T12:00:00Z</updated>
     <id>http://openq.cn/</id>
+    
+    <entry>
+        <title><![CDATA[正则表达式匹配注释（//,/**/,#）]]></title>
+        <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
+        <link href="http://openq.cn/regex4comments/"/>
+        <updated>2014-09-04T12:00:00Z</updated>
+        <published>2014-09-04T12:00:00Z</published>
+        <id>http://openq.cn/regex4comments/</id>
+        <content type="html">
+            <![CDATA[
+             <p>&#39;&#39;&#39;Python<br/>
+(?&lt;!:)\/\/.<em>|#.</em>|\/*(.|\s)<em>?\</em>\/<br/>
+&#39;&#39;&#39;  </p>
+
+<p>这个正则表达式由&quot;|&ldquo;分割成三部分：<br/>
+1、(?&lt;!:)\/\/.*<br/>
+    用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与//衔接的情况，从而避免命中各种网络协议。<br/>
+    这里边涉及的反向否定预查实际上是正则的模式匹配的高级用法了，模式匹配总共有：(pattern)，(?:pattern)，(?=pattern)，(?!pattern)，(?&lt;=pattern)，(?&lt;!pattern)六种形式，可以参阅我在后边推荐的百度百科相关文章。  </p>
+
+<p>2、#.*<br/>
+    很简单用来匹配#号+文本的注释。  </p>
+
+<p>3、\/*(.|\s)<em>?\</em>\/<br/>
+    用来匹配前后是/<em>和</em>/，中间是文字或空白字符（空格、制表符、换页符等等）。<br/>
+    其中有一个符号值得注意一下：? 问号。问号和前边*组成 *? 代表非贪婪匹配，如果只有*那就是贪婪匹配，就会出现两个注释块中间的正文也被匹配上去的情况。  </p>
+
+<p>文中正则来源：<a href="http://www.cnblogs.com/xiziyin/archive/2012/01/25/2329350.html">传送门</a><br/>
+关于正则非常棒的资料：<a href="http://baike.baidu.com/view/94238.htm?fr=aladdin">百度百科</a><br/>
+贪婪与非贪婪模式：<a href="http://blog.csdn.net/lxcnn/article/details/4756030">传送门</a></p>
+
+            ]]>
+        </content>
+    </entry>
     
     <entry>
         <title><![CDATA[推荐一下我的MAC软件清单（草稿）]]></title>
@@ -114,55 +147,6 @@ versions（收费，<a href="http://www.versionsapp.com/">正版下载</a>，<a 
  3、把最近关注的问题都写出来。<strong>进行中</strong><br/>
  4、学习YAML，让界面表达更丰富一点。<strong>完成</strong><br/>
  5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。利用FREEHOSTING.COM提供的免费服务解决[参见:<a href="/cloud-cant-do">云引擎做不到</a>]。<strong>完成</strong>  </p>
-
-            ]]>
-        </content>
-    </entry>
-    
-    <entry>
-        <title><![CDATA[每日站立会议的10个成功要点]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
-        <link href="http://openq.cn/10-successful-elements-of-the-daily-stand-up-meetings/"/>
-        <updated>2012-12-03T17:18:00Z</updated>
-        <published>2012-12-03T17:18:00Z</published>
-        <id>http://openq.cn/10-successful-elements-of-the-daily-stand-up-meetings/</id>
-        <content type="html">
-            <![CDATA[
-             <p>每日站立会议是SCRUM方法中的一条关键实践，看似很简单的一个活动，其实内涵丰富，如果能够成为一种习惯，还是不容易的。其成功的要点为：   </p>
-
-<p>1、站立会议通过每天面对面的沟通，可以:   </p>
-
-<pre><code>（1）快速同步进展，让项目组内部的员工互相了解彼此的进展，从而了解本项目的整体进展。   
-（2）给每个人一种精神压力，信守承诺。这是一种面对面的精神压力，直面项目进展。  
-（3）培养团队的文化，让每个人意识到：我不是一个人在战斗，我们是一个团队。   
-
-所以站立会议不能用邮件替代，不能在电脑旁，必须眼睛看着其他的成员，而不是电脑。</code></pre>
-
-<p>2 每天在固定的时间、固定的地点召开；一般是每天早晨一上班，这样就不要每次开会都要下通知了。   </p>
-
-<p>3 项目的延期源之每天的延期，所以要每天实时跟踪进展，站立会议必须每天都要开。   </p>
-
-<p>4 每次会议不超过15分钟；如果要讨论技术问题，会后单独开会，少数人参与讨论。注意，站立会议一定不是长会。为什么站着，就是要短！   </p>
-
-<p>5 为了避免开长会，每位成员必须只能回答3个问题：   </p>
-
-<pre><code>昨天你完成了什么?  
-今天要做什么?  
-有什么需要别人帮忙的？   
-
-其他问题不在此次会议上讨论，而是会后讨论。</code></pre>
-
-<p>6 站立会议时一般要有白板，在白板上粘贴的是本项目组的任务状态：未开始的任务，进行中的任务，中断的任务，完成的任务。其实也有一些敏捷的工具，可以电子化sprint backlog，但是还是不如物理的白板更有视觉的冲击力。  </p>
-
-<p>7 会中应该更新每个任务的进展状态，直接在白板上移动任务贴纸。工作状态的直观看板也是一种了解进展、明确目标的有效手段，可以随时提醒团队成员，我们在何处？我们离目标有多远？   </p>
-
-<p>8 在开站立会议时，不是每位成员给项目经理汇报工作，而是大家是平等的，是给项目组的所有人一起同步进展。这也是一种文化的培养。   </p>
-
-<p>9 项目组外部的管理人员可以列席，尤其是主管领导，但不能发言，不能下指令，只能旁听。在SCRUM中提倡的是团队自我管理。    </p>
-
-<p>10 如果有人开会总是迟到，需要制定惩罚措施，要培养守时的文化，团队的文化。  </p>
-
-<p>via:<a href="http://blog.csai.cn/user1/15522/archives/2010/43012.html">http://blog.csai.cn/user1/15522/archives/2010/43012.html</a>  </p>
 
             ]]>
         </content>

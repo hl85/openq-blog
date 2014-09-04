@@ -1,3 +1,4 @@
+http://openq.cn/regex4comments/
 http://openq.cn/strong-recommendation-of-my-list-of-mac-software/
 http://openq.cn/svn-tools-for-mac/
 http://openq.cn/cloud-cant-do/
@@ -73,12 +74,12 @@ http://openq.cn/tag/iOS/
 http://openq.cn/tag/design/
 http://openq.cn/tag/tools/
 http://openq.cn/tag//
+http://openq.cn/tag/regex/
 http://openq.cn/tag/funny/
 http://openq.cn/tag/hybrid/
 http://openq.cn/tag/front-end/
 http://openq.cn/tag/process/
 http://openq.cn/tag/coding/
-http://openq.cn/tag/regex/
 http://openq.cn/tag/perl/
 http://openq.cn/tag/test/
 http://openq.cn/tag/best-practices/

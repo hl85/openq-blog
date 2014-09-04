@@ -5,17 +5,17 @@
     <meta charset="utf-8">
     
 
-<meta name="description" content="好久没来了，惊愕！  先唠叨两句，随着微软的中国策略的推进，msn换成了msn live messenger,msn spaces换成了windows live spaces，包括微软的msdn,teachnet都旧貌换新颜，简直一个月一个样儿！(中国人喜欢热闹，还是热闹点好！)但是，心里总有一点别">
+<meta name="description" content="&#39;&#39;&#39;Python(?&lt;!:)\/\/.|#.|\/*(.|\s)?\\/&#39;&#39;&#39;  这个正则表达式由&quot;|&ldquo;分割成三部分：1、(?&lt;!:)\/\/.*    用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="hl13571">
-<meta name="twitter:title" content="MSN Spaces变化好大">
-<meta name="twitter:description" content="好久没来了，惊愕！  先唠叨两句，随着微软的中国策略的推进，msn换成了msn live messenger,msn spaces换成了windows live spaces，包括微软的msdn,teachnet都旧貌换新颜，简直一个月一个样儿！(中国人喜欢热闹，还是热闹点好！)但是，心里总有一点别">
+<meta name="twitter:title" content="正则表达式匹配注释（//,/**/,#）">
+<meta name="twitter:description" content="&#39;&#39;&#39;Python(?&lt;!:)\/\/.|#.|\/*(.|\s)?\\/&#39;&#39;&#39;  这个正则表达式由&quot;|&ldquo;分割成三部分：1、(?&lt;!:)\/\/.*    用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与">
 <meta name="twitter:creator" content="hl13571">
 
 
     <title>
-MSN Spaces变化好大 | openQ
+正则表达式匹配注释（//,/**/,#） | openQ
 </title>
     <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
@@ -53,22 +53,36 @@ MSN Spaces变化好大 | openQ
     
 <div class="article">
     <div class="inner">
-        <h2 class="article_title title"><a href="#">MSN Spaces变化好大</a></h2>
+        <h2 class="article_title title"><a href="#">正则表达式匹配注释（//,/**/,#）</a></h2>
         <div class="article_meta">
             <div class="share">
                 <a href="https://twitter.com/share" class="twitter-share-button" data-via="hl13571" data-lang="zh-cn">Tweet</a>
             </div>
             <span>on</span>
-            2006-08-03
+            2014-09-04
         </div>
 
         <div class="text">
             <article>
-            <p>好久没来了，惊愕！  </p>
+            <p>&#39;&#39;&#39;Python<br/>
+(?&lt;!:)\/\/.<em>|#.</em>|\/*(.|\s)<em>?\</em>\/<br/>
+&#39;&#39;&#39;  </p>
 
-<p>先唠叨两句，随着微软的中国策略的推进，msn换成了msn live messenger,msn spaces换成了windows live spaces，包括微软的msdn,teachnet都旧貌换新颜，简直一个月一个样儿！(中国人喜欢热闹，还是热闹点好！)但是，心里总有一点别扭！尤其是spaces上面的那个广告条！而风格上月来越像新浪的blog，偶们这些小虾米虽然不算苦心经营也应该是很卖力了。结果这么一改，大有面目全非之感。心中顿生抽谁500个嘴巴子之怒火！另外还有msn也推出了群功能，的确是热闹啊，时尚啊！  </p>
+<p>这个正则表达式由&quot;|&ldquo;分割成三部分：<br/>
+1、(?&lt;!:)\/\/.*<br/>
+    用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与//衔接的情况，从而避免命中各种网络协议。<br/>
+    这里边涉及的反向否定预查实际上是正则的模式匹配的高级用法了，模式匹配总共有：(pattern)，(?:pattern)，(?=pattern)，(?!pattern)，(?&lt;=pattern)，(?&lt;!pattern)六种形式，可以参阅我在后边推荐的百度百科相关文章。  </p>
 
-<p>而我只感觉避暑山庄变成了集贸市场！不喜欢这种变化，尤其是spaces，尤其是一个招呼都不打！  </p>
+<p>2、#.*<br/>
+    很简单用来匹配#号+文本的注释。  </p>
+
+<p>3、\/*(.|\s)<em>?\</em>\/<br/>
+    用来匹配前后是/<em>和</em>/，中间是文字或空白字符（空格、制表符、换页符等等）。<br/>
+    其中有一个符号值得注意一下：? 问号。问号和前边*组成 *? 代表非贪婪匹配，如果只有*那就是贪婪匹配，就会出现两个注释块中间的正文也被匹配上去的情况。  </p>
+
+<p>文中正则来源：<a href="http://www.cnblogs.com/xiziyin/archive/2012/01/25/2329350.html">传送门</a><br/>
+关于正则非常棒的资料：<a href="http://baike.baidu.com/view/94238.htm?fr=aladdin">百度百科</a><br/>
+贪婪与非贪婪模式：<a href="http://blog.csdn.net/lxcnn/article/details/4756030">传送门</a></p>
 
             </article>
         </div>
@@ -77,7 +91,7 @@ MSN Spaces变化好大 | openQ
         <div class="article_meta">
             <span>tagged:</span>
             
-                <a class="tag" href="http://openq.cn/tag/Mood/">Mood</a>
+                <a class="tag" href="http://openq.cn/tag/regex/">regex</a>
             
         </div>
         
