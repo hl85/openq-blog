@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<ul id="article_list">
+    {% for post in pagination.items %}
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="{{ url_for(post) }}">{{ post.title }}</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    {{ post.date }}
+                </div>
+
+                <div class="text">
+                    {{ post.content }}
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    {% for tag in post.tags %}
+                    <a class="tag" href="{{ url_for(tag) }}">{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% if pagination.has_prev %}
+<a id="prev" href="{{ pagination.prev_permalink }}" class="v_nav" >
+    <span class="icon">Prev</span>
+</a>
+{% endif %}
+
+{% if pagination.has_next %}
+<a id="next" href="{{ pagination.next_permalink }}" class="v_nav" >
+    <span class="icon">Next</span>
+</a>
+{% endif %}
+
+{% endblock %}

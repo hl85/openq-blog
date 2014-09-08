@@ -2,17 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>openQ</title>
     <link href="" rel="self" />
-    <link href="http://openq.cn/" />
+    <link href="http://localhost:8000/openq/" />
     <updated>2014-08-12T11:11:00Z</updated>
-    <id>http://openq.cn/</id>
+    <id>http://localhost:8000/openq/</id>
     
     <entry>
         <title><![CDATA[推荐一下我的MAC软件清单（草稿）]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
-        <link href="http://openq.cn/strong-recommendation-of-my-list-of-mac-software/"/>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <link href="http://localhost:8000/strong-recommendation-of-my-list-of-mac-software/"/>
         <updated>2014-08-12T11:11:00Z</updated>
         <published>2014-08-12T11:11:00Z</published>
-        <id>http://openq.cn/strong-recommendation-of-my-list-of-mac-software/</id>
+        <id>http://localhost:8000/strong-recommendation-of-my-list-of-mac-software/</id>
         <content type="html">
             <![CDATA[
              <p>太忙了，晚上整理，大致思路：  </p>
@@ -33,11 +33,11 @@
     
     <entry>
         <title><![CDATA[Mac系统下SVN工具推荐]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
-        <link href="http://openq.cn/svn-tools-for-mac/"/>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <link href="http://localhost:8000/svn-tools-for-mac/"/>
         <updated>2014-08-04T13:18:00Z</updated>
         <published>2014-08-04T13:18:00Z</published>
-        <id>http://openq.cn/svn-tools-for-mac/</id>
+        <id>http://localhost:8000/svn-tools-for-mac/</id>
         <content type="html">
             <![CDATA[
              <p>超级推荐：cornerstone（收费388￥，<a href="https://itunes.apple.com/cn/app/cornerstone/id404789253?mt=12">正版下载</a>，<a href="http://pan.baidu.com/s/1pJiCArp">破解版</a>）<br/>
@@ -52,11 +52,11 @@ versions（收费，<a href="http://www.versionsapp.com/">正版下载</a>，<a 
     
     <entry>
         <title><![CDATA[云引擎做不到]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
-        <link href="http://openq.cn/cloud-cant-do/"/>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <link href="http://localhost:8000/cloud-cant-do/"/>
         <updated>2014-08-01T22:55:00Z</updated>
         <published>2014-08-01T22:55:00Z</published>
-        <id>http://openq.cn/cloud-cant-do/</id>
+        <id>http://localhost:8000/cloud-cant-do/</id>
         <content type="html">
             <![CDATA[
              <p>这个题目有点大了，实际上是最近为完成将域名appfanr.com跳转（301）到openq.cn[任务参见:<a href="/hello-baby">Hello,Baby!</a>]各种折腾的心得——不过的确是各个云引擎都用过了，非常不好使，最后用FREEHOSTING.COM轻松解决了。  </p>
@@ -83,11 +83,11 @@ versions（收费，<a href="http://www.versionsapp.com/">正版下载</a>，<a 
     
     <entry>
         <title><![CDATA[Hello, Baby!]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
-        <link href="http://openq.cn/hello-baby/"/>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <link href="http://localhost:8000/hello-baby/"/>
         <updated>2014-07-15T10:18:00Z</updated>
         <published>2014-07-15T10:18:00Z</published>
-        <id>http://openq.cn/hello-baby/</id>
+        <id>http://localhost:8000/hello-baby/</id>
         <content type="html">
             <![CDATA[
              <p>你好，宝贝儿！<br/>
@@ -121,11 +121,11 @@ versions（收费，<a href="http://www.versionsapp.com/">正版下载</a>，<a 
     
     <entry>
         <title><![CDATA[每日站立会议的10个成功要点]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
-        <link href="http://openq.cn/10-successful-elements-of-the-daily-stand-up-meetings/"/>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <link href="http://localhost:8000/10-successful-elements-of-the-daily-stand-up-meetings/"/>
         <updated>2012-12-03T17:18:00Z</updated>
         <published>2012-12-03T17:18:00Z</published>
-        <id>http://openq.cn/10-successful-elements-of-the-daily-stand-up-meetings/</id>
+        <id>http://localhost:8000/10-successful-elements-of-the-daily-stand-up-meetings/</id>
         <content type="html">
             <![CDATA[
              <p>每日站立会议是SCRUM方法中的一条关键实践，看似很简单的一个活动，其实内涵丰富，如果能够成为一种习惯，还是不容易的。其成功的要点为：   </p>

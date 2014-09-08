@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% block head %}{% endblock %}
+    <title>{% block title %}{{ site.name }}{% endblock %}</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="{{ static_url("css/style.css") }}" type="text/css" />
+    <link rel="stylesheet" href="{{ static_url("css/pygments_style.css") }}" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" href="{{ url_for('feed') }}" title="{{ site.name }}" />
+    <link rel="shortcut icon" href="{{ static_url("favicon.ico") }}" />
+</head>
+<body>
+<div class="pure-g-r" id="layout">
+
+<div class="sidebar pure-u">
+    <header class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="{{ url_for('index') }}">{{ site.name }}</a></h1>
+            <h2 class="brand-tagline">{{ site.description }}</h2>
+        </hgroup>
+        <nav class="nav">
+            <ul class="nav-list">
+            {% for page in pages %}
+                <li class="nav-item"><a class="pure-button" href="{{ url_for(page) }}">{{ page.title }}</a></li>
+            {% endfor %}
+            </ul>
+            <ul class="tag-list">
+        {% for tag in generator.tags %}
+            <li class="tag-item"><a class="pure-button" href="{{ url_for(tag) }}">{{ tag.name }} ({{ tag.count }})</a></li>
+        {% endfor %}
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div class="content">
+    {% block content %}
+    {% endblock %}
+   <footer class="footer">
+        <div class="archives">
+        <h2>Archives</h2>
+        <ul>
+            {% for archive in generator.archives %}
+            <li><a href="{{ url_for(archive) }}">{{ archive.year }} ({{ archive.count }})</a></li>
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="pure-menu pure-menu-horizontal pure-menu-open">
+            <ul>
+                <li><a href="{{ url_for('feed') }}">About</a></li>
+                <li><a href="http://twitter.com/{{ author.twitter }}" target="_blank" title="Follow Me @ Twitter"><img src="{{ static_url("image/ic16_twitter.png") }}">Twitter</a></li>
+                <li><a href="http://github.com/{{ theme.github }}" target="_blank" title="Fork Me @ Github"><img src="{{ static_url("image/ic16_github.png") }}">Github</a></li>
+                <li><a href="{{ url_for('feed') }}" target="_blank" title="Subscribe My Blog"><img src="{{ static_url("image/ic16_rss.png") }}">Subscribe</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
+            <span>&bull;</span>
+            PureSam Theme by <a href="http://openq.cn">Sam</a>
+        </div>
+        <div class="links">
+            <ul>
+                {% for link in theme.links %}
+                <li><a href="{{ link["url"] }}" title="{{ link["description"] }}" target="_blank">{{ link["name"] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>
+
+

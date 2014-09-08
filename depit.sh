@@ -13,7 +13,7 @@ cd ../hl85.github.io/
 echo "cd ../hl85.github.io/"
 git pull
 echo "finish pulling hl85.github.io"
-cp -av ../openq-blog/deploy/* ../hl85.github.io/
+cp -Rav ../openq-blog/deploy/* ../hl85.github.io/
 echo "finish movie hl85.github.io"
 git add .
 echo "finish git adding hl85.github.io"
