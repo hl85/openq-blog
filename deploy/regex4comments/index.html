@@ -5,17 +5,17 @@
     <meta charset="utf-8">
     
 
-<meta name="description" content="在这个冬天我竟然想起了张楚的这首歌，真是奇怪。某种心情，我想把这首歌贴出来——这需要一些勇气，就像张楚本人，纯洁善良的有点懦弱的人，害怕被误解。  这个夏天我被天上的太阳晒成漆黑   城市在用旧的眼里褪掉了颜色   就在街上   碰到一个富人朋友阴沉着脸   让我很惭愧   还是在这条街上   碰到">
+<meta name="description" content="(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/这个正则表达式由&quot;|&ldquo;分割成三部分：  第一部分、  (?&lt;!:)\/\/.*用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与//衔接的情况，从而避免命中各种网络协议。这里边涉及的反向否">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="hl13571">
-<meta name="twitter:title" content="和大伙儿去乘凉">
-<meta name="twitter:description" content="在这个冬天我竟然想起了张楚的这首歌，真是奇怪。某种心情，我想把这首歌贴出来——这需要一些勇气，就像张楚本人，纯洁善良的有点懦弱的人，害怕被误解。  这个夏天我被天上的太阳晒成漆黑   城市在用旧的眼里褪掉了颜色   就在街上   碰到一个富人朋友阴沉着脸   让我很惭愧   还是在这条街上   碰到">
+<meta name="twitter:title" content="正则表达式匹配注释（//,/**/,#）">
+<meta name="twitter:description" content="(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/这个正则表达式由&quot;|&ldquo;分割成三部分：  第一部分、  (?&lt;!:)\/\/.*用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与//衔接的情况，从而避免命中各种网络协议。这里边涉及的反向否">
 <meta name="twitter:creator" content="hl13571">
 
 
     <title>
-和大伙儿去乘凉 | openQ
+正则表达式匹配注释（//,/**/,#） | openQ
 </title>
     <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
@@ -53,48 +53,46 @@
     
 <div class="article">
     <div class="inner">
-        <h2 class="article_title title"><a href="#">和大伙儿去乘凉</a></h2>
+        <h2 class="article_title title"><a href="#">正则表达式匹配注释（//,/**/,#）</a></h2>
         <div class="article_meta">
             <div class="share">
                 <a href="https://twitter.com/share" class="twitter-share-button" data-via="hl13571" data-lang="zh-cn">Tweet</a>
             </div>
             <span>on</span>
-            2009-12-21
+            2014-09-04
         </div>
 
         <div class="text">
             <article>
-            <p>在这个冬天我竟然想起了张楚的这首歌，真是奇怪。某种心情，我想把这首歌贴出来——这需要一些勇气，就像张楚本人，纯洁善良的有点懦弱的人，害怕被误解。  </p>
+            
+<pre><code>(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/</code></pre>
 
-<pre><code>这个夏天我被天上的太阳晒成漆黑   
-城市在用旧的眼里褪掉了颜色   
-就在街上   
-碰到一个富人朋友阴沉着脸   
-让我很惭愧   
-还是在这条街上   
-碰到一个穷人朋友他也阴沉着脸   
-喔让我抬不起头来   
-喔让我抬不起头来   
-喔让我抬不起头来   
+<p>这个正则表达式由&quot;|&ldquo;分割成三部分：  </p>
 
-我一双干净的手和着可以搓出泥来   
-我就知道那是我已经在街上呆得太久  
-我可以回去用肥皂把手再洗干净   
-可我不能去找个姑娘来洗净头脑   
-姑娘不该是肥皂   
-姑娘不该是肥皂   
-姑娘不该是肥皂   
-姑娘不该是肥皂   
-姑娘不该是肥皂   
+<p>第一部分、  </p>
 
-这个夏天我被天上的太阳晒成漆黑   
-睁不开眼只能回到内心左右看看已经干枯   
-街上依然是那么明亮那么富丽堂皇   
+<pre><code>(?&lt;!:)\/\/.*</code></pre>
 
-最后我决定穿上我最干净的衣服回到街上   
-和大伙儿去乘凉和大伙儿去乘凉   
-和大伙儿去乘凉和大伙儿去乘凉   
-和大伙儿去乘凉和大伙儿去乘凉</code></pre>
+<p>用来匹配//单行注释，同时通过<strong><em>(?&lt;!:)</em></strong>反向否定了:与//衔接的情况，从而避免命中各种网络协议。<br/>
+这里边涉及的反向否定预查实际上是正则的<strong><em>模式匹配</em></strong>的高级用法了，模式匹配总共有：(pattern)，(?:pattern)，(?=pattern)，(?!pattern)，(?&lt;=pattern)，(?&lt;!pattern)六种形式，可以参阅我在后边推荐的百度百科相关文章。  </p>
+
+<p>第二部分、  </p>
+
+<pre><code>#.*</code></pre>
+
+<p>很简单用来匹配#号注释。  </p>
+
+<p>第三部分、  </p>
+
+<pre><code>\/\*(.|\s)*?\*\/</code></pre>
+
+<p>用来匹配前后是斜杠星的块状注释，中间是文字或空白字符（空格、制表符、换页符等等）。<br/>
+其中有一个符号值得注意一下：<strong><em>?</em></strong> 问号。问号和前边<em>组成 *? 代表</em><strong>非贪婪匹配</strong>*，如果只有*那就是贪婪匹配，就会出现两个注释块中间的正文也被匹配上去的情况。  </p>
+
+<p>文中正则来源：<a href="http://www.cnblogs.com/xiziyin/archive/2012/01/25/2329350.html">传送门</a><br/>
+关于正则非常棒的资料：<a href="http://baike.baidu.com/view/94238.htm?fr=aladdin">百度百科</a><br/>
+贪婪与非贪婪模式：<a href="http://blog.csdn.net/lxcnn/article/details/4756030">传送门</a><br/>
+好用的在线正则工具：<a href="http://www.regexr.com/v1/">传送门</a></p>
 
             </article>
         </div>
@@ -103,7 +101,7 @@
         <div class="article_meta">
             <span>tagged:</span>
             
-                <a class="tag" href="http://openq.cn/tag/Mood/">Mood</a>
+                <a class="tag" href="http://openq.cn/tag/regex/">regex</a>
             
         </div>
         

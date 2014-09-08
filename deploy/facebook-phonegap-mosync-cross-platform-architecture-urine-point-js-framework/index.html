@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,89 +17,39 @@
     <title>
 Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度） | openQ
 </title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
-    <link rel="stylesheet" href="http://localhost:8000/static/css/style.css?v=0f8e3885bf2d0ec319b9177237a247f3" type="text/css" />
-    <link rel="stylesheet" href="http://localhost:8000/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
-    <link rel="alternate" type="application/rss+xml" href="http://localhost:8000/feed.xml" title="openQ" />
-    <link rel="shortcut icon" href="http://localhost:8000/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
+    <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
+    <link rel="stylesheet" href="http://openq.cn/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" href="http://openq.cn/feed.xml" title="openQ" />
+    <link rel="canonical" href=""/>
+    <link rel="shortcut icon" href="http://openq.cn/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
 </head>
 <body>
-<div class="pure-g-r" id="layout">
-
-<div class="sidebar pure-u">
-    <header class="header">
-        <hgroup>
-            <h1 class="brand-title"><a href="http://localhost:8000/openq/">openQ</a></h1>
-            <h2 class="brand-tagline">开放 包容 多走些路</h2>
-        </hgroup>
-        <nav class="nav">
-            <ul class="nav-list">
-            
-                <li class="nav-item"><a class="pure-button" href="http://localhost:8000/about/">about</a></li>
-            
-            </ul>
-            <ul class="tag-list">
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/Mood/">Mood (25)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/cultivation/">cultivation (21)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/iOS/">iOS (6)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/design/">design (4)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/tools/">tools (4)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag//"> (2)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/funny/">funny (2)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/hybrid/">hybrid (2)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/front-end/">front end (2)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/process/">process (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/coding/">coding (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/regex/">regex (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/perl/">perl (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/test/">test (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/best-practices/">best practices (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/meeting/">meeting (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/cloud-engine/">cloud engine (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/http/">http (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/viewpoint/">viewpoint (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/share/">share (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/memo/">memo (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/javascript/">javascript (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/webkit/">webkit (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/this-blog/">this blog (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/svn/">svn (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/mac-tools/">mac tools (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/sn/">sn (1)</a></li>
-        
-            </ul>
-        </nav>
-    </header>
+<div id="header">
+    <div id="nav_wrapper">
+        <div id="nav">
+            <div class="inner">
+                <h1 id="title"><a href="http://openq.cn/">openQ</a></h1>
+                <div id="description" class="seal">开放 包容 多走些路  本博客界面风格重定义中</div>
+                <ul class="right">
+                    
+                    <li><a href="http://openq.cn/about/">about</a></li>
+                    <li class="dot">&bull;</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="header_inner">
+        <div id="social">
+            <a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://openq.cn/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf"></a>
+            <a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://openq.cn/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1"></a>
+            <a href="http://openq.cn/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://openq.cn/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2"></a>
+        </div>
+        <div class="sep"></div>
+    </div>
 </div>
-
-<div class="content">
+<div id="content">
     
 <div class="article">
     <div class="inner">
@@ -126,8 +77,8 @@ Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度） | op
 <p>1）短短200来行代码，实现了原生类和js类的转换（Mapping）。这个实现方案的典型特点是灵活，原则上来说js脚本可以掉用所有的原生代码（安全漏洞有木有！！！本人就准备动过这个文件对facebook的app进行抓包，https加密哥们绕开你啦，哈哈！）  </p>
 
 <p>2）看这段代码（第100行）  </p>
-
-<p>var url = ‘http://’+(location.host||’localhost‘)+’/<strong>bridge</strong>/’+<strong>token+’/&#39;+</strong>generateToken();  </p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="err">‘</span><span class="nx">http</span><span class="o">:</span><span class="c1">//’+(location.host||’localhost‘)+’/__bridge__/’+__token+’/&#39;+__generateToken();</span>
+</pre></div>
 
 <p>跟phoneGap 不同它是通过起了一个http服务实现的html5和原生代码的通信管道（很大概率上是这样，等我抓到的location.host变量的值了之后才能最终确定。也就是还有下文，敬请期待，哈哈！  </p>
 
@@ -140,16 +91,16 @@ Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度） | op
 <p>1)代码量非常大（4000多行有木有！！）实现了约定了并且在配置文件中开启的原生接口和html5的Mapping（看这么拗口就知道——相当安全），实现了设备能力级的互调。插件式架构，可以通过编写插件来扩展互调的范围，比如你自己写一个支持回调的原生输入框，遵照其plugin规范就可以被js调用到了。这个框架代码很少，架构清晰，SDK非常的产品化。当然也就没有facebook的灵活了。还有，也没有Appcelerator IDE这样牛x的调试工具。  </p>
 
 <p>2）看这段代码：  </p>
-
-<p>PhoneGap.createGapBridge = function() {<br/>
-gapBridge = document.createElement(“iframe”);<br/>
-gapBridge.setAttribute(“style”, “display:none;”);<br/>
-gapBridge.setAttribute(“height”,”0px”);<br/>
-gapBridge.setAttribute(“width”,”0px”);<br/>
-gapBridge.setAttribute(“frameborder”,”0″);<br/>
-document.documentElement.appendChild(gapBridge);<br/>
-return gapBridge;<br/>
-}  </p>
+<div class="highlight"><pre><span class="nx">PhoneGap</span><span class="p">.</span><span class="nx">createGapBridge</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
+<span class="nx">gapBridge</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="err">“</span><span class="nx">iframe</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">style</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">display</span><span class="o">:</span><span class="nx">none</span><span class="p">;</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">height</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="nx">px</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">width</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="nx">px</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">frameborder</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="err">″</span><span class="p">);</span>  
+<span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">gapBridge</span><span class="p">);</span>  
+<span class="k">return</span> <span class="nx">gapBridge</span><span class="p">;</span>  
+<span class="p">}</span>
+</pre></div>
 
 <p>它是通过给iframe设置一个url出发webview的导航事件实现内外互调的(这里说的是针对iOS平台的机制)，这个机制很轻量也很灵活。这个之后还有一个消息队列机制，这个我会专门写文章详细说明这个东东，有点意思，但我还要评估这个东西是不是画蛇添足了（包括使用iframe)。  </p>
 
@@ -161,22 +112,21 @@ return gapBridge;<br/>
 
 <p>1）框架比较乱，有界面也有机制的东西，不是很干净，但代码量同样很少，架构封装点不是很明确，因为分析的是它二点几的版本的js框架所以就重点说说互调机制。实际上，看到它的文档里，有大量的内容标注了和phoneGap兼容，或许3.0以后这个东东会废弃掉以前的c++代码（100多兆啊！！），个人判断有不同观点可以留言讨论。  </p>
 
-<p>2）还是上代码：<br/>
-<code>javascript  
-if (mosync.isAndroid)  
-{  
-prompt(data, “”);  
-}  
-else if (mosync.isIOS)  
-{  
-rawMessageQueue.push(data);  
-window.location = “mosync://DataAvailable”;  
-}  
-else if (mosync.isWindowsPhone)  
-{  
-window.external.notify(data);  
-}  
-</code>  </p>
+<p>2）还是上代码：  </p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isAndroid</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nx">prompt</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="err">“”</span><span class="p">);</span>  
+<span class="p">}</span>  
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isIOS</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nx">rawMessageQueue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>  
+<span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="err">“</span><span class="nx">mosync</span><span class="o">:</span><span class="c1">//DataAvailable”;  </span>
+<span class="p">}</span>  
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isWindowsPhone</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nb">window</span><span class="p">.</span><span class="nx">external</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>  
+<span class="p">}</span>
+</pre></div>
 
 <p>一家活三个平台的机制都暴露了，研究跨平台机制的同学看到这个爽了，哈哈！！！和phoneGap的机制如初一折，当然是谁的创意以后有精力在调研，基本就这些了，过两天再分析一下iOS、Android、Phone 7不同平台Html5互调的尿点。</p>
 
@@ -187,12 +137,14 @@ window.external.notify(data);
         <div class="article_meta">
             <span>tagged:</span>
             
-                <a class="tag" href="http://localhost:8000/tag/hybrid/">hybrid</a>
+                <a class="tag" href="http://openq.cn/tag/hybrid/">hybrid</a>
             
         </div>
         
+
         <div class="big_sep"></div>
-       
+        <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+        
     
         
             <div id="disqus_thread"></div>
@@ -211,54 +163,111 @@ window.external.notify(data);
     </div>
 </div>
 
-   <footer class="footer">
-        <div class="archives">
-        <h2>Archives</h2>
-        <ul>
-            
-            <li><a href="http://localhost:8000/archive/2014/">2014 (4)</a></li>
-            
-            <li><a href="http://localhost:8000/archive/2012/">2012 (29)</a></li>
-            
-            <li><a href="http://localhost:8000/archive/2011/">2011 (3)</a></li>
-            
-            <li><a href="http://localhost:8000/archive/2010/">2010 (1)</a></li>
-            
-            <li><a href="http://localhost:8000/archive/2009/">2009 (2)</a></li>
-            
-            <li><a href="http://localhost:8000/archive/2007/">2007 (7)</a></li>
-            
-            <li><a href="http://localhost:8000/archive/2006/">2006 (10)</a></li>
-            
-            <li><a href="http://localhost:8000/archive/2005/">2005 (12)</a></li>
-            
-        </ul>
-        </div>
-        <div class="pure-menu pure-menu-horizontal pure-menu-open">
-            <ul>
-                <li><a href="http://localhost:8000/feed.xml">About</a></li>
-                <li><a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://localhost:8000/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf">Twitter</a></li>
-                <li><a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://localhost:8000/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1">Github</a></li>
-                <li><a href="http://localhost:8000/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://localhost:8000/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2">Subscribe</a></li>
-            </ul>
-        </div>
-        <div class="copyright">
-            Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
-            <span>&bull;</span>
-            PureSam Theme by <a href="http://openq.cn">Sam</a>
-        </div>
-        <div class="links">
-            <ul>
-                
-                <li><a href="http://openq.cn" title="That's Nice!" target="_blank">openQ</a></li>
-                
-            </ul>
-        </div>
-    </footer>
 </div>
-
-<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));</script>
+<div id="footer_wrapper">
+    <div id="footer">
+        <div id="footer_inner">
+            <div class="tag_cloud col">
+                <h2>Tag Cloud</h2>
+                <ul>
+                
+                <li><a class="tag" href="http://openq.cn/tag/Mood/">Mood (25)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (21)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (6)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (3)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag//"> (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/funny/">funny (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/process/">process (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/perl/">perl (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/test/">test (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/best-practices/">best practices (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/viewpoint/">viewpoint (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/memo/">memo (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/javascript/">javascript (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/webkit/">webkit (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/this-blog/">this blog (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/svn/">svn (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/mac-tools/">mac tools (1)</a></li>
+                
+                <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
+                
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Archives</h2>
+                <ul>
+                    
+                    <li><a href="http://openq.cn/archive/2014/">2014 (4)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2012/">2012 (29)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2010/">2010 (1)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2009/">2009 (2)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2007/">2007 (7)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2006/">2006 (10)</a></li>
+                    
+                    <li><a href="http://openq.cn/archive/2005/">2005 (12)</a></li>
+                    
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Links</h2>
+                <ul>
+                    
+                    <li><a href="http://openq.cn" title="That's Nice!" target="_blank">openQ</a></li>
+                    
+                </ul>
+            </div>
+            <div class="copyright">
+                Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
+                <span>&bull;</span>
+                SealScript Theme by <a href="http://lyric.im">Lyric</a>
+                <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
