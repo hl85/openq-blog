@@ -1,65 +1,185 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     
     <title>openQ</title>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=93a21dd84893fe7b3512f972ded50a5c" type="text/css" />
-    <link rel="stylesheet" href="http://openq.cn/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
-    <link rel="alternate" type="application/rss+xml" href="http://openq.cn/feed.xml" title="openQ" />
-    <link rel="canonical" href=""/>
-    <link rel="shortcut icon" href="http://openq.cn/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="http://localhost:8000/static/css/style.css?v=0f8e3885bf2d0ec319b9177237a247f3" type="text/css" />
+    <link rel="stylesheet" href="http://localhost:8000/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:8000/feed.xml" title="openQ" />
+    <link rel="shortcut icon" href="http://localhost:8000/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
 </head>
 <body>
-<div id="header">
-    <div id="nav_wrapper">
-        <div id="nav">
-            <div class="inner">
-                <h1 id="title"><a href="http://openq.cn/">openQ</a></h1>
-                <div id="description" class="seal">开放 包容 多走些路  本博客界面风格重定义中</div>
-                <ul class="right">
-                    
-                    <li><a href="http://openq.cn/about/">about</a></li>
-                    <li class="dot">&bull;</li>
-                    
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div id="header_inner">
-        <div id="social">
-            <a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://openq.cn/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf"></a>
-            <a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://openq.cn/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1"></a>
-            <a href="http://openq.cn/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://openq.cn/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2"></a>
-        </div>
-        <div class="sep"></div>
-    </div>
+<div class="pure-g-r" id="layout">
+
+<div class="sidebar pure-u">
+    <header class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://localhost:8000/openq/">openQ</a></h1>
+            <h2 class="brand-tagline">开放 包容 多走些路  本博客界面风格重定义中</h2>
+        </hgroup>
+        <nav class="nav">
+            <ul class="nav-list">
+            
+                <li class="nav-item"><a class="pure-button" href="http://localhost:8000/about/">about</a></li>
+            
+            </ul>
+            <ul class="tag-list">
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/Mood/">Mood (25)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/cultivation/">cultivation (21)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/iOS/">iOS (6)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/design/">design (4)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/tools/">tools (3)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag//"> (2)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/regex/">regex (2)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/funny/">funny (2)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/hybrid/">hybrid (2)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/front-end/">front end (2)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/process/">process (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/coding/">coding (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/perl/">perl (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/test/">test (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/best-practices/">best practices (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/meeting/">meeting (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/cloud-engine/">cloud engine (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/http/">http (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/viewpoint/">viewpoint (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/share/">share (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/memo/">memo (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/javascript/">javascript (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/webkit/">webkit (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/this-blog/">this blog (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/svn/">svn (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/mac-tools/">mac tools (1)</a></li>
+        
+            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/sn/">sn (1)</a></li>
+        
+            </ul>
+        </nav>
+    </header>
 </div>
-<div id="content">
+
+<div class="content">
     
 <ul id="article_list">
     
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/recommend-a-mac-development-documents/">推荐学习：Start Developing Mac Apps Today</a></h2>
+                <h2 class="article_title title"><a href="http://localhost:8000/http-statuscode-status-code-200300400500-sequence/">http statusCode(状态码) 200、300、400、500序列</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-08-29
+                    2012-06-06
                 </div>
 
                 <div class="text">
-                    <p>Mac 开发从现在开始，推荐阅读，苹果经典教程：《<a href="https://developer.apple.com/library/mac/referencelibrary/GettingStarted/RoadMapOSX/chapters/01_Introduction.html">Start Developing Mac Apps Today</a>》  </p>
+                    <p>201-206都表示服务器成功处理了请求的状态代码，说明网页可以正常访问。<br/>
+200（成功）  服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。<br/>
+201（已创建）  请求成功且服务器已创建了新的资源。<br/>
+202（已接受）  服务器已接受了请求，但尚未对其进行处理。<br/>
+203（非授权信息）  服务器已成功处理了请求，但返回了可能来自另一来源的信息。<br/>
+204（无内容）  服务器成功处理了请求，但未返回任何内容。<br/>
+205（重置内容） 服务器成功处理了请求，但未返回任何内容。与 204 响应不同，此响应要求请求者重置文档视图（例如清除表单内容以输入新内容）。<br/>
+206（部分内容）  服务器成功处理了部分 GET 请求。  </p>
 
-<p>中文翻译版本：《<a href="http://www.cocoachina.com/applenews/devnews/2013/1211/7517.html">马上着手开发Mac应用程序</a>》（只翻译了概述部分）  </p>
+<p>300-3007表示的意思是：要完成请求，您需要进一步进行操作。通常，这些状态代码是永远重定向的。  </p>
+
+<p>300（多种选择）  服务器根据请求可执行多种操作。服务器可根据请求者 来选择一项操作，或提供操作列表供其选择。   </p>
+
+<p>301（永久移动）  请求的网页已被永久移动到新位置。服务器返回此响应时，会自动将请求者转到新位置。您应使用此代码通知搜索引擎蜘蛛网页或网站已被永久移动到新位置。<br/>
+302（临时移动） 服务器目前正从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。会自动将请求者转到不同的位置。但由于搜索引擎会继续抓取原有位置并将其编入索引，因此您不应使用此代码来告诉搜索引擎页面或网站已被移动。<br/>
+303（查看其他位置） 当请求者应对不同的位置进行单独的 GET 请求以检索响应时，服务器会返回此代码。对于除 HEAD 请求之外的所有请求，服务器会自动转到其他位置。<br/>
+304（未修改） 自从上次请求后，请求的网页未被修改过。服务器返回此响应时，不会返回网页内容。  </p>
+
+<p>如果网页自请求者上次请求后再也没有更改过，您应当将服务器配置为返回此响应。由于服务器可以告诉 搜索引擎自从上次抓取后网页没有更改过，因此可节省带宽和开销。   </p>
+
+<p>305（使用代理） 请求者只能使用代理访问请求的网页。如果服务器返回此响应，那么，服务器还会指明请求者应当使用的代理。<br/>
+307（临时重定向）  服务器目前正从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。会自动将请求者转到不同的位置。但由于搜索引擎会继续抓取原有位置并将其编入索引，因此您不应使用此代码来告诉搜索引擎某个页面或网站已被移动。  </p>
+
+<p>4XXHTTP状态码表示请求可能出错，会妨碍服务器的处理。  </p>
+
+<p>400（错误请求） 服务器不理解请求的语法。   </p>
+
+<p>401（身份验证错误） 此页要求授权。您可能不希望将此网页纳入索引。   </p>
+
+<p>403（禁止） 服务器拒绝请求。  </p>
+
+<p>404（未找到） 服务器找不到请求的网页。例如，对于服务器上不存在的网页经常会返回此代码。  </p>
+
+<p>例如：<a href="http://www.0631abc.com/20100aaaa，就会进入404错误页面">http://www.0631abc.com/20100aaaa，就会进入404错误页面</a>  </p>
+
+<p>405（方法禁用） 禁用请求中指定的方法。  </p>
+
+<p>406（不接受） 无法使用请求的内容特性响应请求的网页。   </p>
+
+<p>407（需要代理授权） 此状态码与 401 类似，但指定请求者必须授权使用代理。如果服务器返回此响应，还表示请求者应当使用代理。   </p>
+
+<p>408（请求超时） 服务器等候请求时发生超时。   </p>
+
+<p>409（冲突） 服务器在完成请求时发生冲突。服务器必须在响应中包含有关冲突的信息。服务器在响应与前一个请求相冲突的 PUT 请求时可能会返回此代码，以及两个请求的差异列表。   </p>
+
+<p>410（已删除） 请求的资源永久删除后，服务器返回此响应。该代码与 404（未找到）代码相似，但在资源以前存在而现在不存在的情况下，有时会用来替代 404 代码。如果资源已永久删除，您应当使用 301 指定资源的新位置。   </p>
+
+<p>411（需要有效长度） 服务器不接受不含有效内容长度标头字段的请求。   </p>
+
+<p>412（未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。   </p>
+
+<p>413（请求实体过大） 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。   </p>
+
+<p>414（请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。   </p>
+
+<p>415（不支持的媒体类型） 请求的格式不受请求页面的支持。   </p>
+
+<p>416（请求范围不符合要求） 如果页面无法提供请求的范围，则服务器会返回此状态码。   </p>
+
+<p>417（未满足期望值） 服务器未满足&quot;期望&quot;请求标头字段的要求。  </p>
+
+<p>500至505表示的意思是：服务器在尝试处理请求时发生内部错误。这些错误可能是服务器本身的错误，而不是请求出错。  </p>
+
+<p>500（服务器内部错误）  服务器遇到错误，无法完成请求。   </p>
+
+<p>501（尚未实施） 服务器不具备完成请求的功能。例如，当服务器无法识别请求方法时，服务器可能会返回此代码。   </p>
+
+<p>502（错误网关） 服务器作为网关或代理，从上游服务器收到了无效的响应。   </p>
+
+<p>503（服务不可用） 目前无法使用服务器（由于超载或进行停机维护）。通常，这只是一种暂时的状态。   </p>
+
+<p>504（网关超时）  服务器作为网关或代理，未及时从上游服务器接收请求。   </p>
+
+<p>505（HTTP 版本不受支持） 服务器不支持请求中所使用的 HTTP 协议版本。   </p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag//"></a>
+                    <a class="tag" href="http://localhost:8000/tag/http/">http</a>
                     
                 </div>
             </div>
@@ -70,198 +190,90 @@
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/efficient-code-review-best-practices/">高效代码评审最佳实践</a></h2>
+                <h2 class="article_title title"><a href="http://localhost:8000/programmers-work-four-hours-a-day/">每天工作4小时的程序员</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-08-13
+                    2012-06-05
                 </div>
 
                 <div class="text">
-                    <p>人们都知道代码评审的重要性，但是很多团队都在简单尝试后就放弃了这一制度——因为他们发现代码评审就和实施其他软件过程一样，会耗费大量的精力、人力投入，而在市场需求瞬息变化的今天，这样的成本显然会拖垮一个团队的战斗力。就像软件过程领域，人们发现了可以更加敏捷的过程改进方案一样，也有人在代码审核领域进行了非常有益的研究，并总结了这些最佳时间。这篇文章是IBM的SmartBear Software 团队花费数年时间的研究成果，个人读后感觉很受启发，如果每周每人花费1小时时间进行代码评审，我想任何团队都是能够接受的——请慢慢欣赏;)(另外，文章作者及其推崇他们自己研发的相关产品，如果你没有兴趣可以忽略作者的推荐——这些不是广告)<br/>
-————<br/>
-SmartBear Software 团队® 花费了数年时间去搜索已有的代码评审研究成果，并从来自超过 100 家公司的 6000 多名程序员那里，收集了“实践经验”。很显然，人们在评审代码时会发现一些错误（bug），但是这种评审工作通常会花费大量的时间，因此变得不太实际。我们通过数十年的经验使用获得的信息，来创建轻量级代码评审的概念。通过使用轻量级代码评审技术，开发员只需要花费五分之一的时间就可以进行全面且规范的代码评审工作了。我们还开发了最佳实践的理论，以便部署实现评审的效率与价值。本文概括了以下的这些实践。  </p>
+                    <p>注：好久没有激动了，看了这篇文章又激动了起来，我准备完成当前这个项目以后小试2周，然后调整，争取能坚持下来！高中的时候做过全脑训练，我的课余时间完全没有按照老师的要求去做，特立独行的结果是导致班主任找我谈话，不过最终他没说服我;)  </p>
 
-<p>访问 developerWorks 社区上的 敏捷开发小组，在那里您将有机会与更多的开发人员一起交流敏捷开发最佳实践。  </p>
+<p>———-原文分割线———  </p>
 
-<p>为了测试我们对代码评审及轻量级评审的结论，我们对代码评审进行了最大规模的研究工作。它涉及包含了2500 个代码评审案例，50 个程序员，及 Cisco 系统上320 万行的代码。在 10 个月的时间内，研究追踪了 MeetingPlace 产品团队，该团队拥有 Bangalore，Budapest 及 San José 方面的成员。<br/>
-在研究开始时，我们要为这个团队创建以下的规则：  </p>
+<p>每个人都熟悉这种作息规律：早上9点去上班，坐在电脑前面，编一天的程序，下午5点下班回家。如今，非常感谢蒂莫西·费里斯 (Timothy Ferriss)的《每周工作4小时》，我开始重新思考应该如何工作，如何让自己变成更有效率的程序员。  </p>
 
-<p>在检入到团队的版本控制软件之前，所有的代码都必须进行评审。<br/>
-SmartBear 的 CodeCollaborator® 代码评审软件工具，应该用于精化，组织和改进所有的代码评审工作。<br/>
-代码评审的全体会议是不支持的。<br/>
-评审过程会得到工具的支持。<br/>
-CodeCollaborator 会自动收集工具，提供评审层次和总结层次的报告。  </p>
+<p>最近，我把我的从周一到周五的作息规律做了一次较大的调整。很长时间以来，我一直像所有其他程序员那样工作、休息。但就在2011年的下半年，我开始了一项试验，想看看究竟什么样的作息时间能让我更有效率。这项实验目前仍在进行中，我并不是像军人那样严格遵守实验规定——例如，我也想会早20分钟、或晚20分钟起床——但当前制定的作息规律是这样的：  </p>
 
-<p>根据我们的研究结果，总结了 11 项最佳实践<br/>
-您应该警惕，平等代码评审（在该过程中，软件发布以确保质量之前，软件开发员会相互评审代码）会识别代码中存在的错误（bug），鼓励协作，并使代码变得更有维护性。<br/>
-但是很明显的一点是，有些代码评审技术是低效低能的。评审过程中的一些会议会占用时间，并抑制活力。严格的流程会扼杀创造力，但是松散的流程又意味着没人知道评审是否有效，甚至是否发生。而个人批评的社会效应，又会损伤士气。<br/>
-本文描述了考虑效率时的 11 项最佳实践，科学研究和 SmartBear 领域内的经验证明轻量级同行评审是高效的。使用这些技术，可以确保代码评审能够改进代码 – 而不用占用开发员的时间。您可以使用最近的技术，来在 IBM® Rational Team Concert® 环境之中评审代码。<br/>
-1. 一次评审量要低于 200–400 行代码<br/>
-Cisco 代码评审研究（见于工具栏）显示了为了得到优化的效率，开发员的评审量要低于一次 200-400 行代码（LOC）。超过这个量，搜索缺陷的能力就会降低。以这个速度，您可以找到 70-90% 的缺陷。换句话说，如果存在 10 个缺陷，那么您可以找到其中的 7 到 9 个。  </p>
+<p>早上4：30 到 7 点：冥想，写作，目标复查，和家人吃早餐  </p>
 
-<p>关于 Cisco 案例研究<br/>
-在 10 个月的监视工作之后，研究总结出了一个理论：如果适当操作的话，轻量级代码评审工作与规范的评审工作同样有效，但是前者的速度会更快（更省时）。与规范评审相比，轻量级代码评审平均要少花 6.5 个小时，并发现更多的错误（bug）。<br/>
-除了确认这些理论，研究中还发现了一些新的规律，本文将这些规律都概括了出来。  </p>
+<p>早上4：30起床其实并不是你想象的那么难。每个人的个人情况都多少有些不同，但人的身体基本上需要每天7到9小时的睡眠时间。保证你睡眠充足的一个方法是不用闹钟自然醒。你只需要早点睡觉，你就可以在早上4：30醒来。  </p>
 
-<p>图 1 中的图，描述了缺陷密度与评审代码行数量之间的关系，支持该规则。缺陷密度 就是每 1000 行代码之中所发现的错误（bug）数。评审代码行的数量超过 200 时，缺陷密度就会急剧地下降。<br/>
-在这种情况下，缺陷密度就是“评审有效性”的评价手段。如果两个评审员评审相同的代码，其中一个发现了更多的错误（bug），那么我们就会认为该评审员更有效率。图 1 显示了当我们将更多的代码放到评审者面前时，她搜索缺陷效率的变化情况。这种结果很合理，因为她可能不会花费大量的时间去评审，这样就会不可避免的使得效率没有以前高。<br/>
-图 1. 当代码行数量超过 200 时缺陷密度就会急剧下降，400 以后缺陷密度几乎为 0  </p>
+<p>起床之后，我会马上喝上16盎司的水——不是咖啡！我很长时间都不喝咖啡了，而且也不太想喝。事实上，不喝咖啡我感觉会更好。然后我会冲个澡；这样会让我感觉一个清爽的一天的开始。  </p>
 
-<ol>
-<li>每小时低于 300–500 LOC 检查率的目标<br/></li>
-</ol>
+<p>每天早上我都会冥想30分钟。冥想的最佳时间是在日出之前或日出的过程中，也就是西方世界的早6点之前。我不打算解释为什么冥想会对你有好处；网上对此已经有了大量的研究。如果你想找一个关于冥想的书，我推荐《Meditation for Dummies》。尽管书名很怪，但它是我读过的最好的一本书。  </p>
 
-<p>定义  </p>
+<p>冥想之后，我会花30-45分钟的时间写博客。我一般会写500到800字。我发现，冥想之后立即动笔，通常会一气呵成，写的很顺利。另外，大脑经过了一夜的休整，状态非常好，在注意力转移到其它事务之前，把大脑里堆积的东西都倒出来清理一下是很有好处的。关于写作的一个技巧：把这段时间用作对大脑的初步清理。不要去做研究、编辑等。这些事情放在以后再做。  </p>
 
-<p>检查率： 我们能够多快地评审代码呢？通常以每小时 kLOC（千代码行）来评价。<br/>
-缺陷率： 我们能够多快地发现缺陷呢？通常以每小时缺陷数来评价。<br/>
-缺陷密度： 给定量的代码之中我们能够发现多少的缺陷呢（而不是它们有多少）？通常以每 kLOC 中发现的缺陷数来评价。  </p>
+<p>然后是To Do List(待办清单)时间。我会查看邮件，微博，LinkedIn，等等，以及安排下一步要做是任务。说到任务，我遵循GTD做事方法，我用Omnifocus软件来管理我的生活。我在iPad，iPhone和MacBook Air(我是苹果的粉丝)都装了它。不错，作为一个待办事宜管理软件，Omnifocus是有点贵了，但因为我的整个生活都和它有关，这个价格也值了。我通览一下待办清单，想想每个事情上的预期目标——所有的事情，从今天要做的小事情，到长期的目标。清单中的每个条目都设定有一个目标，如果没有目标，我会删除它。  </p>
 
-<p>您要花点时间进行代码评审。快速评审并不总是好的。我们的研究结果显示检查率低于“300-500 LOC/小时”时，可以得到优化的结果。根据所作的决定，评审者的检查率有很大的变化，就算是相似的代码开发者、评审者，文件和评审规模，也存在巨大的差异。<br/>
-为了找到优化的检查率，我们将 缺陷密度 与评审者检查代码的 速度 进行了比较。得到的结果再一次落在了我们的预料之中：如果在评审您不花足够的时间，那么您就不会发现太多的缺陷。如果评审者面临大量代码的压力，那么他就不会每一行代码投入相同的注意力。他不能研究同一位置处更改的所有版本。<br/>
-所以，多快算是太快呢？图 2 显示了答案：服务器端每小时超过 400 LOC 的评审速度会降低效率。而每小时 1000 LOC 的速度，您可能已经推出了，以这样的速度评审员可能根本都没有细看代码。<br/>
-图 2. 评审量超过 500 行代码时检查效率就会下降了  </p>
+<p>接着是早餐时间。关于应该什么时候吃早餐、应该吃什么的问题上，已经有大量你可以借鉴的养生指导。我尝试过各种不同的东西。我发现那些富含纤维素，低碳，高蛋白质的东西最适合我。你试过燕麦片加花生酱吗？好极了！我还喜欢吃一些水果、喝一点茶。还有，我尽量和家人一起吃早餐。有时事情能按照这种愿望执行，但有时不行。我的目标是今年一年都要按照这个执行下去。  </p>
 
-<ol>
-<li>花足够的时间进行适当缓慢的评审，但是不要超过 60-90 分钟<br/></li>
-</ol>
+<p>早7点到11点：4个小时的编程时间  </p>
 
-<p>永远不要对一个原型代码评审超过 60-90 分钟  </p>
+<p>这是我用来编程的时间。一天4小时也许你会觉得少的可怜，可是我却发现，在这4小时我做的事情能比大多数人一周干的事情都要多。研究显示，具有固定工作时间表的人比那些随机工作的人更有效率。对于我来说，这个固定时间是早7点到11点，每天。这段时间我要做的事情就是编程，不做其它的。有几个基本的原则：  </p>
 
-<p>我们应该讨论，为了得到更好的结果，不应该过快地评价。但是您也不应该在一个位置花太多的时间。大约 60 分钟后，评审者就会感到疲劳，于是就不会找到额外的缺陷了。这个结论得到了许多其他研究的支持。实际上，根据我们的常识，当人们从事注意力高度集中的活动时，性能状态在 60-90 分钟之后就会降低了。考虑到人体方面的限制，评审者在性能降低之前，不能评审超过 300–600 行的代码。<br/>
-但反过来说，评审代码所花的时间不得低于五分钟，就算代码只有一行也是如此。通常来说，单行的代码也会影响到整个的系统，所以花上五分钟时间去检查更改可能造成的结果是值得的。<br/>
-4. 确定在评审开始之前代码开发者已经注释源代码了<br/>
-在评审开始之前代码开发者可能就消除大多数的缺陷，这一点我们将会看到。如果我们需要开发员双倍地检查他们的工作，那么评审可能更快地完成，而不用再去折中考虑代码质量的问题。就我们所知，这种特定的想法尚未得到研究，所以我们在 Cisco 研究期间对其进行了测试。<br/>
-图 3. 代码开发者准备对缺陷密度的震撼性效果  </p>
+<p>首先，关掉所有的通信设施——电话，邮件，聊天工具等。没有让你分心的事。你可以给少数几个人保留一个联系到你的方法，以防有紧急事情发生。那些真有紧急事情需要找你的人自有办法联系到你，我还没有碰到过这样的事。我甚至还教育我的妻子，她通常习惯对所有的请求都立即给予回应，我告诉她要尊重我这4个小时的时间。在这段时间里你应该只干一件事。千万不要同时干5、6件事情。  </p>
 
-<p>代码开发者准备 说的是代码开发者在评审之前要先注释他们的源代码。我们发明了这个术语，以描述研究中所评价的特定行为模式，大约 15% 的评审会阻止代码开发者这样做。注释会指导评审者进行变更，显示首先必须要查看的文件，并找到每一次代码更改的原因。这些注释不是代码之中的评论，而只是给其他评审者看的评论。<br/>
-我们的理论就是，因为代码开发者需要重新考虑，并解释注释过程中所发生的更改，所以代码开发者需要在评审开始之前就找出许多缺陷，以让评审变得更加有效。如此，评审过程将会产生低密度的缺陷，因为更少的错误（bug）剩余了。很明显，与没有代码开发者准备的评审相比，代码开发者准备之后的评审有更少的缺陷存在。<br/>
-我们还考虑过一个悲观的理论，以解释错误（bug）的低发现率。是不是当代码开发者在作出一项评论时，评审者会有偏见，或者自鸣得意，这样就不能尽可能多地发现错误（bug）了呢？我们随机抽查了 300 个评审者进行研究，结果证实评审者在评审代码时确实非常小心，更少的错误（bug）被发现了。<br/>
-5. 为代码评审创建可定量化的目标，并获取制度，这样您就可以改进流程了<br/>
-有了项目，您就该决定代码评审过程的目标，以及怎样评价效率问题了。当您在定义特定的目标时，您就能够决定同行评审是否真的达到了您所需要的结果。<br/>
-最好从外部性的制度开始，例如“将支持访问降低 20%”或者“使开发引入的缺陷百分比减半”。这些信息使您能够更好地看清，从外部视角来看，代码能够做些什么，您还需要一个可定量化的评价手段，而不是“修复更多错误（bug）”的模糊目标。<br/>
-但是，在外部制度显示结果之前需要花上一段时间。例如，支持性访问将不会得到影响，直到新的版本得到发布并交到客户手中为止。所以查看内部性流程工具，以得到发现多少缺陷，缺陷就是问题所在，以及开发员在评审上所花时间的清晰结果。代码评审的最常见内部性制度是 检查率 ，缺陷率，以及 缺陷密度。<br/>
-考虑一下只有自动化或者紧密控制的流程，才能给您带来可重复的代码；人类并不擅长记住启动或者终止计时器。为了得到最好的结果，您要使用能够 自动 收集代码的代码评审工具，这样用于流程改进的关键代码就是精确的了。<br/>
-为了改进和提高您的流程，您可以收集代码并组合流程，以查看更改是如何影响结果的。很快，您就将会知道什么工作最适合您的团队了。<br/>
-6. 使用检查表，因为它能极大地影响代码开发者和评审者的结果  </p>
+<p>第二，中间不要留下休息时间来查看邮件或上网，或干其它类似的事情。原因是：在一个小时里，我可以开发出x个功能。如果我要是连续工作4小时，我发现我的产量不是4倍，而是8倍或16倍。当你全神贯注的干某项事情时，相信你也经历过这样的体验。这就是我们所说的大脑的Flow(流)状态。在以后的博客里我打算多写一些关于Flow的文章。  </p>
 
-<p>使用检测表对于评审员非常重要，如果代码开发者忘记了某项任务，评审员也同样可能忘记。  </p>
+<p>那为什么不把这样的制度应用到整个8小时的工作时间里呢？这是因为人的有效率的状态是有限度的。人的大脑跟肌肉一样。你可以在跑步机上持续运动8小时吗？就像我们的肌肉，大脑需要时不时的休息。这种限度依据个人的不同而各异。通过尝试和根据犯下的错误，我发现我的极限时间是4小时。  </p>
 
-<p>我们极力推荐您使用检查表，来确定您可能会忘记的事情，它对代码开发者和评审者都有用。忽略是最难发现的缺陷；毕竟，评审不在那里的东西是很困难的一件事。检查表是解决这个问题的最好方式，因为它会提醒评审者和代码开发者花点时间去考虑一下可能被遗忘的事情。检查表还会提醒代码开发者和评审者确定所有的错误（bug）都得到了处理，软件功能已经通过了无效值测验，而且已经创建了单元测试。<br/>
-另外一个有用的概念就是 个人检查表 。每个人一般都会犯 15-20 个错误（bug）。如果您注意到了一些典型的错误（bug），那么您就可以开发自己的个人检查表（Personal Software Process，Software Engineering Institute，以及 Capability Maturity Model Integrated 也都推荐该实践方式）。评审者将会完成决定一般性错误（bug）的工作。您所应该做的，就是拥有一个简短的检查列表，一般都是您容易遗忘的事情。<br/>
-一旦您开始在检查列表中记录自己的缺陷，那么您就会少犯错了。规则将不断出现在您的脑海中，然后您的错误（bug）率就会下降了。这种情况我们将会发现它反复出现。<br/>
-提示：<br/>
-如果您想要得到关于检查列表的更多具体信息，那么您可以得到本文代码开发者所写书籍的免费拷贝，这本书为 Best Kept Secrets of Peer Code Review，网址为 <a href="http://www.CodeReviewBook.com%E3%80%82">www.CodeReviewBook.com。</a>  </p>
+<p>还有一点需要提的是，我并没有在11点设了闹钟提示。当我感觉大脑有些疲倦，工作效率开始下降时，我就停止工作。有些天我只工作3小时，有时我会工作5小时；4小时是平均值。  </p>
 
-<ol>
-<li>确认缺陷得到了修复<br/>
-是的，这种“最佳实践”看起来好像是没有脑子的。如果您遇到了评审代码以找到缺陷的所有问题，那么修复它们就变得顺理成章了！现在许多评审代码的团队没有一种好的办法，去追踪评审期间找到的缺陷，并确保评审完成之前错误（bug）确实得到了修复。确认电子邮件之中的结果，或者实时评审是非常困难的。<br/>
-记住这些错误（bug）通常不是在 Rational Team Concert 日志中输入的，因为在代码发布给 QA 之前就发现了这些错误（bug）。所以，什么是代码在贴上“全部解决”标志之前确认缺陷的好办法呢？我们建议使用好的协作性评审软件，与 Rational Team Concert 相集成，以追踪评审之中所发现的缺陷。有了正确的工具，评审员就可以记录错误（bug），并在必要时与代码开发者进行讨论了。然后代码开发者会修复问题，并通知评审者，而评审者必须确认每个问题都得到了解决。工具应该追踪评审期间所发现的问题，并确保直到所有的错误（bug）被评审者 修复 才完成评审（或者作为稍后解决的单独工作项追踪）。工作项只有在评审完成时才能通过。<br/></li>
-</ol>
+<p>我在家工作是为了避开打搅。如果你需要在办公室里工作，看看管理部门是否允许你把最有效率的这段时间放在家里工作。你上班途中的折腾会把早上做瑜伽和冥想获得的好处给抵消了。在经过了早高峰的喧闹，还有办公室里的嘈杂，你的神经会变的紧张，冥思带来的效果完全消失。在家工作必定会更有效率的多。  </p>
 
-<p>如果您真面临着搜索错误（bug）的烦恼，那么请确认您已经将它们全部安装了！  </p>
+<p>早11点到下午1点：健身，午饭，购物  </p>
 
-<p>既然您已经学会了代码评审 流程 的最佳实践方式，那么我们接下来将会讨论一些社会效应，以及怎样管理它们以获得最佳的结果。<br/>
-8. 培养良好的代码评审文化氛围，在这样的氛围中可以积极地评审缺陷<br/>
-与其他我们能看到的大多数技术相比，代码评审对于真实团队构建能够发挥更大的作用，但是只是在管理人员能够以一种积极的，向上的，有技巧的方式进行交流时，这种优势才能发挥出来。将缺陷看做是不好的事物很容易（毕竟，它们是代码之中的错误（bug）），但是形成不好的缺陷检查态度，则会毁掉整个团队的努力，更不要说它会破坏错误（bug）检查过程了。  </p>
+<p>我每天都要健身。John J. Ratey的书《Spark: The Revolutionary New Science of Exercise and the Brain 》对每天锻炼的好处做了很好的论证，如果你想知道锻炼对大脑功能改进的科学机理，你可以读一下这本书。每天不做相同的运动，甚至不去相同的健身房。我每周在一个瑜伽馆里做3次瑜伽，在一个spinning馆里上两天的spinning课，在健身房里做两天的举重，在健身房里我有个教练。教练帮助了我很多，有人这样督促你会使你具有更大的动力。  </p>
 
-<p>软件代码评审的要点在于，尽可能多的消除缺陷，不管是谁“导致”了错误（bug）。  </p>
+<p>我喜欢在健身房运动，因为哪里有额外的服务。你可以一下用掉5条毛巾而不担心老婆的抱怨。可以花30分钟冲澡而不用担心门外有人叫喊”你还没完吗？“…在家里你经常会遇到这样的事。  </p>
 
-<p>管理人员必须建立缺陷是积极的这样的观点。毕竟，每一个缺陷的存在，都是改进代码的潜在机会，而错误（bug）评审过程的目的，就在于使代码尽可能地完美。每一个被发现并解决的缺陷，都是客户以后不会看到的缺陷，也是 QA 人员不必花费时间去解决的问题。<br/>
-团队需要维持这样一种态度，就是发现缺陷，就意味着代码开发者和评审者 作为一个团队 去改进产品的质量成功了。而不是“代码开发者产生了一个缺陷，而评审者负责去发现它”。它更像是配对编程的一种有效形式。<br/>
-评审员要向所有的开发者展示收集坏习惯，学习新技巧，并展开功能的机会。开发员可以从他们的错误（bug）中学习，但是只是在他们警惕错误（bug）时才会这样。如果开发员害怕发现错误（bug），那么积极的结果就会消失。<br/>
-如果您是一名初级开发员，或者是一个团队的新成员，那么其他人发现缺陷时，就意味着您强有力的队友在帮助您成长为一个合格的开发员。这就比您单枪匹马地编程，没有具体的反馈时，要更快地进步。<br/>
-为了维持检查缺陷是积极的这样一种理念，管理人员必须要承诺缺陷密度不会进入到性能报告之中。公开作出这种承诺是很有效的。这样开发员就会知道他们要怎样做，并抗议公开破坏这条规则的管理人员。<br/>
-管理人员绝不应该将错误（bug）代码作为消极性能评审的基础。他们必须谨慎对待，并对批评造成的挫折感及消极反应保持敏感，并要一直提醒团队发现错误（bug）是一件很好的事情。  </p>
+<p>我还养成了一个习惯就是每天购物，通常是在Whole Foods，一个离我家只有步行距离的超市。为什么每天购物？在很多国家，特别是亚洲，人们每天都去购物，而不是一次买足2个星期的东西储存在家里的冰箱或冷柜里。这种方式，你只买了你需要的东西，避免了浪费。很多时候你会发现冰箱里有些不知是何物的东西，怀疑放在那里有半年之久了。我午饭在外面吃，Whole Foods超市里有不错的沙拉自助。因为我喜欢日本食品，有时我会来一点日本寿司或盒饭。  </p>
 
-<p>回页首<br/>
-9. 警惕老大哥效应（Big Brother Effect）<br/>
-作为一个开发员，您可以自动假设“老大哥正看着您呢”是真的，如果评审制度是由评审支持工具自动评价的，更是这样的。您是否花费了很长的时间去评审一下更改？您的同行从您的代码中是否发现了很多错误（bug）？这将如何影响您下一步的性能评价？  </p>
+<p>下午1点到6点：学习和交流时间  </p>
 
-<p>评估报表不应用来对付开发人员，尤其是在面对结对评审员时。这一做法会严重破坏道德观。  </p>
+<p>我尽量会把一些讨论、约会时间凑到一起，这样不必每天都去公司。通常，这些事情包括会议，面试，做报告，指导开发，代码审查等等。这段时间我不做任何的开发，除非有紧急的bug或特殊情况需要处理。  </p>
 
-<p>制度对于流程评价来说非常重要，这反过来，又为流程改进提供了一个基础。但是制度也可以被用来做坏事。如果开发员相信制度是用来对付他们的，那么他们不光是对流程有敌意，而且他们的注意力可能转到改变制度，而不是编写更好的代码，和变得更有效率上。<br/>
-管理员可以做很多事情，来解决这个问题。首先也是最重要的，他们必须要警惕这一点，并且必须确定代码开发者没有面临很多的压力，而“老大哥”问题必须每次都得到详细的检查。<br/>
-制度应该用来评价流程的效率，或者流程更改的效果。记住，通常来说，最困难的代码是由最有经验的开发员处理的。这些代码，反过来，最有可能出问题，因此最难检查，也有可能发现最多的缺陷。因此，大量的缺陷很有可能是由复杂性，以及代码的分块性造成的，而不是代码开发者的能力造成的。<br/>
-如果制度确实能够帮助一个管理员去发现一个问题，那么将某人踢出局可能会产生更多的问题。我们推荐管理员在解决相关问题时，要将一个小组当做整体来对待。所以最好不要召开专门的会议，因为开发员在解决特定的问题可能会有压力。相反，您可以通过一个每周状态会议，或者正常的程序来解决问题。<br/>
-管理员必须不断地维持这样一个年头，即搜索缺陷是好的事情，而不是糟糕的，缺陷密度与开发员的能力并不是挂钩的。记住对一个团队来说，缺陷，尤其是团队成员所引入缺陷的数量不应该被回避，也不应该用作能力的评价参数。  </p>
+<p>我还用很大比例的一部分时间去学习。我花了很多时间去阅读别人的东西，从书本到博格，大多与编程相关的东西。我每天都要学到新的知识。保持这样的学习劲头的最好的方法是对学到的东西做一些笔记，把相关的知识做写标记。像EverNote这样的软件很适合做这种事情。  </p>
 
-<p>回页首<br/>
-10. 评审一部分的代码，就算您不能全部完成，以从自我效能感（Ego Effect）中获益<br/>
-想象一下您自己坐在编译器的前面，任务是需要修复一个小小的错误（bug）。但是您知道只要您说出了“我完成了”，您的同行 — 或者更糟，您的老板 — 就要检查您的工作了。这会改变您的开发个性吗？所以在您工作时，一般是在您声明代码评审完成之前，就会更加的谨慎了。如此您立即就会成为一个更好的开发员了，因为在您背后别人议论您时就会说，“他的员工非常谨慎，他真是一个不错的开发员”；而不是“他犯了大量愚蠢的错误（bug）。当他说工作完成时，实际上还差着远呢”。<br/>
-自我效能感（Ego Effect）会促使开发员编写更好的代码，因为他们知道其他人将会查看自己编写的代码及作品。没有人想被其他人认为自己经常犯初级的错误（bug）。Ego Effect 促使开发员在向其他人交付作品时更加谨慎地进行评审。<br/>
-Ego Effect 的一个良好特征，是不管评审者要对所有的代码变更负责，还是仅仅执行“点检查”，就像随机性的药物测试一样，都能正常地发挥作用。如果您的代码有三分之一的几率被评审者抽中进行评审，那么它仍然足以刺激评审者谨慎工作。如果您只有十分之一的概率被抽中检查，那么可能您就不会如此勤奋了。您知道您会说，“哈，我很少犯错”。<br/>
-评审 20–33% 的代码时，从 Ego Effect 中获得花费时间方面的收益可能最大，评审 20% 的代码肯定要比不评审强很多。<br/>
-11. 采用轻量级，工具支持的代码评审<br/>
-代码评审一般有些主要的类型和无数的变数，而指南却能适用它们中的任何一个。但是，为了完全优化团队花在评审之上的时间，我们要使用工具支持的轻量级评审过程来得到最优的结果。搜索缺席时，它是有效的，实用的。<br/>
-规范，或者 重量级的 检查已经流行了 30 年。它已经不是评审代码的有效形式了。重量级检查平均花费的时间是每 200 行代码 9 个小时。尽管它很有效，但是严格的过程需要三到六个参与者，并进行一系列繁琐的会议以讨论具体的细节。不幸的是，尽管需要繁琐的过程，但是大多数的公司没有条件将编程人员集成起来,进行长时间的会议。最近的几年，许多开发公司已经完全放弃了会议安排，纸质代码阅读，以及繁琐的作品收集工作，转而采用新型 轻量级 过程，以从规范的会议及老式重量级过程的重压中解放起来。<br/>
-我们使用在 Cisco 中的案例研究，来确定轻量级技术与规范过程比较的特点。结果显示轻量级代码评审所需要的时间只是规范评审的五分之一（甚至更少），而且前者能够发现更多的错误（bug）。<br/>
-尽管轻量级代码评审拥有很多的方法，例如实时评审和电子邮件评审，但是最有效的评审方法还是使用协作性的软件工具来促进评审，这些软件工具例如 SmartBear 的 CodeCollaborator（见于图 4）。<br/>
-图 4. Cisco 研究中所使用到的轻量级代码评审工具，CodeCollaborator  </p>
+<p>同时我会看看市场上有没有其它的产品，最有效率的软件开发者是不用写一行代码就能把问题解决。我不想把别人已经做好的东西再做一遍。所以，在CodePlex, GitHub 和Component Source这些网站上花时间是有好处的。  </p>
 
-<p>图 4 的大图<br/>
-CodeCollaborator 是与 IBM® Rational Team Concert 工作流程相集成的唯一代码评审工具。它将源代码评审与聊天形式的协作集成起来，从而使开发员从联系注释与私人代码行的繁琐活动中解放了出来。当程序员向工作项添加更改项进行评审时，在 CodeCollaborator 中将会自动创建评审，并分配适当的批准者。团队成员可以直接注释代码，与代码开发者聊天，并就每一个问题进行协作，追踪错误（bug）并修复缺陷。整个过程不需要会议，打印，或者安排日程。<br/>
-有了基于 Rational Team Concert 与 CodeCollaborator 的轻量级评审过程，团队就可以进行更有效的评审，并实现代码评审的有利点。<br/>
-为了方便您查看，下面总结了在一个简单列表中最容易保持的 11 项实践方式：到现在为止，您已经被经实践证明有效的经验从头到尾武装起来了，以确保从过程和社会的角度来看，团队在代码评审过程之中能够节省大量的时间。当然，您必须确实 完成了 代码评审，以实现这些便利。对 100% 的代码使用评审的规范方法（有人对这个百分比存在异议，简单来说是不现实的。集成到 Rational Team Concert 环境之中的工具支持轻量级代码评审，提供了最强大的功能，因为它提供了一个有效的方法去搜索缺陷，而且不会涉及到开发员头痛的一些问题。有了正确的工具和这些实践方式，您的团队就可以对所有的代码进行同行评审，并在软件达到 QA 阶段之前就找到成本极高的错误（bug），这样您的客户每次都能够得到顶级品质的产品了。  </p>
+<p>我从妻子的医院实习的经历中得到了一点启示。新入职的大夫每天早上看病，到了下午，他们会聚到一起讨论遇到的各种病症，讨论他们是如何应诊的。对于我，我会事后反省一下自己做过的事，我会重新思考一下早上编程遇到的问题，在什么地方遇到了什么bug，或反省做报告时的表现，或如何主持的会议，等等。我努力从过失中学到教训，避免它们再次出现。  </p>
 
-<p>一次评审少于 200–400 行的代码。<br/>
-目标为每小时低于 300–500 LOC 的检查速率。<br/>
-花足够的时间进行正确缓慢的评审，但是不要超过 60–90 分钟。<br/>
-确定代码开发者在评审开始之前就已经注释了源代码。<br/>
-为代码评审和获取制度建立可定量化的目标，这样您才能改进流程。<br/>
-使用检查列表，因为它可以极大地改进代码开发者和评审者的作品。<br/>
-确认缺陷确实得到修复了。<br/>
-培养良好的代码评审文化氛围，在这样的氛围中搜索缺陷被看做是积极的活动。<br/>
-警惕“老大”效应。<br/>
-最少评审一部分代码，就是您不能评审全部的代码，以从 Ego Effect 中受益。<br/>
-采用轻量级，能用工具支持的代码评审。  </p>
+<p>下午6点到晚上8点：家庭时间  </p>
 
-<p>参考资料<br/>
-学习  </p>
+<p>我妻子是个医生，工作很忙，但我们尽量一起度过这段时间。我们会一起做饭。然后我会和孩子一起做家庭作业。(一个二年级的学生竟会有这样多的作业，这是另外一个话题，我以后再谈。)  </p>
 
-<p>更多有关这些最佳实践和案例研究的信息，以及其它在 Jason Cohen 的书 Best Kept Secrets for Peer Code Review 中的议题，可以免费在 <a href="http://www.CodeReviewBook.com">www.CodeReviewBook.com</a> 中获得。<br/>
-查找更多有关 SmartBear 软件的代码评审工具 CodeCollaborator 的更多内容，包括更多有关 集成 CodeCollaborator 与 IBM Rational Team Concert 的信息，并观看四分钟的视频演示，在 IBM Rational Team Concert 中进行代码评审。<br/>
-获取有关 IBM Rational Team Concert 的详细信息：  </p>
+<p>晚8点到8：30：反省和给大脑派活  </p>
 
-<p>文档： Rational Team Concert V2：如何开始 和 Rational Team Concert 信息中心<br/>
-文章和其它资源： IBM developerWorks 的 Rational Team Concert 产品专题页面<br/>
-网络广播： 在全球分布式团队中使用 Rational Team Concert<br/>
-演示： Rational Team Concert 仪表板和报表<br/>
-播客： IBM Rational Team Concert 和 Jazz  </p>
+<p>我晚上不做冥思，而是换成坐下来反省一天的生活。如果你花上15分钟做在一个安静的地方反省你的一天，你会吃惊的发现这一天你学到了这样多的东西，获得了这样大的提高。  </p>
 
-<p>访问 developerWorks 上的 Rational 专区，了解有关 Rational 软件交付平台产品的技术资源和最佳实践。<br/>
-时刻关注 developerWorks 技术事件和 Web 广播，包括各种 IBM 产品和 IT 行业主题。<br/>
-参加 免费的 developerWorks Live! 技术讲座，快速了解 IBM 产品和工具，以及 IT 行业趋势。<br/>
-查看 developerWorks 演示中心，从初学者的产品安装和配置演示，到面向有经验开发人员的高级功能。<br/>
-查看 Rational 培训和认证 目录，其包含了许多广泛议题的课程类型。您可以在任何地方，任何时间学习它们，许多“启动”课程是免费的。  </p>
+<p>接下来，我给大脑安排工作。众所周知，当我们睡眠时大脑是在不停工作的。所以，你最好给它安排点工作。对于我，下面这些事情很有效：我把第二天早上要写的东西做了个大纲。就像写便条一样。我发现把它写到纸上比写在电脑里更有效。  </p>
 
-<p>获得产品和技术  </p>
+<p>或者，我会看一些编程/算法问题。同样，会纸上描述下来或写出框架。让人惊奇的是，很多时候早上起来你会发现已经有了解决方案！像这样的事情我是在一个整洁的、没有格线的、信封大小的笔记本上写画的。在空白的白纸上写画会让我更有灵感。我在晚8：30到9点间上床睡觉。越早越好。  </p>
 
-<p>Rational Team Concert 试用版下载（免费）：  </p>
+<p>这就是我一天的作息时间。当然，当我外出旅行时会有些变化；在途中我会花大量的时间来工作。我还没有告诉你们在周末我都干些什么，我会在以后的文章里讲到这些。  </p>
 
-<p>Rational Team Concert Enterprise Edition<br/>
-Rational Team Concert Express Edition<br/>
-Rational Team Concert Standard Edition  </p>
+<p>我很想听到其他人关于他们的作息时间的故事，以及他们是如何提高工作效率的。  </p>
 
-<p>按照最适合您的方式评估 IBM 软件：下载进行试用，可以在线进行，在云环境中使用，或者在 SOA Sandbox 中花一些时间了解如何有效实施面向服务架构。  </p>
-
-<p>讨论  </p>
-
-<p>访问 developerWorks 社区上的 敏捷开发小组，在那里您将有机会与更多的开发人员一起交流敏捷开发最佳实践。<br/>
-加入 Rational Team Concert 讨论区，或在 Jazz.net 讨论区 提出问题。<br/>
-加入到 developerWorks 中文社区 中。与其他 developerWorks 用户沟通，关注开发驱动的博客，讨论区，例如 Rational Café 和 Rational 维基。  </p>
-
-<p>关于作者  </p>
-
-<p>Jason Cohen 是 CodeCollaborator 的初始架构师和 SmartBear Software 的创建人。在他的公司被收购之后，他继续参与许多新的 SmartBear 软件的战略发起人，并且经常进行有关同行代码评审收益的演讲。他也是其它三个公司的创建人，包括 WPEngine 和 ITWatchDogs。更多有关 SmartBear Software 的信息，请访问 <a href="http://www.smartbear.com%E3%80%82">www.smartbear.com。</a></p>
+<p>[本文英文原文链接：<a href="http://www.jayonsoftware.com/home/2012/1/9/daily-routine-of-a-4-hour-programmer.html">Daily Routine of a 4 Hour Programmer</a>]</p>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/coding/">coding</a>
-                    
-                    <a class="tag" href="http://openq.cn/tag/best-practices/">best practices</a>
+                    <a class="tag" href="http://localhost:8000/tag/cultivation/">cultivation</a>
                     
                 </div>
             </div>
@@ -272,20 +284,440 @@ Rational Team Concert Standard Edition  </p>
     <li class="list_item">
         <div class="article">
             <div class="inner">
-                <h2 class="article_title title"><a href="http://openq.cn/the-five-cross-platform-mobile-development-tools-you-should-the-try/">你应该尝试的5个跨平台移动开发工具</a></h2>
+                <h2 class="article_title title"><a href="http://localhost:8000/layoutsubviews-call-time-turn/">layoutSubviews的调用时机（转）</a></h2>
                 <div class="article_meta">
                     <span>on</span>
-                    2012-08-11
+                    2012-06-04
                 </div>
 
                 <div class="text">
-                    <p>作为移动操作系统-尤其是iPhone和Android-行情风云变幻，要紧的问题还是：你的Develop RoadMap中选择支持那些设备以及准备忽略那些设备。<br>对整个移动开发界来说还没有一个跨操作系统平台的完美解决方案，目前许多人都选择支持一个操作系统而暂时放弃其他，如果你想一次性支持两个或三个手机操作系统，那么你必须有充足的弹药（资源）！<br>这里有几个我们认为不错的跨平台开发工具。&nbsp;如果你知道其他的，或者如果你有关于这些框架的任何有用的提示，请让我们知道，请在这里留言给我们。(注：由于这其中大部分框架都采用了html5+native的解决方案，因此，此文归入了html5 vs. 本地app这个系列。）</p><p>下面的视频需要翻墙，不能翻墙的同学，请直接查看文字，需要进一步了解请自己搜索进一步的教程。</p><hr><h2>1、&nbsp;<a href="http://rrurl.cn/hnRL2z" target="_blank">PhoneGap</a></h2><hr><p></p><p>PhoneGap是一个开源的开发框架，使用HTML，CSS和JavaScript来构建跨平台的的移动应用程序。它使开发者能够利用iPhone，Android，Palm，Symbian，Blackberry，Windows Phone和Beda智能手机的核心功能——包括地理定位，加速器，联系人，声音和振动等。</p><p>Adobe最近公开表示将会为HTML5开发推出更多有意义的工具。有业内人士表示，Adobe的HTML5战略特别值得注意，此外Adobe对于乔布斯的此番公开批评曾积极地回应道：“乔布斯说的不都是对的。”可一年半后，Adobe弃Flash而去，转投封闭王国苹果支持的为数不多的开放标准之一——HTML5。这是个好的信号，在flash和html5之间犹豫的开发者可以大胆的使用phonegap了，另外html5更注重移动平台，flash更适合pc端。</p><hr><h2>2、&nbsp;<a href="http://rrurl.cn/nzdg6O" target="_blank">Appcelerator</a></h2><hr><p></p><p>当我们在微博上调查跨平台移动开发工具时，Appcelerator受到了更多的粉丝的推崇。</p><p>另一个开放源码软件产品，&nbsp;Appcelerator’s Titanium 开发平台允许你使用JavaScript，PHP，Python，Ruby和HTML等这些典型的Web开发语言开发手机、平板<em>和PC</em>上的App。 Titanium也给它的用户访问300多个社交及其他网络API，以及位置信息。</p><p>Appcelerator还支持自定义行为和事件， App数据可以存储在云端或设备上，可以充分利用硬件，尤其是相机和摄像机的能力。</p><hr><h2>3、&nbsp;<a href="http://rrurl.cn/pNJs7C" target="_blank">RhoMobile</a></h2><hr><p></p><p>他们的口号是“一套代码，所有智能手机”似乎说明了一切。&nbsp;RhoMobile提供了Rhodes，一个开源的基于Ruby的框架，它允许使用同一个Ruby源文件能够运行于许多移动设备上，目前包括的操作系统有iPhone，Android，Windows Mobile，RIM和Symbian。</p><p>该框架允许你只写一次代码，就可以build出运行在多个主流智能手机平台上。这些原生应用可以充分利用现有的硬件，包括GPS、摄像头，以及位置数据。</p><p>除了Rhodes，目前在其2.0版本中，RhoM​​obile还提供了RhoHub和RhoSync，前者是一个托管开发环境，后者是一个独立的服务器，用来保持当前用户的移动设备上的应用程序数据（云服务？）。</p><hr><h2>4、<a href="http://rrurl.cn/k4pvo7" target="_blank">WidgetPad</a></h2><hr><p>    <img src="http://mashable.com/wp-content/uploads/2010/08/widgetpad.jpg" alt="" width="640" height="387"></p><p>WidgetPad是一个通过标准的web开发技术（如CSS3、HTML5、JavaScript）来开发智能手机应用程序的开源移动开发工具。</p><p>该平台包含有项目管理，源代码编辑，调试，协作，版本和分发等模块。&nbsp;它可以用来创建iOS、Andr​​oid以及WebOS上的App。</p><p>WidgetPad是目前还在private beta阶段，感兴趣的话您可以联系项目的创建者。</p><hr><h2>5、<a href="http://rrurl.cn/gwN62S" target="_blank">MoSync</a></h2><hr><p></p><p>MoSync是另一个基于常见的编程标准的开放源码软件的跨平台移动应用开发SDK。&nbsp;该SDK包括紧密集成的编译器，运行时，库，设备配置文件，工具和实用程序。&nbsp;MoSync为C / C + +编程搞了一个基于Eclipse的IDE。，并计划增加JavaScript和Ruby，PHP，Python和其他语言的支持。</p><p>该框架支持大量的操作系统，包括Android，Symbian，Windows Mobile，甚至是oblin（一个移动Linux发行版本）。</p><p>该项目的网址：http://www.mosync.com</p><h2></h2><h2></h2><h2>英文传送门：</h2><p>http://mashable.com/2010/08/11/cross-platform-mobile-development-tools/</p>
+                    <p>layoutSubviews何时调用的问题，这个方法是当你需要在调整subview的大小的时候需要重写（我这个翻译不严谨，以下是原文：You should override this method only if the autoresizing behaviors of the subviews do not offer the behavior you want.），但有时候经常指望它被调用的时候没被调用，不希望它被调用的时候被调用了，搞的很上火。根据国外社区一个人帖子，做了总结性翻译。  </p>
+
+<pre><code>layoutSubviews在以下情况下会被调用：  
+
+    1、init初始化不会触发layoutSubviews  
+    2、addSubview会触发layoutSubviews  
+    3、设置view的Frame会触发layoutSubviews，当然前提是frame的值设置前后发生了变化  
+    4、滚动一个UIScrollView会触发layoutSubviews  
+    5、旋转Screen会触发父UIView上的layoutSubviews事件  
+    6、改变一个UIView大小的时候也会触发父UIView上的layoutSubviews事件  
+    自：http://www.52rd.com/Blog/Detail_RD.Blog_howean_29991.html</code></pre>
 
                 </div>
                 <div class="article_meta">
                     <span>tagged:</span>
                     
-                    <a class="tag" href="http://openq.cn/tag/hybrid/">hybrid</a>
+                    <a class="tag" href="http://localhost:8000/tag/iOS/">iOS</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://localhost:8000/perl-base64-transcoding/">用perl进行base64转码，非常好用的代码</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-27
+                </div>
+
+                <div class="text">
+                    <p>前一个帖子提到使用base64转码图片直接在浏览器里展示，文中也提供了一段使用php进行转码的代码很简练，但本人没有试用过（总是对php环境配置存在压力感）。我喜欢用perl代码段完成这类小事，下面分享两段好用的base64的encoding、decoding的代码。  </p>
+
+<p>encodeFile.pl : （转码： perl encodeFile.pl test.png test.txt）  </p>
+<div class="highlight"><pre><span class="c1">#!/usr/bin/perl -w  </span>
+
+<span class="k">use</span> <span class="mf">5.012</span><span class="p">;</span>  
+<span class="k">use</span> <span class="nn">MIME::</span><span class="n">Base64</span><span class="p">;</span>  
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>  
+
+<span class="n">croak</span> <span class="err">“</span><span class="n">usage:</span> <span class="nv">$0</span> <span class="n">file</span> <span class="n">save_as</span><span class="err">”</span> <span class="k">if</span> <span class="nv">@ARGV</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$fh</span><span class="p">,</span> <span class="err">‘</span><span class="o">&lt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">binmode</span> <span class="nv">$fh</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$output</span><span class="p">,</span> <span class="err">‘</span><span class="o">&gt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">local</span> <span class="vg">$/</span><span class="p">;</span>  
+<span class="k">print</span> <span class="nv">$output</span> <span class="n">encode_base64</span> <span class="sr">&lt;$fh&gt;</span><span class="p">,</span> <span class="err">”</span><span class="p">;</span>
+</pre></div>
+
+<p>decodeFile.pl（反转：perl decodeFile.pl test.txt new.png）  </p>
+<div class="highlight"><pre><span class="c1">#!/usr/bin/perl -w  </span>
+
+<span class="k">use</span> <span class="mf">5.012</span><span class="p">;</span>  
+<span class="k">use</span> <span class="nn">MIME::</span><span class="n">Base64</span><span class="p">;</span>  
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>  
+<span class="n">croak</span> <span class="err">“</span><span class="n">usage:</span> <span class="nv">$0</span> <span class="n">file</span> <span class="n">decode_to</span><span class="err">”</span> <span class="k">if</span> <span class="nv">@ARGV</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$fh</span><span class="p">,</span> <span class="err">‘</span><span class="o">&lt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">open</span> <span class="k">my</span> <span class="nv">$output</span><span class="p">,</span> <span class="err">‘</span><span class="o">&gt;</span><span class="err">’</span><span class="p">,</span> <span class="nv">$ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>  
+<span class="nb">binmode</span> <span class="nv">$output</span><span class="p">;</span>  
+<span class="nb">local</span> <span class="vg">$/</span><span class="p">;</span>  
+<span class="k">print</span> <span class="nv">$output</span> <span class="n">decode_base64</span> <span class="sr">&lt;$fh&gt;</span><span class="p">;</span>
+</pre></div>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://localhost:8000/tag/perl/">perl</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://localhost:8000/use-the-data-in-the-local-application-of-the-uri-scheme/">本地应用里使用Data URI scheme</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-26
+                </div>
+
+                <div class="text">
+                    <p>之前跟钟小声一起探讨过关于Data URI scheme 数据传递的问题，就是从objective-c中调用uiwebview或safari显示刚刚处理的图片。UIWebView里边采用这种Data URI scheme很合适，但是oc调用safari就比较麻烦了（url长度有限制），解决方案是自己起一个http的服务，然后传递http://localhost:[port]/[yourpage.html] ，([port]替换成相应的端口，[yourpage.html]替换成相应的页面)，这个时候你怎么显示图片都很容易了。这里有一个问题http service库很庞大，实际上你不用实现完整的http service，只要写一个简单的socket监听就ok了，满足需求就好（当然这超出了本文讨论的范围，可以稍后单独发帖讨论）。  </p>
+
+<p>另外，今天刚好看到有人（facebook）在iPhone客户端里，使用了用html写的loading页和error页（貌似菊花动画是用css3实现的，稍后再确定）<br/>
+Data URI scheme的html嵌入式，形如：  </p>
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+
+<p>如此，在html中嵌入，实际上是将图片进行base64处理，直接写到网页里，从而减少一次网络请求加快页面显示。当然在app中使用:  </p>
+<div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;data:image/png;base64,%@&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+
+<p>这样的办法显示loading页和error页也是很方便的（facebook是这么干的）  </p>
+
+<p>还有一种是直接通过url传递，你可以将以下代码贴到地址栏，回车看效果（一个小红点儿;）。  </p>
+
+<pre><code>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==</code></pre>
+
+<p>这样可以实现跨域传输数据（如objcetive-c向safari），但是，无奈你也得注意url的长度限制。  </p>
+
+<p>简单科普一下Data URI scheme:  </p>
+
+<p>Data URI scheme是在RFC2397中定义的，目的是将一些小的数据，直接嵌入到网页中，从而不用再从外部文件载入。比如上面那串字符，其实是一张小图片，将这些字符复制黏贴到火狐的地址栏中并转到，就能看到它了，一张1X36的白灰png图片。在上面的Data URI中，data表示取得数据的协定名称，&quot;image/png&quot;是数据类型名称，&quot;base64&quot;是数据的编码方法，逗号后面就是这个image/png文件base64编码后的数据。  </p>
+
+<p>目前，Data URI scheme支持的类型有：  </p>
+
+<pre><code>data:,文本数据  
+data:text/plain,文本数据  
+data:text/html,HTML代码  
+data:text/html;base64,base64编码的HTML代码  
+data:text/css,CSS代码  
+data:text/css;base64,base64编码的CSS代码  
+data:text/javascript,Javascript代码  
+data:text/javascript;base64,base64编码的Javascript代码  
+data:image/gif;base64,base64编码的gif图片数据  
+data:image/png;base64,base64编码的png图片数据  
+data:image/jpeg;base64,base64编码的jpeg图片数据  
+data:image/x-icon;base64,base64编码的icon图片数据</code></pre>
+
+<p>base64简单地说，它把一些 8-bit 数据翻译成标准 ASCII 字符，网上有很多免费的base64编码和解码的工具，在PHP中可以用函数base64_encode() 进行编码，如:  </p>
+<div class="highlight"><pre><span class="x">echo base64_encode(file_get_contents(‘wg.png’));</span>
+</pre></div>
+
+<p>目前，IE8、Firfox、Chrome、Opera浏览器都支持这种小文件嵌入.</p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://localhost:8000/tag/front-end/">front end</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://localhost:8000/facebook-phonegap-mosync-cross-platform-architecture-urine-point-js-framework/">Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度）</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-22
+                </div>
+
+                <div class="text">
+                    <p>今晚研究了一下从Facebook iPhone app中搞到的bridge.js，趁热对Facebook、PhoneGap、MoSync的js框架进行一个简要的对比。首先，个人认为程序架构和设计模式的关键就是：1、需求或领域（Domain）的粒度。2、对变化点的封装–标题中的‘尿点’就是指的这亮点了。另外，之所以没有在 Appcelerator 上花时间，是因为一来这玩意不开源，二来我还没有看到除了ide外其他可借鉴的东西。  </p>
+
+<p>下面是三个平台的Js框架代码下载及对比（除了phoneGap其他两个的代码都是抠出来的，不仔细找很难找到）：  </p>
+
+<p>1、Facebook –&gt; bridge.js 下载 (线上app包里有一个bridgekit.bundle的资源包)  </p>
+
+<p>说明：私有框架（只针对facebook自己产品），跨平台特点：目前产品采用的是Html5页面 + 原生页面的模式，部分页面或界面采用了Html5，页面加速度优化的相当成功（哥们就是想学习它的页面加速度解决方案才各种抓包、破解的），原生导航机制，各种互调。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1）短短200来行代码，实现了原生类和js类的转换（Mapping）。这个实现方案的典型特点是灵活，原则上来说js脚本可以掉用所有的原生代码（安全漏洞有木有！！！本人就准备动过这个文件对facebook的app进行抓包，https加密哥们绕开你啦，哈哈！）  </p>
+
+<p>2）看这段代码（第100行）  </p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="err">‘</span><span class="nx">http</span><span class="o">:</span><span class="c1">//’+(location.host||’localhost‘)+’/__bridge__/’+__token+’/&#39;+__generateToken();</span>
+</pre></div>
+
+<p>跟phoneGap 不同它是通过起了一个http服务实现的html5和原生代码的通信管道（很大概率上是这样，等我抓到的location.host变量的值了之后才能最终确定。也就是还有下文，敬请期待，哈哈！  </p>
+
+<p>2、PhoneGap –&gt;  phonegap-1.3.0.js下载  </p>
+
+<p>说明：公共框架（开源编程框架），跨平台特点：主要应用一般都采用Html5 App + 原生壳模式，目前社区热度最高的开源跨平台解决方案（还有一个解决方案，），通过开发插件实现对原生调用的扩充，默认不支持原生导航，互调一般也是限于重力加速度、定位、照相等原生设备级的。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1)代码量非常大（4000多行有木有！！）实现了约定了并且在配置文件中开启的原生接口和html5的Mapping（看这么拗口就知道——相当安全），实现了设备能力级的互调。插件式架构，可以通过编写插件来扩展互调的范围，比如你自己写一个支持回调的原生输入框，遵照其plugin规范就可以被js调用到了。这个框架代码很少，架构清晰，SDK非常的产品化。当然也就没有facebook的灵活了。还有，也没有Appcelerator IDE这样牛x的调试工具。  </p>
+
+<p>2）看这段代码：  </p>
+<div class="highlight"><pre><span class="nx">PhoneGap</span><span class="p">.</span><span class="nx">createGapBridge</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  
+<span class="nx">gapBridge</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="err">“</span><span class="nx">iframe</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">style</span><span class="err">”</span><span class="p">,</span> <span class="err">“</span><span class="nx">display</span><span class="o">:</span><span class="nx">none</span><span class="p">;</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">height</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="nx">px</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">width</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="nx">px</span><span class="err">”</span><span class="p">);</span>  
+<span class="nx">gapBridge</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="err">“</span><span class="nx">frameborder</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="mi">0</span><span class="err">″</span><span class="p">);</span>  
+<span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">gapBridge</span><span class="p">);</span>  
+<span class="k">return</span> <span class="nx">gapBridge</span><span class="p">;</span>  
+<span class="p">}</span>
+</pre></div>
+
+<p>它是通过给iframe设置一个url出发webview的导航事件实现内外互调的(这里说的是针对iOS平台的机制)，这个机制很轻量也很灵活。这个之后还有一个消息队列机制，这个我会专门写文章详细说明这个东东，有点意思，但我还要评估这个东西是不是画蛇添足了（包括使用iframe)。  </p>
+
+<p>3、MoSync –&gt; mosync-bridge.js下载（深入认识MoSync也是因为新版Facebook中用到的bridge.js）  </p>
+
+<p>说明：公共框架（开源、提供开发Ide——很类似Appcelerator，但开发体验差很多），跨平台特点：Mosync支持平台相当的多，毕竟人家使用C++开发的底层架构，标榜的是效率很高，但是通过对其工具、及学习成本等分析粗浅认为，即使你很迷恋单独的ide，想用这玩意做一般产品还不如用Appcelerator（跑个题Appcelerator的Titanium IDE可以在iPhone模拟器上调试js，够酷吧！）。当然，你要研究代码或底层架构，这个再好不过了，一来框架封装的轮子够多，二来开源，github有下（100+M的代码）。  </p>
+
+<p>js-&gt;尿点：  </p>
+
+<p>1）框架比较乱，有界面也有机制的东西，不是很干净，但代码量同样很少，架构封装点不是很明确，因为分析的是它二点几的版本的js框架所以就重点说说互调机制。实际上，看到它的文档里，有大量的内容标注了和phoneGap兼容，或许3.0以后这个东东会废弃掉以前的c++代码（100多兆啊！！），个人判断有不同观点可以留言讨论。  </p>
+
+<p>2）还是上代码：  </p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isAndroid</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nx">prompt</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="err">“”</span><span class="p">);</span>  
+<span class="p">}</span>  
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isIOS</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nx">rawMessageQueue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>  
+<span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="err">“</span><span class="nx">mosync</span><span class="o">:</span><span class="c1">//DataAvailable”;  </span>
+<span class="p">}</span>  
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mosync</span><span class="p">.</span><span class="nx">isWindowsPhone</span><span class="p">)</span>  
+<span class="p">{</span>  
+<span class="nb">window</span><span class="p">.</span><span class="nx">external</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>  
+<span class="p">}</span>
+</pre></div>
+
+<p>一家活三个平台的机制都暴露了，研究跨平台机制的同学看到这个爽了，哈哈！！！和phoneGap的机制如初一折，当然是谁的创意以后有精力在调研，基本就这些了，过两天再分析一下iOS、Android、Phone 7不同平台Html5互调的尿点。</p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://localhost:8000/tag/hybrid/">hybrid</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://localhost:8000/xcode-ios-unit-test/">xcode中的单元测试</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-15
+                </div>
+
+                <div class="text">
+                    <p>很抱歉，由于服务器变迁，该文已经丢失，相关知识您可以移步<a href="https://developer.apple.com/search/?q=xcode%20unit%20test&platform=iOS&platform=General">苹果官方文档</a>查询。  </p>
+
+<p>很多丢失的文章我都已经找回来了，但是这篇文章我不准备找了，原因是我在手机端单元测试实施的必要性上的认识有所改变。如果您现在是做后台开发，我会强烈建议您针对数据库、业务逻辑等层都加入单元测试，因为在大规模（或者多年迭代）的系统中实施单元测试是服务品质的有效保障，并且实施成本基本是可控的、微量的。但是，在移动端技术、架构变化明显过快，开发迭代周期非常快，根据我多年后台和移动端开发经验，后台大面积重构一般是一年一两次，但是手机端每个月都有可能，甚至每个月都会有多次重构。更普遍的情况是，移动端开发人员要面对一两个月就要开发一个产品出来，如此的节奏想维护单元测试用昂贵来形容真不为过。另外，手机端一般不存在大量的不同层次、不同部门对接的情况（当然如果你是做sdk，接口相对稳定，还是值得做一做的）。  </p>
+
+<p>因此，我虽然尝试了多年在项目中实施单元测试，却从来没有大面积推广成功过（个人或者某个业务线曾经做的不错）。有如此的精力还不如推动持续集成，更多的更妙的技术储备上。  </p>
+
+<p>其实，开发人员对编程规范、程序设计原则遵守的足够好，团队在review、代码提交校验上做的足够的话，代码质量还是有保障的。</p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://localhost:8000/tag/iOS/">iOS</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://localhost:8000/html5-mobile-development-practices/">HTML5的移动开发实践</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-10
+                </div>
+
+                <div class="text">
+                    <p>如果你阅读稍微涉及前端科技的博客，那么你肯定每周都有可能看到关于HTML5的报道。虽然，这套新web标准没有强大到给你制造某个先进的家用电器，但是它的新特性的确可以帮你创建强大的应用程序，仅仅是使用html,css和javascript（当然，如果后端使用rails或者node.js的话，火力会更猛）。这篇文章主旨就是介绍关键概念及HTML5的牛逼特性，还有一些更牛逼的设置（当然是移动相关的了，牛皮吹的够大）。</p><p></p><h3>浏览器兼容性</h3><p>开发一个web应用最大的痛苦莫过于确保您的应用程序是与目前使用的各种浏览器兼容。&nbsp;幸运的是，在移动世界中这不是一个大问题（观点很新颖吧，我们继续）。&nbsp;因为比起换电脑来人们往往更频繁的更换新手机，因为用户群体相对年轻，旧的智能手机很快就被市场淘汰。另外，iPhone、android内核都是webkit，所以这也给兼容性创造了条件。当然，处于市场考虑，你要支持更多的设备的话，还是要使用真机测试，而不是模拟器。不过，随着标准的完善和设备性能的提升，适配的复杂度将会逐步降低的。</p><h3>Viewport</h3><p>当你用移动设备浏览一个互联网网页，这个网页在你的浏览器里是被缩放了的，这是浏览器为了让你看到网站全貌做的简单自动适配（缩放）。当然，你想看具体内容也可以再放大。不过，如果你正在针对智能手机设计网页，那么viewport的定义将是非常有意义的（viewport meta tag）：</p><p>    <span style="font-family: Consolas , Monaco , monospace;font-size: 12.0px;line-height: 18.0px;white-space: pre;">&lt;meta name=&ldquo;viewport&rdquo; content = &ldquo;width=device-width”&gt;</span></p><p>    </p><p>        </p><p>&nbsp;这个宽度通常设置为设备屏幕宽度，因此，网页就没有必要再被浏览器默认缩小或放大了。你肯定就想禁用缩放行为，从而使用户不能无意中放大或缩小页面，使其产生扭曲变形。实现这个目的，你只需要将&nbsp;user-scalable 设置为no：</p>        <p>            &lt;meta name=&quot;viewport&rdquo; content = &ldquo;width=device-width , &nbsp;user-scalable=no&rdquo;&gt;            一些网站的移动版将页面宽度设置为320，这是为什么呢？因为这是iPhone的宽度。当然为了为更多用户带来更好的体验，你最好将宽度设为            device-width，320不靠谱。                            <a href="http://openq.cn/wp-content/uploads/2012/03/A4jFz.png"><img class="alignnone size-full wp-image-496" src="http://www.appfanr.com/wp-content/uploads/2012/03/A4jFz.png" alt="" width="610" height="436"></a>                        &nbsp;让你的网页使用正确的大小固然很nice，但是，下文将要提到的HTML5缓存（使用manifest）及存储特性，将使你能够构建全功能离线站点。在信号不是非常稳定的无线环境中，离线能力在用户体验中将承担相当的分量。            </p><h3>HTML5 Caching</h3>            <p>HTML5 Caching 允许用户在没有网络连接的情况下浏览之前浏览过得内容，当然也不光是在没信号的时候可以浏览这一个好处，使用缓存还可以减少很多的连接请求，降低数据传输量。</p>            <p>设置缓存，你可以通过在每个网页的html标签中设置manifest文件来实现：</p>            &lt;html manifest=&ldquo;/cache.manifest&rdquo;&gt;            这是个文本文件，内容以&nbsp;“CACHE MANIFEST”开始，下面列举需要缓存的文件：            CACHE MANIFEST/mystyle.css/scripts.js/logo.jpg            这样这些文件就可以被离线使用了，只是这么一长串文件列表有时候也会成为陷阱，下面我将试图整理相关的要点：            首先最重要的是，你的网站将默认缓存最新的文件，这意味着，即使你刚刚访问的文件已经改变了，你的浏览器还是显示的老页面，直到这个页面被刷新（或者通过javascript通知更新）。事实上，更严重的是大部分的web server都会告诉客户端浏览器使用缓存，这样同步问题就尤为凸显。当你开发网页的时候，一定要在服务器上设置不要缓存manifest,这样你才能看或调试到你刚刚更新的网页。            另一个大问题是，浏览器如何管理下载过程。如果浏览器监测到manifest更改了，它将重新下载页面上使用的所有文件。这个过程非常昂贵，而且如果其中的单个文件不能下载，浏览器会放弃更新和加载以前的缓存。这个时候浏览器不会抛出任何错误，但是您可以通过javascript抛出异常清单：            $(function() {  $(window.applicationCache).bind(&ldquo;error&rdquo;, function() {    alert(&ldquo;Cache: update failed&rdquo;);  });});            现在你的网站已经被缓存了，并且可以很好的工作了。那么，这样就可以launch了吗？恐怕不行。这种caching技术只能在缓存静态文件的需求下工作正常，但是如果你的网页是动态创建的，或者经常改变的（大多数网页都是这样），它就不能正常工作了。这是因为除非缓存更新了，否则你看到的还是老网页，而不是新内容页。解决办法也很简单，就是当有新内容（或改动）的时候，更新manifest文件。当然正如前文我们讨论的，如果你的网站经常更新，这么做的代价是非常昂贵的。那咋整捏？解决办法就是使用jQuery建立动态模版页面。            <h3>jQuery 模板</h3>            <p>最好的做法是通过JavaScript模板来填充内容。 使用这种方式，内容不是HTML页面的一部分，因而是不会记录到缓存的manifest里。&nbsp;对于这一点，你需要下载jQuery和jQuery的<a href="http://rrurl.cn/phZmw2">模板插件</a>，并添加到您的应用程序&nbsp;。</p>            <p>使用这些模板有三个步骤：</p>            <ol>                <li>定义模板。</li>                <li>定义集合。</li>                <li>告诉jQuery来填充模板的页面。</li>            </ol>            <h4>下面是一个简单的博客应用的一个例子。</h4>            <p>1.&nbsp;&nbsp;定义模板：</p>            <p>                </p><p>                    &lt;script id=&ldquo;post_template&rdquo; type=&ldquo;text/html”&gt;&lt;div&gt;&lt;h2&gt;${Name}&lt;/h2&gt;&lt;p&gt;${Body}&lt;/p&gt;&lt;/div&gt;&lt;/script&gt;                </p>            <p></p>            <p>2.&nbsp;定义数据集合（以下使用JSON）。</p>            <p>                </p><p>                    &lt;script&gt;var posts = [{ Name: &quot;First!&rdquo;, Body: &ldquo;This is pretty cool&rdquo; },{ Name: &ldquo;Another post&rdquo;, Body: &ldquo;This is pretty cool&rdquo; },{ Name: &ldquo;Yet another blog post&rdquo;, Body: &ldquo;This is pretty cool&rdquo; }];&lt;/script&gt;                </p>            <p></p>            <p>3.&nbsp;告诉jQuery使用模板填充页面。</p>            <p>                </p><p>                    &lt;script&gt;$( &ldquo;#post_template&rdquo; ).tmpl( posts ).appendTo( &ldquo;#blog_posts&rdquo; );&lt;/script&gt;&nbsp;…&nbsp;&lt;body&gt;&nbsp;&lt;div id=&ldquo;blog_posts&rdquo;&gt;&lt;/div&gt;&nbsp;&lt;/body&gt;                    虽然这个内容是通过JavaScript加载，但它不是动态的，它只是在页面上定义的。&nbsp;对于动态内容，我们需要使用服务器提供的JSON接口。&nbsp;假设我们的博客应用程序提供给了我们这样的JSON接口：                    http://www.yourhost.com/&hellip;/posts.json                    我们会告诉jQuery对以上网站发送一个JSON请求，然后用返回的数据来填充页面：                    &lt;script type=&ldquo;text/javascript&rdquo;&gt;$.getJSON(&lsquo;/posts.json&rsquo;, function(data) {$( &ldquo;#post_template&rdquo; ).tmpl( data ).appendTo( &ldquo;#blog_posts&rdquo; );});&lt;/script&gt;                    我们还需要修改模板，以便它可以处理JSON元素，post.body对应文章的内容，post.name对应文章的标题：                    &lt;script id=&ldquo;post_template&rdquo; type=&ldquo;text/html&rdquo;&gt;&lt;div&gt;  &lt;h2&gt;${post.name}&lt;/h2&gt;  &lt;p&gt;${post.body}&lt;/p&gt;&lt;/div&gt;&lt;/script&gt;                    现在，你的博客数据已经不是缓存在manifest的静态内容了，而是通过jQuery动态跟服务器获取的。然而，这样只有我们的手机有网络连接的时候，网页才能工作了。是不是感觉进了2步却退了3步？别着急，请相信我，我们马上就搞定一个HTML5 mobile app了。我们只需要实现最后一个HTML5接口，本地存储（Local Storage）。                    </p><h3>本地存储（Local Storage）</h3>                    <p>关于本地存储的细节，辉郎准备在单独的文章里详细介绍，这里尽量简化到初学者容易接受的程度。</p>                    <p>本地存储实际上是通过浏览器实现的key-value的存储。通过它，我们可以实现将文本存储到本地，并在稍后重新调用到。在这里，我们使用它来存储JSON，所以我们可以填充博客文章——即使我们没有连接到服务器。</p>                    <p>虽然我们可以手工编写，但是这里有一个很牛x的插件帮我们管理整个过程。&nbsp;jQuery的离线插件，可以在服务器不可用的时候使用本地存储的内容。收到新鲜的内容，它会将其存储存到本地（local storage)。</p>                    <p>点击连接下载此插件：&nbsp;<a href="http://rrurl.cn/fSBV1M">jQuery-Offline</a>                    </p>                    <p>为了使用这个插件，我们将调用的getJSON方法改为retrieveJSON。&nbsp;我们还要做一个小的改动， 后者将执行两次，一次从缓存中抽数据，再次从服务器获得新的内容。&nbsp;这将导致文章出现两次，如果我们只是简单的网页面上追加文章数据的话。</p>                    &lt;script type=&ldquo;text/javascript&rdquo;&gt;$.retrieveJSON(&lsquo;/posts.json&rsquo;, function(data) {$( &ldquo;#blog_posts&rdquo; ).html($( &ldquo;#post_template&rdquo; ).tmpl( data ));});&lt;/script&gt;                    这样这个blog程序就可以以正确的页面大小离线浏览了！你可以在这里下载这个Demo：<a href="http://rrurl.cn/9hMX7x">离线博客</a>&nbsp;。                    <p>&nbsp;</p>                    <p>英文参考：<br>Mobile development with HTML5</p>                                 
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://localhost:8000/tag/front-end/">front end</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://localhost:8000/daytime-working-programmers-vs-night-programmer-translation/">白天工作型程序员 vs 夜晚工作型程序员[译]</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-03-06
+                </div>
+
+                <div class="text">
+                    <p><strong><em>下文观点或许极端，但很有意思</em></strong>  </p>
+
+<p>去年我在公司内部群发过一封邮件，本文就是基于那封邮件，有细微改动。但最近有人建议我，把邮件内容发到我的博客上，让人们看看，我是对的，还是错的呢？  </p>
+
+<p>多年前我就相信，世界上有两种程序员，不管他们用什么技术，我称之为：  </p>
+
+<ol>
+<li>Day Programmers 白天工作型程序员<br/></li>
+<li>Night Programmers 夜晚工作型程序员<br/></li>
+</ol>
+
+<p>如今，这个行业中最常见的是白天工作型程序员，你会在很多容忍一定量的低效的公司/机构中看到他们。他们有如下特征：  </p>
+
+<ol>
+<li>通常处于被领导，很少担当领导；<br/></li>
+<li>难以应对处理复杂情况；<br/></li>
+<li>很难想象出解决方案；<br/></li>
+<li>不会在家打开开发工具；<br/></li>
+<li>通常不参与技术开发社区；<br/></li>
+<li>把编程仅当为“一份工作”；<br/></li>
+</ol>
+
+<p>如果你是夜晚工作型程序员，你很可能很难理解，为什么白天工作型程序员能入行，原因可能就是他们的动力和你的动力有很大不同。夜晚工作型程序员的特征是：  </p>
+
+<ol>
+<li>通常都担当领头角色<br/></li>
+<li>对复杂事情，有深刻理解；<br/></li>
+<li>可以构想出解决方案，并有设计相关的第六感；<br/></li>
+<li>会在家打开 alpha/ctp/beta 版本的工具；<br/></li>
+<li>参与用户群组和邮件列表；<br/></li>
+<li>把编程视为生命中的重要部分，如同生命所需的空气；<br/></li>
+</ol>
+
+<p>如果你是白天工作型程序员，你看到夜晚工作型程序员，会认为他们不会享受生活。当他们在工作中遇到一些很酷的新技巧而兴奋时，你还会嗤之以鼻。  </p>
+
+<p>去年12月份，swizec.com 的博主写了一篇文章：《为什么程序员喜欢在深夜工作？》，其中是这样写的：  </p>
+
+<p>有句还挺受欢迎的话是，程序员就是把咖啡变成代码的机器。  </p>
+
+<p>果然，随便问一个程序员什么时候效率最高，很有可能他们会说大多是深夜的时候。有些早点，有些晚点。常见的是：在凌晨4点起床，赶在吵闹的一天开始前完成一些工作。另外一些喜欢在凌晨4点睡觉。这种做法的目的是避免干扰。但是你可以锁上门啊，为什么夜晚这么特别呢？  </p>
+
+<p>不光是程序员，对不少行业的从业人员（作家、编辑等）来说，夜深人静时，往往是最容易找到灵感，效率也很高。并且一般进入工作状态后，精神状态甚 佳，也不怎么困，不知不觉就到三四点了。记得在网上看过消息，说晚上11点到凌晨1点这两个小时的睡眠效果最佳。如果这两个小时没睡，白天再补觉，常常也 还是晕乎乎的。熬夜对身体的危害，前天转发的一篇文章已有说明，也无须多言，大家在微博上经常看到不少年纪轻轻的IT或创业人士英年早逝的资讯。如果遇到那种非得通宵加班的项目时，那该怎么办呢？不妨在晚上11点就睡觉，过1点后再起来干活。  </p>
+
+<p>补充：Mitch Denny 的原文后面有很多精彩回复，由于得翻墙，挑选转摘一些评论：  </p>
+
+<p>James Denning：  </p>
+
+<p>You forgot to say that Night Programmers often spend nights fixing the problems day programmers cause (hence partially disagreeign with an earlier comment).  </p>
+
+<p>Day programmers do participate in newsgroups – whining how there’s no work for them in the skills they haven’t bothered to update.  </p>
+
+<p>suhail：  </p>
+
+<p>i won’t agree with the post, i am a programmer and i have seen some geeks and nerds come up with awesome solutions, be it day or night, it depends upon the prgrammer at work, some geeks are early morning sparrows and some are night owls, what ever time your thinking potential is active, its about that.  </p>
+
+<p>Stuart：  </p>
+
+<p>Personally, I think you are wrong… In my opinion the ‘day’ programmer definition you have, applies to stupid people who have managed to slip through an interview process. In my experience, there are plenty of these types around, and tend to be the types who like to drag and drop, place all of their domain logic in an anonymous inner listener, or on the code behind file.  </p>
+
+<p>The ‘night’ programmer definition sounds like the sort of guy who wants to solve the world in code, when all that is required is a simple web page. He over engineers every solution to the point that it is so complex, noone else on his team understands it. He architects a solution in his head and refuses to budge on it… even when it is wrong. He likes to put down other more simple solutions to his, because they are not as ‘impressive’.  </p>
+
+<p>To be honest, in these cases, the night programmer is the guy who will cause you the most trouble.  </p>
+
+<p>I see the distinction between programmers lying along a different line… the one’s who can solve problems in a simple way, and the one’s who cannot.  </p>
+
+<p>This states two things, 1) They are clever enough to solve the problem, and 2) they are clever enough avoid complexity.  </p>
+
+<p>The Real Scoop：  </p>
+
+<p>We need both, and we suffer with both. Don’t appluade yourself becuase, your either. The Problem with Night programmers is that they rarely finish anything. they’re great at introducing new concepts, bleeding edge technologies, and novel solutions, but rarely actually able to apply to completion or within the timeframe of the actual task or project at hand.  </p>
+
+<p>In the real world programming is used to make task more efficient or create a product to sell. Both which equivalate $$$$$. Day programmers on the other hand are able to focus and produce within a defined set of parameters, they are the ones who though often lack creativity or ability to quickly grasp or apply new concept neccessary to optimize a task/project, or independently troubleshoot, but who actually write the code neccesary to complete the task/project.  </p>
+
+<p>Thus creating a viable product or solution that may actually produce income to pay both thier salaries and that of the prima dona’s who love to create and play with all the toys but forget that everything still cost money. So what’s the trump, I appluade the hybrid, those scarse individuals who are able to both find and create novel solutions, as well as actually apply them and actually complete the project or task at hand. We need them all. So don’t over-rate yourself becuase you are one or the other, nor berate the other. Strive to reach the next level, the hybrid capable of working anytime of day, with a passion and preserverance to program.  </p>
+
+<p>solprovider：  </p>
+
+<p>This is not about the time of day people program. It is not about competence. There are a few competent day programmers. There are many incompetent night programmers.  </p>
+
+<p>The difference is the passion.  </p>
+
+<p>A night programmer was born to write software. He learned how to program on his own. He went to college because he heard college let the students play with really cool technology, and failed out because he spent all his time playing with really cool technology. If he gets a corporate job, he makes waves by suggesting things could be better and gets fired for not appearing 9 AM Monday morning after his Friday programming marathon did not end until 4 AM on Monday.  </p>
+
+<p>A day programmer chose computers as his major in college because he heard programmers were paid well. He graduated without knowing how to use a command line. He makes a good corporate employee, working nine-to-five and not thinking about the job at home. He does not make suggestions about how to improve technology; he does not know enough to think of one.  </p>
+
+<p>Businesses survive because they occasionally accidentally hire a night programmer who fixes everything the day programmers wrote before he gets fired.  </p>
+
+<p>编译：伯乐在线 – 黄利民</p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://localhost:8000/tag/cultivation/">cultivation</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sep"></div>
+    </li>
+    
+    <li class="list_item">
+        <div class="article">
+            <div class="inner">
+                <h2 class="article_title title"><a href="http://localhost:8000/paros-monitoring-iphone-issued-http-requests/">使用Paros监控终端发出的HTTP请求</a></h2>
+                <div class="article_meta">
+                    <span>on</span>
+                    2012-02-26
+                </div>
+
+                <div class="text">
+                    <p><strong><em>注</em></strong>：实际上Paros是一个跨平台抓包工具，其原理是通过pc端开放代理-&gt;终端设置pc开放的代理从而实现终端流量经过pc端后进行抓包。本文主要介绍mac通过wifi共享热点来抓包，实际上只要保证pc与终端同时在一个局域网即可实现抓包。另外，如果通过mac共享来抓包的话，还有更多选择比如：HttpScoop、Wireshark，甚至命令行工具tcpflow。  </p>
+
+<p>电脑上的许多软件可以监控浏览器发出的HTTP请求, iPhone上有许多连网程序但没有自带软件可以实现监控, 为了方便测试这些请求是否正确而省去在程序中记录请求日志并逐一查找的麻烦, 可以利用Paros这个监控软件来实现.   </p>
+
+<p>以下是实现在Mac上监控iPhone发出的HTTP请求的具体步骤:   </p>
+
+<ol>
+<li><p>将Mac机器的以太网共享给无线局域网: Mac上: 系统偏好设置-&gt;共享-&gt;Internet 共享, 将”以太网”共享给”AirPort”   </p></li>
+<li><p>查看无线局域网IP: 返回-&gt;网络-&gt;AirPort, 查看到AirPort具有IP地址”169.254.242.107″   </p></li>
+<li><p>设置Paros本地代理: Paros-&gt;Tools-&gt;Options-&gt;Local proxy, Address填上”169.254.242.107″, 端口默认为8080   </p></li>
+<li><p>设置iPhone上网代理: iPhone上: 设置-&gt;无线局域网-&gt;选上Mac机器共享出去的网络-&gt;按”Details”箭头-&gt;Http代理-&gt;手动-&gt;服务器填”169.254.242.107″, 端口填”8080″   </p></li>
+<li><p>查看HTTP请求: iPhone打开访问任何连网程序, 可以在Paros的Sites下看到访问的网站, 右边可以选Reques/Response等信息.  </p></li>
+</ol>
+
+<p>源码地址：<a href="http://sourceforge.net/projects/paros/">http://sourceforge.net/projects/paros/</a>  </p>
+
+                </div>
+                <div class="article_meta">
+                    <span>tagged:</span>
+                    
+                    <a class="tag" href="http://localhost:8000/tag/tools/">tools</a>
                     
                 </div>
             </div>
@@ -308,111 +740,54 @@ Rational Team Concert Standard Edition  </p>
 
 
 
-</div>
-<div id="footer_wrapper">
-    <div id="footer">
-        <div id="footer_inner">
-            <div class="tag_cloud col">
-                <h2>Tag Cloud</h2>
-                <ul>
-                
-                <li><a class="tag" href="http://openq.cn/tag/Mood/">Mood (25)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/cultivation/">cultivation (21)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/iOS/">iOS (6)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/design/">design (4)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/tools/">tools (3)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag//"> (2)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/regex/">regex (2)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/funny/">funny (2)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/hybrid/">hybrid (2)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/front-end/">front end (2)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/process/">process (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/coding/">coding (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/perl/">perl (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/test/">test (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/best-practices/">best practices (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/meeting/">meeting (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/cloud-engine/">cloud engine (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/http/">http (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/viewpoint/">viewpoint (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/share/">share (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/memo/">memo (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/javascript/">javascript (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/webkit/">webkit (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/this-blog/">this blog (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/svn/">svn (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/mac-tools/">mac tools (1)</a></li>
-                
-                <li><a class="tag" href="http://openq.cn/tag/sn/">sn (1)</a></li>
-                
-                </ul>
-            </div>
-            <div class="col">
-                <h2>Archives</h2>
-                <ul>
-                    
-                    <li><a href="http://openq.cn/archive/2014/">2014 (4)</a></li>
-                    
-                    <li><a href="http://openq.cn/archive/2012/">2012 (29)</a></li>
-                    
-                    <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
-                    
-                    <li><a href="http://openq.cn/archive/2010/">2010 (1)</a></li>
-                    
-                    <li><a href="http://openq.cn/archive/2009/">2009 (2)</a></li>
-                    
-                    <li><a href="http://openq.cn/archive/2007/">2007 (7)</a></li>
-                    
-                    <li><a href="http://openq.cn/archive/2006/">2006 (10)</a></li>
-                    
-                    <li><a href="http://openq.cn/archive/2005/">2005 (12)</a></li>
-                    
-                </ul>
-            </div>
-            <div class="col">
-                <h2>Links</h2>
-                <ul>
-                    
-                    <li><a href="http://openq.cn" title="That's Nice!" target="_blank">openQ</a></li>
-                    
-                </ul>
-            </div>
-            <div class="copyright">
-                Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
-                <span>&bull;</span>
-                SealScript Theme by <a href="http://lyric.im">Lyric</a>
-                <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));
-</script>
-            </div>
+   <footer class="footer">
+        <div class="archives">
+        <h2>Archives</h2>
+        <ul>
+            
+            <li><a href="http://localhost:8000/archive/2014/">2014 (4)</a></li>
+            
+            <li><a href="http://localhost:8000/archive/2012/">2012 (29)</a></li>
+            
+            <li><a href="http://localhost:8000/archive/2011/">2011 (3)</a></li>
+            
+            <li><a href="http://localhost:8000/archive/2010/">2010 (1)</a></li>
+            
+            <li><a href="http://localhost:8000/archive/2009/">2009 (2)</a></li>
+            
+            <li><a href="http://localhost:8000/archive/2007/">2007 (7)</a></li>
+            
+            <li><a href="http://localhost:8000/archive/2006/">2006 (10)</a></li>
+            
+            <li><a href="http://localhost:8000/archive/2005/">2005 (12)</a></li>
+            
+        </ul>
         </div>
-    </div>
+        <div class="pure-menu pure-menu-horizontal pure-menu-open">
+            <ul>
+                <li><a href="http://localhost:8000/feed.xml">About</a></li>
+                <li><a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://localhost:8000/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf">Twitter</a></li>
+                <li><a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://localhost:8000/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1">Github</a></li>
+                <li><a href="http://localhost:8000/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://localhost:8000/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2">Subscribe</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
+            <span>&bull;</span>
+            PureSam Theme by <a href="http://openq.cn">Sam</a>
+        </div>
+        <div class="links">
+            <ul>
+                
+                <li><a href="http://openq.cn" title="That's Nice!" target="_blank">openQ</a></li>
+                
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 </body>
 </html>

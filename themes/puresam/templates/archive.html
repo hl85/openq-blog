@@ -5,20 +5,24 @@
 {% endblock %}
 
 {% block content %}
-<div class="article">
-	<div class="inner">
-		<h2 class="title">Articles posted in "{{ archive.year }}"</h2>
-		<div class="text">
-			<ul>
-				{% for post in archive.posts %}
-				<li>
-					<span class="time_stamp">{{ post.date }}</span>
-					<a href="{{ url_for(post) }}">{{ post.title }}</a>
-				</li>
-				{% endfor %}
-			</ul>
-		</div>
-	</div>
-</div>
+
+<h2 class="title">Articles posted in "{{ archive.year }}"</h2>
+{% for post in archive.posts %}
+<section class="post">
+    <header class="post-header">
+        <img class="post-avatar" alt="author's avatar" src="{{static_url("image/avatar.png")}}" height="48" width="48">
+        <h2 class="post-title"><a href="{{ url_for(post) }}">{{ post.title }}</a></h2>
+        <span class="time_stamp">{{ post.date }}</span>
+        <p class="post-meta">
+        	By <a href="#" class="post-author">{{post.author}}</a> under 
+        {% for tag in post.tags %}<a class="post-tag tag-{{tag.name}}" href="{{ url_for(tag) }}">{{tag.name}}</a>
+        	{% endfor %}
+        </p>
+    </header>
+    <div class="post-description">
+        <p>{{post.description}}</p>
+    </div>
+</section>
+{% endfor %}
 
 {% endblock %}

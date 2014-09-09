@@ -107,23 +107,23 @@ a:focus {
 	margin: 0;
 }
 
-.post-category {
+.post-tag {
 	margin: 0 0.1em;
 	padding: 0.3em 1em;
 	color: #fff;
 	background: #999;
 	font-size: 80%;
 }
-	.post-category-design {
+	.tag-1 {
 		background: #5aba59;
 	}
-	.post-category-pure {
+	.tag-2 {
 		background: #4d85d1;
 	}
-	.post-category-yui {
+	.tag-3 {
 		background: #8156a7;
 	}
-	.post-category-js {
+	.tag-4 {
 		background: #df2d4f;
 	}
 
