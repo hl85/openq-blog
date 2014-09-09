@@ -1,89 +1,10 @@
-<<<<<<< HEAD
-{% from "utils.html" import analytics %}
-=======
->>>>>>> 4530684490b62efeacbfc80dd113c331a4fe65fa
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     {% block head %}{% endblock %}
     <title>{% block title %}{{ site.name }}{% endblock %}</title>
-<<<<<<< HEAD
-    <!-- <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" type="text/css" />
-    <link rel="alternate" type="application/rss+xml" href="{{ url_for('feed') }}" title="{{ site.name }}" />
-    <link rel="canonical" href="{{ permalink }}"/>
-    <link rel="shortcut icon" href="{{ static_url("favicon.ico") }}" />
-</head>
-<body>
-<div id="header">
-    <div id="nav_wrapper">
-        <div id="nav">
-            <div class="inner">
-                <h1 id="title"><a href="{{ url_for('index') }}">{{ site.name }}</a></h1>
-                <div id="description" class="seal">{{ site.description }}</div>
-                <ul class="right">
-                    {% for page in pages %}
-                    <li><a href="{{ url_for(page) }}">{{ page.title }}</a></li>
-                    <li class="dot">&bull;</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div id="header_inner">
-        <div id="social">
-            <a href="http://twitter.com/{{ author.twitter }}" target="_blank" title="Follow Me @ Twitter"><img src="{{ static_url("image/ic16_twitter.png") }}"></a>
-            <a href="http://github.com/{{ theme.github }}" target="_blank" title="Fork Me @ Github"><img src="{{ static_url("image/ic16_github.png") }}"></a>
-            <a href="{{ url_for('feed') }}" target="_blank" title="Subscribe My Blog"><img src="{{ static_url("image/ic16_rss.png") }}"></a>
-        </div>
-        <div class="sep"></div>
-    </div>
-</div>
-<div id="content">
-    {% block content %}
-    {% endblock %}
-</div>
-<div id="footer_wrapper">
-    <div id="footer">
-        <div id="footer_inner">
-            <div class="tag_cloud col">
-                <h2>Tag Cloud</h2>
-                <ul>
-                {% for tag in generator.tags %}
-                <li><a class="tag" href="{{ url_for(tag) }}">{{ tag.name }} ({{ tag.count }})</a></li>
-                {% endfor %}
-                </ul>
-            </div>
-            <div class="col">
-                <h2>Archives</h2>
-                <ul>
-                    {% for archive in generator.archives %}
-                    <li><a href="{{ url_for(archive) }}">{{ archive.year }} ({{ archive.count }})</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="col">
-                <h2>Links</h2>
-                <ul>
-                    {% for link in theme.links %}
-                    <li><a href="{{ link["url"] }}" title="{{ link["description"] }}" target="_blank">{{ link["name"] }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="copyright">
-                Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
-                <span>&bull;</span>
-                Puresam Theme by <a href="http://openq.cn/">Sam</a>
-                <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));
-</script>
-            </div>
-        </div>
-    </div>
-=======
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="{{ static_url("css/style.css") }}" type="text/css" />
     <link rel="stylesheet" href="{{ static_url("css/pygments_style.css") }}" type="text/css" />
     <link rel="alternate" type="application/rss+xml" href="{{ url_for('feed') }}" title="{{ site.name }}" />
@@ -150,8 +71,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 
 <script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));</script>
->>>>>>> 4530684490b62efeacbfc80dd113c331a4fe65fa
-</div>
+ß</div>
 </body>
 </html>
 

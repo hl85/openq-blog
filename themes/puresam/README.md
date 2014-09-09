@@ -1,24 +1,13 @@
-<<<<<<< HEAD
-SealScript
-=======
 PureSam
->>>>>>> 4530684490b62efeacbfc80dd113c331a4fe65fa
 =============
 
 Overview
 --------------
 
-<<<<<<< HEAD
-This is the default theme on [catsup](https://github.com/whtsky/catsup).
-It's designed by [Lyric Wai](https://github.com/lyricat) and ported by [whtsky](http://whouz.com).
-
-Online demo: [messence](http://messense.me/)
-=======
 This is a theme on [catsup](https://github.com/whtsky/catsup).
 It's designed by [sam wang](https://github.com/hl85) .
 
 Online demo: [openq](http://openq.cn/)
->>>>>>> 4530684490b62efeacbfc80dd113c331a4fe65fa
 
 Installation
 --------------
@@ -46,11 +35,7 @@ Edit your configuration file, change `theme.name` to `puresam`
 
 Customize
 --------------
-<<<<<<< HEAD
-You can customize your theme by changin `theme.vars`
-=======
 You can customize your theme by change `theme.vars`
->>>>>>> 4530684490b62efeacbfc80dd113c331a4fe65fa
 
 + Change blog description
 ```json
@@ -84,21 +69,12 @@ You can customize your theme by change `theme.vars`
         "vars": {
             "links": [
                 {
-<<<<<<< HEAD
-                    "name": "catsup",
-                    "url": "https://github.com/whtsky/catsup",
-=======
                     "name": "openq",
                     "url": "http://openq.cn",
->>>>>>> 4530684490b62efeacbfc80dd113c331a4fe65fa
                     "description": "Awesome!"
                 }
             ]
         }
     }
 }
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> 4530684490b62efeacbfc80dd113c331a4fe65fa
