@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>404 木找到~</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" type="text/css" />
+    <link rel="shortcut icon" href="{{ static_url("favicon.ico") }}" />
+    <style type="text/css">
+        h1 {
+            font-size: 40px;
+        }
+        h2 {
+            font-size: 30px;
+            text-align: center;
+        }
+        h3{
+            font-size: 20px;
+            color: #1e642f;
+        }
+    </style>
+    <script type="text/javascript">
+        var url = document.URL;
+        re = /^http:\/\/(www.)?openq.cn\/\d{4}\/\d{2}\/([\d\-a-zA-Z]*)\/?/;
+        var title = "";
+        if(re.test(url)){
+         var result = re.exec(url);
+         title = result[2];
+        }
+        if(title != ""){
+            var nextURL = "http://openq.cn/"+title;
+            document.location.href = nextURL;
+        }
+    </script>
+</head>
+<body>
+    <div id="content">
+        <div class="article">
+            <div class="inner">
+                <h1 class="title">404 木找到~</h1>
+                <h2>唉哟~~~客官你要的小菜还没有烧出来~</h2>
+                <p></p>
+                <p>
+                <a class="button" href="{{ url_for('index') }}">回首页</a>
+                </p>
+            </div>
+        </div>
+    </div>
+ <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F88ad466865ee70215586d741da736f7f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+
