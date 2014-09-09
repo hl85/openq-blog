@@ -2,7 +2,7 @@
     "site": {
         "name": "openQ",
         "description": "开放 包容 多走些路  本博客界面风格重定义中",
-        "url": "http://localhost:8000/openq/"
+        "url": "http://localhost:8000/"
     },
 
     "author": {

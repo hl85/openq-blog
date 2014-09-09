@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>openQ</title>
     <link href="" rel="self" />
-    <link href="http://localhost:8000/openq/" />
+    <link href="http://localhost:8000/" />
     <updated>2014-09-04T12:00:00Z</updated>
-    <id>http://localhost:8000/openq/</id>
+    <id>http://localhost:8000/</id>
     
     <entry>
         <title><![CDATA[正则表达式匹配注释（//,/**/,#）]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/</uri></author>
         <link href="http://localhost:8000/regex4comments/"/>
         <updated>2014-09-04T12:00:00Z</updated>
         <published>2014-09-04T12:00:00Z</published>
@@ -51,7 +51,7 @@
     
     <entry>
         <title><![CDATA[Mac系统下SVN工具推荐]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/</uri></author>
         <link href="http://localhost:8000/svn-tools-for-mac/"/>
         <updated>2014-08-04T13:18:00Z</updated>
         <published>2014-08-04T13:18:00Z</published>
@@ -70,7 +70,7 @@ versions（收费，<a href="http://www.versionsapp.com/">正版下载</a>，<a 
     
     <entry>
         <title><![CDATA[云引擎做不到]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/</uri></author>
         <link href="http://localhost:8000/cloud-cant-do/"/>
         <updated>2014-08-01T22:55:00Z</updated>
         <published>2014-08-01T22:55:00Z</published>
@@ -101,7 +101,7 @@ versions（收费，<a href="http://www.versionsapp.com/">正版下载</a>，<a 
     
     <entry>
         <title><![CDATA[Hello, Baby!]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/</uri></author>
         <link href="http://localhost:8000/hello-baby/"/>
         <updated>2014-07-15T10:18:00Z</updated>
         <published>2014-07-15T10:18:00Z</published>
@@ -139,7 +139,7 @@ versions（收费，<a href="http://www.versionsapp.com/">正版下载</a>，<a 
     
     <entry>
         <title><![CDATA[每日站立会议的10个成功要点]]></title>
-        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/openq/</uri></author>
+        <author><name>山姆是个好蜀黍</name><uri>http://localhost:8000/</uri></author>
         <link href="http://localhost:8000/10-successful-elements-of-the-daily-stand-up-meetings/"/>
         <updated>2012-12-03T17:18:00Z</updated>
         <published>2012-12-03T17:18:00Z</published>
