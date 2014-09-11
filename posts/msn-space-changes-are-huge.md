@@ -1,7 +1,7 @@
 #MSN Spaces变化好大
 
 - time: 2006-08-03 10:10
-- tags: Mood
+- tags: mood
 
 ---
 好久没来了，惊愕！

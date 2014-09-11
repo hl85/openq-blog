@@ -1,7 +1,7 @@
 #推荐学习：Start Developing Mac Apps Today
 
 - time: 2012-08-29 17:06
-- type: mac os,
+- tags: mac
 
 ----
 

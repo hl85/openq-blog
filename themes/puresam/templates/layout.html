@@ -20,19 +20,21 @@
             <h2 class="brand-tagline">{{ site.description }}</h2>
         </hgroup>
         <nav class="nav">
+        {% if pages %}
             <ul class="nav-list">
             {% for page in pages %}
                 <li class="nav-item"><a class="pure-button" href="{{ url_for(page) }}">{{ page.title }}</a></li>
             {% endfor %}
             </ul>
-        {% if generator.tags %}
-            <ul class="tag-list">
-        {% for tag in generator.tags %}
-            <li class="tag-item"><a class="pure-button tag-{{tag.name}}" href="{{ url_for(tag) }}">{{ tag.name }} ({{ tag.count }})</a></li>
-        {% endfor %}
         {% endif %}
-            </ul>
-        </nav>
+        {% if generator.tags %}
+            <div class="nav-tag-list">
+        {% for tag in generator.tags %}
+            <a class="nav-tag tag-{{tag.name}}" href="{{ url_for(tag) }}">{{ tag.name }} ({{ tag.count }})</a>
+        {% endfor %}
+            </div>
+       {% endif %}
+         </nav>
     </header>
 </div>
 
@@ -40,8 +42,7 @@
     {% block content %}
     {% endblock %}
    <footer class="footer">
-        <div class="archives">
-        <h2>Archives</h2>
+         <div class="pure-menu pure-menu-horizontal pure-menu-open">
         <ul>
             {% for archive in generator.archives %}
             <li><a href="{{ url_for(archive) }}">{{ archive.year }} ({{ archive.count }})</a></li>
@@ -51,22 +52,21 @@
         <div class="pure-menu pure-menu-horizontal pure-menu-open">
             <ul>
                 <li><a href="{{ url_for('feed') }}">About</a></li>
-                <li><a href="http://twitter.com/{{ author.twitter }}" target="_blank" title="Follow Me @ Twitter"><img src="{{ static_url("image/ic16_twitter.png") }}">Twitter</a></li>
-                <li><a href="http://github.com/{{ theme.github }}" target="_blank" title="Fork Me @ Github"><img src="{{ static_url("image/ic16_github.png") }}">Github</a></li>
-                <li><a href="{{ url_for('feed') }}" target="_blank" title="Subscribe My Blog"><img src="{{ static_url("image/ic16_rss.png") }}">Subscribe</a></li>
+                <li><a href="http://twitter.com/{{ author.twitter }}" target="_blank" title="Follow Me @ Twitter"> <img src="{{ static_url("image/ic16_twitter.png") }}">Twitter</a></li>
+                <li><a href="http://github.com/{{ theme.github }}" target="_blank" title="Fork Me @ Github"><img src="{{ static_url("image/ic16_github.png") }}"> Github</a></li>
+                <li><a href="{{ url_for('feed') }}" target="_blank" title="Subscribe My Blog"><img src="{{ static_url("image/ic16_rss.png") }}"> Subscribe</a></li>
             </ul>
         </div>
-        <div class="copyright">
-            Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
-            <span>&bull;</span>
-            PureSam Theme by <a href="http://openq.cn">Sam</a>
+        <div class="pure-menu pure-menu-horizontal pure-menu-open">
+            <ul><li><a href="https://github.com/whtsky/catsup">Powered by  Catsup</a></li>
+            <li><a href="http://openq.cn">PureSam Theme by Sam</a></li>
+            </ul>
         </div>
-        <div class="links">
-            <ul>
+        <div class="pure-menu pure-menu-horizontal pure-menu-open"><ul>
                 {% for link in theme.links %}
-                <li><a href="{{ link["url"] }}" title="{{ link["description"] }}" target="_blank">{{ link["name"] }}</a></li>
+                <li><a href="{{ link["url"] }}" title="{{ link["description"] }}" target="_blank">{{ link["name"] }}</a> </li>
                 {% endfor %}
-            </ul>
+                </ul>
         </div>
     </footer>
 </div>
