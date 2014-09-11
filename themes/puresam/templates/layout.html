@@ -25,10 +25,12 @@
                 <li class="nav-item"><a class="pure-button" href="{{ url_for(page) }}">{{ page.title }}</a></li>
             {% endfor %}
             </ul>
+        {% if generator.tags %}
             <ul class="tag-list">
         {% for tag in generator.tags %}
-            <li class="tag-item"><a class="pure-button" href="{{ url_for(tag) }}">{{ tag.name }} ({{ tag.count }})</a></li>
+            <li class="tag-item"><a class="pure-button tag-{{tag.name}}" href="{{ url_for(tag) }}">{{ tag.name }} ({{ tag.count }})</a></li>
         {% endfor %}
+        {% endif %}
             </ul>
         </nav>
     </header>

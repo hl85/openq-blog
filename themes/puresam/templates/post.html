@@ -10,33 +10,25 @@
 {% endblock %}
 
 {% block content %}
-<div class="article">
-    <div class="inner">
-        <h2 class="article_title title"><a href="#">{{ post.title }}</a></h2>
-        <div class="article_meta">
-            <div class="share">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-via="{{ author.twitter }}" data-lang="zh-cn">Tweet</a>
-            </div>
-            <span>on</span>
-            {{ post.date }}
-        </div>
 
-        <div class="text">
-            <article>
-            {{ post.content }}
-            </article>
-        </div>
-        {% if tags %}
-        <div class="big_sep"></div>
-        <div class="article_meta">
-            <span>tagged:</span>
-            {% for tag in post.tags %}
-                <a class="tag" href="{{ url_for(tag) }}">{{ tag.name }}</a>
+<div class="content">
+    <article class="post">
+        <header class="post-header">
+            <img class="post-avatar" alt="author's avatar" src="{{static_url("image/avatar.jpg")}}" height="48" width="48">
+            <h2 class="post-title"><a href="{{ url_for(post) }}">{{ post.title }}</a></h2>
+            <p class="post-meta">
+            <!-- By <a href="#" class="post-author">{{post.author}}</a>  -->on <span class="time-stamp">{{ post.date }}</span>
+        {% if post.tags %} under
+            {% for tag in post.tags %}<a class="post-tag tag-{{tag.name}}" href="{{ url_for(tag) }}">{{tag.name}}</a>
             {% endfor %}
-        </div>
         {% endif %}
-        <div class="big_sep"></div>
-       {{ render_comment(post) }}
-    </div>
+            </p>
+        </header>
+        <div class="post-description">
+            <p>{{post.content}}</p>
+        </div>
+    </article>
+   {{ render_comment(post) }}
 </div>
+
 {% endblock %}
