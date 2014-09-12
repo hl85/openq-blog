@@ -1,3 +1,4 @@
+http://openq.cn/svn-externals-svn-submodule/
 http://openq.cn/regex4comments/
 http://openq.cn/svn-tools-for-mac/
 http://openq.cn/cloud-cant-do/
@@ -73,13 +74,14 @@ http://openq.cn/tag/tools/
 http://openq.cn/tag/front-end/
 http://openq.cn/tag/design/
 http://openq.cn/tag/best-practices/
+http://openq.cn/tag/svn/
 http://openq.cn/tag/regex/
 http://openq.cn/tag/testing/
 http://openq.cn/tag/hybrid/
 http://openq.cn/tag/funny/
 http://openq.cn/tag/back-end/
 http://openq.cn/tag/reading/
-http://openq.cn/tag/svn/
+http://openq.cn/tag/git/
 http://openq.cn/tag/viewpoint/
 http://openq.cn/tag/meeting/
 http://openq.cn/tag/perl/
