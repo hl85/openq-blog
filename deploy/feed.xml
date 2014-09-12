@@ -60,7 +60,7 @@ git push
     </entry>
     
     <entry>
-        <title><![CDATA[正则表达式匹配注释（//,/**/,#）]]></title>
+        <title><![CDATA[正则表达式匹配注释]]></title>
         <author><name>山姆是个好蜀黍</name><uri>http://openq.cn/</uri></author>
         <link href="http://openq.cn/regex4comments/"/>
         <updated>2014-09-04T12:00:00Z</updated>
@@ -68,7 +68,11 @@ git push
         <id>http://openq.cn/regex4comments/</id>
         <content type="html">
             <![CDATA[
-             
+             <p>主要是针对以下几种注释<br/>
+1、行注释：//<br/>
+2、块注释：/**/<br/>
+3、行注释：#  </p>
+
 <pre><code>(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/</code></pre>
 
 <p>这个正则表达式由&quot;|&ldquo;分割成三部分：  </p>

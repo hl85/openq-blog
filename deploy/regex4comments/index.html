@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-<meta name="description" content="(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/这个正则表达式由&quot;|&ldquo;分割成三部分：  第一部分、  (?&lt;!:)\/\/.*用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与//衔接的情况，从而避免命中各种网络协议。这里边涉及的反向否">
+<meta name="description" content="主要是针对以下几种注释1、行注释：//2、块注释：/**/3、行注释：#  (?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/这个正则表达式由&quot;|&ldquo;分割成三部分：  第一部分、  (?&lt;!:)\/\/.*用来匹配//单行注释，同时通过(?&lt;!:">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="hl13571">
-<meta name="twitter:title" content="正则表达式匹配注释（//,/**/,#）">
-<meta name="twitter:description" content="(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/这个正则表达式由&quot;|&ldquo;分割成三部分：  第一部分、  (?&lt;!:)\/\/.*用来匹配//单行注释，同时通过(?&lt;!:)反向否定了:与//衔接的情况，从而避免命中各种网络协议。这里边涉及的反向否">
+<meta name="twitter:title" content="正则表达式匹配注释">
+<meta name="twitter:description" content="主要是针对以下几种注释1、行注释：//2、块注释：/**/3、行注释：#  (?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/这个正则表达式由&quot;|&ldquo;分割成三部分：  第一部分、  (?&lt;!:)\/\/.*用来匹配//单行注释，同时通过(?&lt;!:">
 <meta name="twitter:creator" content="hl13571">
 
 
     <title>
-正则表达式匹配注释（//,/**/,#） | openQ
+正则表达式匹配注释 | openQ
 </title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" type="text/css" />
     <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=63dc9f348154238196ea7118881ed9b9" type="text/css" />
@@ -92,7 +92,7 @@
     <article class="post">
         <header class="post-header">
             <img class="post-avatar" alt="author's avatar" src="http://openq.cn/static/image/avatar.jpg?v=47ab98adb28d558e270cf5fc399565fc" height="48" width="48">
-            <h2 class="post-title"><a href="http://openq.cn/regex4comments/">正则表达式匹配注释（//,/**/,#）</a></h2>
+            <h2 class="post-title"><a href="http://openq.cn/regex4comments/">正则表达式匹配注释</a></h2>
             <p class="post-meta">
             <!-- By <a href="#" class="post-author"></a>  -->on <span class="time-stamp">2014-09-04</span>
          under
@@ -102,7 +102,11 @@
             </p>
         </header>
         <div class="post-description">
-            <p>
+            <p><p>主要是针对以下几种注释<br/>
+1、行注释：//<br/>
+2、块注释：/**/<br/>
+3、行注释：#  </p>
+
 <pre><code>(?&lt;!:)\/\/.*|#.*|\/\*(.|\s)*?\*\/</code></pre>
 
 <p>这个正则表达式由&quot;|&ldquo;分割成三部分：  </p>
