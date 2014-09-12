@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
 <meta name="description" content="忘记了是谁推荐的文章，也不知道是谁写的，原则性地文章都转载过来，以备后用。&nbsp;    &nbsp;随着科技的不断发展，手机的功能俞之强大，基于手机系统的相关软件应运而生，手机设计的人性化已不仅仅局限于手机硬件的外观，手机的软件系统已成为用户直接操作和应用的主体，它应以美观实用、操作便捷为用户">
@@ -17,10 +18,10 @@
 移动应用UI设计规范 | openQ
 </title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" type="text/css" />
-    <link rel="stylesheet" href="http://localhost:8000/static/css/style.css?v=2b6e86ecd633f04536451c0a391b8f68" type="text/css" />
-    <link rel="stylesheet" href="http://localhost:8000/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
-    <link rel="alternate" type="application/rss+xml" href="http://localhost:8000/feed.xml" title="openQ" />
-    <link rel="shortcut icon" href="http://localhost:8000/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
+    <link rel="stylesheet" href="http://openq.cn/static/css/style.css?v=63dc9f348154238196ea7118881ed9b9" type="text/css" />
+    <link rel="stylesheet" href="http://openq.cn/static/css/pygments_style.css?v=f52807bdba7d67ebabc3ce287f67bf67" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" href="http://openq.cn/feed.xml" title="openQ" />
+    <link rel="shortcut icon" href="http://openq.cn/static/favicon.ico?v=64341ece5c43f8fa3d9e2f4793a11590" />
 </head>
 <body>
 <div class="pure-g-r" id="layout">
@@ -28,106 +29,84 @@
 <div class="sidebar pure-u">
     <header class="header">
         <hgroup>
-            <h1 class="brand-title"><a href="http://localhost:8000/">openQ</a></h1>
-            <h2 class="brand-tagline">开放 包容 多走些路  本博客界面风格重定义中</h2>
+            <h1 class="brand-title"><a href="http://openq.cn/">openQ</a></h1>
+            <h2 class="brand-tagline">开放 包容 多走些路</h2>
         </hgroup>
         <nav class="nav">
-            <ul class="nav-list">
-            
-                <li class="nav-item"><a class="pure-button" href="http://localhost:8000/about/">about</a></li>
-            
-            </ul>
-            <ul class="tag-list">
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/Mood/">Mood (25)</a></li>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/cultivation/">cultivation (21)</a></li>
+            <div class="nav-tag-list">
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/iOS/">iOS (6)</a></li>
+            <a class="nav-tag tag-mood" href="http://openq.cn/tag/mood/">mood (25)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/design/">design (4)</a></li>
+            <a class="nav-tag tag-cultivation" href="http://openq.cn/tag/cultivation/">cultivation (21)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/tools/">tools (3)</a></li>
+            <a class="nav-tag tag-iOS" href="http://openq.cn/tag/iOS/">iOS (6)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag//"> (2)</a></li>
+            <a class="nav-tag tag-tools" href="http://openq.cn/tag/tools/">tools (5)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/regex/">regex (2)</a></li>
+            <a class="nav-tag tag-front end" href="http://openq.cn/tag/front-end/">front end (4)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/funny/">funny (2)</a></li>
+            <a class="nav-tag tag-design" href="http://openq.cn/tag/design/">design (4)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/hybrid/">hybrid (2)</a></li>
+            <a class="nav-tag tag-best practices" href="http://openq.cn/tag/best-practices/">best practices (3)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/front-end/">front end (2)</a></li>
+            <a class="nav-tag tag-svn" href="http://openq.cn/tag/svn/">svn (2)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/process/">process (1)</a></li>
+            <a class="nav-tag tag-regex" href="http://openq.cn/tag/regex/">regex (2)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/coding/">coding (1)</a></li>
+            <a class="nav-tag tag-testing" href="http://openq.cn/tag/testing/">testing (2)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/perl/">perl (1)</a></li>
+            <a class="nav-tag tag-hybrid" href="http://openq.cn/tag/hybrid/">hybrid (2)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/test/">test (1)</a></li>
+            <a class="nav-tag tag-funny" href="http://openq.cn/tag/funny/">funny (2)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/best-practices/">best practices (1)</a></li>
+            <a class="nav-tag tag-back end" href="http://openq.cn/tag/back-end/">back end (2)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/meeting/">meeting (1)</a></li>
+            <a class="nav-tag tag-reading" href="http://openq.cn/tag/reading/">reading (2)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/cloud-engine/">cloud engine (1)</a></li>
+            <a class="nav-tag tag-git" href="http://openq.cn/tag/git/">git (1)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/http/">http (1)</a></li>
+            <a class="nav-tag tag-viewpoint" href="http://openq.cn/tag/viewpoint/">viewpoint (1)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/viewpoint/">viewpoint (1)</a></li>
+            <a class="nav-tag tag-meeting" href="http://openq.cn/tag/meeting/">meeting (1)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/share/">share (1)</a></li>
+            <a class="nav-tag tag-perl" href="http://openq.cn/tag/perl/">perl (1)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/memo/">memo (1)</a></li>
+            <a class="nav-tag tag-mac" href="http://openq.cn/tag/mac/">mac (1)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/javascript/">javascript (1)</a></li>
+            <a class="nav-tag tag-webkit" href="http://openq.cn/tag/webkit/">webkit (1)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/webkit/">webkit (1)</a></li>
+            <a class="nav-tag tag-this blog" href="http://openq.cn/tag/this-blog/">this blog (1)</a>
         
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/this-blog/">this blog (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/svn/">svn (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/mac-tools/">mac tools (1)</a></li>
-        
-            <li class="tag-item"><a class="pure-button" href="http://localhost:8000/tag/sn/">sn (1)</a></li>
-        
-            </ul>
-        </nav>
+            </div>
+       
+         </nav>
     </header>
 </div>
 
 <div class="content">
     
-<div class="article">
-    <div class="inner">
-        <h2 class="article_title title"><a href="#">移动应用UI设计规范</a></h2>
-        <div class="article_meta">
-            <div class="share">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-via="hl13571" data-lang="zh-cn">Tweet</a>
-            </div>
-            <span>on</span>
-            2011-12-27
-        </div>
 
-        <div class="text">
-            <article>
-            <p>忘记了是谁推荐的文章，也不知道是谁写的，原则性地文章都转载过来，以备后用。</p><p>&nbsp;</p><p>    <img src="http://fmn.rrimg.com/fmn064/20111227/1610/b_large_26px_7a7100004093125b.jpg" border="0"></p><p>&nbsp;</p><p>随着科技的不断发展，手机的功能俞之强大，基于手机系统的相关软件应运而生，手机设计的人性化已不仅仅局限于手机硬件的外观，手机的软件系统已成为用户直接操作和应用的主体，它应以美观实用、操作便捷为用户所青睐。用户界面设计的规范性显得尤为重要。</p><p>&nbsp;</p><p>    <strong>　　一、界面效果的整体性、一致性</strong>&nbsp;</p><p>　　手机软件运行于手机操作系统的软件环境，界面的设计应该是基于这个应用平台的整体风格，这样有利于产品外观的整合。</p><p>&nbsp;</p><p>    <strong>　　1、界面的色彩及风格与系统界面统一</strong></p><p>　　软件界面的总体色彩应该接近和类似系统界面的总体色调，例如：系统色调以蓝色为主，我们的软件界面的默认色彩最好与之吻合，若使用与之大相径庭的色彩，比如大红、柠檬黄，色彩的强烈变化会影响用户的使用情绪，假想你买了一款从外观到系统界面都很满意的手机，操作的时候突然发现内置的应用软件和系统界面不统一，你会有何感想呢?第一感觉不好的东西我们的用户还会去用它吗?所以我们要知道手机的外观和系统界面已经是由手机制造商根据用户审美习惯定制的，它应该有他们的审美群体，我们要给这款手机做软件就应该有效地利用制造商基于此款手机的审美特征，以赢得喜爱此款手机的用户，使他们对系统界面的肯定和喜爱有效的转移到我们的产品上来。当然合理地结合系统界面进行设计还包括图标、按钮的风格及在不同操作状态下的视觉效果。</p><p>    <strong>　　2、操作流程的系统化</strong></p><p>&nbsp;</p><p>　　手机用户的操作习惯是基于系统的，我们的界面设计在操作流程的安排上，也得遵循系统的规范性，让用户达到可以使用手机就会使用我们的手机软件，简化用户操作流程</p><p>&nbsp;</p><p>    <strong>　　二、界面效果的个性化</strong></p><p>&nbsp;</p><p>　　是不是我们追求整体性和一致性，就忽略软件界面的个性化呢?整体性和一致性是基于手机系统视觉效果的和谐统一而考虑，个性化是基于软件本身的特征和用途而考虑。因此这一点也是不容忽视的!</p><p>    <strong>　　1、特有的界面构架</strong></p><p>&nbsp;</p><p>　　软件的实用性是软件应用的根本，我们设计应该结合软件的应用范畴，合理的安排版式，以求达到美观适用的目的，这一点不一定能与系统达到一致的标准，它应该具有它所具有的行业标准，例如:证券交易、地图操作等界面特征，需要分析软件应用的特征和流程制定相对规范性的界面构架。界面构架的功能操作区、内容显示区、导航控制区都应该统一规范，不同功能模块的相同操作区域的元素风格应该一致，让用户能够对不同的模块的操作迅速掌握。从而也使整个界面统一在一个特有的整体之中。</p><p>    <strong>　　2、专用的界面图标</strong></p><p>&nbsp;</p><p>　　软件的图标按钮是基于自身应用的命令集，它的每一个图形内容映射的是一个目标动作，因此作为体现目标动作的图标，它应该有强烈的表意性，制作过程中选择具有典型行业特征的图符，有助于用户的识别，方便操作。图标的图形制作不能太繁琐，要适应手机本身显示面积很小的屏幕，在制作上尽量使用像素图，确保图形质量清晰，如果针对立体化的界面，可考虑部分像素羽化的效果，以增强图标的层次感。</p><p>&nbsp;</p><p>    <strong>　　3、界面色彩的个性化设置</strong></p><p>&nbsp;</p><p>　　色彩影响一个人的情绪，不同的色彩会让人产生不同的心理效应，反之不同的心理状态所能接受的色彩也是不同的，不断变化的事物才能引起人的注意，界面设计的色彩个性化，目的就是用色彩的变换来协调用户的心理，让用户对软件产品时常保持一种新鲜度，它是通过用户根据自己的需要来改变默认的系统设置，选择一种自己满意的个性化设置，达到软件产品与用户之间的协调性。在众多的软件产品中都涉及到了界面的换肤技术，在手机的软件界面设计过程中，应用这一个性设置可以更大的提升软件的魅力，满足用户的多方面需要!在具体操作实现的过程中，色彩的搭配显得尤为重要，要考虑图标色彩与换肤色彩的色彩反差和效果的统一，以不至于造成花、乱的界面效果。&nbsp;<span style="color: rgb(255,255,255);">yixieshi</span></p><p>    <strong>　　三、界面视觉元素的规范。</strong></p><p>&nbsp;</p><p>    <strong>　　1、图形图像元素的质量</strong></p><p>&nbsp;</p><p>　　尽量使用较少的色深表现色彩丰富的图形图像，既确保数据量小又确保图形图像的效果完好，使图形图像在软件系统中所占数据量尽量减小，提高程序的工作效率。</p><p>    <strong>　　2、线条色块与图形图像的结合</strong>&nbsp;<span style="color: rgb(255,255,255);">yixieshi</span></p><p>　　界面上的线条和色块后期都会用程序来实现，这就需要考虑程序部分和图像部分的结合，需要自然的结合才能协调界面效果的整体感，所以需要需要程序员与界面设计人员的密切沟通，达成一致。</p>  
-
-            </article>
-        </div>
-        
-        <div class="big_sep"></div>
-        <div class="article_meta">
-            <span>tagged:</span>
+<div class="content">
+    <article class="post">
+        <header class="post-header">
+            <img class="post-avatar" alt="author's avatar" src="http://openq.cn/static/image/avatar.jpg?v=47ab98adb28d558e270cf5fc399565fc" height="48" width="48">
+            <h2 class="post-title"><a href="http://openq.cn/Mobile-APP-UI-Design/">移动应用UI设计规范</a></h2>
+            <p class="post-meta">
+            <!-- By <a href="#" class="post-author"></a>  -->on <span class="time-stamp">2011-12-27</span>
+         under
+            <a class="post-tag tag-design" href="http://openq.cn/tag/design/">design</a>
             
-                <a class="tag" href="http://localhost:8000/tag/design/">design</a>
-            
-        </div>
         
-        <div class="big_sep"></div>
-       
+            </p>
+        </header>
+        <div class="post-description">
+            <p><p>忘记了是谁推荐的文章，也不知道是谁写的，原则性地文章都转载过来，以备后用。</p><p>&nbsp;</p><p>    <img src="http://fmn.rrimg.com/fmn064/20111227/1610/b_large_26px_7a7100004093125b.jpg" border="0"></p><p>&nbsp;</p><p>随着科技的不断发展，手机的功能俞之强大，基于手机系统的相关软件应运而生，手机设计的人性化已不仅仅局限于手机硬件的外观，手机的软件系统已成为用户直接操作和应用的主体，它应以美观实用、操作便捷为用户所青睐。用户界面设计的规范性显得尤为重要。</p><p>&nbsp;</p><p>    <strong>　　一、界面效果的整体性、一致性</strong>&nbsp;</p><p>　　手机软件运行于手机操作系统的软件环境，界面的设计应该是基于这个应用平台的整体风格，这样有利于产品外观的整合。</p><p>&nbsp;</p><p>    <strong>　　1、界面的色彩及风格与系统界面统一</strong></p><p>　　软件界面的总体色彩应该接近和类似系统界面的总体色调，例如：系统色调以蓝色为主，我们的软件界面的默认色彩最好与之吻合，若使用与之大相径庭的色彩，比如大红、柠檬黄，色彩的强烈变化会影响用户的使用情绪，假想你买了一款从外观到系统界面都很满意的手机，操作的时候突然发现内置的应用软件和系统界面不统一，你会有何感想呢?第一感觉不好的东西我们的用户还会去用它吗?所以我们要知道手机的外观和系统界面已经是由手机制造商根据用户审美习惯定制的，它应该有他们的审美群体，我们要给这款手机做软件就应该有效地利用制造商基于此款手机的审美特征，以赢得喜爱此款手机的用户，使他们对系统界面的肯定和喜爱有效的转移到我们的产品上来。当然合理地结合系统界面进行设计还包括图标、按钮的风格及在不同操作状态下的视觉效果。</p><p>    <strong>　　2、操作流程的系统化</strong></p><p>&nbsp;</p><p>　　手机用户的操作习惯是基于系统的，我们的界面设计在操作流程的安排上，也得遵循系统的规范性，让用户达到可以使用手机就会使用我们的手机软件，简化用户操作流程</p><p>&nbsp;</p><p>    <strong>　　二、界面效果的个性化</strong></p><p>&nbsp;</p><p>　　是不是我们追求整体性和一致性，就忽略软件界面的个性化呢?整体性和一致性是基于手机系统视觉效果的和谐统一而考虑，个性化是基于软件本身的特征和用途而考虑。因此这一点也是不容忽视的!</p><p>    <strong>　　1、特有的界面构架</strong></p><p>&nbsp;</p><p>　　软件的实用性是软件应用的根本，我们设计应该结合软件的应用范畴，合理的安排版式，以求达到美观适用的目的，这一点不一定能与系统达到一致的标准，它应该具有它所具有的行业标准，例如:证券交易、地图操作等界面特征，需要分析软件应用的特征和流程制定相对规范性的界面构架。界面构架的功能操作区、内容显示区、导航控制区都应该统一规范，不同功能模块的相同操作区域的元素风格应该一致，让用户能够对不同的模块的操作迅速掌握。从而也使整个界面统一在一个特有的整体之中。</p><p>    <strong>　　2、专用的界面图标</strong></p><p>&nbsp;</p><p>　　软件的图标按钮是基于自身应用的命令集，它的每一个图形内容映射的是一个目标动作，因此作为体现目标动作的图标，它应该有强烈的表意性，制作过程中选择具有典型行业特征的图符，有助于用户的识别，方便操作。图标的图形制作不能太繁琐，要适应手机本身显示面积很小的屏幕，在制作上尽量使用像素图，确保图形质量清晰，如果针对立体化的界面，可考虑部分像素羽化的效果，以增强图标的层次感。</p><p>&nbsp;</p><p>    <strong>　　3、界面色彩的个性化设置</strong></p><p>&nbsp;</p><p>　　色彩影响一个人的情绪，不同的色彩会让人产生不同的心理效应，反之不同的心理状态所能接受的色彩也是不同的，不断变化的事物才能引起人的注意，界面设计的色彩个性化，目的就是用色彩的变换来协调用户的心理，让用户对软件产品时常保持一种新鲜度，它是通过用户根据自己的需要来改变默认的系统设置，选择一种自己满意的个性化设置，达到软件产品与用户之间的协调性。在众多的软件产品中都涉及到了界面的换肤技术，在手机的软件界面设计过程中，应用这一个性设置可以更大的提升软件的魅力，满足用户的多方面需要!在具体操作实现的过程中，色彩的搭配显得尤为重要，要考虑图标色彩与换肤色彩的色彩反差和效果的统一，以不至于造成花、乱的界面效果。&nbsp;<span style="color: rgb(255,255,255);">yixieshi</span></p><p>    <strong>　　三、界面视觉元素的规范。</strong></p><p>&nbsp;</p><p>    <strong>　　1、图形图像元素的质量</strong></p><p>&nbsp;</p><p>　　尽量使用较少的色深表现色彩丰富的图形图像，既确保数据量小又确保图形图像的效果完好，使图形图像在软件系统中所占数据量尽量减小，提高程序的工作效率。</p><p>    <strong>　　2、线条色块与图形图像的结合</strong>&nbsp;<span style="color: rgb(255,255,255);">yixieshi</span></p><p>　　界面上的线条和色块后期都会用程序来实现，这就需要考虑程序部分和图像部分的结合，需要自然的结合才能协调界面效果的整体感，所以需要需要程序员与界面设计人员的密切沟通，达成一致。</p>  
+</p>
+        </div>
+    </article>
+   
     
         
             <div id="disqus_thread"></div>
@@ -143,51 +122,47 @@
         
     
 
-    </div>
 </div>
 
+
    <footer class="footer">
-        <div class="archives">
-        <h2>Archives</h2>
+         <div class="pure-menu pure-menu-horizontal pure-menu-open">
         <ul>
             
-            <li><a href="http://localhost:8000/archive/2014/">2014 (4)</a></li>
+            <li><a href="http://openq.cn/archive/2014/">2014 (5)</a></li>
             
-            <li><a href="http://localhost:8000/archive/2012/">2012 (29)</a></li>
+            <li><a href="http://openq.cn/archive/2012/">2012 (29)</a></li>
             
-            <li><a href="http://localhost:8000/archive/2011/">2011 (3)</a></li>
+            <li><a href="http://openq.cn/archive/2011/">2011 (3)</a></li>
             
-            <li><a href="http://localhost:8000/archive/2010/">2010 (1)</a></li>
+            <li><a href="http://openq.cn/archive/2010/">2010 (1)</a></li>
             
-            <li><a href="http://localhost:8000/archive/2009/">2009 (2)</a></li>
+            <li><a href="http://openq.cn/archive/2009/">2009 (2)</a></li>
             
-            <li><a href="http://localhost:8000/archive/2007/">2007 (7)</a></li>
+            <li><a href="http://openq.cn/archive/2007/">2007 (7)</a></li>
             
-            <li><a href="http://localhost:8000/archive/2006/">2006 (10)</a></li>
+            <li><a href="http://openq.cn/archive/2006/">2006 (10)</a></li>
             
-            <li><a href="http://localhost:8000/archive/2005/">2005 (12)</a></li>
+            <li><a href="http://openq.cn/archive/2005/">2005 (12)</a></li>
             
         </ul>
         </div>
         <div class="pure-menu pure-menu-horizontal pure-menu-open">
             <ul>
-                <li><a href="http://localhost:8000/feed.xml">About</a></li>
-                <li><a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"><img src="http://localhost:8000/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf">Twitter</a></li>
-                <li><a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://localhost:8000/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1">Github</a></li>
-                <li><a href="http://localhost:8000/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://localhost:8000/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2">Subscribe</a></li>
+                <li><a href="http://openq.cn/feed.xml">About</a></li>
+                <li><a href="http://twitter.com/hl13571" target="_blank" title="Follow Me @ Twitter"> <img src="http://openq.cn/static/image/ic16_twitter.png?v=ad066c7795c123199e5818835ba0b8cf">Twitter</a></li>
+                <li><a href="http://github.com/hl85" target="_blank" title="Fork Me @ Github"><img src="http://openq.cn/static/image/ic16_github.png?v=2fd2b5b5fb5b76306ff8b5896b4884a1"> Github</a></li>
+                <li><a href="http://openq.cn/feed.xml" target="_blank" title="Subscribe My Blog"><img src="http://openq.cn/static/image/ic16_rss.png?v=c230e9b2bfaab8f8142b235c22430bc2"> Subscribe</a></li>
             </ul>
         </div>
-        <div class="copyright">
-            Powered by <a href="https://github.com/whtsky/catsup">Catsup</a>
-            <span>&bull;</span>
-            PureSam Theme by <a href="http://openq.cn">Sam</a>
-        </div>
-        <div class="links">
-            <ul>
-                
-                <li><a href="http://openq.cn" title="That's Nice!" target="_blank">openQ</a></li>
-                
+        <div class="pure-menu pure-menu-horizontal pure-menu-open">
+            <ul><li><a href="https://github.com/whtsky/catsup">Powered by  Catsup</a></li>
+            <li><a href="http://openq.cn">PureSam Theme by Sam</a></li>
             </ul>
+        </div>
+        <div class="pure-menu pure-menu-horizontal pure-menu-open"><ul>
+                
+                </ul>
         </div>
     </footer>
 </div>

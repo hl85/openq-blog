@@ -1,7 +1,7 @@
 #“瘾”
 
 - time: 2005-10-11 19:42
-- tags: Mood,cultivation
+- tags: mood,cultivation
 
 ---
   凡是刺激的都容易上瘾。 --同宿舍兄弟瑞生。

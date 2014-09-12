@@ -1,7 +1,7 @@
 #OMNIGRAFFLE 5注册码
 
 - time: 2012-07-24 10:18
-- tags: sn
+- tags: tools
 
 ---
 OMNIGRAFFLE 5注册码，可耻的分享一下：

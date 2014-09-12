@@ -1,7 +1,7 @@
 #无知者无畏
 
 - time: 2005-12-04 11:31
-- tags: Mood,cultivation
+- tags: mood,cultivation
 
 ---
 最近，工作很紧就连星期天都在加班（项目紧任务急没办法）。所以很少到网上转悠了，昨天做一个很复杂的测试编码的时候，我们的manager建议我好好学一下CodeSmith，yahoo了一下，竟发现这方面的文章大部分都出自于cnblogs和csdn，由于喜好问题（我现在不太喜欢到csdn上转悠了，又由于很久没做j2ee了所以也很少到sun\javacn去了），我又好好在这里学习了一下。

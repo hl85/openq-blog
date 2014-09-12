@@ -1,7 +1,7 @@
 #麦当劳的咖啡
 
 - time: 2010-01-22 20:29
-- tags: Mood
+- tags: mood
 
 ---
 

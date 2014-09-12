@@ -1,7 +1,7 @@
 #相信未来
 
 - time: 2005-10-31 16:43
-- tags: Mood
+- tags: mood
 
 ---
 

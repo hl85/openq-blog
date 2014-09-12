@@ -5,7 +5,7 @@
 
 ---
 你好，宝贝儿！
-准备用Catsup写点东西，被那些复杂程序玩儿残了，自己的清净之地就用**MarkDown**啦    ~~
+准备用<a href="https://github.com/whtsky/catsup">Catsup</a>写点东西，被那些复杂程序玩儿残了，自己的清净之地就用**MarkDown**啦    ~~
 <strong>用vim写东西好有古感哟~~</strong>
 
  ```python
@@ -20,13 +20,14 @@
 
 针对这个博客要做的：
 
- 1、将appfanr没有遗失的部分blog整理迁移过来。
+1、将appfanr没有遗失的部分blog整理迁移过来。
 	- 人人（***完成***）
 	- 豆瓣（***完成***）
 	- qq空间（***完成***）
 	- 新浪（***完成***）
 	- cnblogs（***完成***）
- 2、SealScript，这个风格我还不是很满意，抽时间自己再整理一份。**进行中**
- 3、把最近关注的问题都写出来。**进行中**
- 4、学习YAML，让界面表达更丰富一点。**完成**
- 5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。利用FREEHOSTING.COM提供的免费服务解决[参见:<a href="/cloud-cant-do">云引擎做不到</a>]。**完成**
+2、SealScript，这个风格我还不是很满意。通过学习<a href="http://purecss.io/">purecss</a>的博客<a herf="http://purecss.io/layouts/blog/">Demo</a>（响应式）重新定义了一个还不够完善，但是再深入处理就要修改catsup源代码了。**完成**
+3、把最近关注的问题都写出来。**进行中**
+4、学习YAML，让界面表达更丰富一点。**完成**
+5、将openq.cn绑到这个域名下，将appfanr.com（以后就不在appfanr写博客了）301到openq.cn。利用FREEHOSTING.COM提供的免费服务解决[参见:<a href="/cloud-cant-do">云引擎做不到</a>]。**完成**
+6、9.12新增任务，通过修改catsup，让过程更顺畅（发布流程）、界面更美观（智能简介、多色标签、图片压缩处理等）。**未启动**
