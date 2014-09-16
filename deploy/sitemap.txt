@@ -38,6 +38,7 @@ http://openq.cn/satisfaction-and-happiness-self-portrait/
 http://openq.cn/McDonald-s-coffee/
 http://openq.cn/to-shade-together/
 http://openq.cn/sefl-moving/
+http://openq.cn/on-cell-phones-wireless-internet/
 http://openq.cn/old-page-is-over/
 http://openq.cn/what-is-love/
 http://openq.cn/autumn-is-coming/
@@ -76,13 +77,13 @@ http://openq.cn/tag/design/
 http://openq.cn/tag/best-practices/
 http://openq.cn/tag/svn/
 http://openq.cn/tag/regex/
+http://openq.cn/tag/viewpoint/
 http://openq.cn/tag/testing/
 http://openq.cn/tag/hybrid/
 http://openq.cn/tag/funny/
 http://openq.cn/tag/back-end/
 http://openq.cn/tag/reading/
 http://openq.cn/tag/git/
-http://openq.cn/tag/viewpoint/
 http://openq.cn/tag/meeting/
 http://openq.cn/tag/perl/
 http://openq.cn/tag/mac/
