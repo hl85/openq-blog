@@ -1,7 +1,7 @@
 #云引擎做不到
 
 - time: 2014-08-01 22:55
-- tags: back end
+- tags: backEnd
 
 ---
 这个题目有点大了，实际上是最近为完成将域名appfanr.com跳转（301）到openq.cn[任务参见:<a href="/hello-baby">Hello,Baby!</a>]各种折腾的心得——不过的确是各个云引擎都用过了，非常不好使，最后用FREEHOSTING.COM轻松解决了。

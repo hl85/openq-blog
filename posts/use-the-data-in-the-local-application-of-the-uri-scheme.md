@@ -1,7 +1,7 @@
 #本地应用里使用Data URI scheme
  
 - time: 2012-03-26 17:18
-- tags: front end
+- tags: frontEnd
 
 ---
 之前跟钟小声一起探讨过关于Data URI scheme 数据传递的问题，就是从objective-c中调用uiwebview或safari显示刚刚处理的图片。UIWebView里边采用这种Data URI scheme很合适，但是oc调用safari就比较麻烦了（url长度有限制），解决方案是自己起一个http的服务，然后传递http://localhost:[port]/[yourpage.html] ，([port]替换成相应的端口，[yourpage.html]替换成相应的页面)，这个时候你怎么显示图片都很容易了。这里有一个问题http service库很庞大，实际上你不用实现完整的http service，只要写一个简单的socket监听就ok了，满足需求就好（当然这超出了本文讨论的范围，可以稍后单独发帖讨论）。
