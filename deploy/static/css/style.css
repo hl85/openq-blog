@@ -85,6 +85,7 @@ h3 {
 	margin: 0.3em 0.3em;
 	padding: 0.3em 0.3em;
 	color: #fff;
+	background:#e1f2fa;
 	font-size: 80%;
 }
 
@@ -129,7 +130,7 @@ h3 {
     margin: 0 0.1em;
     padding: 0.3em 1em;
     color: #fff;
-    background: #999;
+    background: #e1f2fa;
     font-size: 80%;
 }
 .tag-mood {
@@ -143,6 +144,21 @@ h3 {
 }
 .tag-design {
 	background: #df2d4f;
+}
+.tag-tools {
+	background:#3b8bba;
+}
+.tag-frontend{
+	background:#5eb95e;
+}
+.tag-backend{
+	background:#777;
+}
+.tag-bestpractices{
+	background:#ddaeff;
+}
+.tag-hybrid{
+	background:#055144;
 }
 .post-images {
     margin: 1em 0;

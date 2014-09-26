@@ -1,6 +1,11 @@
 git pull
 git submodule init
 git submodule update
+cd themes/puresam
+git pull
+git add .
+git commit -m"submodule update"
+cd ../..
 echo "finish pulling openq-blog"
 catsup build
 echo "finish building openq-blog"
