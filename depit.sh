@@ -1,4 +1,6 @@
 git pull
+git submodule init
+git submodule update
 echo "finish pulling openq-blog"
 catsup build
 echo "finish building openq-blog"
