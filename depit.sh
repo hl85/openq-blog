@@ -7,6 +7,7 @@ git add .
 git commit -m"submodule update"
 cd ../..
 echo "finish pulling openq-blog"
+rm -R deploy
 catsup build
 echo "finish building openq-blog"
 git add .
