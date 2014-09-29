@@ -85,7 +85,7 @@ h3 {
 	margin: 0.3em 0.3em;
 	padding: 0.3em 0.3em;
 	color: #fff;
-	background:#008ed4;
+	background:#777;
 	font-size: 80%;
 }
 
@@ -130,35 +130,8 @@ h3 {
     margin: 0 0.1em;
     padding: 0.3em 1em;
     color: #fff;
-    background: #008ed4;
+    background: #777;
     font-size: 80%;
-}
-.tag-mood {
-	background: #5aba59;
-}
-.tag-cultivation {
-	background: #4d85d1;
-}
-.tag-iOS {
-	background: #8156a7;
-}
-.tag-design {
-	background: #df2d4f;
-}
-.tag-tools {
-	background:#3b8bba;
-}
-.tag-frontEnd{
-	background:#5eb95e;
-}
-.tag-backEnd{
-	background:#777;
-}
-.tag-bestPractices{
-	background:#ddaeff;
-}
-.tag-hybrid{
-	background:#055144;
 }
 .post-images {
     margin: 1em 0;
