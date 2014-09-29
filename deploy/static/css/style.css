@@ -85,7 +85,6 @@ h3 {
 	margin: 0.3em 0.3em;
 	padding: 0.3em 0.3em;
 	color: #fff;
-	background:#777;
 	font-size: 80%;
 }
 
@@ -129,8 +128,8 @@ h3 {
 .post-tag {
     margin: 0 0.1em;
     padding: 0.3em 1em;
-    color: #fff;
-    background: #777;
+    color: #4e575b;
+    background: #e7ecee;
     font-size: 80%;
 }
 .post-images {
