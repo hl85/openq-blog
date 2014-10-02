@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-<meta name="description" content="诈，欺也。 &ndash;《说文》诈，伪也。 &ndash;《尔雅》匿行曰诈。  &ndash;《苟子》无功伐而求荣富，诈也。 &ndash;《吕氏春秋-务本》  故事：  MBA高才生阿吕，过五关斩六将终于应聘上了某国内知名企业的总经理助理的职位。他很是兴奋，于是满载着理想来到这家已经成为业内老大">
+<meta name="description" content="在学iOS的时候也学习了一下php（mono和java不是我的首选，因此我先后学习了php和python的皮毛，以前一直用来做主角本语言的perl也被我抛弃了），配置xampp遇到了一些问题，现在总结如下">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="hl13571">
-<meta name="twitter:title" content="诈">
-<meta name="twitter:description" content="诈，欺也。 &ndash;《说文》诈，伪也。 &ndash;《尔雅》匿行曰诈。  &ndash;《苟子》无功伐而求荣富，诈也。 &ndash;《吕氏春秋-务本》  故事：  MBA高才生阿吕，过五关斩六将终于应聘上了某国内知名企业的总经理助理的职位。他很是兴奋，于是满载着理想来到这家已经成为业内老大">
+<meta name="twitter:title" content="XAMPP for MAC开发PHP的若干配置">
+<meta name="twitter:description" content="在学iOS的时候也学习了一下php（mono和java不是我的首选，因此我先后学习了php和python的皮毛，以前一直用来做主角本语言的perl也被我抛弃了），配置xampp遇到了一些问题，现在总结如下">
 <meta name="twitter:creator" content="hl13571">
 
 
     <title>
-诈 | openQ
+XAMPP for MAC开发PHP的若干配置 | openQ
 </title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" type="text/css" />
 <!--[if lte IE 8]> 
@@ -103,41 +103,57 @@
     <article class="post">
         <header class="post-header">
             <img class="post-avatar" alt="author's avatar" src="http://openq.cn/static/image/avatar.jpg?v=47ab98adb28d558e270cf5fc399565fc" height="48" width="48">
-            <h2 class="post-title">诈</h2>
+            <h2 class="post-title">XAMPP for MAC开发PHP的若干配置</h2>
             <p class="post-meta">
-            <!-- By <a href="#" class="post-author"></a>  -->on <b>2006-07-05</b>
+            <!-- By <a href="#" class="post-author"></a>  -->on <b>2012-11-01</b>
          under
-            <a class="post-tag" href="http://openq.cn/tag/cultivation/">cultivation</a>
+            <a class="post-tag" href="http://openq.cn/tag/backEnd/">backEnd</a>
             
         
             </p>
         </header>
         <div class="post-description">
-            <p><p>诈，欺也。 &ndash;《说文》<br/>
-诈，伪也。 &ndash;《尔雅》<br/>
-匿行曰诈。  &ndash;《苟子》<br/>
-无功伐而求荣富，诈也。 &ndash;《吕氏春秋-务本》  </p>
+            <p><p>在学iOS的时候也学习了一下php（mono和java不是我的首选，因此我先后学习了php和python的皮毛，以前一直用来做主角本语言的perl也被我抛弃了），配置xampp遇到了一些问题，现在总结如下：  </p>
 
-<p>故事：<br/>
-  MBA高才生阿吕，过五关斩六将终于应聘上了某国内知名企业的总经理助理的职位。他很是兴奋，于是满载着理想来到这家已经成为业内老大的企业。<br/>
-  “阿吕，你帮忙把这些报表做出来。” “好的！”<br/>
-  “阿吕，这里有些数据不对你去查一下。” “好的！”<br/>
-   。。。。。。<br/>
-  阿吕很勤快的做着同一个办公室的前辈安排下来的工作。<br/>
-  几天后，阿吕发现自己一直在做一些普通人都能干的事情。开始，心里也有些不爽，毕竟自己是国内著名大学培养出来的工商管理硕士嘛。然而，他很快打消了这些念头，继续勤勤恳恳的做着这份令别人羡慕的工作。因为阿吕始终认为自己是金子总会发光的，更何况薪水不菲！<br/>
-  阿吕继续努力工作着。<br/>
-  “阿吕，去接一下电话” “好的！” “喂！。。。哦，毛总您好！。。。公司的车？您稍等我去查一<br/>
-下” “哦，毛总，好像公司的车都已经派出去了”。。。<br/>
-  三个月后，勤勤恳恳的阿吕被公司辞退了！而那位经常指导他工作的前辈在一次得到了毛总的表扬！  </p>
+<p>1、xdebug 不成功的问题。<br/>
+xdebug不能设置成extension，应该设置成zend_extension。<br/>
+以下是我在php.ini里边的设置：<br/>
+;xdebug<br/>
+;extension=xdebug.so<br/>
+zend_extension=&ldquo;/Applications/XAMPP/xamppfiles/lib/php/php-5.3.1/extensions/no-debug-non-zts-20090626/xdebug.so&rdquo;<br/>
+xdebug.remote_enable=on<br/>
+xdebug.remote_handler=dbgp<br/>
+xdebug.remote_host=localhost<br/>
+xdebug.remote_port=9000<br/>
+xdebug.profiler_enable=1<br/>
+xdebug.profiler_output_name=xdebug.cachegrind-out.%s.%p<br/>
+xdebug.remote_log=&ldquo;/applications/XAMPP/xamppfiles/logs/xdebug.log&rdquo;<br/>
+xdebug.idekey=&ldquo;netbeans-xdebug&rdquo;<br/>
+设置完了重启如果还不成功，可以进行以下设置：<br/>
+打开或创建 ~/.bash_profile 并且输入以下内容:（参照：<a href="http://stackoverflow.com/questions/3144485/xdebug-not-loading-not-found-in-phpinfo-after-apache-restart）">http://stackoverflow.com/questions/3144485/xdebug-not-loading-not-found-in-phpinfo-after-apache-restart）</a>  </p>
 
-<p>还原：<br/>
-  让我们来看看，阿吕为什么会被辞退。<br/>
-  第一、他干的都是垃圾工作，与不菲的薪资对比他从一开始就面临危机了（虽然他是MBA）。这些工作都是前辈分配给他的。而他的确得到了前辈当众对他的认可，然而，老总并不知道这些，就算老总知道，也只知道他干的是垃圾工作！<br/>
-  第二、他的前辈接到老总用车的电话时总是公司有车时，前辈总是毫不犹豫地给老总调来车。到他的时候却总没有车！原来，前辈每天最重要的工作之一，就是在OA里盯着公司的车辆使用情况。没车可派的时候，他是不会去接老总的电话的！<br/>
-  事后，与阿吕一同进公司的阿强总结道：<br/>
-  1、实力是需要争取的。2、留心细节，不要成为阿吕一样的蠢驴！3、想给你钱的人所想的，而不是其他人。  </p>
+<h1>add xampp binaries to path</h1>
 
-<p>（故事参考《职场动物进化手册》）</p>
+<p>export PATH=&ldquo;/Applications/XAMPP/xamppfiles/bin:/Applications/XAMPP/xamppfiles/lib:/Applications/XAMPP/xamppfiles/lib/php/php-5.3.1/extensions/no-debug-non-zts-20090626:$PATH&rdquo;<br/>
+关掉终端，然后重启xampp：<br/>
+sudo /Applications/XAMPP/xamppfiles/xampp stop<br/>
+/Applications/XAMPP/xamppfiles/xampp start<br/>
+应该就可以了，如图：  </p>
+
+<p>启动netbeans就可以调试了。  </p>
+
+<p>2、ProFTPD启动不成功的问题。<br/>
+如果在日志里看到：<br/>
+XAMPP: Starting ProFTPD&hellip;/Applications/XAMPP/xamppfiles/xampp: line 184: /Applications/XAMPP/xamppfiles//var/proftpd/start.err: No such file or directory<br/>
+fail.<br/>
+Contents of &ldquo;/Applications/XAMPP/xamppfiles//var/proftpd/start.err&rdquo;:<br/>
+cat: /Applications/XAMPP/xamppfiles//var/proftpd/start.err: No such file or directory<br/>
+这样的错误，解决方法也很简单，执行如下命令：<br/>
+sudo mkdir /Applications/XAMPP/xamppfiles/var/proftpd/<br/>
+touch /Applications/XAMPP/xamppfiles/var/proftpd/start.err<br/>
+sudo /Applications/XAMPP/xamppfiles/xampp fix_rights  </p>
+
+<p>3、还有一个问题，我还没有解决，就是我想将php版本更新为最新版本，找到解决办法再更新此贴。</p>
 </p>
         </div>
     </article>
