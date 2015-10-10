@@ -1,7 +1,7 @@
 #每日站立会议的10个成功要点
 
 - time: 2012-12-03 17:18
-- tags: meeting,cultivation
+- tags: meeting,cultivation,测试
 
 ---
 
