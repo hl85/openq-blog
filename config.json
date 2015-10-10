@@ -14,8 +14,8 @@
     "config": {
         "source": "posts",
         "static_source": "static",
-        "output": "deploy",
-        "static_output": "deploy/static",
+        "output": "blog",
+        "static_output": "blog/static",
         "static_prefix": "/static/",
         "analytics": ""
     },

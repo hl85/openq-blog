@@ -1,3 +1,6 @@
 [submodule "themes/puresam"]
 	path = themes/puresam
 	url = https://hl85@github.com/hl85/catsup-theme-puresam.git
+[submodule "blog"]
+	path = blog
+	url = https://hl85@github.com/hl85/hl85.github.io.git
