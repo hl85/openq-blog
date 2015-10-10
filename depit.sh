@@ -12,7 +12,7 @@ echo "finish git commiting openq-blog"
 git push
 echo "finish git pushing openq-blog"
 
-cd hl85.github.io/
+cd blog/
 #echo "cd ../hl85.github.io/"
 #git pull
 #echo "finish pulling hl85.github.io"
