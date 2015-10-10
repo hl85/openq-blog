@@ -1,7 +1,7 @@
 #女同胞们该学习的几个英文句子
 
 - time: 2005-12-27 14:19
-- tags: funny
+- tags: 有趣
 
 ---
 The nice men are ugly. 好男人不帅。 　　　　

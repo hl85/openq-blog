@@ -1,7 +1,7 @@
 #冒烟儿了吗，您？
 
 - time: 2007-02-11 17:48
-- tags: testing
+- tags: 测试
  
 ---
 <p align="center"><strong>&nbsp;</strong></p>
@@ -40,7 +40,7 @@
 <p><strong><span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></strong><span>每日构造和其他制度一样，都需要来自决策者和权利者的约束和鼓励。如果，你仅仅是一个开发人员或测试人员，你想实行某项对项目有利的制度的话，我想你一定会找一个可以谈得来又有相当执行力的领导来做这项工作，否则这项工作几乎是不可能的。</span></p>
 <p><span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span>但是，这也不是绝对的。如果，你是一个有责任感的参与者，我想你会想尽办法打个漂亮仗，因为项目是公司的也是你的！真是这样的话，恭喜你</span><span>----不远的将来你会为你的坚持和坚持后所取得的成绩而骄傲的</span><span>！</span></p>
 <p><strong><span>相关资料</span></strong></p>
-<p><strong><span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></strong><strong><span><a href="http://www.51testing.com/html/36/674.html"><span><span>每日构造与冒烟测试</span></span></a></span></strong></p>
+<p><strong><span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></strong><strong><span><a href="http://www.51测试.com/html/36/674.html"><span><span>每日构造与冒烟测试</span></span></a></span></strong></p>
 <p><strong><span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></strong><span><a href="http://blog.csdn.net/wingfiring/archive/2006/01/16/580696.aspx"><span><span>从每日构造到持续继承</span></span></a></span></p>
 <p><span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a href="http://www.dots.com.cn/DisplayNews.aspx?_id=148"><span><span>每日构造流程</span></span></a></span></p>
 <p><span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a href="http://www.uml.org.cn/test/200701184.asp"><span><span>从单元测试到基于每日构造的自动测试</span></span></a></span></p>

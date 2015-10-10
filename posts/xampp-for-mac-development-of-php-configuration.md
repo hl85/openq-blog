@@ -1,7 +1,7 @@
 #XAMPP for MAC开发PHP的若干配置
 
 - time: 2012-11-01 18:22
-- tags: backEnd
+- tags: 后端
 - description: 在学iOS的时候也学习了一下php（mono和java不是我的首选，因此我先后学习了php和python的皮毛，以前一直用来做主角本语言的perl也被我抛弃了），配置xampp遇到了一些问题，现在总结如下
 
 ---

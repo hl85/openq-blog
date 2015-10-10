@@ -1,7 +1,7 @@
 #ISAPI_Rewrite 3 完全版本站测试通过
 
 - time: 2012-07-18 10:57
-- tags: backEnd
+- tags: 后端
 - description: ISAPI_Rewrite 3 完全版本是收费的，但是朋友做的一个小站还没有盈利，所以帮他找了一个破解的，实际测试没有问题，现在分享给大家。
 
 ---

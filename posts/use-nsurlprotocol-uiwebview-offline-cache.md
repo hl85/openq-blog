@@ -16,7 +16,7 @@ rob认为无论是“MKNetworkKit”还是”AFCache”实现的缓存都过于�
 
 现有解决方案：
 
-Matt Gallagher 有一些有趣的想法，使用NSURLCache的子类来实现，但是Rob发现这是不可靠的，尤其是iOS5的HTTP缓存规则十分复杂，在许多情况下如果你不访问服务器便不能获知你缓存的数据是否有效。另外，一些必要的素材如果没有被缓存，那么在离线时前期做的缓存工作就实效了。(辉：<a href="http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-reading/">NSURLCache实现离线阅读的一点小心得</a>我也曾讨论了一些相关问题)
+Matt Gallagher 有一些有趣的想法，使用NSURLCache的子类来实现，但是Rob发现这是不可靠的，尤其是iOS5的HTTP缓存规则十分复杂，在许多情况下如果你不访问服务器便不能获知你缓存的数据是否有效。另外，一些必要的素材如果没有被缓存，那么在离线时前期做的缓存工作就实效了。(辉：<a href="http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-阅读/">NSURLCache实现离线阅读的一点小心得</a>我也曾讨论了一些相关问题)
 
 <a href="https://github.com/artifacts/AFCache">AFCache</a>也被认为是一个很好的解决方案（辉：有时间我会对这个开源库进行详细评估，表面上看就是connection、NSURLCache、NSURLProtocol的综合解决方案）。短时间内作者并没有使测试通过，但是AFCache的作者也在文章后边回复说，采纳了Rob的想法，已经提交代码到github上。
 
@@ -56,4 +56,4 @@ Matt Gallagher 有一些有趣的想法，使用NSURLCache的子类来实现，�
 }
 ```
 
-如果你有兴趣的话可以读一下我这篇小文：<a href = "http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-reading/">NSURLCache实现离线阅读的一点小心得</a>
+如果你有兴趣的话可以读一下我这篇小文：<a href = "http://openq.cn/nsurlcache-to-achieve-a-little-experience-for-offline-阅读/">NSURLCache实现离线阅读的一点小心得</a>

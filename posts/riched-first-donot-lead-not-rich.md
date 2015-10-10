@@ -1,7 +1,7 @@
 #先富起来的不带动后富的
 
 - time: 2006-07-13 09:11
-- tags: mood,viewpoint
+- tags: 感触,观点
 
 ---
 

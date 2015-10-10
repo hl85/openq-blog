@@ -1,7 +1,7 @@
 #心理学阅读备忘
 
 - time: 2005-09-30 16:43
-- tags: reading
+- tags: 阅读
 
 ---
 <a href="http://www.pep.com.cn/200406/ca441477.htm">解释学与西方心理学的发展</a>

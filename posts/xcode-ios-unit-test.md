@@ -1,7 +1,7 @@
 # xcode中的单元测试
 
 - time: 2012-03-15 11:12
-- tags: iOS,testing
+- tags: iOS,测试
 
 ---
 

@@ -1,7 +1,7 @@
 #满足与幸福（自话相）
 
 - time: 2011-01-02 19:03
-- tags: mood,cultivation
+- tags: 感触,成长
 
 ---
 
