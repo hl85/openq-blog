@@ -1,7 +1,7 @@
 #关于WebKit
  
 - time: 2012-01-29 10:18
-- tags: webkit
+- tags: WebKit
 
 ---
   你知道都有那些浏览器采用了webkit内核吗？

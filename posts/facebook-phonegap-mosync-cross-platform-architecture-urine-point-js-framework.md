@@ -1,7 +1,7 @@
 #Facebook、PhoneGap、MoSync跨平台架构尿点小窥（js框架角度）
  
 - time: 2012-03-22 03:48
-- tags: hybrid
+- tags: Hybrid
 
 ---
 

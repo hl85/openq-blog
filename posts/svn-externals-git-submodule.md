@@ -1,7 +1,7 @@
 #如何通过svn,git进行优雅的代码集成
 
 - time: 2014-09-12 12:30
-- tags: svn,git
+- tags: SVN,Git
 
 ---
 
