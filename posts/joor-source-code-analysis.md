@@ -5,7 +5,7 @@
 
 ---
 
-大家都知道面向对象的一个基础工作就是将数据类型化，这样在处理复杂的概念体系系统或者维护系统长期健康发展是非常必要的。但是在实际开发过程中，还有很多场景通过非设计模式（或者说非常见设计模式）的办法可以实现非常优雅而且灵活的代码。前几天看到一篇文章**[Java 反射最佳实践](http://www.imooc.com/article/1518)**文章介绍了一个非常优雅的反射解决方案：**[jOOR](https://github.com/jOOQ/jOOR)** 
+大家都知道面向对象的一个基础工作就是将数据类型化，这在处理复杂的概念体系或者维护系统长期健康发展是非常必要的。但是在实际开发过程中，还有很多场景通过非设计模式（或者说非常见设计模式）的办法可以实现非常优雅而且灵活的代码。前几天看到一篇文章**[Java 反射最佳实践](http://www.imooc.com/article/1518)**文章介绍了一个非常优雅的反射解决方案：**[jOOR](https://github.com/jOOQ/jOOR)** 
 
 Java中写反射竟然可以这么简单——
 
@@ -27,7 +27,7 @@ for (Employee employee : employees) {
   System.out.println(street);
 }
 ```
-这么漂亮的设计一定得读一下[源码](https://github.com/jOOQ/jOOR/blob/master/jOOR/src/main/java/org/joor/Reflect.java)了
+这么漂亮的设计一定得读一下[源码](https://github.com/jOOQ/jOOR/blob/master/jOOR/src/main/java/org/joor/Reflect.java)。
 作者的实现代码同样漂亮，简单摘取一二：
 
 1、私有化构造器，从而强制用户使用静态on方法（是不是想到了单例）
